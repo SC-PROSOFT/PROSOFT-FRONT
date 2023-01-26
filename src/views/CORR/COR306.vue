@@ -21,7 +21,8 @@
               "
               @abrirF8="openCON802"
               :field="form_distribucion_externa.entidad"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.entidad"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
@@ -39,7 +40,8 @@
               "
               @abrirF8="openCOR866"
               :field="form_distribucion_externa.depen_corres"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.depen_corres"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
@@ -57,7 +59,8 @@
               "
               @abrirF8="openCOR867"
               :field="form_distribucion_externa.tipo_corres"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.tipo_corres"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
@@ -217,6 +220,9 @@ export default {
     this.initialData();
   },
   methods: {
+    onChange(data) {
+      this.reg_serco[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),

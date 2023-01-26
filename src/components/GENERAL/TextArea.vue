@@ -1,19 +1,20 @@
 <template>
   <v-textarea
     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    @keydown.enter="onEnterKeyDownEvent($event)"
     @focus="setCaja(field), focusCaja()"
+    :background-color="color_input"
     :maxlength="field.max_length"
     @keydown="onKeyDown($event)"
     @keyup="onKeyUp($event)"
-    @keydown.enter="onEnterKeyDownEvent($event)"
     :counter="field.max_length"
     :disabled="field.disabled"
     @keydown.esc="pressEsc"
-    v-model="reg[field.id]"
     :label="field.label"
     :rows="field.rows"
     :type="field.tipo"
     @blur="sinFoco()"
+    v-model="reg_"
     :id="field.id"
     ref="textarea"
     outlined
@@ -25,7 +26,7 @@
 import { mapMutations } from "vuex";
 export default {
   props: {
-    reg: Object,
+    reg: [Number, String],
     field: {
       max_length: String,
       disabled: Boolean,
@@ -43,7 +44,9 @@ export default {
   },
   data() {
     return {
+      reg_: null,
       estado: false,
+      color_input: "",
       flag_foco: false,
       ctrlPressed: false,
     };
@@ -57,15 +60,17 @@ export default {
         });
       }
     },
-    flag_foco() {
-      let elementos = document.getElementById(this.field.id);
-      if (this.flag_foco && !this.field.disabled) {
-        elementos.style.background = "#FFD700";
-        elementos.style.borderRadius = "0.2rem";
-      } else {
-        elementos.style.background = "";
-      }
+    "$props.reg"(val) {
+      this.reg_ = val;
     },
+    flag_foco() {
+      if (this.flag_foco && !this.field.disabled) {
+        this.color_input = "input_foco";
+      } else this.color_input = "input_blur";
+    },
+  },
+  mounted() {
+    this.reg_ = this.reg;
   },
   methods: {
     ...mapMutations({

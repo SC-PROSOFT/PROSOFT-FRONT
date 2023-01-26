@@ -61,11 +61,14 @@ export default {
       }
     },
     flag_foco() {
-      if (this.flag_foco && !this.field.disabled) this.color_input = "input_foco";
+      if (this.flag_foco && !this.field.disabled)
+        this.color_input = "input_foco";
       else this.color_input = "input_blur";
     },
   },
-
+  mounted() {
+    this.reg_ = this.reg;
+  },
   methods: {
     ...mapMutations({ setCaja: "formularios/setCaja" }),
     count() {
