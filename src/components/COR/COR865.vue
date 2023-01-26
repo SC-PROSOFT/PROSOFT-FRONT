@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="estado" persistent id="efe8">
-    <v-card flat >
+    <v-card flat>
       <v-toolbar color="primary" class="white--text">
         <h3 class="mx-auto">CONSULTA DE CODIGOS DE DEPENDENCIA</h3>
         <v-btn icon dark @click="exitCOR865" class="botone">
@@ -10,11 +10,22 @@
       <v-container>
         <v-row>
           <v-col cols="4" class="">
-            <INPUT @next-action="nextStep(form_bus, $event, validarBusqueda)" :field="form_bus.busqueda" :reg="busqueda"></INPUT>
+            <INPUT
+              @next-action="nextStep(form_bus, $event, validarBusqueda)"
+              @onChange="(data) => (busqueda = data.value)"
+              :field="form_bus.busqueda"
+              :reg="busqueda"
+            ></INPUT>
           </v-col>
           <v-divider></v-divider>
           <v-col cols="12">
-            <TABLE :focus_table="focus_table" @escTable="datoBusqueda" @selectRow="selectRow" @nextData="nextData" :f8="f8"></TABLE>
+            <TABLE
+              :focus_table="focus_table"
+              @escTable="datoBusqueda"
+              @selectRow="selectRow"
+              @nextData="nextData"
+              :f8="f8"
+            ></TABLE>
           </v-col>
         </v-row>
       </v-container>
@@ -36,15 +47,12 @@ export default {
   data() {
     return {
       focus_table: false,
-
-      busqueda: {
-        busqueda: "",
-      },
+      busqueda: "",
+      
       form_bus: {
         busqueda: {
           id: "busqueda",
           label: "Busqueda",
-          value: "",
           max_length: "50",
           disabled: true,
         },
@@ -56,9 +64,8 @@ export default {
         headers: [],
         body: [],
         nroPeticion: 0,
-        buscar: "",
       },
-      buscar: "",
+
       data_table: {
         columns: [
           {
@@ -119,7 +126,7 @@ export default {
       this.f8.body = this.getlista("lista").slice(0, 8);
     },
     async nextData(data) {
-      let filtro = this.busqueda.busqueda;
+      let filtro = this.busqueda;
       let f8 = this.f8;
       let cantidad = 9;
       let desde = 0;
