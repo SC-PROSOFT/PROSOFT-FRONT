@@ -176,6 +176,7 @@ export default {
     COR867,
   },
   data() {
+    console.log('hola');
     return {
       titulo: "3.1 Informe de correspondencia",
       modal_impresion: true,
