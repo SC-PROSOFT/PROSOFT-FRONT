@@ -1,0 +1,60 @@
+*,body {
+    font-family: $font-family
+}
+
+.cursor {
+  cursor: pointer
+}
+
+.botone {
+    position: relative;
+    transition: all 200ms;
+  }
+.delay {
+    transition: all 200ms;
+  }
+.botone:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+.botone:focus {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+  /* text run right */
+.text-title {
+    position: relative;
+    transition: all 200ms;
+  }
+.text-title:hover {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+.text-title:focus {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+.zoomIt {
+  display: block !important;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  -moz-transition: -moz-transform 0.5s ease-out;
+  -o-transition: -o-transform 0.5s ease-out;
+  -ms-transition: -ms-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+}
+.zoomIt:hover {
+  -moz-transform: scale(0.96);
+  -webkit-transform: scale(0.96);
+  -o-transform: scale(0.96);
+  -ms-transform: scale(0.96);
+  transform: scale(0.96);
+}
+.zoomIt:-moz-focus-inner {
+  -moz-transform: scale(0.96);
+  -webkit-transform: scale(0.96);
+  -o-transform: scale(0.96);
+  -ms-transform: scale(0.96);
+  transform: scale(0.96);
+}
+

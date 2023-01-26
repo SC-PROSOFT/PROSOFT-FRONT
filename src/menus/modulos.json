@@ -1,0 +1,22 @@
+{
+  "MenuModulos": [
+    {
+      "opc": "1",
+      "text": "contabilidad",
+      "icon": "mdi-book-multiple",
+      "route": "/Menu-Principal"
+    },
+    {
+      "opc": "2",
+      "text": "nomina",
+      "icon": "mdi-book-open-variant",
+      "route": "/Menu-Principal"
+    },
+    {
+      "opc": "3",
+      "text": "correspondencia",
+      "icon": "mdi-email-newsletter",
+      "route": "/Menu-Principal"
+    }
+  ]
+}

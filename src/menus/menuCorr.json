@@ -1,0 +1,323 @@
+{
+  "Menu": [
+    {
+      "opc": "1",
+      "text": "Archivos maestros",
+      "opc_segu": "",
+      "Sub": [
+        {
+          "opc": "1",
+          "text": "Actualiza Dptos o Servicios",
+          "route": "/COR101",
+          "opc_segu": "R11",
+          "name": "actualiza-servicios",
+          "ruta": "1.1"
+        },
+        {
+          "opc": "2",
+          "text": "Actualiza Funcionarios",
+          "route": "/COR102",
+          "opc_segu": "R12",
+          "name": "COR102",
+          "ruta": "1.2"
+        },
+        {
+          "opc": "3",
+          "text": "Actualiza tipo correspon",
+          "route": "/COR103",
+          "opc_segu": "R13",
+          "name": "COR103",
+          "ruta": "1.3"
+        },
+        {
+          "opc": "4",
+          "text": "Actualiza Aux correspon",
+          "route": "/COR104",
+          "opc_segu": "R14",
+          "name": "COR104",
+          "ruta": "1.4"
+        },
+        {
+          "opc": "5",
+          "text": "Crear unopcad funcional",
+          "route": "/COR105",
+          "opc_segu": "R15",
+          "name": "COR105",
+          "ruta": "1.5"
+        },
+        {
+          "opc": "6",
+          "text": "Crear Dependencia Remitente",
+          "route": "/COR106",
+          "opc_segu": "R16",
+          "name": "COR106",
+          "ruta": "1.6"
+        },
+        {
+          "opc": "7",
+          "text": "Activar Holding Empresarial",
+          "route": "/COR107",
+          "opc_segu": "R17",
+          "name": "COR106",
+          "ruta": "1.7"
+        },
+        {
+          "opc": "8",
+          "text": "Actualizar cargos OPS",
+          "route": "/COR108",
+          "opc_segu": "R18",
+          "name": "COR108",
+          "ruta": "1.8"
+        },
+        {
+          "opc": "9",
+          "text": "Dias feriados",
+          "route": "/COR109",
+          "opc_segu": "R19",
+          "name": "COR109",
+          "ruta": "1.9"
+        },
+        {
+          "opc": "A",
+          "text": "Actualizar terceros",
+          "route": "/CON110C",
+          "opc_segu": "R19",
+          "name": "CON110C",
+          "ruta": "1.A"
+        },
+        {
+          "opc": "B",
+          "text": "Datos usuario",
+          "route": "/COR110",
+          "opc_segu": "R20",
+          "name": "COR110",
+          "ruta": "1.B"
+        },
+        {
+          "opc": "F",
+          "text": "Regresar",
+          "icon": "mdi-arrow-left-circle",
+          "color": "salir"
+        }
+      ]
+    },
+    {
+      "opc": "2",
+      "text": "Correspondencia",
+      "opc_segu": "R2",
+      "Sub": [
+        {
+          "opc": "1",
+          "text": "Recepcion Correspondencia",
+          "route": "/COR201",
+          "opc_segu": "R21",
+          "name": "COR201",
+          "ruta": "2.1"
+        },
+        {
+          "opc": "2",
+          "text": "Reimprimir Correspondencia",
+          "route": "/COR202",
+          "opc_segu": "R22",
+          "name": "COR202",
+          "ruta": "2.2"
+        },
+        {
+          "opc": "3",
+          "text": "Traslado de Correspondencia",
+          "opc_segu": "R33",
+          "route": "/COR203",
+          "name": "COR203",
+          "ruta": "2.3"
+        },
+        {
+          "opc": "4",
+          "text": "Imprimir Carta Rips",
+          "route": "/OLI135A",
+          "opc_segu": "R34",
+          "name": "OLI135A",
+          "ruta": "2.4"
+        },
+        {
+          "opc": "5",
+          "text": "Envio E-Mail pendiente",
+          "route": "/COR205",
+          "opc_segu": "R35",
+          "name": "COR205",
+          "ruta": "2.5"
+        },
+        {
+          "opc": "F",
+          "text": "Regresar",
+          "icon": "mdi-arrow-left-circle",
+          "color": "salir"
+        }
+      ]
+    },
+    {
+      "opc": "3",
+      "text": "Informes",
+      "opc_segu": "R3",
+      "Sub": [
+        {
+          "opc": "1",
+          "text": "Informe de Correspondencia",
+          "route": "/COR301",
+          "opc_segu": "R31",
+          "name": "COR301",
+          "ruta": "3.1"
+        },
+        {
+          "opc": "2",
+          "text": "Informe Corres Dcartar",
+          "route": "/COR301",
+          "opc_segu": "R32",
+          "name": "COR301",
+          "ruta": "3.2"
+        },
+        {
+          "opc": "3",
+          "text": "Informe Corres General",
+          "route": "/COR301",
+          "opc_segu": "R33",
+          "name": "COR301",
+          "ruta": "3.3"
+        },
+        {
+          "opc": "4",
+          "text": "Informe Corres Respuestas",
+          "route": "/COR304",
+          "opc_segu": "R34",
+          "name": "COR304",
+          "ruta": "3.4"
+        },
+        {
+          "opc": "5",
+          "text": "Distribución interna",
+          "route": "/COR305",
+          "opc_segu": "R35",
+          "name": "COR305",
+          "ruta": "3.5"
+        },
+        {
+          "opc": "6",
+          "text": "Distribución externa",
+          "route": "/COR306",
+          "opc_segu": "R36",
+          "name": "COR306",
+          "ruta": "3.6"
+        },
+        {
+          "opc": "7",
+          "text": "Informe trimestral",
+          "route": "/COR307",
+          "opc_segu": "R37",
+          "name": "COR307",
+          "ruta": "3.7"
+        },
+        {
+          "opc": "F",
+          "text": "Regresar",
+          "icon": "mdi-arrow-left-circle",
+          "color": "salir"
+        }
+      ]
+    },
+    {
+      "opc": "4",
+      "text": "Citar Correspondencia",
+      "opc_segu": "R4",
+      "Sub": [
+        {
+          "opc": "1",
+          "text": "Imprime Correspondencia",
+          "route": "/COR401",
+          "opc_segu": "R41",
+          "name": "COR401",
+          "ruta": "4.1"
+        },
+        {
+          "opc": "2",
+          "text": "Macro respuesta Corresp",
+          "route": "/COR402",
+          "opc_segu": "R42",
+          "name": "COR402",
+          "ruta": "4.2"
+        },
+        {
+          "opc": "3",
+          "text": "Respuesta Corresponden",
+          "route": "/COR403",
+          "opc_segu": "R43",
+          "name": "COR403",
+          "ruta": "4.3"
+        },
+        {
+          "opc": "4",
+          "text": "Reimprime respuesta",
+          "route": "/COR404",
+          "opc_segu": "R44",
+          "name": "COR404",
+          "ruta": "4.4"
+        },
+        {
+          "opc": "F",
+          "text": "Regresar",
+          "icon": "mdi-arrow-left-circle",
+          "color": "salir"
+        }
+      ]
+    },
+    {
+      "opc": "5",
+      "text": "Correspondencia pendiente",
+      "opc_segu": "R4",
+      "Sub": [
+        {
+          "opc": "1",
+          "text": "Correspondencia Resolutiva",
+          "route": "/COR501",
+          "opc_segu": "R4",
+          "name": "COR501",
+          "ruta": "5.1"
+        },
+        {
+          "opc": "2",
+          "text": "Correspondencia Informativa",
+          "route": "/COR502",
+          "opc_segu": "R4",
+          "name": "COR502",
+          "ruta": "5.2"
+        },
+        {
+          "opc": "3",
+          "text": "Imprimir Anexos Correspondencia",
+          "route": "/COR503",
+          "opc_segu": "R4",
+          "name": "COR503",
+          "ruta": "5.3"
+        },
+        {
+          "opc": "4",
+          "text": "JqueryTable",
+          "route": "/COR504",
+          "opc_segu": "R4",
+          "name": "COR504",
+          "ruta": "5.4"
+        },
+        {
+          "opc": "F",
+          "text": "Regresar",
+          "icon": "mdi-arrow-left-circle",
+          "color": "salir"
+        }
+      ]
+    },
+    {
+      "opc": "S",
+      "text": "Salir de Prosoft",
+      "icon": "mdi-exit-to-app",
+      "color": "salir"
+    }
+  ]
+}

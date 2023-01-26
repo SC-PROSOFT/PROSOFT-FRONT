@@ -1,0 +1,828 @@
+{
+    "Menu": [
+        {
+            "opc": "1",
+            "text": "1. ARCHIVOS MAESTROS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. ACTUALIZAR CARGO",
+                    "route": "/NOM101",
+                    "name": "actualizar-cargo",
+                    "ruta": "1.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. ACTUALIZA EMPLEADOS",
+                    "route": "/NOM102",
+                    "name": "actualizar-empleados",
+                    "ruta": "1.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. ACTUALIZA CONCEPTOS",
+                    "route": "/NOM103",
+                    "name": "actualizar-conceptos",
+                    "ruta": "1.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. DATOS DE LA EMPRESA",
+                    "route": "/NOM104",
+                    "name": "datos-empresa",
+                    "ruta": "1.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. ACTUALIZA NOVEDADES BASICAS",
+                    "route": "/NOM105",
+                    "name": "actualizar-novedades-basicas",
+                    "ruta": "1.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. ACTUALIZA ARCHIVOS TERCEROS",
+                    "route": "/CON110C",
+                    "name": "actualizar-archivos-terceros",
+                    "ruta": "1.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. ACTUALIZA ENCABEZADO NOMINA",
+                    "route": "/NOM107",
+                    "name": "actualizar-encabezado-nomina",
+                    "ruta": "1.7"
+                },
+                {
+                    "opc": "8",
+                    "text": "8. DIRECTORIOS NOMINA DISPERSA",
+                    "route": "/NOM108",
+                    "name": "directorio-nomina-dispersa",
+                    "ruta": "1.8"
+                },
+                {
+                    "opc": "9",
+                    "text": "9. TABLAS SECRETARIA DE EDUCACION",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ESTABLECIMIENTO EDUCATIVO",
+                            "route": "/NOM109A",
+                            "name": "establecimientos-educativos",
+                            "ruta": "1.9.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. CARGOS EDUCACION",
+                            "route": "/NOM109B",
+                            "name": "cargos-educacion",
+                            "ruta": "1.9.2"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "A",
+                    "text": "A. ACTUALIZA ACTIVIDADES",
+                    "route": "/CON110F",
+                    "name": "actualiza-actividades",
+                    "ruta": "1.A"
+                },
+                {
+                    "opc": "B",
+                    "text": "B. ACTUALIZA MOTIVOS CORRESPONSALIA",
+                    "name": "actuliza-motivo-corresponsalia",
+                    "route": "/NOM10A",
+                    "ruta": "1.B"
+                },
+                {
+                    "opc": "C",
+                    "text": "C. TABLAS DIAN U.V.T",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ACTUALIZAR INTERES MORA MES",
+                            "name": "actualizar-mora-mes",
+                            "route": "/DIAN01",
+                            "ruta": "1.C.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. ACTUALIZAR VALOR U.V.T ANUAL",
+                            "name": "actualizar-valor-uvt-anual",
+                            "route": "/DIAN02",
+                            "ruta": "1.C.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. TABLAS IMPUESTO SOBRE RENTA",
+                            "name": "actualizar-tablas-impuestos-vigentes",
+                            "route": "/DIAN03",
+                            "ruta": "1.C.3"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "2",
+            "text": "2. MOVIMIENTO",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. ACTUALIZA DATOS NOMINA",
+                    "name": "actualiza-datos-nomina",
+                    "route": "/NOM201",
+                    "ruta": "2.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. IMPRIME FORMATO DE NOMINA",
+                    "name": "imprimi-formato-nomina",
+                    "route": "/NOM202",
+                    "ruta": "2.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. LISTADO ANEXOS DE NOMINA",
+                    "name": "listado-anexos-nomina",
+                    "route": "/NOM203",
+                    "ruta": "2.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. IMPRIME CUPONES DE PAGO",
+                    "name": "imrpime-cupones-pago",
+                    "route": "/NOM204",
+                    "ruta": "2.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. FORMATO NOMINA BASICA",
+                    "name": "formato-nomina-basica",
+                    "route": "/NOM205",
+                    "ruta": "2.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. CAPTURA HORAS LABORADAS",
+                    "name": "captura-horas-laboradas",
+                    "route": "/NOM206",
+                    "ruta": "2.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. FORMATO NOMINA X DEPENDENCIA",
+                    "name": "formato-nomina-depencia",
+                    "route": "/NOM207",
+                    "ruta": "2.7"
+                },
+                {
+                    "opc": "8",
+                    "text": "8. NOMINA DISPERSA CONSOLIDADA",
+                    "name": "nomina-dispersa-consolidada",
+                    "route": "/NOM208",
+                    "ruta": "2.8"
+                },
+                {
+                    "opc": "9",
+                    "text": "9. CORRESPONSALIA EMPLEADO",
+                    "name": "corresponsalia-de-empleado",
+                    "route": "/NOM209",
+                    "ruta": "2.9"
+                },
+                {
+                    "opc": "A",
+                    "text": "A. CUPON DE PAGO VIAL E-MAIL",
+                    "name": "cupon-pago-vial",
+                    "route": "/NOM210",
+                    "ruta": "2.A"
+                },
+                {
+                    "opc": "B",
+                    "text": "B. IMPRESIÓN CORRESPONSALIA",
+                    "name": "cupon-pago-vial",
+                    "route": "/NOM209",
+                    "ruta": "2.B"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "3",
+            "text": "3. CONSULTAS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. NOMINA POR EMPLEADO",
+                    "name": "nomina-empleado",
+                    "route": "/NOM301",
+                    "ruta": "3.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. KARDEX DE MOV. POR EMPLEADO",
+                    "name": "kardex-empleado",
+                    "route": "/NOM302",
+                    "ruta": "3.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. CONTANCIA ORDENES DE SERVICIO",
+                    "name": "contancia-servicio",
+                    "route": "/NOM303",
+                    "ruta": "3.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. CONSULTA DOCUMENTO ESCANEADOS",
+                    "name": "consulta-escaneados",
+                    "route": "/NOM304",
+                    "ruta": "3.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. CORRESPONSALIA EMPLEADO",
+                    "name": "corresponsalia-empleado",
+                    "route": "/NOM305",
+                    "ruta": "3.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. CONSULTA COMPROBANTE CONTABLE",
+                    "name": "consulta-comprobante-contable",
+                    "route": "/NOM306",
+                    "ruta": "3.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. RESUMEN CONTABILIZACION",
+                    "name": "resumen-contabilizacion",
+                    "route": "/NOM307",
+                    "ruta": "3.7"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle",
+                    "route": "/Menu-Principal"
+                }
+            ]
+        },
+        {
+            "opc": "4",
+            "text": "4. CATALOGOS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. CATALOGOS DE CARGO",
+                    "route": "/NOM401",
+                    "name": "catalogo-cargo",
+                    "ruta": "4.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. CATALOGO DE EMPLEADOS",
+                    "route": "/NOM402",
+                    "name": "catalogo-empleados",
+                    "ruta": "4.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. CATALOGOS DE CONCEPTOS",
+                    "route": "/NOM403",
+                    "name": "catalogos-concepto",
+                    "ruta": "4.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. CATALOGO PARA DOTACION",
+                    "route": "/NOM404",
+                    "name": "catalogo-dotacion",
+                    "ruta": "4.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. CATALOGO DE EMPLEADOS DIRECCION",
+                    "route": "/NOM405",
+                    "name": "catalogo-empleado-direccion",
+                    "ruta": "5.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. CATALOGO DE VACACIONES",
+                    "route": "/NOM406",
+                    "name": "catalogo-vacaciones",
+                    "ruta": "4.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. CATALOGO DE NOVEDADES BASICAS",
+                    "route": "/NOM407",
+                    "name": "catalogo-novedades-basicas",
+                    "ruta": "4.7"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "5",
+            "text": "5. INFORMES",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. PLANTILLA DE DEVENGOS",
+                    "route": "/NOM504",
+                    "name": "plantilla-devengos",
+                    "ruta": "5.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. PLANTILLA DE DESCUENTOS",
+                    "route": "/NOM505",
+                    "name": "plantilla-descuentos",
+                    "ruta": "5.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. PAGOS EN BANCOS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. DISPERSION DE FONDOS",
+                            "route": "/NOM701A",
+                            "name": "dispersion-fondos",
+                            "ruta": "5.3.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. PLANILLA PAGO EN BANCOS",
+                            "route": "/NOM506",
+                            "name": "plantilla-pago-bancos",
+                            "ruta": "5.3.2"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "4",
+                    "text": "4. CUADRO CALCULO PROVISIONES",
+                    "route": "/NOM518",
+                    "name": "cuadro-provisiones",
+                    "ruta": "5.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. PLANTILLA DE CESANTIAS E INT",
+                    "route": "/NOM502C",
+                    "name": "plantilla-cesantias",
+                    "ruta": "5.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. PLANTILLA ACUMULADOS ANUALES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. PLANILLA ACUMULADOS ANUALES",
+                            "route": "/NOM508",
+                            "name": "planilla-acumulado-anuales",
+                            "ruta": "5.6.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. PLANILLA ACUMULADOS CANTID",
+                            "route": "/NOM508C",
+                            "name": "plantilla-acumulados",
+                            "ruta": "5.6.2"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "7",
+                    "text": "7. INFORME FONDO NAC. AHORRO",
+                    "route": "/NOM510A",
+                    "name": "informe-fondo-ahorro",
+                    "ruta": "5.7"
+                },
+                {
+                    "opc": "8",
+                    "text": "8. CUADRO APORTES PARAFISCALES",
+                    "route": "/NOM507",
+                    "name": "cuadro-aportes-parafiscales",
+                    "ruta": "5.8"
+                },
+                {
+                    "opc": "9",
+                    "text": "9. ARCHIVOS PLANOS SEC. EDUCAC",
+                    "route": "",
+                    "name": "archivos-planos-educ",
+                    "ruta": "5.9"
+                },
+                {
+                    "opc": "A",
+                    "text": "A. PLANILLAS DE HORAS LABORADAS",
+                    "route": "/NOM526",
+                    "name": "planillas-horas-laboradas",
+                    "ruta": "5.A"
+                },
+                {
+                    "opc": "B",
+                    "text": "B. CUADRO APORTES POR NIVELES",
+                    "route": "/NOM513",
+                    "name": "cuadro-aportes-niveles",
+                    "ruta": "5.B"
+                },
+                {
+                    "opc": "C",
+                    "text": "C. CUADRO APORTES POR EMPLEADOS",
+                    "route": "/NOM514A",
+                    "name": "cuadro-aportes-empleado",
+                    "ruta": "5.C"
+                },
+                {
+                    "opc": "D",
+                    "text": "D. CERTIFICADO ING. Y RETENC",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. INFORME DE DEVENGADO",
+                            "route": "/NOM515",
+                            "name": "informe-devengado",
+                            "ruta": "5.D.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. INFORME DE DESCONTADO",
+                            "route": "/NOM515A",
+                            "name": "informe-descontado",
+                            "ruta": "5.D.2"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "E",
+                    "text": "E. CERTIFICADO ING. Y RETENC",
+                    "route": "/NOM516",
+                    "name": "certificado-ing-retenc",
+                    "ruta": "5.E"
+                },
+                {
+                    "opc": "G",
+                    "text": "G. CERTIFICADO LABORAL",
+                    "route": "/NOM515GA",
+                    "name": "certificado-laboral",
+                    "ruta": "5.G"
+                },
+                {
+                    "opc": "H",
+                    "text": "H. INFORME DE HORAS LABORALES",
+                    "route": "NOM206PB",
+                    "name": "informe-horas-laborales",
+                    "ruta": "5.H"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "6",
+            "text": "6. AYUDAS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. ANULAR NOMINAS",
+                    "route": "/NOM601",
+                    "name": "anular-nominas",
+                    "ruta": "6.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. CONTABILIZAR NOMINAS",
+                    "route": "/NOM602",
+                    "name": "contabilizar-nomina",
+                    "ruta": "6.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. NOTAS CONTABILIDAD DEL PAGO",
+                    "route": "/NOM603",
+                    "name": "notas-contabilidad-pago",
+                    "ruta": "6.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. AUTOLIQUIDACION I.S.S",
+                    "route": "/NOM604",
+                    "name": "autoliquidacion-iss",
+                    "ruta": "6.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. CANCELA CUENTAS DE PROVIS",
+                    "route": "/NOM605",
+                    "name": "cancela-cuentas-provis",
+                    "ruta": "6.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. TRANSLADOS NOVEDAD DESCUENTOS",
+                    "route": "/NOM606",
+                    "name": "translados-novedad-descuentos",
+                    "ruta": "6.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. TRANSL. MOVIMIENTOS NOMINA",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. TRASNLADO NOMINA OTRO DIRECTORIO",
+                            "name": "translado-nomina-directorio",
+                            "route": "/NOM671",
+                            "ruta": "6.7.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. TRANSLADO NOMINA EMPLEADO CONC.",
+                            "name": "translado-nomina-empleado",
+                            "route": "/NOM672",
+                            "ruta": "6.7.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. TRANSLADO CONCEPTO NOVEDADES",
+                            "name": "translado-concepto-novedades",
+                            "route": "/NOM673",
+                            "ruta": "6.7.3"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "8",
+                    "text": "8. BLOQUEO DE NOMINAS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. BLOQUEO DE NOMINA",
+                            "name": "bloqueo-nomina",
+                            "route": "/NOM608",
+                            "ruta": "6.8.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. BLOQUEO DE PAGOS",
+                            "name": "bloqueo-pagos",
+                            "route": "",
+                            "ruta": "6.8.2"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "9",
+                    "text": "9. AJUSTE INF. FONDO NAC AHORRO",
+                    "route": "/NOM609",
+                    "name": "ajuste-fondo-nac-ahorro",
+                    "ruta": "6.9"
+                },
+                {
+                    "opc": "A",
+                    "text": "A. INCREMENTAR SALARIO CARGOS",
+                    "route": "/NOM610",
+                    "name": "incrementar-salario-cargos",
+                    "ruta": "6.A"
+                },
+                {
+                    "opc": "B",
+                    "text": "B. RELIQUIDAR APORTES NOMINA",
+                    "route": "/NOM611",
+                    "name": "reliquidar-aportes-nomina",
+                    "ruta": "6.B"
+                },
+                {
+                    "opc": "C",
+                    "text": "C. PLANTILLA UNICA APORTES SOI",
+                    "route": "/NOM612A",
+                    "name": "plantilla-unica-aportes-soi",
+                    "ruta": "6.C"
+                },
+                {
+                    "opc": "D",
+                    "text": "D. IMPORTAR NOVEDAD DE CONTAB",
+                    "route": "/NOM613",
+                    "name": "importar-novedad-contab",
+                    "ruta": "6.D"
+                },
+                {
+                    "opc": "E",
+                    "text": "E. IMPORTAR NOVEDAD DE PLANO",
+                    "route": "/NOM614",
+                    "name": "importar-novedad-plano",
+                    "ruta": "6.E"
+                },
+                {
+                    "opc": "G",
+                    "text": "G. IMPORTAR EXTRAS DESE PLANO",
+                    "route": "/NOM615A",
+                    "name": "importar-extras-plano",
+                    "ruta": "6.G"
+                },
+                {
+                    "opc": "H",
+                    "text": "H. INFORME DE HORAS LABORALES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ENVIAR NOMINA ELECTRONICA",
+                            "name": "enviar-nomina-electronica",
+                            "route": "/NOM515F",
+                            "ruta": "6.H.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. AJUSTAR NOMINA ELECTRONICA",
+                            "name": "ajustar-nomina-electronica",
+                            "route": "/NOM515F",
+                            "ruta": "6.H.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. ELIMINAR NOMINA ELECTRONICA",
+                            "name": "eliminar-nomina-electronica",
+                            "route": "",
+                            "ruta": "6.H.3"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "7",
+            "text": "7. LIQUIDACIONES",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. LIQUIDACION DE PRIMAS",
+                    "route": "/NOM701",
+                    "name": "liquidacion-primas",
+                    "ruta": "7.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. LIQUIDACION DE CESANTIAS",
+                    "route": "/NOM702C",
+                    "name": "liquidacion-censantias",
+                    "ruta": "7.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. CONSOLIDACION DE VACACIONES",
+                    "route": "/NOM703",
+                    "name": "consolidacion-vacaciones",
+                    "ruta": "7.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. LIQUIDACION CONTRATO DE TRABAJO",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. LIQUIDACION CONTRATO DE TRABAJO",
+                            "name": "liquidacion-contrato-trabajo",
+                            "route": "/NOM704PR",
+                            "ruta": "7.4.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. IMPRIMIR LIQUIDACION CONTRATO",
+                            "name": "inprimir-liquidacion-contrato",
+                            "route": "NOM704A",
+                            "ruta": "7.4.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. RECONSOLIDAR LIQUIDACIONES",
+                            "name": "reconsolidar-liquidaciones",
+                            "route": "NOM704C",
+                            "ruta": "7.4.3"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "5",
+                    "text": "5. LIQUIDACION RETROACTIVO",
+                    "route": "/NOM705",
+                    "name": "liquidacion-retroactivo",
+                    "ruta": "7.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. LIQUIDACION VACACIONES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. LIQUIDACION VACACIONES",
+                            "name": "liquidacion-vacaciones",
+                            "route": "/NOM706",
+                            "ruta": "7.6.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. IMPRIMIR LIQUIDACION VACACIONES",
+                            "name": "inprimir-liquidacion-vacaciones",
+                            "route": "/NOM706A",
+                            "ruta": "7.6.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. RECONSOLIDAR VACACIONES",
+                            "name": "reconsolidar-vacaciones",
+                            "route": "/NOM706B",
+                            "ruta": "7.6.3"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "S",
+            "text": "S. SALIR DE PROSOFT",
+            "icon": "mdi-exit-to-app",
+            "color": "salir"
+        }
+    ]
+}

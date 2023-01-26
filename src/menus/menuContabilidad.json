@@ -1,0 +1,3999 @@
+{
+    "Menu": [
+        {
+            "opc": "1",
+            "text": "1. ARCHIVOS MAESTROS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. DATOS DE EMPRESA",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. DATOS DEL USUARIO",
+                            "route": "/CON110A",
+                            "name": "datos-usuario",
+                            "ruta": "1.1.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. CONFIGURAR FIRMAS DE BALANCE",
+                            "route": "/CON110Y",
+                            "name": "actualizacion-firmas",
+                            "ruta": "1.1.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. CODIFICACION ISO DOCUMENTOS",
+                            "route": "/CON110Q",
+                            "name": "codificacion-iso",
+                            "ruta": "1.1.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. ACT DEPENDENCIAS EMPRESA",
+                            "route": "/CON110K1",
+                            "name": "act-dependencias-empresa",
+                            "ruta": "1.1.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. ACTUALIZAR SUCURSALES",
+                            "route": "/CON110L1",
+                            "name": "actualizar-sucursales",
+                            "ruta": "1.1.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. ACTUALIZAR ACTIVIDADES DE LA DIAN",
+                            "route": "/REN002",
+                            "name": "actualizacion-actividades-dian",
+                            "ruta": "1.1.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. CONFIGURAR IMPRESORA",
+                            "route": "/CON110G",
+                            "name": "configurar-impresora",
+                            "ruta": "1.1.7"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle",
+                            "ruta": "1.1.F"
+                        }
+                    ]
+                },
+                {
+                    "opc": "2",
+                    "text": "2. MAESTROS DE CONTABILIDAD",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ACTUALIZAR PLAN DE CUENTAS",
+                            "route": "/CON110B",
+                            "name": "actualizar-plan-cuentas",
+                            "ruta": "1.2.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. CENTROS DE COSTOS",
+                            "route": "/CON110D",
+                            "name": "centro-costos",
+                            "ruta": "1.2.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. INDICES AJUSTES DE INFLACION",
+                            "route": "/CON110E",
+                            "name": "indices-ajuste-inflacion",
+                            "ruta": "1.2.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. PREDETERMINAR LOTES DE MOVIMIENTO",
+                            "route": "/CON110I",
+                            "name": "predeterminar-lotes-movimiento",
+                            "ruta": "1.2.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. ACTUALIZAR CTAS N.I.I.F.S",
+                            "route": "/CON110BN",
+                            "name": "actualizacioncodigos-Niff",
+                            "ruta": "1.2.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. ACT MACROS DE MOVIMIENTO",
+                            "route": "/CON110J",
+                            "name": "actualizacion-macros",
+                            "ruta": "1.2.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. ACT MACROS DISTRIBUCION COSTO",
+                            "route": "/CON110P",
+                            "name": "actualizacion-macros-costo",
+                            "ruta": "1.2.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. ACTUALIZAR FUENTES FINANCIACIÓN",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. FTES FINANCIACION INTERNA",
+                                    "route": "/CON110Z",
+                                    "ruta": "1.2.8.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. FTES FINANCIACION F.U.T",
+                                    "route": "/CON110ZA",
+                                    "name": "ftes-financiacion-fut",
+                                    "ruta": "1.2.8.2"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR MENU ANTERIOR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. ACTUALIZAR CUENTAS A DEPRECIAR",
+                            "route": "/CON110M",
+                            "name": "actualizar-cuentas-depreciar",
+                            "ruta": "1.2.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. ACTUALIZAR PLANTILLAS",
+                            "ruta": "1.2.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. ACTUALIZAR COSTOS ABC",
+                            "ruta": "1.2.B"
+                        },
+                        {
+                            "opc": "C",
+                            "text": "C. TABLAS DIAN U.V.T",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ACTUALIZAR MORA MES",
+                                    "route": "/DIAN01",
+                                    "name": "actualizar-mora-mes",
+                                    "ruta": "1.2.C.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. ACTUALIZAR VALOR U.V.T ANUAL",
+                                    "route": "/DIAN02",
+                                    "name": "actualizar-valor-uvt-anual",
+                                    "ruta": "1.2.C.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. TABLAS IMPUESTOS SOBRE RENTA",
+                                    "route": "/DIAN03",
+                                    "name": "actualizar-tablas-impuestos-vigentes",
+                                    "ruta": "1.2.C.3"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "D",
+                            "text": "D. ACTUALIZAR RECLASIFICACIONES",
+                            "route": "/CON272N",
+                            "name": "actualizar-reclasificaciones",
+                            "ruta": "1.2.D"
+                        },
+                        {
+                            "opc": "E",
+                            "text": "E. ACTUALIZAR CLASIFICACION BALANCE",
+                            "route": "/CON110BC",
+                            "name": "actualizar-clasificacion-balance",
+                            "ruta": "1.2.E"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "3",
+                    "text": "3. DATOS DE TERCEROS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ACTUALIZACION DE TERCEROS",
+                            "route": "/CON110C",
+                            "name": "archivos-datos-terceros",
+                            "ruta": "1.3.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. ACTUALIZACION DE ACTIVIDADES",
+                            "route": "/CON110F",
+                            "name": "archivos-actividades",
+                            "ruta": "1.3.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. ACTUALIZACION DE CIUDADES",
+                            "route": "/CON110H",
+                            "name": "actualizar-ciudades",
+                            "ruta": "1.3.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. ACTUALIZACION ZONAS Y RUTAS",
+                            "route": "/CON110K",
+                            "name": "actualizar-zonas-rutas",
+                            "ruta": "1.3.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. ACTUALIZAR ENTIDADES DE SALUD",
+                            "route": "/CON110N",
+                            "name": "actualiza-entidades",
+                            "ruta": "1.3.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. ACTUALIZAR GRADO NEGOCIOS",
+                            "route": "/CON110R",
+                            "name": "actualiza-grados-negocio",
+                            "ruta": "1.3.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. ACTUALIZAR CLASIFICACION CLIENTES",
+                            "route": "/CON110S",
+                            "name": "actualiza-clasificacion-cliente",
+                            "ruta": "1.3.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. ACTUALIZACION DE TERCEROS-GEN",
+                            "route": "/CON110C",
+                            "name": "actualizar-clasificacion-balance",
+                            "ruta": "1.3.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. ACTUALIZACION DE BARRIOS",
+                            "route": "/CON110O",
+                            "name": "actualiza-barrios",
+                            "ruta": "1.3.9"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle",
+                    "ruta": "1.1.F"
+                }
+            ]
+        },
+        {
+            "opc": "2",
+            "text": "2. MOVIMIENTO DIARIO",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. ENTRADA DATOS MOVIMIENTO",
+                    "route": "/CON005",
+                    "name": "entrada-datos-movimiento",
+                    "ruta": "2.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. CORRECION MOVIMIENTO CONTABLE",
+                    "route": "/CON020",
+                    "name": "Correccion-movimiento-contable",
+                    "ruta": "2.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. LISTADO DE VALIDACION",
+                    "route": "/CON010",
+                    "name": "Listado-de-validacion",
+                    "ruta": "2.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. AUDITORIA DE CORRECIONES",
+                    "route": "/CON015",
+                    "name": "Auditoria de correccinesa",
+                    "ruta": "2.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. GENERA ARCHIVOS PLANO MOV",
+                    "route": "/CON011",
+                    "name": "Genera archivo plano de mov",
+                    "ruta": "2.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. IMPORTAR ARCHIVO PLANO COSTO",
+                    "ruta": "2.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. MENU NIIFS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. MAESTROS N.I.I.F.S",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ACTUALIZAR CUENTAS N.I.I.F.S",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. ACTUALIZAR CODIGOS N.I.I.F.S",
+                                            "route": "/CON110X",
+                                            "name": "Actualizar codigos n.i.i.f",
+                                            "ruta": "2.7.1.1.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. ASOCIAR N.I.I.F.S A PLAN DE CUENTAS",
+                                            "route": "/CON110XA",
+                                            "name": "Asociar n.i.i.f.s a plan de cuentas",
+                                            "ruta": "2.7.1.1.2"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. ACTUALIZAR RECLASIFICACIONES",
+                                    "route": "/CON272N",
+                                    "name": "Actualizar reclasificaciones",
+                                    "ruta": "2.7.1.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. ACTUALIZAR INTERES BANCARIO",
+                                    "route": "/CON273N",
+                                    "name": "Actualizar interes bancario",
+                                    "ruta": "2.7.1.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. ACTUALIZAR CLASIFICACIONES BALANCE",
+                                    "ruta": "2.7.1.4"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. PROCESOS CONTABLES N.I.I.F.S",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. EXTRAER MOVIMIENTO LOCAL",
+                                    "ruta": "2.7.2.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. NOTAS DE BANCOS",
+                                    "ruta": "2.7.2.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. NOTAS DE CARTERA",
+                                    "ruta": "2.7.2.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. NOTA PROPIEDAD PLANTA Y EQ",
+                                    "route": "/CON595N",
+                                    "name": "Comprobante de depreciacion niif",
+                                    "ruta": "2.7.2.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. NOTA RECLASIFICACIONES",
+                                    "ruta": "2.7.2.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. NOTAS N.I.I.F",
+                                    "ruta": "2.7.2.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. CORRECION COMPROBANTES",
+                                    "ruta": "2.7.2.7"
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. IMPRESION DE COMPROBANTES",
+                                    "ruta": "2.7.2.8"
+                                },
+                                {
+                                    "opc": "9",
+                                    "text": "9. VALIDACION COMPROBANTES",
+                                    "ruta": "2.7.2.9"
+                                },
+                                {
+                                    "opc": "A",
+                                    "text": "A. ANULAR LOTES DE MOVIMIENTO",
+                                    "ruta": "2.7.2.A"
+                                },
+                                {
+                                    "opc": "B",
+                                    "text": "B. TRASLADAR SALDOS N.I.I.F",
+                                    "ruta": "2.7.2.B"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. INFORMES CONTABLES N.I.I.F.S",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ESTADOS FINANCIEROS",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. ESTADO DE SITUACION FINANCIERA",
+                                            "ruta": "2.7.3.1.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. ESTADO FLUJO DE EFECTIVO",
+                                            "ruta": "2.7.3.1.2"
+                                        },
+                                        {
+                                            "opc": "3",
+                                            "text": "3. ESTADO CAMBIO EN EL PATRIMONIO",
+                                            "ruta": "2.7.3.1.3"
+                                        },
+                                        {
+                                            "opc": "4",
+                                            "text": "4. E.S.F.A CHIP",
+                                            "ruta": "2.7.3.1.4"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. AUXILIAR N.I.I.F",
+                                    "ruta": "2.7.3.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. E.S.F.A CHIP",
+                                    "ruta": "2.7.3.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. CATALOGO CUENTAS CHIP",
+                                    "ruta": "2.7.3.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. BALANCE X TERCEROS NIIF",
+                                    "ruta": "2.7.3.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. TOTALES X LOTE NIIF",
+                                    "ruta": "2.7.3.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. ANEXOS BALANCE COD NIIF",
+                                    "ruta": "2.7.3.7"
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. BALANCE COLGAAP VS NIIF",
+                                    "ruta": "2.7.3.8"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. INVENTARIOS N.I.I.F.S",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. MOVIMIENTO INVENTARIOS N.I.I,F",
+                                    "ruta": "2.7.4.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. CORRECION MOV. INVENT N.I.I.F",
+                                    "ruta": "2.7.4.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. INFORMES INVENTARIOS N.I.I.F",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. INFORME EXCEL ACTIVOS N.I.I.F",
+                                            "ruta": "2.7.4.3.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. LISTADO VALIDACION COMP N.I.I.F",
+                                            "ruta": "2.7.4.3.2"
+                                        },
+                                        {
+                                            "opc": "3",
+                                            "text": "3. IMPRESION COMPROBANTES N.I.I.F",
+                                            "ruta": "2.7.4.3.3"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. CATALOGOS N.I.I.F.S",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. INFORME CODIGOS N.I.I.F",
+                                    "ruta": "2.7.5.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. INFORME CTAS RECLASIFICACION",
+                                    "ruta": "2.7.5.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. EQUIVALENCIAS LOCAL-N.I.I.F",
+                                    "ruta": "2.7.5.3"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "3",
+            "text": "3. FORMATOS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. RECIBO DE CAJA",
+                    "route": "/FAC135",
+                    "name": "Recibos-de-caja",
+                    "ruta": "3.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. COMPROBANTES DE EGRESO",
+                    "route": "/FAC138",
+                    "name": "Comprobantes-de-egreso",
+                    "ruta": "3.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. NOTAS DE CONTABILIDAD",
+                    "route": "/FAC170",
+                    "name": "notas-de-contabilidad",
+                    "ruta": "3.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. RE-IMPRIMIR",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. RE-IMPRIME RECIBOS",
+                            "route": "/FAC157",
+                            "name": "Impresion-comprobantes-de-ingreso",
+                            "ruta": "3.4.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. RE-IMPRIME COMP. DE EGRESO",
+                            "route": "/FAC159",
+                            "name": "Impresion-comprobantes-de-egreso",
+                            "ruta": "3.4.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. RE-IMPRIME COMP. DE CONTAB",
+                            "route": "/FAC172",
+                            "name": "Consulta-de-notas-contables",
+                            "ruta": "3.4.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. RE-IMPRIMIR SOLO CHEQUES",
+                            "route": "/FAC159C",
+                            "name": "Impresion-comprobantes-de egreso",
+                            "ruta": "3.4.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. RE-IMPRIME NOTA CREDITO",
+                            "route": "/FAC172A",
+                            "name": "Impresion-nota-credito",
+                            "ruta": "3.4.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. MENU PLANO RE-IMPRIME",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. RE-IMPRIME PLANO RECIBOS",
+                                    "route": "/CSV-IMPRESI",
+                                    "name": "Archivo-plano-recibo",
+                                    "ruta": "3.4.6.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. RE-IMPRIME PLANO EGRESO",
+                                    "route": "/CSV-IMPEGRE",
+                                    "name": "Archivo-plano-egreso",
+                                    "ruta": "3.4.6.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. RE-IMPRIME PLANO COMP. CONTAB",
+                                    "route": "/CSV-IMPCONT",
+                                    "name": "Archivo-plano-nota",
+                                    "ruta": "3.4.6.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. RE-IMPRIMIR PLANO NOTAS CREDT",
+                                    "ruta": "3.4.6.4"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. RE-IMPRIME MASIVA CONTAB",
+                            "route": "/MENU-P0347",
+                            "name": "Genera-impresion-masiva-comprobantes-de-contabilidad",
+                            "ruta": "3.4.7"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "5",
+                    "text": "5. ANULAR",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ANULAR RECIBOS",
+                            "route": "/FAC167",
+                            "name": "Anulacion-de-recibos",
+                            "ruta": "3.5.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. ANULAR COMP. DE EGRESO",
+                            "route": "/FAC169",
+                            "name": "Anular-comprobantes-de-egreso",
+                            "ruta": "3.5.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. ANULAR NOTAS DE CONTAB",
+                            "route": "/FAC173",
+                            "name": "Anular-notas-de-contabilidad",
+                            "ruta": "3.5.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. ANULAR OTROS DOCUMENTOS",
+                            "route": "FAC183",
+                            "name": "Anular-otros-documentos",
+                            "ruta": "3.5.4"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "6",
+                    "text": "6. INFORMES DE TESORERIA",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ACTUALIZAR DATOS DE CUADRE CAJA",
+                            "route": "CON006",
+                            "name": "Notas-bancarias",
+                            "ruta": "3.6.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. LISTADO DE CUADRE DIARIO",
+                            "route": "CON135A",
+                            "name": "Listado-de-recuadre-diario",
+                            "ruta": "3.6.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. BALANCE POR FECHA DE CORTE",
+                            "route": "CON401",
+                            "name": "Balance-por-fecha-de-corte",
+                            "ruta": "3.6.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. MOV. DE AUXILIARES DEL DIA",
+                            "route": "CON402",
+                            "name": "Mov-de-auxiliares-del-dia",
+                            "ruta": "3.6.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. LISTADO DE VALIDACION",
+                            "route": "CON010",
+                            "name": "Validacion-de-movimiento-diario",
+                            "ruta": "3.6.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. RELACION COMPROBANTES DE PAGO",
+                            "route": "CON405",
+                            "name": "Relacion-comprobantes-de-pago",
+                            "ruta": "3.6.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. RELACION DE RECIBOS DE CAJA",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. INF. RECAUDOS Y CAUSACION PRESUP",
+                                    "route": "CON406",
+                                    "name": "Relacion-de-recibos-de-caja",
+                                    "ruta": "3.6.7.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. INFORMES DE RECAUDOS",
+                                    "route": "CON406",
+                                    "name": "Relacion-de-recibos-de-caja",
+                                    "ruta": "3.6.7.2"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. RESUMEN AUXILIAR POR DIA",
+                            "route": "CON408",
+                            "name": "Resumen-de-destos-por-banco",
+                            "ruta": "3.6.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. RESUMEN DE DESTOS POR BANCOS",
+                            "route": "CON407",
+                            "name": "Resumen de destos por bancos",
+                            "ruta": "3.6.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. CAUSACION RECONOCIMIENTOS",
+                            "ruta": "3.6.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. INFORME BANCOS CONTRALORIA",
+                            "route": "CON411",
+                            "name": "Informes-bancos-contraloria",
+                            "ruta": "3.6.B"
+                        },
+                        {
+                            "opc": "C",
+                            "text": "C. INFORMES COLUMNARIO RECAUDOS",
+                            "ruta": "3.6.C"
+                        },
+                        {
+                            "opc": "D",
+                            "text": "D. INFORME DE RECAUDOS ANUAL",
+                            "route": "CON413",
+                            "name": "Informe-de-recaudos-anual",
+                            "ruta": "3.6.D"
+                        },
+                        {
+                            "opc": "E",
+                            "text": "E. INFORME REC. PROVISIONALES",
+                            "ruta": "3.6.E"
+                        },
+                        {
+                            "opc": "G",
+                            "text": "G. ARCHIVO PLANO DISPERSION",
+                            "route": "CON405G",
+                            "name": "Listado-de-componentes",
+                            "ruta": "3.6.G"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "7",
+                    "text": "7. CONCILIACIONES BANCARIAS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. CONCILIACION BANCARIA",
+                            "route": "CON371",
+                            "name": "Conciliacion-bancaria",
+                            "ruta": "3.7.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. IMPRIMIR CONCILIACION",
+                            "route": "CON372",
+                            "name": "Imprimir-conciliacion",
+                            "ruta": "3.7.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. TRASLADAR SALDOS CONCILIACION",
+                            "route": "CON373",
+                            "name": "Traslado-de-saldos-de-conciliacion-al-mes-siguiente",
+                            "ruta": "3.7.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. ACT. PENDIENTES MES ANTERIOR",
+                            "route": "CON374",
+                            "name": "ACT-pendientes-mes-anterior",
+                            "ruta": "3.7.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. CONTROL ENTREGA CHEQUES",
+                            "route": "CON375",
+                            "name": "Control-entrega-cheques",
+                            "ruta": "3.7.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. ANULAR CONCILIACION X BANCO",
+                            "route": "CON376",
+                            "name": "Anular-conciliacion-por-banco",
+                            "ruta": "3.7.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. RESUMEN DE CONCILIACIONES",
+                            "route": "CON377",
+                            "name": "Resumen-de-conciliaciones",
+                            "ruta": "3.7.7"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "8",
+                    "text": "8. CONTROL DE CHEQUERAS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. HABILITAR CHEQUERAS",
+                            "route": "CON381",
+                            "name": "Habilitar-chequeras",
+                            "ruta": "3.8.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. RESUMEN DE MOV. CHEQUERAS",
+                            "route": "CON382",
+                            "name": "Resumen-mov-de-chequeras",
+                            "ruta": "3.8.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. LISTADO DE PEND. DE ENTREGA",
+                            "ruta": "3.8.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. CORRECION CHEQUERAS",
+                            "ruta": "3.8.4"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "9",
+                    "text": "9. NOTA CONTAB DISTRIB. COSTOS",
+                    "route": "FAC170C",
+                    "name": "Notas-de-contabilidad-con-distrib-de-costos",
+                    "ruta": "3.9"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "4",
+            "text": "4. CONSULTAS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. SALDO DE UNA CUENTA",
+                    "ruta": "4.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. MOVIMIENTO DE UNA CUENTA",
+                    "ruta": "4.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. MOVIMIENTO X CUENTA / NIT",
+                    "ruta": "4.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. INFORME MOVIMIENTO X NIT",
+                    "ruta": "4.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. CONSULTA POR VALOR",
+                    "ruta": "4.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. CONSULTA CUENTA CHEQUE",
+                    "ruta": "4.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. CONSULTA CUPO DISPONIBLE",
+                    "ruta": "4.7"
+                },
+                {
+                    "opc": "8",
+                    "text": "8. INFORME NIT CONSOLIDADO",
+                    "ruta": "4.8"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "5",
+            "text": "5. CATALOGOS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. TERCEROS [ORDEN X NIT]",
+                    "route": "/CON2201",
+                    "name": "terceros-orden-nit",
+                    "ruta": "5.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. TERCEROS [ORDEN ALFABETICO]",
+                    "route": "/CON2202",
+                    "name": "terceros-orden-alfabetico",
+                    "ruta": "5.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. CATALOGOS TERCEROS [EXTENDIDOS]",
+                    "route": "/CON2203",
+                    "name": "catalogos-terceros-extendidos",
+                    "ruta": "5.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. TERCEROS POR CUMPLEAÑOS",
+                    "route": "/CON220C",
+                    "name": "terceros-cumpleaños",
+                    "ruta": "5.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. TERCEROS X ENTIDAD AFILIADA",
+                    "route": "/CON2205",
+                    "name": "terceros-entidad-afiliada",
+                    "ruta": "5.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. CARTILLA CENTROS DE COSTOS",
+                    "route": "/CON2206",
+                    "name": "cartilla-centro-costos",
+                    "ruta": "5.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. ROTULOS CORRESPONDENCIA",
+                    "route": "/CON2207",
+                    "name": "rotulos-correspondencia",
+                    "ruta": "5.7"
+                },
+                {
+                    "opc": "8",
+                    "text": "8. CATALOGO DE CUENTAS",
+                    "route": "/CON2208",
+                    "name": "catalogos-cuentas",
+                    "ruta": "5.8"
+                },
+                {
+                    "opc": "9",
+                    "text": "9. INDICES AJUSTES X INFLACION",
+                    "route": "/CON2209",
+                    "name": "indice-ajuste-inflacion",
+                    "ruta": "5.9"
+                },
+                {
+                    "opc": "A",
+                    "text": "A. CATALOGO DE FUENTES FINANC",
+                    "route": "/CON220A",
+                    "name": "catalogo-fuentes-finac",
+                    "ruta": "5.A"
+                },
+                {
+                    "opc": "B",
+                    "text": "B. VALIDACION DE CTAS PRESUPUESTO",
+                    "route": "/CON220B",
+                    "name": "validacion-cta-presupuesto",
+                    "ruta": "5.B"
+                },
+                {
+                    "opc": "C",
+                    "text": "C. CATALOGO DE CIUDADES",
+                    "route": "/CON227",
+                    "name": "catalogos-ciudades",
+                    "ruta": "5.C"
+                },
+                {
+                    "opc": "D",
+                    "text": "D. CATALOGOS DE RESTRICCIONES",
+                    "route": "/CON220D",
+                    "name": "catalogos-restriccion",
+                    "ruta": "5.D"
+                },
+                {
+                    "opc": "E",
+                    "text": "E. CATALOGO DE GRADO NEGOCIO",
+                    "route": "/CON220E",
+                    "name": "catalogos-grado-negocio",
+                    "ruta": "5.E"
+                },
+                {
+                    "opc": "G",
+                    "text": "G. CATALOGO N.I.I.F",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. INFORME CODIGOS N.I.I.F",
+                            "route": "/CON220G1",
+                            "name": "informe-codigo-niif",
+                            "ruta": "5.G.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. INFORME CTAS RECLASIFICACION",
+                            "route": "/CON220G2",
+                            "name": "informe-cta-reclasificacion",
+                            "ruta": "5.G.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. EQUIVALENCIAS LOCAL-N.I.I.F",
+                            "route": "/CON220G3",
+                            "name": "equivalencia-local",
+                            "ruta": "5.G.3"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle",
+                            "ruta": "5.G.F"
+                        }
+                    ]
+                },
+                {
+                    "opc": "H",
+                    "text": "H. TERCEROS POR RUTAS Y ORDEN",
+                    "route": "/CON220H",
+                    "name": "terceros-ruta-orden",
+                    "ruta": "5.H"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "6",
+            "text": "6. LISTADOS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. BALANCES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. BALANCES POR MAYOR",
+                            "ruta": "6.1.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. BALANCE POR SUB-CUENTA",
+                            "ruta": "6.1.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. BALANCE DISCRIMINADO",
+                            "ruta": "6.1.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. BALANCE PRUEBA [I Y B]",
+                            "ruta": "6.1.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. BALANCE GENERAL X SUBCUENTA",
+                            "ruta": "6.1.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. BALANCE COMPARATIVO X AUX",
+                            "ruta": "6.1.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. BALANCE COMPARATIVO X SCTA",
+                            "ruta": "6.1.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. BALANCE COMPARATIVO X MAYOR",
+                            "ruta": "6.1.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. BALANCE ACUM. VARIOS MESES",
+                            "ruta": "6.1.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. INFORME PARA IVA",
+                            "ruta": "6.1.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. SIT FINANCIERA, RES INTEGRAL",
+                            "ruta": "6.1.B"
+                        },
+                        {
+                            "opc": "C",
+                            "text": "C. EXPORTAR ARCHIVO PLANO BAL",
+                            "ruta": "6.1.C"
+                        },
+                        {
+                            "opc": "D",
+                            "text": "D. BALANCE NIIF",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ESTADO DE SITUACION FINANCIERA",
+                                    "ruta": "6.1.D.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. ESTADO FLUJO DE EFECTIVO",
+                                    "ruta": "6.1.D.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. ESTADO CAMBIO EN EL PATRIMONIO",
+                                    "ruta": "6.1.D.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. E.S.F.A CHIP",
+                                    "ruta": "6.1.D.4"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "2",
+                    "text": "2. INFORMES ESPECIALES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. CONFIGURAR INFORME",
+                            "ruta": "6.2.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. ELABORAR INFORME ESPECIAL",
+                            "ruta": "6.2.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. IMPRIMIR SOLO EL RESUMEN",
+                            "ruta": "6.2.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. IMPRIMIR FORMATO CERTIFICADO",
+                            "ruta": "6.2.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. IMPRIMIR INFORME X FECHA",
+                            "ruta": "6.2.5"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "3",
+                    "text": "3. LISTADO DE AUXILIARES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. PROCESO TOTAL",
+                            "ruta": "6.3.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. AUXILIAR POR ORDEN DE NIT",
+                            "ruta": "6.3.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. AUXILIAR POR ORDEN [ALFABETICO]",
+                            "ruta": "6.3.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. AUXILIAR POR ORDEN DE [FECHA]",
+                            "ruta": "6.3.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. SELECTIVO AUXILIAR / TERCERO",
+                            "ruta": "6.3.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. SELECTIVO AUXILIAR / C. COSTO",
+                            "ruta": "6.3.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. ESPECIAL PARA CONCILIAR",
+                            "ruta": "6.3.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. AUXILIAR DE VARIOS MESES",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. SELECTIVO POR AUXILIAR",
+                                    "ruta": "6.3.8.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. SELECTIVO GENERALIZADO",
+                                    "ruta": "6.3.8.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. SELECTIVO POR AUX / NIT",
+                                    "ruta": "6.3.8.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. MOV GENERAL POR SUB-CTA",
+                                    "ruta": "6.3.8.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. MOV TERCERO-DOCUMENTO",
+                                    "ruta": "6.3.8.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. MOV POR DOCUMENTO",
+                                    "ruta": "6.3.8.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. RESUMEN AUXILIAR LOTE",
+                                    "ruta": "6.3.8.7"
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. MOV AUXILIAR / CENTRO COSTO",
+                                    "ruta": "6.3.8.8"
+                                },
+                                {
+                                    "opc": "9",
+                                    "text": "9. RESUMEN MAYOR / LOTE",
+                                    "ruta": "6.3.8.9"
+                                },
+                                {
+                                    "opc": "A",
+                                    "text": "A. AUXILIAR EFECTIVAS DE CAJA",
+                                    "ruta": "6.3.8.A"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. MOV. DE UN CENTRO DE COSTO",
+                            "ruta": "6.3.9"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle",
+                            "ruta": "6.3.F"
+                        }
+                    ]
+                },
+                {
+                    "opc": "4",
+                    "text": "4. LIBRO DIARIO",
+                    "ruta": "6.6.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. LISTADO DETALLADO DIARIO",
+                    "ruta": "6.6.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. LISTADO ANEXOS TERCEROS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. INFORME DE CTAS X TERCEROS",
+                            "ruta": "6.6.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. ACUMULADO X CLASE DE CUENTA",
+                            "ruta": "6.6.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. SELECTIVO X AUXIL CTA X CTA",
+                            "ruta": "6.6.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. ACUMULADO X PERIODO X MAYOR",
+                            "ruta": "6.6.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. INFORME TERCERO CUENTA",
+                            "ruta": "6.6.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. INFORME CTA TERCERO DOCUMEN",
+                            "ruta": "6.6.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. INFORME TERCERO MAYOR",
+                            "ruta": "6.6.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. MOV TERCERO X CLASE CTA",
+                            "ruta": "6.6.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. ACUMULADO TERCERO X MESES",
+                            "ruta": "6.6.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. INFORMES MESES DEBITO CREDITO",
+                            "ruta": "6.6.A"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "7",
+                    "text": "7. RESUMENES POR TIPO DOCUM",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. RESUMEN X TIPO DOCUMENTO",
+                            "ruta": "6.7.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. DIARIO COLUMNARIO POR LOTE",
+                            "ruta": "6.7.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. RESUMEN X NIT X LOTE",
+                            "ruta": "6.7.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. RESUMEN POR COMPROBANTES",
+                            "ruta": "6.7.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. RESUMEN DE FLUJO DE CAJA",
+                            "ruta": "6.7.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. RESUMEN DE FLUJO DE CAJA MAYOR",
+                            "ruta": "6.7.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. COMPARATIVO FLUJOS DE CAJA",
+                            "ruta": "6.7.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. RESUMEN POR MAYOR Y LOTE",
+                            "ruta": "6.7.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. DIARIO CORRELACION X SUBCTA",
+                            "ruta": "6.7.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. DIARIO CORRELACION RESUMIDO",
+                            "ruta": "6.7.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. DIARIO CORRELACION X MAYOR",
+                            "ruta": "6.7.B"
+                        },
+                        {
+                            "opc": "C",
+                            "text": "C. INFORME CORRELACION DOCUMEN",
+                            "ruta": "6.7.C"
+                        },
+                        {
+                            "opc": "D",
+                            "text": "D. COLUMNARIO POR CUENTA Y NIT",
+                            "ruta": "6.7.D"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "8",
+                    "text": "8. LISTADO TOTALES POR LOTE",
+                    "ruta": "6.6.8"
+                },
+                {
+                    "opc": "9",
+                    "text": "9. INFORMES x CENTRO DE COSTOS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. BALANCES X CENTRO COSTO",
+                            "ruta": "6.9.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. INFORME X CUENTA Y COSTO",
+                            "ruta": "6.9.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. ACUMULADOS X CENTRO COSTO",
+                            "ruta": "6.9.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. PLANILLA X CUENTA Y VOSTO",
+                            "ruta": "6.9.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. PLANILLA X CTA NIT Y COSTO",
+                            "ruta": "6.9.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. INFORME AGRUPADO x C.COSTO",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. AGRUPAR CENTROS DE COSTOS",
+                                    "ruta": "6.9.6.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. P Y G SEGUN SELECCION COSTO",
+                                    "ruta": "6.9.6.2"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "A",
+                    "text": "A. INFORMES GERENCIALES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. LISTADO DE SALDOS PROMEDIOS",
+                            "ruta": "6.A.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. INDICADORES FINANCIEROS",
+                            "ruta": "6.A.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. INFORME COSTOS ABC SUI",
+                            "ruta": "6.A.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. ********************",
+                            "ruta": "6.A.4"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "B",
+                    "text": "B. INFORMES AUDITORIA",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. INFORME OPCION X RANGO FECHA",
+                            "ruta": "6.B.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. INFORME OPERADOR Y RANGO FECHA",
+                            "ruta": "6.B.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. CONSULTA X REGISTRO CAMBIADO",
+                            "ruta": "6.B.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. **********************",
+                            "ruta": "6.B.4"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "C",
+                    "text": "C. INFORMES S.I.A",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. F01 CATALOGO DE CUENTAS",
+                            "ruta": "6.C.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. F03 CUENTAS BANCARIAS",
+                            "ruta": "6.C.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. F05A PROP.PLANTA EQ COMPRAS",
+                            "ruta": "6.C.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. F05B PROP.PLANTA EQ SALDOS",
+                            "ruta": "6.C.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. F07B RELACION DE EGRESOS",
+                            "ruta": "6.C.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. F06B RELACION DE INGRESOS",
+                            "ruta": "6.C.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. CHIP SALDO DISPONIBLE",
+                            "ruta": "6.C.7"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "E",
+                    "text": "E. INFORME PRODUCT. POR LOTES",
+                    "ruta": "6.6.E"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "7",
+            "text": "7. AYUDAS",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. MANTENIMIENTO LOTES DE MOV",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. TRANSLADAR LOTES A OTRO MES",
+                            "ruta": "7.1.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. ANULAR LOTES DE MOV-DIARIO",
+                            "ruta": "7.1.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. ANULAR LOTES POR DIA",
+                            "ruta": "7.1.3"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "2",
+                    "text": "2. CAMBIO DE MOV x CTA O NIT",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. CAMBIAR MOVIMIENTO DE UN CODIGO",
+                            "ruta": "7.2.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. CAMBIAR MOVIMIENTO DE UN NIT",
+                            "ruta": "7.2.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. CAMBIAR MOV. DE CODIGO Y NIT",
+                            "ruta": "7.2.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. CAMBIAR MOV. DE CODIGO Y COSTO",
+                            "ruta": "7.2.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. CAMBIAR MOV. DE CODIGO Y LOTE",
+                            "ruta": "7.2.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. CAMBIAR MOV. DE NIT Y LOTE",
+                            "ruta": "7.2.6"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "3",
+                    "text": "3. PRE-NUMERAR LIBROS OFIC",
+                    "ruta": "7.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. MANTENIMIENTO PROVEEDORES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. LISTADO DE PROVEEDORES NIT",
+                            "ruta": "7.4.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. LISTADO DE PROVEEDORES ALFB",
+                            "ruta": "7.4.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. UNIFICAR DOCUMENTOS POR NIT",
+                            "ruta": "7.4.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. LISTADO X DOCUM. OTRAS CUENTAS",
+                            "ruta": "7.4.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. CAMBIAR DOCUMENTO X NIT",
+                            "ruta": "7.4.5"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "5",
+                    "text": "5. TRASLADAR SALDOS OTRO MES",
+                    "ruta": "7.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. ELABORAR CUENTAS DE COBRO",
+                    "ruta": "7.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. BLOQUEO MES DE TRABAJO",
+                    "ruta": "7.7"
+                },
+                {
+                    "opc": "8",
+                    "text": "8. ELABORA CHEQUES DE UN LOTE",
+                    "ruta": "7.8"
+                },
+                {
+                    "opc": "9",
+                    "text": "9. INFORME EFECTIVAS DE CAJA",
+                    "ruta": "7.9"
+                },
+                {
+                    "opc": "A",
+                    "text": "A. TRASLADAR VENDED. CLIENTES",
+                    "ruta": "7.A"
+                },
+                {
+                    "opc": "B",
+                    "text": "B. CAUSACION PRESUPUESTO PRIV",
+                    "ruta": "7.B"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "8",
+            "text": "8. CIERRES",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. CERTIFICADOS RETEFUENTE",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. FORMATO EXTENDIDO PROC-TOT",
+                            "ruta": "8.1.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. FORMATO EXTENDIDO 10 NITS",
+                            "ruta": "8.1.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. CERTIFICADO RETEFUENTE",
+                            "ruta": "8.1.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. CERTIFICADO RETE-IVA O ICAV",
+                            "ruta": "8.1.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. ARCHIVO PLANO DE ICAV",
+                            "ruta": "8.1.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. ANEXOS TRIBUTARIOS ICAV",
+                            "ruta": "8.1.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. CERTIFICADO DE SALARIOS",
+                            "ruta": "8.1.7"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "2",
+                    "text": "2. CANCELA CUENTAS RESULTADO",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. CIERRE DE CUENTAS DE COSTOS",
+                            "ruta": "8.2.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. CANCELA CUENTAS DE RESULTADO",
+                            "ruta": "8.2.2"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "3",
+                    "text": "3. ELIMINA MOVIMIENTO CUENTAS",
+                    "ruta": "8.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. CONSOLIDACION BALANCE",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. GENERA Y CONSOLIDA COMPROBANTES",
+                            "ruta": "8.4.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. GENERA ESTIMATIVO PROYECTADO",
+                            "ruta": "8.4.2"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "5",
+                    "text": "5. COMPROBANTE DEPRECIACION",
+                    "ruta": "8.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. SISTEMA DE SEGURIDAD",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. CAMBIAR CLAVE",
+                            "route": "/CON903",
+                            "name": "cambiar-clave",
+                            "ruta": "8.6.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. RESTRINGIR ACCESOS",
+                            "route": "/CON902",
+                            "name": "actualizacion-restricciones",
+                            "ruta": "8.6.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. DESBLOQUEAR ACCESOS",
+                            "route": "/CON90-3",
+                            "name": "desbloquear-acceso",
+                            "ruta": "8.6.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. RESTRICCION MASIVA DE OPC",
+                            "route": "/CON906",
+                            "name": "actualizacion-restricciones-masiva",
+                            "ruta": "8.6.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. LISTADO DE OPERADORES",
+                            "route": "/CON90-5",
+                            "name": "lista-operadores",
+                            "ruta": "8.6.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. IMPRIMIR RESTRICCIONES",
+                            "route": "/CON90-6",
+                            "name": "imprimir-restriccion",
+                            "ruta": "8.6.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. LISTADO DE ACCESO",
+                            "route": "/CON90-7",
+                            "name": "lista-acceso",
+                            "ruta": "8.6.7"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "7",
+                    "text": "7. INFORMACION EXOGENA",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. CONFIGURAR EQUIVALENTES",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. CONFIGURAR EQUIVALENTES",
+                                    "ruta": "8.7.1.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. ACTUALIZACION DE CONCEPTOS",
+                                    "ruta": "8.7.1.2"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. LISTADO DE EQUIVALENTES",
+                            "ruta": "8.7.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. EXTRAER INFORMACION CONTAB",
+                            "ruta": "8.7.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. LISTADO PARA REVISION INF",
+                            "ruta": "8.7.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. CORRECION DE INFORMACION",
+                            "ruta": "8.7.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. GENERAR ARCHIVO PLANO",
+                            "ruta": "8.7.6"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "9",
+            "text": "9. FACTURACION E INVENTARIO",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. ARCHIVOS MAESTROS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ACTUALIZA ALMACENES",
+                            "ruta": "9.1.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. ACTUALIZA TRANSACCIONES",
+                            "ruta": "9.1.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. ACTUALIZA ARTICULOS",
+                            "ruta": "9.1.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. ACTUALIZA GRUPOS",
+                            "ruta": "9.1.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. Actualiza vendedores",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ACTUALIZA VENDEDORES",
+                                    "ruta": "9.1.5.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. ASIGNACION R.C PROVISIONALES",
+                                    "ruta": "9.1.5.2"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle",
+                                    "ruta": "9.1.5.F"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. ACTUALIZA CLASES Y USOS",
+                            "ruta": "9.1.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. ACTUALIZA POLITICAS",
+                            "ruta": "9.1.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. ACTUALIZA DIVISIONES",
+                            "ruta": "9.1.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. ACTUALIZA ESTADOS CARTERA",
+                            "ruta": "9.1.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. ACTUALIZA PLACA DE CARROS",
+                            "ruta": "9.1.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. ACTUALIZA PREFIJOS DE FACTURA",
+                            "ruta": "9.1.B"
+                        },
+                        {
+                            "opc": "C",
+                            "text": "C. ACTUALIZA MACRO DE PRODUCCION",
+                            "ruta": "9.1.C"
+                        },
+                        {
+                            "opc": "D",
+                            "text": "D. ACTUALIZA PROMOCIONES",
+                            "ruta": "9.1.D"
+                        },
+                        {
+                            "opc": "E",
+                            "text": "E. ACTUALIZA TARJETA DE PUNTOS",
+                            "ruta": "9.1.E"
+                        },
+                        {
+                            "opc": "G",
+                            "text": "G. ACTUALIZA LOTES FARMACEUTICOS",
+                            "ruta": "9.1.G"
+                        },
+                        {
+                            "opc": "H",
+                            "text": "H. ACTUALIZA TASAS INTERES COMP",
+                            "ruta": "9.1.H"
+                        },
+                        {
+                            "opc": "I",
+                            "text": "I. ACTUALIZA MARCAS DE ARTICULOS",
+                            "ruta": "9.1.I"
+                        },
+                        {
+                            "opc": "J",
+                            "text": "J. DIRECTORIOS INVENT DISPERS",
+                            "ruta": "9.1.J"
+                        },
+                        {
+                            "opc": "K",
+                            "text": "K. ACTUALIZA MOT CORRESPONSALIA",
+                            "ruta": "9.1.K"
+                        },
+                        {
+                            "opc": "L",
+                            "text": "L. ACTUALIZA INGREDIENTE ACTIVO",
+                            "ruta": "9.1.L"
+                        },
+                        {
+                            "opc": "M",
+                            "text": "M. DCTOS FACTURA X ACTIVIDAD",
+                            "ruta": "9.1.M"
+                        },
+                        {
+                            "opc": "N",
+                            "text": "N. TARIFA IVA X GRUPO",
+                            "ruta": "9.1.N"
+                        },
+                        {
+                            "opc": "O",
+                            "text": "O. DESCUENTO POR GRUPO Y ALMACEN",
+                            "ruta": "9.1.O"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "2",
+                    "text": "2. MOVIMIENTO INVENTARIOS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ENTRADA DATOS MOVIMIENTO",
+                            "ruta": "9.2.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. CORRECION DATOS",
+                            "ruta": "9.2.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. LISTADO DE VALIDACION",
+                            "ruta": "9.2.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. IMPRESION DE DOCUMENTOS",
+                            "ruta": "9.2.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. RECONSOLIDAR TRANSACCIONES",
+                            "ruta": "9.2.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. ANULAR COMPROBANTE",
+                            "ruta": "9.2.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. TRASLADO DE ALMACEN",
+                            "ruta": "9.2.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. RE-IMPRIMIR NOTAS TRASLADO",
+                            "ruta": "9.2.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. MOVER MOV. DE UN ART A OTRO",
+                            "ruta": "9.2.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. VALIDACION POR RANGO FECHA",
+                            "ruta": "9.2.A"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "3",
+                    "text": "3. CONSULTAS DE INVENTARIOS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. CONSULTA POR ARTICULO",
+                            "ruta": "9.3.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. CONSULTA SALDOS X GRUPOS",
+                            "ruta": "9.3.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. CONSULTA SALDO ACTUAL",
+                            "ruta": "9.3.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. CONSULTA SALDO POR USO",
+                            "ruta": "9.3.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. CONSULTA SALDO POR CLASE",
+                            "ruta": "9.3.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. CONSULTA PRECIO DE VENTA",
+                            "ruta": "9.3.6"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "4",
+                    "text": "4. FACTURACION",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ELABORAR FACTURA",
+                            "ruta": "9.4.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. RE-IMPRIMIR FACTURAS",
+                            "ruta": "9.4.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. ANULAR FACTURAS",
+                            "ruta": "9.4.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. RECONSOLIDAR FACTURAS",
+                            "ruta": "9.4.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. Remisiones",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ELABORAR REMISIONES",
+                                    "ruta": "9.4.5.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. RE-IMPRIMIR REMISIONES",
+                                    "ruta": "9.4.5.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. Correcion remisiones",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. MODIFICAR REMISIONES",
+                                            "ruta": "9.4.5.3.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. DESMARCAR REMISIONES",
+                                            "ruta": "9.4.5.3.2"
+                                        },
+                                        {
+                                            "opc": "3",
+                                            "text": "3. MARCAR REMISIONES",
+                                            "ruta": "9.4.5.3.3"
+                                        },
+                                        {
+                                            "opc": "4",
+                                            "text": "4. ANULAR REMISIONES",
+                                            "ruta": "9.4.5.3.4"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. Informe de remisiones",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. RELACION REMISIONES",
+                                            "ruta": "9.4.5.4.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. INFORME DE ART. REMISIONADO",
+                                            "ruta": "9.4.5.4.2"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. Control orden de entrega",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. GENERA CONTROL ORD-ENTREGA",
+                                            "ruta": "9.4.5.5.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. CORRECION CONTROL ORD ENTREGA",
+                                            "ruta": "9.4.5.5.2"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. RECONSOLIDAR REMISIONES",
+                                    "ruta": "9.4.5.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. Elaborar acta de entrega",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. ELABORAR ACTA DE ENTREGA",
+                                            "ruta": "9.4.5.7.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. IMPRIMIR ACTA DE ENTREGA",
+                                            "ruta": "9.4.5.7.2"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. CORRECION DE FACTURAS",
+                            "ruta": "9.4.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. CONSULTA SALDOS DE CARTERA",
+                            "ruta": "9.4.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. CINTA FACTURACION P.O.S",
+                            "ruta": "9.4.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. Mercancia pendiente de entrega",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ORDEN PARA RECLAMAR MERCANCIA",
+                                    "ruta": "9.4.9.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. COMP. ENTREGA MERCANCIA",
+                                    "ruta": "9.4.9.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. IMPRIMIR ORDEN RECLAMAR",
+                                    "ruta": "9.4.9.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. IMPRIMIR COMP. ENTREGA",
+                                    "ruta": "9.4.9.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. LISTADO PENDIENTES RECLAMAR",
+                                    "ruta": "9.4.9.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. LISTADO ORDENES DESPACHADAS",
+                                    "ruta": "9.4.9.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. CORRECION COMP. ENTREGA",
+                                    "ruta": "9.4.9.7"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. IMPRESION FACTURA X ZONA Y RUTA",
+                            "ruta": "9.4.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. Devoluciones en ventas",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. DEVOLUCIONES EN VENTAS",
+                                    "ruta": "9.4.B.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. CORRECCION DE DEVOL. EN VENTAS",
+                                    "ruta": "9.4.B.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. REIMPRIMIR DEVOLUCION EN VENTAS",
+                                    "ruta": "9.4.B.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. MOTIVOS DE DEVOLUCION",
+                                    "ruta": "9.4.B.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. ESTADISTICA X MOTIVO DEVOLUCION",
+                                    "ruta": "9.4.B.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. RECONSOLIDAR DEVOLUCIONES",
+                                    "ruta": "9.4.B.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. DEVOLUCION FACT. ELECTRONICA",
+                                    "ruta": "9.4.B.7"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "C",
+                            "text": "C. IMPRESION MASIVA DE FACTURAS",
+                            "ruta": "9.4.C"
+                        },
+                        {
+                            "opc": "D",
+                            "text": "D. RE-IMPRIMIR NOTAS DE ENTREGA",
+                            "ruta": "9.4.D"
+                        },
+                        {
+                            "opc": "E",
+                            "text": "E. Gestion de cartera",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. CORRESPONSALIA",
+                                    "ruta": "9.4.E.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. ACTUALIZAR ESTADOS DE CARTERA",
+                                    "ruta": "9.4.E.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. CORRECION CARTERA",
+                                    "ruta": "9.4.E.3"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "G",
+                            "text": "G. Alistamiento con factura",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ELABORAR ALISTAMIENTO",
+                                    "ruta": "9.4.G.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. RE-IMPRIMIR ALISTAMIENTO",
+                                    "ruta": "9.4.G.2"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "H",
+                            "text": "H. GENERAR FACTURA ELECTRONICA",
+                            "ruta": "9.4.H"
+                        },
+                        {
+                            "opc": "I",
+                            "text": "I. Notas debito",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. CREAR NOTA DEBITO",
+                                    "ruta": "9.I.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. MODIFICAR NOTA DEBITO",
+                                    "ruta": "9.4.I.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. RE-IMPRIMIR NOTA DEBITO",
+                                    "ruta": "9.4.I.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. FACT ELECT NOTA DEBITO",
+                                    "ruta": "9.4.I.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. IMPRE MASIV NOTA DEBITO",
+                                    "ruta": "9.4.I.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. RECONSOLIDA NOTA DEBITO",
+                                    "ruta": "9.4.I.6"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "5",
+                    "text": "5. INFORMES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. Inventario valorizado",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. INV. ALMACEN POR ALMACEN",
+                                    "ruta": "9.5.1.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. INV. GENERAL POR ALMACEN",
+                                    "ruta": "9.5.1.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. INV. GENERAL POR CLASE",
+                                    "ruta": "9.5.1.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. INV. GENERAL POR USO",
+                                    "ruta": "9.5.1.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. INV. X ALMACEN A UN CORTE",
+                                    "ruta": "9.5.1.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. BALANCE DE INV. POR TIPO",
+                                    "ruta": "9.5.1.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. INV. ORDEN GRUPO ALFABETICO",
+                                    "ruta": "9.5.1.7"
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. INV. VARIOS DIRECTORIOS",
+                                    "ruta": "9.5.1.8"
+                                },
+                                {
+                                    "opc": "9.5",
+                                    "text": "9.5. SALDOS INV. VARIOS DIRECTORIOS",
+                                    "ruta": "9.5.1.9"
+                                },
+                                {
+                                    "opc": "A",
+                                    "text": "A. INV. CON AJUSTES X INFLACION",
+                                    "ruta": "9.5.1.A"
+                                },
+                                {
+                                    "opc": "B",
+                                    "text": "B. INV. ORDEN CLASE ALFABETICO",
+                                    "ruta": "9.5.1.B"
+                                },
+                                {
+                                    "opc": "C",
+                                    "text": "C. INV. ORDEN U. MED ALFABETICO",
+                                    "ruta": "9.5.1.C"
+                                },
+                                {
+                                    "opc": "D",
+                                    "text": "D. INV. ORDEN USO ALFABETICO",
+                                    "ruta": "9.5.1.D"
+                                },
+                                {
+                                    "opc": "E",
+                                    "text": "E. INV. GENERAL ALFABETICO",
+                                    "ruta": "9.5.1.E"
+                                },
+                                {
+                                    "opc": "G",
+                                    "text": "G. menu comparativo inv. fisico",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. INF. COMPARATIVO INV. FISICO",
+                                            "ruta": "9.5.1.G.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. CONTABILIZA INV. FISICO",
+                                            "ruta": "9.5.1.G.2"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. LISTADO Y CONTAB. DE COSTO",
+                            "ruta": "9.5.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. Listado de kardex",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. KARDEX ALMACEN-ARTICULO",
+                                    "ruta": "9.5.3.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. KARDEX ARTICULO-ALMACEN",
+                                    "ruta": "9.5.3.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. MOVIMIENTO POR FECHA",
+                                    "ruta": "9.5.3.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. MOVIMIENTO POR ALMACEN NIT",
+                                    "ruta": "9.5.3.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. MOVIMIENTO ALMACEN C. COSTO",
+                                    "ruta": "9.5.3.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. KARDEX RESUMIDO POR GRUPO",
+                                    "ruta": "9.5.3.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. KARDEX X FECHA MODIFICACION",
+                                    "ruta": "9.5.3.7"
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. MOVIMIENTO / RESUMEN ALMACEN_NIT",
+                                    "ruta": "9.5.3.8"
+                                },
+                                {
+                                    "opc": "9",
+                                    "text": "9. HISTORICO DE ARTICULOS",
+                                    "ruta": "9.5.3.9"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. Informes de ventas",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. INFORMES DE CARTERA",
+                                    "ruta": "9.5.4.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. INFORMES SEGUN INVENTARIOS",
+                                    "ruta": "9.5.4.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. INFORME VENTAS POR VENDEDOR",
+                                    "ruta": "9.5.4.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. RELACION DE FACT. POR FECHA",
+                                    "ruta": "9.5.4.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. INFORME DE FACT. CLASE USO",
+                                    "ruta": "9.5.4.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. INFORME DE FACT POR ARTICULO",
+                                    "ruta": "9.5.4.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. Informe centrales de riesgo",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. REPORTE DATA CREDITO",
+                                            "ruta": "9.5.4.7.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. REPORTE A CIFIN",
+                                            "ruta": "9.5.4.7.2"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. INFORME PARA TELEMERCADEO",
+                                    "ruta": "9.5.4.8"
+                                },
+                                {
+                                    "opc": "9",
+                                    "text": "9. INFORME DE FACT. POR PLACA",
+                                    "ruta": "9.5.4.9"
+                                },
+                                {
+                                    "opc": "A",
+                                    "text": "A. INFORME DE FACT. POR CONVER",
+                                    "ruta": "9.5.4.A"
+                                },
+                                {
+                                    "opc": "B",
+                                    "text": "B. INFORME CARTERA ESP CEREALES",
+                                    "ruta": "9.5.4.B"
+                                },
+                                {
+                                    "opc": "C",
+                                    "text": "C. INFORME FACTURAS CON NC",
+                                    "ruta": "9.5.4.C"
+                                },
+                                {
+                                    "opc": "D",
+                                    "text": "D. RELACION DEVOL. POR FECHA",
+                                    "ruta": "9.5.4.D"
+                                },
+                                {
+                                    "opc": "E",
+                                    "text": "E. INFORME DE RECAUDO POR FECHA",
+                                    "ruta": "9.5.4.E"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. Resumenes de inventarios",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. RESUMEN GENERAL X GRUPOS",
+                                    "ruta": "9.5.5.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. POR TIPO-ALMACEN(CANTIDAD)",
+                                    "ruta": "9.5.5.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. POR TIPO-ALMACEN(VALORES)",
+                                    "ruta": "9.5.5.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. RESUMEN POR COMP-GRUPO",
+                                    "ruta": "9.5.5.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. RESUMEN POR GRUPO-COMP",
+                                    "ruta": "9.5.5.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. RESUMEN DE MOV. DIARIO",
+                                    "ruta": "9.5.5.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. COMPARATIVO ENTRE 2 TRANSACCIONES",
+                                    "ruta": "9.5.5.7"
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. INFORME MINIMOS Y MAXIMOS",
+                                    "ruta": "9.5.5.8"
+                                },
+                                {
+                                    "opc": "9",
+                                    "text": "9. PLANTILLA ARTICULO X TRANSACC",
+                                    "ruta": "9.5.5.9"
+                                },
+                                {
+                                    "opc": "A",
+                                    "text": "A. PLANTILLA PROPIEDAD, PLANTA Y EQUIPOS",
+                                    "ruta": "9.5.5.A"
+                                },
+                                {
+                                    "opc": "B",
+                                    "text": "B. TOTALES X COMPROB 2 TRANSACCIONES",
+                                    "ruta": "9.5.5.B"
+                                },
+                                {
+                                    "opc": "C",
+                                    "text": "C. INFORME DETALLADO DE MOVIMIENTO",
+                                    "ruta": "9.5.5.C"
+                                },
+                                {
+                                    "opc": "D",
+                                    "text": "D. RESUMEN GENERAL CLASE-GRUPO",
+                                    "ruta": "9.5.5.D"
+                                },
+                                {
+                                    "opc": "E",
+                                    "text": "E. PLAN DE COMPRAS",
+                                    "ruta": "9.5.5.E"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "6",
+                    "text": "6. AYUDA DE INVENTARIOS",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. TRASLADAR DATOS DE INVENTARIO",
+                            "ruta": "9.6.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. TRABSLADAR SALDOS A OTRO MES",
+                            "ruta": "9.6.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. RECALCULO DE COSTOS PROMEDIO",
+                            "ruta": "9.6.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. RECALCULO SALIDAS POR TRASLADO",
+                            "ruta": "9.6.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. Catalogos",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. CATALOGOS DE ALMACENES",
+                                    "ruta": "9.6.5.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. CATALOGO DE GRUPOS",
+                                    "ruta": "9.6.5.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. CATALOGOS DE POLITICAS",
+                                    "ruta": "9.6.5.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. CATALOGO DE PROMOCIONES",
+                                    "ruta": "9.6.5.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. CATALOGO DE VENDEDORES",
+                                    "ruta": "9.6.5.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. CATALOGO DE ARTICULOS",
+                                    "ruta": "9.6.5.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. CATALOGOS DE LOTES FARMAC",
+                                    "ruta": "9.6.5.7"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. Menu de auditoria inventario",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. Auditoria de facturas",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. AUDITORIAS FACTURAS RESUMIDO",
+                                            "ruta": "9.6.6.1.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. AUDITORIAS FACTURAS DETALLADO",
+                                            "ruta": "9.6.6.1.2"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle",
+                                            "ruta": "9.1.F"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. AUDITORIA X TRANSACCION",
+                                    "ruta": "9.6.6.2"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. LISTADO DE INCONSISTENCIAS",
+                            "ruta": "9.6.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. RECALCULO DE ABONOS CARTERA",
+                            "ruta": "9.6.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. INCREMENTAR PRECIO DE VENTA",
+                            "ruta": "9.6.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. RECALCULAR VLR COMPROBANTE",
+                            "ruta": "9.6.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. CALIFICACION ABC DE VENTAS",
+                            "ruta": "9.6.B"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "7",
+                    "text": "7. MENU PERSONALIZADO",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. Menu act. mestros de salud",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ACTUALIZAR GRUPOS CUPS",
+                                    "ruta": "9.7.1.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. ACTUALIZAR NOMBRES TARIFAS",
+                                    "ruta": "9.7.1.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. ACTUALIZAR TARIFAS SERVICIOS",
+                                    "ruta": "9.7.1.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. ACTUALIZAR FICHAS SISVAN",
+                                    "ruta": "9.7.1.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. INCREMENTAR TARIFAS",
+                                    "ruta": "9.7.1.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. DUPLICAR TARIFAS",
+                                    "ruta": "9.7.1.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. ACTUALIZAR SERVICIOS HOSPITALES",
+                                    "ruta": "9.7.1.7"
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. ACTUALIZAR CODIGOS CUPS",
+                                    "ruta": "9.7.1.8"
+                                },
+                                {
+                                    "opc": "9",
+                                    "text": "9. ACTUALIZAR PERSONAL ATIENDE",
+                                    "ruta": "9.7.1.9"
+                                },
+                                {
+                                    "opc": "A",
+                                    "text": "A. ACTUALIZAR ESPECIALIDAD X CUP",
+                                    "ruta": "9.7.1.A"
+                                },
+                                {
+                                    "opc": "B",
+                                    "text": "B. ACTUALIZAR UNIDAD ATENCION",
+                                    "ruta": "9.7.1.B"
+                                },
+                                {
+                                    "opc": "C",
+                                    "text": "C. ACTUALIZAR DIVISION FACTURACION",
+                                    "ruta": "9.7.1.C"
+                                },
+                                {
+                                    "opc": "D",
+                                    "text": "D. ACTUALIZAR COLEGIOS",
+                                    "ruta": "9.7.1.D"
+                                },
+                                {
+                                    "opc": "E",
+                                    "text": "E. EQUIVALENCIA OPERAD. DATALAB",
+                                    "ruta": "9.7.1.E"
+                                },
+                                {
+                                    "opc": "G",
+                                    "text": "G. ACTUALIZA PAQUETE INTEGRAL",
+                                    "ruta": "9.7.1.G"
+                                },
+                                {
+                                    "opc": "H",
+                                    "text": "H. ACTUALIZA NOMBRE COMUNIDAD",
+                                    "ruta": "9.7.1.H"
+                                },
+                                {
+                                    "opc": "I",
+                                    "text": "I. ACTUALIZA NOMBRE RESGUARDADOS",
+                                    "ruta": "9.7.1.I"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. MENU LISTADO DE TARIFAS",
+                            "ruta": "9.7.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. Menu convenios",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ACTUALIZAR CONVENIOS",
+                                    "ruta": "9.7.3.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. LISTADO DE CONVENIOS",
+                                    "ruta": "9.7.3.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. CONVENIO DE MEDICAMENTOS",
+                                    "ruta": "9.7.3.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. DUPLICAR CONVENIO MEDICAMENTO",
+                                    "ruta": "9.7.3.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. LISTADO DE CONVENIOS MEDICA",
+                                    "ruta": "9.7.3.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. RESTRINGIR CUPS POR ENTIDAD",
+                                    "ruta": "9.7.3.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. SUBIR RESTRICC. CUPS ENTIDAD",
+                                    "ruta": "9.7.3.7"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. MENU FACTURACION SALUD",
+                            "ruta": "9.7.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. MENU CARTERA",
+                            "ruta": "9.7.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. MENU FACTURACION SALUD",
+                            "ruta": "9.7.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. Menu pacientes y estadisticas",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ACTUALIZAR TABLAS",
+                                    "ruta": "9.7.7.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. ACTUALIZAR RIPS",
+                                    "ruta": "9.7.7.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. VALIDACION DE RIPS",
+                                    "ruta": "9.7.7.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. GENERAR ARCHIVOS PLANOS",
+                                    "ruta": "9.7.7.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. LISTADOS DE ESTADISTICA",
+                                    "ruta": "9.7.7.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. MANTENIMIENTO PACIENTES",
+                                    "ruta": "9.7.7.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. SELECCIONAR BUSQUEDA HISTO",
+                                    "ruta": "9.7.7.7"
+                                },
+                                {
+                                    "opc": "8",
+                                    "text": "8. CONSULTA DE RESULTADOS LAB",
+                                    "ruta": "9.7.7.8"
+                                },
+                                {
+                                    "opc": "9",
+                                    "text": "9. CONSULTA DE RESULTADOS RX",
+                                    "ruta": "9.7.7.9"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. MENU DE UTILITARIOS",
+                            "ruta": "9.7.8"
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. CONTROL DE CONTRATACION",
+                            "ruta": "9.7.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. MENU MANEJO DE GLOSAS",
+                            "ruta": "9.7.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. MENU P.Q.R",
+                            "ruta": "9.7.B"
+                        },
+                        {
+                            "opc": "C",
+                            "text": "C. MENU CITAS (AGENDAMIENTO)",
+                            "ruta": "9.7.C"
+                        },
+                        {
+                            "opc": "D",
+                            "text": "D. MENU CARTERA RED EXTERNA",
+                            "ruta": "9.7.D"
+                        },
+                        {
+                            "opc": "E",
+                            "text": "E. MENU PAMEC",
+                            "ruta": "9.7.E"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "8",
+                    "text": "8. MENU DE CONTRACCIONES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. Ordenes de compra",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ELABORAR ORDEN DE COMPRA",
+                                    "ruta": "9.8.1.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. REIMPRIMIR ORDEN DE COMPRA",
+                                    "ruta": "9.8.1.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. CORRECION ORDEN DE COMPRA",
+                                    "ruta": "9.8.1.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. ANULAR ORDEN DE COMPRA",
+                                    "ruta": "9.8.1.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. Informes ordenes de compra",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. RELACION DE ORDENES DE COMPRA",
+                                            "ruta": "9.8.1.5.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. DETALLADO DE ORDEN DE COMPRA",
+                                            "ruta": "9.8.1.5.2"
+                                        },
+                                        {
+                                            "opc": "3",
+                                            "text": "3. PLANO DE ORDENES DE COMPRA",
+                                            "ruta": "9.8.1.5.3"
+                                        },
+                                        {
+                                            "opc": "4",
+                                            "text": "4. TRAZABILIDAD ORDENES DE COMPRA",
+                                            "ruta": "9.8.1.5.4"
+                                        },
+                                        {
+                                            "opc": "5",
+                                            "text": "5. SALDOS ORDENES DE COMPRA",
+                                            "ruta": "9.8.1.5.5"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. REGRESAR",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. INFORME DE COMPRAS X RUBRO",
+                                    "ruta": "9.8.1.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. ACTUALIZAR FECHA DE VENCIMIENTO",
+                                    "ruta": "9.8.1.7"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. Contratacion publica",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. DILIGENCIAR CONTRATACION",
+                                    "ruta": "9.8.2.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. RE-IMPRIMIR CONTRATACION",
+                                    "ruta": "9.8.2.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. INFORME CONTRALORIA OPTAL",
+                                    "ruta": "9.8.2.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. RELACION DE VENCIMIENTO",
+                                    "ruta": "9.8.2.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. RELACION DE CONTRATACION",
+                                    "ruta": "9.8.2.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. INFORME DE CONTRATOS POR NIT",
+                                    "ruta": "9.8.2.6"
+                                },
+                                {
+                                    "opc": "7",
+                                    "text": "7. INFORME VENCIMIENTO POR MES",
+                                    "ruta": "9.8.2.7"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. CAPTURA ARCHIVO COPIDROGAS",
+                            "ruta": "9.8.3"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "9",
+                    "text": "9. COTIZACIONES",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ELABORAR COTIZACIONES",
+                            "ruta": "9.9.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. RE-IMPRIMIR COTIZACIONES",
+                            "ruta": "9.9.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. CORRECION CORIZACIONES",
+                            "ruta": "9.9.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. IMPRESION UNIFICADA",
+                            "ruta": "9.9.4"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "A",
+                    "text": "A. PEDIDOS DE VENTA",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ELABORAR PEDIDOS DE VENTA",
+                            "ruta": "9.A.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. RE-IMPRIMIR PEDIDOS DE VENTA",
+                            "ruta": "9.A.2"
+                        },
+                        {
+                            "opc": "3",
+                            "text": "3. CORRECION PREDIDOS DE VENTA",
+                            "ruta": "9.A.3"
+                        },
+                        {
+                            "opc": "4",
+                            "text": "4. LISTADO PEDIDOS DE VENTA",
+                            "ruta": "9.A.4"
+                        },
+                        {
+                            "opc": "5",
+                            "text": "5. APROBAR PEDIDOS DE VENTA",
+                            "ruta": "9.A.5"
+                        },
+                        {
+                            "opc": "6",
+                            "text": "6. TRANSFERIR PEDIDOS A FACT.",
+                            "ruta": "9.A.6"
+                        },
+                        {
+                            "opc": "7",
+                            "text": "7. PROGRAMACIÓN DE PRODUCTOS",
+                            "ruta": "9.A.7"
+                        },
+                        {
+                            "opc": "8",
+                            "text": "8. Control de pedidos",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. Proceso de alistamiento",
+                                    "Sub": [
+                                        {
+                                            "opc": "1",
+                                            "text": "1. GENERAR ALISTAMIENTO",
+                                            "route": "",
+                                            "ruta": "9.A.8.1.1"
+                                        },
+                                        {
+                                            "opc": "2",
+                                            "text": "2. IMPRESION DE ALISTAMIENTO",
+                                            "route": "",
+                                            "ruta": "9.A.8.1.2"
+                                        },
+                                        {
+                                            "opc": "3",
+                                            "text": "3. ANULACION DE ALISTAMIENTO",
+                                            "ruta": "9.A.8.1.3"
+                                        },
+                                        {
+                                            "opc": "4",
+                                            "text": "4. DEVOLUCION DE PEDIDO",
+                                            "ruta": "9.A.8.1.4"
+                                        },
+                                        {
+                                            "opc": "5",
+                                            "text": "5. RECONSOLIDAR ALISTAMIENTO",
+                                            "ruta": "9.A.8.1.5"
+                                        },
+                                        {
+                                            "opc": "F",
+                                            "text": "F. VOLVER AL MENU PRINCIPAL",
+                                            "icon": "mdi-arrow-left-circle"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. PROCESO DE CARGUE",
+                                    "ruta": "9.A.8.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. DESPACHO AL CLIENTE",
+                                    "ruta": "9.A.8.3"
+                                },
+                                {
+                                    "opc": "4",
+                                    "text": "4. ACUSE DE RECIBO",
+                                    "ruta": "9.A.8.4"
+                                },
+                                {
+                                    "opc": "5",
+                                    "text": "5. INFORMES",
+                                    "ruta": "9.A.8.5"
+                                },
+                                {
+                                    "opc": "6",
+                                    "text": "6. ESTADO DE PEDIDOS",
+                                    "ruta": "9.A.8.6"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "9",
+                            "text": "9. LISTADO DE ENTREGA DE PEDIDOS",
+                            "ruta": "9.A.9"
+                        },
+                        {
+                            "opc": "A",
+                            "text": "A. PENDIENTES POR APROBAR",
+                            "ruta": "9.A.A"
+                        },
+                        {
+                            "opc": "B",
+                            "text": "B. SINCRONIZAR PEDIDOS DEL MOVIL",
+                            "ruta": "9.A.B"
+                        },
+                        {
+                            "opc": "C",
+                            "text": "C. LISTADO DE PEDIDOS DE MOVILES",
+                            "ruta": "9.A.C"
+                        },
+                        {
+                            "opc": "D",
+                            "text": "D. Cargue de pedidos",
+                            "Sub": [
+                                {
+                                    "opc": "1",
+                                    "text": "1. ELABORAR CARGUE DE PEDIDOS",
+                                    "ruta": "9.A.D.1"
+                                },
+                                {
+                                    "opc": "2",
+                                    "text": "2. APROBAR Y VISUALIZAR CARGUE",
+                                    "ruta": "9.A.D.2"
+                                },
+                                {
+                                    "opc": "3",
+                                    "text": "3. LISTADO ARTICULOS X CARGUE",
+                                    "ruta": "9.A.D.3"
+                                },
+                                {
+                                    "opc": "F",
+                                    "text": "F. REGRESAR",
+                                    "icon": "mdi-arrow-left-circle"
+                                }
+                            ]
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "B",
+                    "text": "B. PRESUPUESTO COMERCIAL",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ACT. PRESUPUESTO",
+                            "ruta": "9.B.1"
+                        },
+                        {
+                            "opc": "2",
+                            "text": "2. IND GESTION DE VENTAS",
+                            "ruta": "9.B.2"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle"
+                        }
+                    ]
+                },
+                {
+                    "opc": "C",
+                    "text": "C. AUDITORIA",
+                    "Sub": [
+                        {
+                            "opc": "1",
+                            "text": "1. ARCHIVO ARTICULOS",
+                            "ruta": "9.C.1"
+                        },
+                        {
+                            "opc": "F",
+                            "text": "F. REGRESAR",
+                            "icon": "mdi-arrow-left-circle",
+                            "ruta": "9.C.F"
+                        }
+                    ]
+                },
+                {
+                    "opc": "F",
+                    "text": "F. REGRESAR",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "A",
+            "text": "A. MENU SUCURSALES",
+            "Sub": [
+                {
+                    "opc": "1",
+                    "text": "1. RECIBO DE CAJA",
+                    "route": "",
+                    "ruta": "A.1"
+                },
+                {
+                    "opc": "2",
+                    "text": "2. COMPROBANTES DE EGRESO",
+                    "route": "",
+                    "ruta": "A.2"
+                },
+                {
+                    "opc": "3",
+                    "text": "3. NOTAS DE CONTABILIDAD",
+                    "ruta": "A.3"
+                },
+                {
+                    "opc": "4",
+                    "text": "4. NOTAS BANCARIAS",
+                    "ruta": "A.4"
+                },
+                {
+                    "opc": "5",
+                    "text": "5. FACTURAS DE VENTAS",
+                    "ruta": "A.5"
+                },
+                {
+                    "opc": "6",
+                    "text": "6. DEVOLUCIONES EN VENTAS",
+                    "ruta": "A.6"
+                },
+                {
+                    "opc": "7",
+                    "text": "7. NUEVAS DEVOLUCIONES EN VENTAS",
+                    "ruta": "A.7"
+                },
+                {
+                    "opc": "8",
+                    "text": "8. PEDIDOS DE VENTAS",
+                    "ruta": "A.8"
+                },
+                {
+                    "opc": "F",
+                    "text": "F. VOLVER AL MENU PRINCIPAL",
+                    "icon": "mdi-arrow-left-circle"
+                }
+            ]
+        },
+        {
+            "opc": "S",
+            "text": "S. SALIR DE PROSOFT",
+            "icon": "mdi-exit-to-app",
+            "color": "salir"
+        }
+    ]
+}
