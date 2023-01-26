@@ -18,7 +18,8 @@
               @next-action="nextStep(form_corres, $event, datoEntidad)"
               :field="form_corres.entidad"
               @abrirF8="openCON802"
-              :reg="reg_corres"
+              :reg="reg_corres.entidad"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
@@ -31,8 +32,9 @@
             <INPUT
               @next-action="nextStep(form_corres, $event, datoDependencia)"
               :field="form_corres.depenTipoCorres"
-              :reg="reg_corres"
+              :reg="reg_corres.depenTipoCorres"
               @abrirF8="openCOR866"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
@@ -46,7 +48,8 @@
               @next-action="nextStep(form_corres, $event, datoTipoCorres)"
               :field="form_corres.tipoCorres"
               @abrirF8="openCOR867"
-              :reg="reg_corres"
+              :reg="reg_corres.tipoCorres"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
@@ -176,7 +179,6 @@ export default {
     COR867,
   },
   data() {
-    console.log('hola');
     return {
       titulo: "3.1 Informe de correspondencia",
       modal_impresion: true,
@@ -199,6 +201,9 @@ export default {
     this.initialData();
   },
   methods: {
+    onChange(data) {
+      this.reg_corres[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),
