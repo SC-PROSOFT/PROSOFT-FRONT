@@ -1,20 +1,22 @@
 <template>
   <v-autocomplete
     :item-value="field.item_value"
-    @focus="count()"
+    :background-color="color_input"
     :item-text="field.item_text"
     @keydown.enter="pressEnter"
     :disabled="field.disabled"
     :messages="field.message"
     @keydown.esc="pressEsc"
-    v-model="reg[field.id]"
     @keydown.40="rowPress"
     @keydown.38="rowPress"
     @change="pressClick"
     :items="field.items"
     :label="field.label"
+    @keyup="onChange()"
     @blur="sinFoco()"
+    @focus="count()"
     :id="field.id"
+    v-model="reg_"
     ref="combo"
     outlined
     dense
@@ -26,7 +28,7 @@ import { mapMutations } from "vuex";
 export default {
   name: "Combobox",
   props: {
-    reg: Object,
+    reg: [Number, String],
     field: {
       id: String,
       items: Array,
@@ -42,9 +44,14 @@ export default {
       cont: 0,
       flag_foco: false,
       elemento_foco: "",
+      color_input: "",
+      reg_: "",
     };
   },
   watch: {
+    "$props.reg"(val) {
+      this.reg_ = val;
+    },
     "field.disabled"() {
       if (this.field.disabled === false) {
         this.setCaja(this.field);
@@ -54,20 +61,15 @@ export default {
       }
     },
     flag_foco() {
-      this.elemento_foco = document.getElementById(this.field.id);
-      if (this.flag_foco && !this.field.disabled) {
-        this.elemento_foco.style.background = "#FFD700";
-        this.elemento_foco.style.borderRadius = "0.2rem";
-      } else {
-        this.elemento_foco.style.background = "";
-      }
+      if (this.flag_foco && !this.field.disabled) this.color_input = "input_foco";
+      else this.color_input = "input_blur";
     },
   },
 
   methods: {
     ...mapMutations({ setCaja: "formularios/setCaja" }),
     count() {
-      if (this.reg[this.field.id] == "") this.reg[this.field.id] = 1;
+      if (this.reg_ == "") this.reg_ = 1;
       this.focusCaja();
       this.cont = 0;
     },
@@ -75,15 +77,13 @@ export default {
       this.cont = 1;
     },
     focusCaja() {
-      this.elemento_foco = document.getElementById(this.field.id);
-      this.elemento_foco.style.background = "";
       this.flag_foco = false;
     },
     sinFoco() {
-      this.elemento_foco = document.getElementById(this.field.id);
-      this.elemento_foco.style.background = "#FFD700";
-      this.elemento_foco.style.borderRadius = "0.2rem";
       this.flag_foco = true;
+    },
+    onChange() {
+      this.$emit("onChange", { key: this.field.id, value: this.reg_ });
     },
 
     async pressEsc() {
@@ -93,7 +93,7 @@ export default {
     },
     async pressEnter() {
       this.cont++;
-      if (this.reg[this.field.id] && this.cont >= 3) {
+      if (this.reg_ && this.cont >= 3) {
         this.$emit("next-action", { key: "enter", field: this.field.id });
         this.$refs.combo.blur();
         this.cont = 0;

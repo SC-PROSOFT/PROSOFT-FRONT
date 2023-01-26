@@ -2,6 +2,7 @@
   <div>
     <v-text-field
       @focus="setCaja(field), focusCaja()"
+      :background-color="color_input"
       :maxlength="field.max_length"
       @keypress.enter="pressEnter"
       :counter="field.max_length"
@@ -9,12 +10,13 @@
       placeholder="dd-mm-aaaa"
       @keydown.esc="pressEsc"
       @keydown.f8="abrirF8"
-      v-model="reg[field.id]"
       :label="field.label"
       format="dd-mm-yyyy"
+      @keyup="onChange()"
       :type="field.tipo"
       @blur="sinFoco()"
       @input="input()"
+      v-model="reg_"
       :id="field.id"
       ref="input"
       outlined
@@ -50,7 +52,7 @@ import moment from "moment";
 export default {
   mixins: [alert],
   props: {
-    reg: Object,
+    reg: [Number, String],
     field: {
       label: String,
       value: String,
@@ -73,6 +75,8 @@ export default {
       primerslap: false,
       segundoslap: false,
       flag_foco: false,
+      color_input: "",
+      reg_: "",
     };
   },
   watch: {
@@ -84,20 +88,18 @@ export default {
         });
       }
     },
+    "$props.reg"(val) {
+      this.reg_ = val;
+    },
     flag_foco() {
-      let elementos = document.getElementById(this.field.id);
-      if (this.flag_foco && !this.field.disabled) {
-        elementos.style.background = "#FFD700";
-        elementos.style.borderRadius = "0.2rem";
-      } else {
-        elementos.style.background = "";
-      }
+      if (this.flag_foco && !this.field.disabled) this.color_input = "input_foco";
+      else this.color_input = "input_blur";
     },
   },
   computed: {
     form_fecha() {
-      this.reg[this.field.id] = moment(this.reg[this.field.id]).format("YYYY-MM-DD");
-      return this.reg[this.field.id];
+      this.reg_ = moment(this.reg_).format("YYYY-MM-DD");
+      return this.reg_;
     },
   },
   methods: {
@@ -116,15 +118,17 @@ export default {
       }, 100);
     },
     focusCaja() {
-      if (!this.reg[this.field.id]) this.reg[this.field.id] = moment().format("YYYY-MM-DD");
+      if (!this.reg_) this.reg_ = moment().format("YYYY-MM-DD");
       this.flag_foco = false;
     },
     sinFoco() {
       this.flag_foco = true;
     },
-
+    onChange() {
+      this.$emit("onChange", { key: this.field.id, value: this.reg_ });
+    },
     async pressEnter() {
-      if (isNaN(Date.parse(this.reg[this.field.id]))) {
+      if (isNaN(Date.parse(this.reg_))) {
         this.CON851("PNZ", "info", `Fecha invalida`);
       } else {
         this.estado = !this.estado;
@@ -138,7 +142,6 @@ export default {
     pressEsc() {
       this.$emit("next-action", { key: "esc", field: this.field.id });
     },
-    input() {},
   },
 };
 </script>

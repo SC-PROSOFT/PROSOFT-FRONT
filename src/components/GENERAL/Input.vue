@@ -4,18 +4,20 @@
       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
       :error="field.error == true ? true : false"
       @focus="setCaja(field), focusCaja()"
+      :background-color="color_input"
       :maxlength="field.max_length"
       @keydown.enter="pressEnter"
       :counter="field.max_length"
       :disabled="field.disabled"
-      v-model="reg[field.id]"
       @keydown.esc="pressEsc"
       @keydown.f2="pressF2"
       @keydown.f8="abrirF8"
       :label="field.label"
       :type="field.tipo"
+      @keyup="onChange()"
       @blur="sinFoco()"
       :id="field.id"
+      v-model="reg_"
       @input="input"
       ref="input"
       outlined
@@ -43,7 +45,7 @@ import { mapMutations } from "vuex";
 export default {
   mixins: [alert],
   props: {
-    reg: Object,
+    reg: [Number, String],
     field: {
       label: String,
       value: String,
@@ -70,7 +72,9 @@ export default {
   },
   data() {
     return {
+      reg_: null,
       flag_foco: false,
+      color_input: "",
     };
   },
   watch: {
@@ -82,14 +86,12 @@ export default {
         });
       }
     },
+    "$props.reg"(val) {
+      this.reg_ = val;
+    },
     flag_foco() {
-      let elementos = document.getElementById(this.field.id);
-      if (this.flag_foco && !this.field.disabled) {
-        elementos.style.background = "#FFD700";
-        elementos.style.borderRadius = "0.2rem";
-      } else {
-        elementos.style.background = "";
-      }
+      if (this.flag_foco && !this.field.disabled) this.color_input = "input_foco";
+      else this.color_input = "input_blur";
     },
   },
 
@@ -108,13 +110,16 @@ export default {
         document.getElementById(this.field.id).focus();
       }, 100);
     },
+    onChange() {
+      this.$emit("onChange", { key: this.field.id, value: this.reg_ });
+    },
     confirmar() {},
     async pressEnter() {
-      if (this.field.required && typeof this.reg[this.field.id] == "string" && this.reg[this.field.id]?.trim() == "") {
+      if (this.field.required && typeof this.reg_ == "string" && this.reg_?.trim() == "") {
         this.CON851("PNZ", "info", `${this.field.label} es requerid@`);
-      } else if (this.field.required && typeof this.reg[this.field.id] == "number" && [NaN, ""].includes(this.reg[this.field.id])) {
+      } else if (this.field.required && typeof this.reg_ == "number" && [NaN, ""].includes(this.reg_)) {
         this.CON851("PNZ", "info", `${this.field.label} es requerid@`);
-      } else if (!/.+@.+\..+/.test(this.reg[this.field.id]) && this.field.tipo == "email") {
+      } else if (!/.+@.+\..+/.test(this.reg_) && this.field.tipo == "email") {
         this.CON851("PNZ", "info", `Correo ${this.field.label} invalido`);
       } else {
         this.$emit("next-action", { key: "enter", field: this.field.id });
@@ -148,28 +153,27 @@ export default {
       let val = event.target.value;
       let val_edit = val.replace(/,/g, "");
       this.$set(this.reg, obj_name, val_edit);
-      this.reg[this.field.id] = formatNumberMask_(this.reg[this.field.id]);
+      this.reg_ = formatNumberMask_(this.reg_);
     },
     input() {
       if (this.field.tipo == "number") {
-        if (!isNaN(this.reg[this.field.id]) || this.reg[this.field.id] != NaN) {
-          this.reg[this.field.id] = parseInt(this.reg[this.field.id]);
+        if (!isNaN(this.reg_) || this.reg_ != NaN) {
+          this.reg_ = parseInt(this.reg_);
         }
       }
-      if (["string", undefined, "email"].includes(this.field.tipo)) this.reg[this.field.id] = this.quitarTildes(this.reg[this.field.id]);
+      if (["string", undefined, "email"].includes(this.field.tipo)) this.reg_ = this.quitarTildes(this.reg_);
       if (this.mask) {
-        this.reg[this.field.id] = this.mask({
-          val: this.reg[this.field.id],
+        this.reg_ = this.mask({
+          val: this.reg_,
           max: this.field.max_digits,
           decimal: this.field.decimal,
         });
       }
       this.field.tipo == "moneda" && this.input_mask(this.field.id);
       setTimeout(() => {
-        if (this.reg[this.field.id].toString().length == this.field.max_length && this.field.tipo != "time") this.pressEnter();
+        if (this.reg_.toString().length == this.field.max_length && this.field.tipo != "time") this.pressEnter();
       }, 100);
     },
   },
 };
 </script>
-<style></style>
