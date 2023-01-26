@@ -35,11 +35,8 @@ export default {
   data() {
     return {
       focus_table: false,
-
-      busqueda: {
-        busqueda: "",
-      },
-
+      busqueda: "",
+      
       form_bus: {
         busqueda: {
           id: "busqueda",
@@ -138,7 +135,7 @@ export default {
     },
 
     async nextData(data) {
-      let filtro = this.busqueda.busqueda;
+      let filtro = this.busqueda;
       let f8 = this.f8;
       let cantidad = 9;
       let desde = 0;

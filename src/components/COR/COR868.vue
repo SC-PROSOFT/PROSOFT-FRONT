@@ -39,11 +39,8 @@ export default {
   data() {
     return {
       focus_table: false,
-
-      busqueda: {
-        busqueda: "",
-        filtro: "",
-      },
+      busqueda: "",
+      filtro: "",
       form_bus: {
         filtro: {
           id: "filtro",
@@ -168,7 +165,7 @@ export default {
       this.f8.body = this.getLista("lista").slice(0, 8);
     },
     async nextData(data) {
-      let filtro = this.busqueda.busqueda;
+      let filtro = this.busqueda;
       let f8 = this.f8;
       let cantidad = 9;
       let desde = 0;

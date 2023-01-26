@@ -22,13 +22,13 @@
               @abrirF8="openCON802"
               :field="form_distribucion_externa.entidad"
               :reg="reg_distribucion_externa.entidad"
-              @onChange="onChange"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
             <data-card
               :field="form_distribucion_externa.entidad_dataCard"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.entidad_dataCard"
             ></data-card>
           </v-col>
 
@@ -41,13 +41,13 @@
               @abrirF8="openCOR866"
               :field="form_distribucion_externa.depen_corres"
               :reg="reg_distribucion_externa.depen_corres"
-              @onChange="onChange"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
             <data-card
               :field="form_distribucion_externa.depen_corres_dataCard"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.depen_corres_dataCard"
             ></data-card>
           </v-col>
 
@@ -60,13 +60,13 @@
               @abrirF8="openCOR867"
               :field="form_distribucion_externa.tipo_corres"
               :reg="reg_distribucion_externa.tipo_corres"
-              @onChange="onChange"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
             <data-card
               :field="form_distribucion_externa.tipo_corres_dataCard"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.tipo_corres_dataCard"
             ></data-card>
           </v-col>
           <v-col cols="12" sm="6" md="6"></v-col>
@@ -78,7 +78,7 @@
                 nextStep(form_distribucion_externa, $event, keyDownFechaInit)
               "
               :field="form_distribucion_externa.fecha_init"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.fecha_init"
             ></FECHA>
           </v-col>
 
@@ -89,7 +89,7 @@
                 nextStep(form_distribucion_externa, $event, keyDownFechaFin)
               "
               :field="form_distribucion_externa.fecha_fin"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.fecha_fin"
             ></FECHA>
           </v-col>
 
@@ -100,7 +100,7 @@
                 nextStep(form_distribucion_externa, $event, keyDownJornada)
               "
               :field="form_distribucion_externa.jornada"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.jornada"
             ></AUTOCOMPLETE>
           </v-col>
 
@@ -111,7 +111,7 @@
                 nextStep(form_distribucion_externa, $event, keyDownProcedencia)
               "
               :field="form_distribucion_externa.procedencia"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.procedencia"
             ></AUTOCOMPLETE>
           </v-col>
 
@@ -122,7 +122,7 @@
                 nextStep(form_distribucion_externa, $event, keyDownManejo)
               "
               :field="form_distribucion_externa.manejo"
-              :reg="reg_distribucion_externa"
+              :reg="reg_distribucion_externa.manejo"
             ></AUTOCOMPLETE>
           </v-col>
         </v-row>
