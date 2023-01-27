@@ -16,21 +16,26 @@
             @next-action="nextStep(form_tipco, $event, keyDownCod)"
             @abrirF8="openCOR867"
             :field="form_tipco.codigo"
-            :reg="reg_tipco"
+            :reg="reg_tipco.codigo"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
           <INPUT
             @next-action="nextStep(form_tipco, $event, keyDownDescrip)"
             :field="form_tipco.descripcion"
-            :reg="reg_tipco"
+            :reg="reg_tipco.descripcion"
+            @onChange="onChange"
+
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_tipco, $event, keyDownDias)"
             :field="form_tipco.dias"
-            :reg="reg_tipco"
+            :reg="reg_tipco.dias"
+            @onChange="onChange"
+
           />
         </v-col>
       </v-row>
@@ -91,6 +96,10 @@ export default {
   },
 
   methods: {
+    onChange(data) {
+      this.reg_tipco[data.key] = data.value;
+    },
+
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),

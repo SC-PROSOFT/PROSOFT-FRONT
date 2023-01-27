@@ -12,13 +12,29 @@
       </v-row>
       <v-row justify="start" align="center" class="input-row">
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT @next-action="nextStep(form_holding, $event, keyDownCod)" @abrirF8="openCOR885" :field="form_holding.codigo" :reg="reg_holding" />
+          <INPUT
+            @next-action="nextStep(form_holding, $event, keyDownCod)"
+            @abrirF8="openCOR885"
+            :field="form_holding.codigo"
+            :reg="reg_holding.codigo"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
-          <INPUT @next-action="nextStep(form_holding, $event, keyDownDescrip)" :field="form_holding.descripcion" :reg="reg_holding" />
+          <INPUT
+            @next-action="nextStep(form_holding, $event, keyDownDescrip)"
+            :field="form_holding.descripcion"
+            :reg="reg_holding.descripcion"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_holding, $event, keyDownActivado)" :field="form_holding.activa" :reg="reg_holding" />
+          <INPUT
+            @next-action="nextStep(form_holding, $event, keyDownActivado)"
+            :field="form_holding.activa"
+            :reg="reg_holding.activa"
+            @onChange="onChange"
+          />
         </v-col>
       </v-row>
     </v-card>
@@ -30,8 +46,16 @@
       v-if="alerta.estado"
       :alerta="alerta"
     />
-    <CON850 @novedadSelec="novedadSelec($event)" :novedad_activa="novedad_activa" v-if="novedad_activa" />
-    <COR885 v-if="show_cor885" @callBack="callbackCOR885" @callbackEsc="callbackCOR885" />
+    <CON850
+      @novedadSelec="novedadSelec($event)"
+      :novedad_activa="novedad_activa"
+      v-if="novedad_activa"
+    />
+    <COR885
+      v-if="show_cor885"
+      @callBack="callbackCOR885"
+      @callbackEsc="callbackCOR885"
+    />
   </v-container>
 </template>
 <script>
@@ -39,7 +63,10 @@ import { mapMutations, mapActions, mapGetters } from "vuex";
 import { nextAction } from "../../mixins/nextAction";
 import { global } from "../../mixins/global";
 import COR885 from "../../components/COR/COR885.vue";
-import { getObjRegHolding_, getObjRegHolding } from "../../fuentes/correspondencia/regHolding";
+import {
+  getObjRegHolding_,
+  getObjRegHolding,
+} from "../../fuentes/correspondencia/regHolding";
 
 export default {
   name: "COR107",
@@ -67,6 +94,10 @@ export default {
   },
 
   methods: {
+    onChange(data) {
+      this.reg_holding[data.key] = data.value;
+    },
+
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),
@@ -126,7 +157,8 @@ export default {
         const codigo = this.reg_holding.codigo;
         const RES = await this._delHolding({ codigo });
         RES.N1 && this.CON851("N1", "success", `Datos borrados correctamente!`);
-        RES.msg && this.CON851("N1", "error", `No se encontraron coincidencias`);
+        RES.msg &&
+          this.CON851("N1", "error", `No se encontraron coincidencias`);
       } catch (error) {
         console.error(error);
       }
@@ -143,7 +175,9 @@ export default {
       this.novedad_activa = false;
       this.focusInput(this.form_holding, "codigo");
 
-      data.acceso == "F" ? this.$router.push("/Menu-Principal") : (this.novedad = Object.assign({}, data));
+      data.acceso == "F"
+        ? this.$router.push("/Menu-Principal")
+        : (this.novedad = Object.assign({}, data));
     },
 
     openCOR885() {
@@ -171,18 +205,29 @@ export default {
 
         switch (this.novedad.acceso) {
           case 7:
-            if (RES.codigo) this.CON851("N1", "info", `El código ${this.reg_holding.codigo} ya existe`);
+            if (RES.codigo)
+              this.CON851(
+                "N1",
+                "info",
+                `El código ${this.reg_holding.codigo} ya existe`
+              );
             else this.focusInput(this.form_holding, "descripcion");
             break;
 
           case 8:
-            if (RES.msg) this.CON851("N1", "info", `El código ${this.reg_holding.codigo} no existe`);
+            if (RES.msg)
+              this.CON851(
+                "N1",
+                "info",
+                `El código ${this.reg_holding.codigo} no existe`
+              );
             else this.focusInput(this.form_holding, "descripcion");
             break;
 
           case 9:
             if (RES.msg) this.CON851("N1", "info", `El código no existe`);
-            if (RES.codigo) this.CON851("PNZ", "info", `¿Eliminar documento?`, "P");
+            if (RES.codigo)
+              this.CON851("PNZ", "info", `¿Eliminar documento?`, "P");
             break;
 
           default:
@@ -198,13 +243,23 @@ export default {
     async validateDescrip() {
       switch (this.novedad.acceso) {
         case 7:
-          if (this.reg_holding.descripcion == "" || this.reg_holding.descripcion == undefined) this.CON851("02", "info");
-          else if (this.reg_holding.descripcion.length > 0) this.focusInput(this.form_holding, "activa");
+          if (
+            this.reg_holding.descripcion == "" ||
+            this.reg_holding.descripcion == undefined
+          )
+            this.CON851("02", "info");
+          else if (this.reg_holding.descripcion.length > 0)
+            this.focusInput(this.form_holding, "activa");
           break;
 
         case 8:
-          if (this.reg_holding.descripcion == "" || this.reg_holding.descripcion == undefined) this.CON851("02", "info");
-          else if (this.reg_holding.descripcion.length > 0) this.focusInput(this.form_holding, "activa");
+          if (
+            this.reg_holding.descripcion == "" ||
+            this.reg_holding.descripcion == undefined
+          )
+            this.CON851("02", "info");
+          else if (this.reg_holding.descripcion.length > 0)
+            this.focusInput(this.form_holding, "activa");
           break;
 
         default:
@@ -269,7 +324,10 @@ export default {
           break;
 
         case "enter":
-          if (this.reg_holding.activa == "" || this.reg_holding.activa == undefined) {
+          if (
+            this.reg_holding.activa == "" ||
+            this.reg_holding.activa == undefined
+          ) {
             this.CON851("02", "info");
           } else if (this.reg_holding.activa.toString().length > 0) {
             this.validateActivado();

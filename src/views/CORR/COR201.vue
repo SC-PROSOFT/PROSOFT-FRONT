@@ -12,127 +12,287 @@
       </v-row>
       <v-row justify="start" align="center" class="input-row">
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoAnoLlave)" :field="form_corres.anoLlave" :reg="reg.llave" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoAnoLlave)"
+            :field="form_corres.anoLlave"
+            :reg="reg.llave.anoLlave"
+            @onChange="
+              (data) => {
+                reg.llave[data.key] = data.value;
+              }
+            "
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoAnoCont)" @abrirF8="openCOR868" :field="form_corres.cont" :reg="reg.llave" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoAnoCont)"
+            @abrirF8="openCOR868"
+            :field="form_corres.cont"
+            :reg="reg.llave.cont"
+            @onChange="
+              (data) => {
+                reg.llave[data.key] = data.value;
+              }
+            "
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <AUTOCOMPLETE @next-action="nextStep(form_corres, $event, datoManejo)" :field="form_corres.manejo" :reg="reg" />
+          <AUTOCOMPLETE
+            @next-action="nextStep(form_corres, $event, datoManejo)"
+            :field="form_corres.manejo"
+            :reg="reg.manejo"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <AUTOCOMPLETE @next-action="nextStep(form_corres, $event, datoProcedencia)" :field="form_corres.proceden" :reg="reg" />
+          <AUTOCOMPLETE
+            @next-action="nextStep(form_corres, $event, datoProcedencia)"
+            :field="form_corres.proceden"
+            :reg="reg.proceden"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <FECHA @next-action="nextStep(form_corres, $event, datoFecha)" :field="form_corres.fecha" :reg="reg" />
+          <FECHA
+            @next-action="nextStep(form_corres, $event, datoFecha)"
+            :field="form_corres.fecha"
+            :reg="reg.fecha"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <data-card @next-action="nextStep(form_corres, $event)" :field="form_corres.hora" :reg="reg" />
+          <data-card
+            @next-action="nextStep(form_corres, $event)"
+            :field="form_corres.hora"
+            :reg="reg.hora"
+            @onChange="onChange"
+          />
         </v-col>
       </v-row>
-      <v-row justify="start" align="center" class="input-row" v-if="flag_radicados">
+      <v-row
+        justify="start"
+        align="center"
+        class="input-row"
+        v-if="flag_radicados"
+      >
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoContAtnt)" @abrirF8="openCOR868" :field="form_corres.contAtnt" :reg="reg_ant" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoContAtnt)"
+            @abrirF8="openCOR868"
+            :field="form_corres.contAtnt"
+            :reg="reg_ant.contAtnt"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.contAtnt1" :reg="reg_ant" />
+          <data-card :field="form_corres.contAtnt1" :reg="reg_ant.contAtnt1" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.contAtnt2" :reg="reg_ant" />
+          <data-card :field="form_corres.contAtnt2" :reg="reg_ant.contAtnt2" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.contAtnt3" :reg="reg_ant" />
+          <data-card :field="form_corres.contAtnt3" :reg="reg_ant.contAtnt3" />
         </v-col>
       </v-row>
       <v-row justify="start" align="center" class="input-row">
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoRemitente)" @abrirF8="openCON802" :field="form_corres.nit" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoRemitente)"
+            @abrirF8="openCON802"
+            :field="form_corres.nit"
+            :reg="reg.nit"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
-          <data-card :field="form_corres.descripTer" :reg="reg" />
+          <data-card :field="form_corres.descripTer" :reg="reg.descripTer" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoDependencia)" @abrirF8="openCOR879" :field="form_corres.deptoremi" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoDependencia)"
+            @abrirF8="openCOR879"
+            :field="form_corres.deptoremi"
+            :reg="reg.deptoremi"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.descripDeptoremi" :reg="reg" />
+          <data-card
+            :field="form_corres.descripDeptoremi"
+            :reg="reg.descripDeptoremi"
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoTipoCorres)" @abrirF8="openCOR867" :field="form_corres.tipoCorres" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoTipoCorres)"
+            @abrirF8="openCOR867"
+            :field="form_corres.tipoCorres"
+            :reg="reg.tipoCorres"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.descripTipco" :reg="reg" />
+          <data-card
+            :field="form_corres.descripTipco"
+            :reg="reg.descripTipco"
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <data-card :field="form_corres.diasTipco" :reg="reg" />
+          <data-card :field="form_corres.diasTipco" :reg="reg.diasTipco" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <data-card :field="form_corres.fechaCau" :reg="reg" />
+          <data-card :field="form_corres.fechaCau" :reg="reg.fechaCau" />
         </v-col>
       </v-row>
       <v-row justify="start" align="center" class="input-row">
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoAux)" @abrirF8="openCOR871" :field="form_corres.codAux" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoAux)"
+            @abrirF8="openCOR871"
+            :field="form_corres.codAux"
+            :reg="reg.codAux"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.descripAux" :reg="reg" />
+          <data-card :field="form_corres.descripAux" :reg="reg.descripAux" />
         </v-col>
         <v-col cols="12" sm="6" md="6" xs="6" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoDescrip)" :field="form_corres.descrip" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoDescrip)"
+            :field="form_corres.descrip"
+            :reg="reg.descrip"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoSer)" @abrirF8="openCOR865" :field="form_corres.ser" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoSer)"
+            @abrirF8="openCOR865"
+            :field="form_corres.ser"
+            :reg="reg.ser"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.descripSer" :reg="reg" />
+          <data-card :field="form_corres.descripSer" :reg="reg.descripSer" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoDep)" @abrirF8="openCOR866" :field="form_corres.dep" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoDep)"
+            @abrirF8="openCOR866"
+            :field="form_corres.dep"
+            :reg="reg.dep"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.responsableDep" :reg="reg" />
+          <data-card
+            :field="form_corres.responsableDep"
+            :reg="reg.responsableDep"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoFol)" :field="form_corres.fol" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoFol)"
+            :field="form_corres.fol"
+            :reg="reg.fol"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoFolD)" :field="form_corres.fold" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoFolD)"
+            :field="form_corres.fold"
+            :reg="reg.fold"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <AUTOCOMPLETE @next-action="nextStep(form_corres, $event, datoTipoAnexo)" :field="form_corres.tipoAnexo" :reg="reg" />
+          <AUTOCOMPLETE
+            @next-action="nextStep(form_corres, $event, datoTipoAnexo)"
+            :field="form_corres.tipoAnexo"
+            :reg="reg.tipoAnexo"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoAnex)" :field="form_corres.anex" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoAnex)"
+            :field="form_corres.anex"
+            :reg="reg.anex"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoFactura)" :field="form_corres.nroFact" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoFactura)"
+            :field="form_corres.nroFact"
+            :reg="reg.nroFact"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoMonto)" :field="form_corres.monto" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoMonto)"
+            :field="form_corres.monto"
+            :reg="reg.monto"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <FECHA @next-action="nextStep(form_corres, $event, datoFechaFact)" :field="form_corres.fechaFact" :reg="reg" />
+          <FECHA
+            @next-action="nextStep(form_corres, $event, datoFechaFact)"
+            :field="form_corres.fechaFact"
+            :reg="reg.fechaFact"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <FECHA @next-action="nextStep(form_corres, $event, datoFechaEntre)" :field="form_corres.fechaEntre" :reg="reg" />
+          <FECHA
+            @next-action="nextStep(form_corres, $event, datoFechaEntre)"
+            :field="form_corres.fechaEntre"
+            :reg="reg.fechaEntre"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
-          <AUTOCOMPLETE @next-action="nextStep(form_corres, $event, datoMedioIng)" :field="form_corres.medioIng" :reg="reg" />
+          <AUTOCOMPLETE
+            @next-action="nextStep(form_corres, $event, datoMedioIng)"
+            :field="form_corres.medioIng"
+            :reg="reg.medioIng"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoNroGuia)" :field="form_corres.nroGuia" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoNroGuia)"
+            :field="form_corres.nroGuia"
+            :reg="reg.nroGuia"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
-          <INPUT @next-action="nextStep(form_corres, $event, datoPersentre)" :field="form_corres.persentre" :reg="reg" />
+          <INPUT
+            @next-action="nextStep(form_corres, $event, datoPersentre)"
+            :field="form_corres.persentre"
+            :reg="reg.persentre"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="12" md="12" xs="12" class="input-col">
-          <TEXTAREA @next-action="nextStep(form_corres, $event, datoObserv)" :field="form_corres.observ" :reg="reg" />
+          <TEXTAREA
+            @next-action="nextStep(form_corres, $event, datoObserv)"
+            :field="form_corres.observ"
+            :reg="reg.observ"
+            @onChange="onChange"
+          />
         </v-col>
         <v-col cols="12" sm="6" md="6" xs="6" class="input-col">
-          <AUTOCOMPLETE :field="form_corres.esta" :reg="reg" />
+          <AUTOCOMPLETE :field="form_corres.esta" :reg="reg.esta" />
         </v-col>
         <v-col cols="12" sm="6" md="6" xs="6" class="input-col">
-          <INPUT :field="form_corres.oper" :reg="reg" />
+          <INPUT :field="form_corres.oper" :reg="reg.oper" />
         </v-col>
       </v-row>
     </v-card>
@@ -145,16 +305,37 @@
           </h2>
         </v-toolbar>
         <v-container>
-          <FILEINPUT :reg="reg" :field="form_corres.archivo_file" class="ma-10" />
+          <FILEINPUT
+            :field="form_corres.archivo_file"
+            :reg="reg.archivo_file"
+            @onChange="onChange"
+            class="ma-10"
+          />
           <div class="mb-2 text-center">
-            <v-btn class="mb-2 mx-1 botone" color="red" @click="datoObserv()" dark>cancelar </v-btn>
-            <v-btn class="mb-2 mx-1 botone" color="primary" @click="validarAbjunto()" dark>aceptar</v-btn>
+            <v-btn
+              class="mb-2 mx-1 botone"
+              color="red"
+              @click="datoObserv()"
+              dark
+              >cancelar
+            </v-btn>
+            <v-btn
+              class="mb-2 mx-1 botone"
+              color="primary"
+              @click="validarAbjunto()"
+              dark
+              >aceptar</v-btn
+            >
           </div>
         </v-container>
       </v-card>
     </v-dialog>
 
-    <CON850 @novedadSelec="novedadSelec($event)" :novedad_activa="novedad_activa" v-if="novedad_activa" />
+    <CON850
+      @novedadSelec="novedadSelec($event)"
+      :novedad_activa="novedad_activa"
+      v-if="novedad_activa"
+    />
     <CON851
       @cancelarAlerta="cancelarAlerta()"
       @confirmar="confirmar()"
@@ -164,17 +345,48 @@
       :alerta="alerta"
     />
     <CON851P v-if="con851_p.estado" :con851_p="con851_p" />
-    <COR868 v-if="show_cor868" @callBack="callbackCOR868" @callbackEsc="callbackCOR868" />
-    <CON802 v-if="show_con802" @callBack="callbackCON802" @callbackEsc="callbackCON802" />
-    <COR879 v-if="show_cor879" @callBack="callbackCOR879" @callbackEsc="callbackCOR879" />
-    <COR867 v-if="show_cor867" @callBack="callbackCOR867" @callbackEsc="callbackCOR867" />
-    <COR871 v-if="show_cor871" @callBack="callbackCOR871" @callbackEsc="callbackCOR871" />
-    <COR866 v-if="show_cor866" @callBack="callbackCOR866" @callbackEsc="callbackCOR866" />
-    <COR865 v-if="show_cor865" @callBack="callbackCOR865" @callbackEsc="callbackCOR865" />
+    <COR868
+      v-if="show_cor868"
+      @callBack="callbackCOR868"
+      @callbackEsc="callbackCOR868"
+    />
+    <CON802
+      v-if="show_con802"
+      @callBack="callbackCON802"
+      @callbackEsc="callbackCON802"
+    />
+    <COR879
+      v-if="show_cor879"
+      @callBack="callbackCOR879"
+      @callbackEsc="callbackCOR879"
+    />
+    <COR867
+      v-if="show_cor867"
+      @callBack="callbackCOR867"
+      @callbackEsc="callbackCOR867"
+    />
+    <COR871
+      v-if="show_cor871"
+      @callBack="callbackCOR871"
+      @callbackEsc="callbackCOR871"
+    />
+    <COR866
+      v-if="show_cor866"
+      @callBack="callbackCOR866"
+      @callbackEsc="callbackCOR866"
+    />
+    <COR865
+      v-if="show_cor865"
+      @callBack="callbackCOR865"
+      @callbackEsc="callbackCOR865"
+    />
   </v-container>
 </template>
 <script>
-import { getObjCorres_, getObjCorres } from "../../fuentes/correspondencia/regObjtCorres";
+import {
+  getObjCorres_,
+  getObjCorres,
+} from "../../fuentes/correspondencia/regObjtCorres";
 import { global, currentUser, formatNumberMask_ } from "../../mixins/global";
 import { mapMutations, mapActions, mapGetters } from "vuex";
 import { nextAction } from "../../mixins/nextAction";
@@ -224,6 +436,9 @@ export default {
     this.abrirNovedad();
   },
   methods: {
+    onChange(data) {
+      this.reg[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),
@@ -319,7 +534,8 @@ export default {
     async leerCorrespondecia() {
       this.original = null;
       const RES = await this._getCorr({ llave: this.reg.llave });
-      if (RES.msg && this.novedad.acceso != "7") this.CON851("N1", "info", `La correspondencia no existe`);
+      if (RES.msg && this.novedad.acceso != "7")
+        this.CON851("N1", "info", `La correspondencia no existe`);
       else {
         this.original = JSON.parse(JSON.stringify(RES));
         this.novedad.acceso == "7" && this.nuevo(RES);
@@ -328,7 +544,8 @@ export default {
       }
     },
     async condicionesNovedad() {
-      if (this.novedad.acceso == "7" || !this.reg.contAtnt) await this.buscarNumero();
+      if (this.novedad.acceso == "7" || !this.reg.contAtnt)
+        await this.buscarNumero();
       if (this.novedad.acceso == "7") {
         let anio_actual = moment().format("YYYY-MM-DD").slice(0, 4);
         if (this.reg.llave.anoLlave == anio_actual) {
@@ -378,7 +595,12 @@ export default {
           break;
         case "enter":
           const OPER = currentUser.llaveOper;
-          if (OPER == "GMRI" || OPER == "ADMI" || OPER == "GEBC" || OPER == "YEYO") {
+          if (
+            OPER == "GMRI" ||
+            OPER == "ADMI" ||
+            OPER == "GEBC" ||
+            OPER == "YEYO"
+          ) {
             this.focusInput(this.form_corres, "fecha");
           } else this.focusInput(this.form_corres, "nit");
           break;
@@ -397,7 +619,8 @@ export default {
         case "esc":
           return this.abrirNovedad();
         case "enter":
-          if (!this.reg.nit) return this.focusInput(this.form_corres, "deptoremi");
+          if (!this.reg.nit)
+            return this.focusInput(this.form_corres, "deptoremi");
           return this.validarRemitente();
       }
     },
@@ -487,17 +710,23 @@ export default {
       let diasRestantes = this.reg.diasTipco;
 
       for (let i = 0; i < 730; i++) {
-        date = new Date(new Date(yearIni, 0, 1).setDate(new Date(yearIni, 0, 1).getDate() + i));
+        date = new Date(
+          new Date(yearIni, 0, 1).setDate(new Date(yearIni, 0, 1).getDate() + i)
+        );
         if (date.getDay() === 0 || date.getDay() === 6) festivo = true;
         else festivo = false;
         year.push({ date: date, fest: festivo });
       }
       // Obtener los anos con los que voy a trabajar.
       year.forEach((elem) => {
-        if (!anos.includes(elem.date.getUTCFullYear().toString())) anos.push(elem.date.getUTCFullYear().toString());
+        if (!anos.includes(elem.date.getUTCFullYear().toString()))
+          anos.push(elem.date.getUTCFullYear().toString());
       });
       // filtro los dias no habiles que voy a necesitar.
-      const noHabilFilter = res_getDiasNoHabil.filter((elem) => elem.date.slice(0, 4) == anos[0] || elem.date.slice(0, 4) == anos[1]);
+      const noHabilFilter = res_getDiasNoHabil.filter(
+        (elem) =>
+          elem.date.slice(0, 4) == anos[0] || elem.date.slice(0, 4) == anos[1]
+      );
       // Agrego a year los festivos que filtre en el paso anterior.
       noHabilesDelAno = year.map((elem) => {
         noHabilFilter.forEach((elem2) => {
@@ -507,7 +736,11 @@ export default {
               (elem.date.getMonth() + 1).toString().length == 1
                 ? (elem.date.getMonth() + 1).toString().padStart(2, "0")
                 : (elem.date.getMonth() + 1).toString()
-            }-${elem.date.getDate().toString().length == 1 ? elem.date.getDate().toString().padStart(2, "0") : elem.date.getDate().toString()}`
+            }-${
+              elem.date.getDate().toString().length == 1
+                ? elem.date.getDate().toString().padStart(2, "0")
+                : elem.date.getDate().toString()
+            }`
           ) {
             return (elem.fest = true);
           }
@@ -522,17 +755,27 @@ export default {
             (elem.date.getMonth() + 1).toString().length == 1
               ? (elem.date.getMonth() + 1).toString().padStart(2, "0")
               : (elem.date.getMonth() + 1).toString()
-          }-${elem.date.getDate().toString().length == 1 ? elem.date.getDate().toString().padStart(2, "0") : elem.date.getDate().toString()}` == fecha
+          }-${
+            elem.date.getDate().toString().length == 1
+              ? elem.date.getDate().toString().padStart(2, "0")
+              : elem.date.getDate().toString()
+          }` == fecha
       );
 
-      for (let i = noHabilesDelAno.indexOf(fecha_inicial[0]); i < noHabilesDelAno.length; i++) {
+      for (
+        let i = noHabilesDelAno.indexOf(fecha_inicial[0]);
+        i < noHabilesDelAno.length;
+        i++
+      ) {
         if (noHabilesDelAno[i]?.fest == false) {
           diasRestantes--;
         }
         if (diasRestantes == 0) {
           this.reg.fechaCau = `${noHabilesDelAno[i].date.getFullYear()}-${
             (noHabilesDelAno[i].date.getMonth() + 1).toString().length == 1
-              ? (noHabilesDelAno[i].date.getMonth() + 1).toString().padStart(2, "0")
+              ? (noHabilesDelAno[i].date.getMonth() + 1)
+                  .toString()
+                  .padStart(2, "0")
               : (noHabilesDelAno[i].date.getMonth() + 1).toString()
           }-${
             noHabilesDelAno[i].date.getDate().toString().length == 1
@@ -609,7 +852,12 @@ export default {
       try {
         const RES = await this._getDepco({ codigo: this.reg.dep });
         if ("codigo" in RES) {
-          !RES.correo && this.CON851("PNZ", "info", "Personal de destino sin correo electronico");
+          !RES.correo &&
+            this.CON851(
+              "PNZ",
+              "info",
+              "Personal de destino sin correo electronico"
+            );
           this.reg.responsableDep = RES.responsable;
           this.reg.correoDep = RES.correo;
           this.focusInput(this.form_corres, "fol");
@@ -635,9 +883,15 @@ export default {
           return this.focusInput(this.form_corres, "fol");
         case "enter":
           if (Number(this.reg.fol) > Number(this.reg.fold)) {
-            return this.CON851("PNZ", "info", "Numero de folios invalido", null, () => {
-              this.focusInput(this.form_corres, "fol");
-            });
+            return this.CON851(
+              "PNZ",
+              "info",
+              "Numero de folios invalido",
+              null,
+              () => {
+                this.focusInput(this.form_corres, "fol");
+              }
+            );
           }
           return this.focusInput(this.form_corres, "tipoAnexo");
       }
@@ -678,10 +932,16 @@ export default {
             });
           } else this.focusInput(this.form_corres, "monto");
         } else if (RES.msg) {
-          this.CON851("PNZ", "info", "No existe factura de destino", null, () => {
-            this.reg.nroFact = "";
-            this.focusInput(this.form_corres, "fechaFact");
-          });
+          this.CON851(
+            "PNZ",
+            "info",
+            "No existe factura de destino",
+            null,
+            () => {
+              this.reg.nroFact = "";
+              this.focusInput(this.form_corres, "fechaFact");
+            }
+          );
         }
       } catch (error) {
         this.focusInput(this.form_corres, "nroFact");
@@ -699,7 +959,8 @@ export default {
     datoFechaFact(val) {
       switch (val) {
         case "esc":
-          if (this.reg.nroFact.trim()) return this.focusInput(this.form_corres, "monto");
+          if (this.reg.nroFact.trim())
+            return this.focusInput(this.form_corres, "monto");
           else return this.focusInput(this.form_corres, "nroFact");
         case "enter":
           return this.focusInput(this.form_corres, "fechaEntre");
@@ -710,16 +971,27 @@ export default {
         case "esc":
           return this.focusInput(this.form_corres, "fechaFact");
         case "enter":
-          if (Date.parse(this.reg.fechaFact) > Date.parse(this.reg.fechaEntre)) {
-            return this.CON851("PNZ", "info", "La fecha de entrega debe ser despues a la fecha del documento", null, () => {
-              this.focusInput(this.form_corres, "fechaEntre");
-            });
+          if (
+            Date.parse(this.reg.fechaFact) > Date.parse(this.reg.fechaEntre)
+          ) {
+            return this.CON851(
+              "PNZ",
+              "info",
+              "La fecha de entrega debe ser despues a la fecha del documento",
+              null,
+              () => {
+                this.focusInput(this.form_corres, "fechaEntre");
+              }
+            );
           }
           return this.validarFechaEntre();
       }
     },
     validarFechaEntre() {
-      if ((this.USUARIO_GLOBAL.nit == 800162035 && this.reg.nroFact.trim()) || this.USUARIO_GLOBAL.nit == 900405505) {
+      if (
+        (this.USUARIO_GLOBAL.nit == 800162035 && this.reg.nroFact.trim()) ||
+        this.USUARIO_GLOBAL.nit == 900405505
+      ) {
         return this.focusInput(this.form_corres, "fechaEntre");
       } else return this.focusInput(this.form_corres, "medioIng");
     },
@@ -728,7 +1000,8 @@ export default {
         case "esc":
           return this.focusInput(this.form_corres, "nroFact");
         case "enter":
-          if (this.reg.medioIng == 1) return this.focusInput(this.form_corres, "nroGuia");
+          if (this.reg.medioIng == 1)
+            return this.focusInput(this.form_corres, "nroGuia");
           else return this.focusInput(this.form_corres, "persentre");
       }
     },
@@ -743,14 +1016,18 @@ export default {
     datoPersentre(val) {
       switch (val) {
         case "esc":
-          if (this.reg.medioIng == 1) return this.focusInput(this.form_corres, "nroGuia");
+          if (this.reg.medioIng == 1)
+            return this.focusInput(this.form_corres, "nroGuia");
           else return this.focusInput(this.form_corres, "medioIng");
         case "enter":
           return this.focusInput(this.form_corres, "observ");
       }
     },
     datoObserv(val) {
-      !val && [(this.show_archivo_abjunto = false), this.focusInput(this.form_corres, "observ")];
+      !val && [
+        (this.show_archivo_abjunto = false),
+        this.focusInput(this.form_corres, "observ"),
+      ];
       switch (val) {
         case "esc":
           return this.focusInput(this.form_corres, "persentre");
@@ -765,7 +1042,13 @@ export default {
     validarAbjunto() {
       this.show_archivo_abjunto = false;
       if (this.reg.archivo_file?.length == 0 || this.reg.archivo_file == null) {
-        this.CON851("PNZ", "info", "Debes abjuntar un archivo pdf", null, this.datoObserv);
+        this.CON851(
+          "PNZ",
+          "info",
+          "Debes abjuntar un archivo pdf",
+          null,
+          this.datoObserv
+        );
       } else this.subirArchivo();
     },
     async subirArchivo() {
@@ -777,29 +1060,88 @@ export default {
         };
         const RES = await this._uploadFile({ data });
         if (RES.N1) {
-          this.CON851("PNZ", "success", "Abjunto subido correctamente", null, this.confirmar);
-        } else if (RES.cod_error == "00") this.CON851("PNZ", "info", "Ya existe archivo con la llave digitada", null, this.datoObserv);
-        else this.CON851("PNZ", "error", "Ha ocurrido un error intentando subir el archivo abjunto", null, this.datoObserv);
+          this.CON851(
+            "PNZ",
+            "success",
+            "Abjunto subido correctamente",
+            null,
+            this.confirmar
+          );
+        } else if (RES.cod_error == "00")
+          this.CON851(
+            "PNZ",
+            "info",
+            "Ya existe archivo con la llave digitada",
+            null,
+            this.datoObserv
+          );
+        else
+          this.CON851(
+            "PNZ",
+            "error",
+            "Ha ocurrido un error intentando subir el archivo abjunto",
+            null,
+            this.datoObserv
+          );
       } catch (error) {
-        this.CON851("PNZ", "error", "Ha ocurrido un error intentando subir el archivo abjunto", null, this.datoObserv);
+        this.CON851(
+          "PNZ",
+          "error",
+          "Ha ocurrido un error intentando subir el archivo abjunto",
+          null,
+          this.datoObserv
+        );
         console.error(error);
       }
     },
     confirmar() {
-      this.novedad.acceso == 7 && this.CON851P("PNZ", "info", "¿Guardar correspondencia?", this.guardar, this.datoObserv);
-      this.novedad.acceso == 8 && this.CON851P("PNZ", "info", "Modificar correspondencia?", this.editar, this.datoObserv);
-      this.novedad.acceso == 9 && this.CON851P("PNZ", "info", "¿Eliminar correspondencia?", this.eliminar, this.datoAnoCont);
+      this.novedad.acceso == 7 &&
+        this.CON851P(
+          "PNZ",
+          "info",
+          "¿Guardar correspondencia?",
+          this.guardar,
+          this.datoObserv
+        );
+      this.novedad.acceso == 8 &&
+        this.CON851P(
+          "PNZ",
+          "info",
+          "Modificar correspondencia?",
+          this.editar,
+          this.datoObserv
+        );
+      this.novedad.acceso == 9 &&
+        this.CON851P(
+          "PNZ",
+          "info",
+          "¿Eliminar correspondencia?",
+          this.eliminar,
+          this.datoAnoCont
+        );
     },
     nuevo(data) {
       if ("llave" in data) {
-        return this.CON851("PNZ", "info", `Ya existe la correspondencia ${data.llave.anoLlave}${data.llave.cont} `, null, () => {
-          this.focusInput(this.form_corres, "cont");
-        });
+        return this.CON851(
+          "PNZ",
+          "info",
+          `Ya existe la correspondencia ${data.llave.anoLlave}${data.llave.cont} `,
+          null,
+          () => {
+            this.focusInput(this.form_corres, "cont");
+          }
+        );
       } else {
         this.reg.oper = `${currentUser.llaveOper} - ${currentUser.nombre}`;
         this.reg.fecha = moment().format("YYYY-MM-DD");
         this.reg.hora = moment().format("HH:mm");
-        this.CON851P("PNZ", "info", "¿Continuar trazabilidad de radicado anterior?", this.datoContAtnt, this.holding);
+        this.CON851P(
+          "PNZ",
+          "info",
+          "¿Continuar trazabilidad de radicado anterior?",
+          this.datoContAtnt,
+          this.holding
+        );
       }
     },
     cambio(data) {
@@ -817,7 +1159,14 @@ export default {
         data.monto = this.formatNumber_(data.monto);
 
         const RES = await this._postCorres({ data });
-        if (RES.N1) this.CON851("N1", "success", `Datos grabados correctamente`, null, this.enviarEmail);
+        if (RES.N1)
+          this.CON851(
+            "N1",
+            "success",
+            `Datos grabados correctamente`,
+            null,
+            this.enviarEmail
+          );
         RES.msg && this.CON851("N1", "error", `Error escribiendo datos!`);
       } catch (error) {
         this.onField();
@@ -835,8 +1184,22 @@ export default {
           nom_empresa: this.USUARIO_GLOBAL.nombre,
         };
         const RES = await this._sendEmail({ data });
-        if ("accepted" in RES) this.CON851("N1", "success", `Correo enviado correctamente`, null, this.solicitarImpresion);
-        RES.msg && this.CON851("N1", "error", `¡Error enviando el correo!`, null, this.abrirNovedad);
+        if ("accepted" in RES)
+          this.CON851(
+            "N1",
+            "success",
+            `Correo enviado correctamente`,
+            null,
+            this.solicitarImpresion
+          );
+        RES.msg &&
+          this.CON851(
+            "N1",
+            "error",
+            `¡Error enviando el correo!`,
+            null,
+            this.abrirNovedad
+          );
       } catch (error) {
         this.abrirNovedad();
         console.error(error);
@@ -852,7 +1215,14 @@ export default {
         data.operModi = `${currentUser.llaveOper} - ${currentUser.nombre}`;
         data.monto = this.formatNumber_(data.monto);
         const RES = await this._putCorres({ data });
-        if (RES.N1) return this.CON851("N1", "success", `Datos modificados correctamente!`, null, this.solicitarImpresion);
+        if (RES.N1)
+          return this.CON851(
+            "N1",
+            "success",
+            `Datos modificados correctamente!`,
+            null,
+            this.solicitarImpresion
+          );
         RES.msg && this.CON851("N1", "error", `Error grabando datos!`);
       } catch (error) {
         this.onField();
@@ -862,7 +1232,12 @@ export default {
     async eliminar() {
       try {
         const RES = await this._deleteCorres({ llave: this.reg.llave });
-        if (RES.N1) return this.CON851("N1", "success", `Correspondencia borrada correctamente!`);
+        if (RES.N1)
+          return this.CON851(
+            "N1",
+            "success",
+            `Correspondencia borrada correctamente!`
+          );
         RES.msg && this.CON851("N1", "error", `No se encontro correspondencia`);
       } catch (error) {
         console.error(error);
@@ -913,7 +1288,8 @@ export default {
         }
       }
       this.show_cor868 = false;
-      if (this.flag_radicados) return this.focusInput(this.form_corres, "contAtnt");
+      if (this.flag_radicados)
+        return this.focusInput(this.form_corres, "contAtnt");
       this.focusInput(this.form_corres, "cont");
     },
     openCOR879() {
@@ -1000,7 +1376,9 @@ export default {
     },
     novedadSelec(data) {
       this.novedad_activa = false;
-      data.acceso == "F" ? this.$router.push("/Menu-Principal") : (this.novedad = Object.assign({}, data));
+      data.acceso == "F"
+        ? this.$router.push("/Menu-Principal")
+        : (this.novedad = Object.assign({}, data));
       if ([7, 8, 9].includes(data.acceso)) this.condicionesNovedad();
     },
   },
