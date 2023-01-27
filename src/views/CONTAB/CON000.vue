@@ -15,7 +15,6 @@
           <INPUT
             @next-action="nextStep(form_oper, $event, datoOperDep)"
             :field="form_oper.llaveOper"
-
             :reg="reg_rest"
           ></INPUT>
         </v-col>
@@ -23,7 +22,11 @@
           <data-card :field="form_oper.nombre" :reg="reg_rest"></data-card>
         </v-col>
         <v-col cols="12" sm="3" md="3" class="input-col">
-          <INPUT @next-action="nextStep(form_oper, $event, datoClave)" :field="form_oper.clave" :reg="reg_rest"></INPUT>
+          <INPUT
+            @next-action="nextStep(form_oper, $event, datoClave)"
+            :field="form_oper.clave"
+            :reg="reg_rest"
+          ></INPUT>
         </v-col>
         <v-col cols="12" sm="3" md="3" class="input-col">
           <INPUT
@@ -34,7 +37,11 @@
         </v-col>
       </v-row>
     </v-card>
-    <CON850 @novedadSelec="novedadSelec($event)" :novedad_activa="novedad_activa" v-if="novedad_activa"></CON850>
+    <CON850
+      @novedadSelec="novedadSelec($event)"
+      :novedad_activa="novedad_activa"
+      v-if="novedad_activa"
+    ></CON850>
     <CON851
       @cancelarAlerta="cancelarAlerta()"
       @confirmar="confirmar()"
@@ -44,11 +51,18 @@
       :alerta="alerta"
     ></CON851>
 
-    <CON982 v-if="show_con982" @callBack="callbackCON982" @callbackEsc="callbackCON982" />
+    <CON982
+      v-if="show_con982"
+      @callBack="callbackCON982"
+      @callbackEsc="callbackCON982"
+    />
   </v-container>
 </template>
 <script>
-import { getObjRegRest, getObjRegRest_ } from "../../fuentes/correspondencia/regRest";
+import {
+  getObjRegRest,
+  getObjRegRest_,
+} from "../../fuentes/correspondencia/regRest";
 import { mapMutations, mapActions, mapGetters } from "vuex";
 import { currentUser, global } from "../../mixins/global";
 import CON982 from "../../components/CONTAB/CON982.vue";
@@ -128,7 +142,8 @@ export default {
         this.reg_rest.llaveOper = RES.llaveOper;
         this.reg_rest.nombre = RES.nombre;
         this.current_password = RES.clave;
-        if ("llaveOper" in this.reg_rest) this.focusInput(this.form_oper, "clave");
+        if ("llaveOper" in this.reg_rest)
+          this.focusInput(this.form_oper, "clave");
         else return this.CON851("02", "info");
       } catch (error) {
         console.error(error);
@@ -198,7 +213,12 @@ export default {
     },
     abrirDialogo() {
       this.offField();
-      this.CON851("PNZ", "warning", "No podras hacer ninguna acción hasta no cambiar la contraseña", "P");
+      this.CON851(
+        "PNZ",
+        "warning",
+        "No podras hacer ninguna acción hasta no cambiar la contraseña",
+        "P"
+      );
     },
   },
 };

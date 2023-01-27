@@ -16,7 +16,8 @@
             @next-action="nextStep(form_depen, $event, datoCodDep)"
             @abrirF8="openCOR866"
             :field="form_depen.codigo"
-            :reg="reg_dep"
+            :reg="reg_dep.codigo"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -24,31 +25,38 @@
             @next-action="nextStep(form_depen, $event, datoSerco)"
             @abrirF8="openCOR865"
             :field="form_depen.codSerco"
-            :reg="reg_dep"
+            :reg="reg_dep.codSerco"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
-          <data-card :field="form_depen.descripcion" :reg="reg_dep" />
+          <data-card
+            :field="form_depen.descripcion"
+            :reg="reg_dep.descripcion"
+          />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
           <INPUT
             @next-action="nextStep(form_depen, $event, datoResponsableDep)"
             :field="form_depen.responsable"
-            :reg="reg_dep"
+            :reg="reg_dep.responsable"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_depen, $event, datoCargoDep)"
             :field="form_depen.cargo"
-            :reg="reg_dep"
+            :reg="reg_dep.cargo"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_depen, $event, datoCorreoDep)"
             :field="form_depen.correo"
-            :reg="reg_dep"
+            :reg="reg_dep.correo"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -56,11 +64,12 @@
             @next-action="nextStep(form_depen, $event, datoOperDep)"
             :field="form_depen.oper"
             @abrirF8="openCON982"
-            :reg="reg_dep"
+            @onChange="onChange"
+            :reg="reg_dep.oper"
           />
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
-          <data-card :field="form_oper.nombre" :reg="reg_rest" />
+          <data-card :field="form_oper.nombre" :reg="reg_rest.nombre" />
         </v-col>
       </v-row>
     </v-card>
@@ -147,6 +156,9 @@ export default {
     this.abrirNovedad();
   },
   methods: {
+    onChange(data) {
+      this.reg_dep[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),
@@ -207,6 +219,7 @@ export default {
           this.abrirNovedad();
           break;
         case "enter":
+          console.log("HARRY triple hpta", this.reg_dep.codigo);
           if (this.reg_dep.codigo == "") return this.CON851("03", "info");
           await this.validarCodDep(this.reg_dep.codigo);
           break;

@@ -23,7 +23,14 @@
       outlined
       dense
     >
-      <v-card :color="field.disabled ? '#6b8996' : 'secondary'" style="cursor: pointer" @click="abrirF8" v-if="field.f8" slot="append" dark>
+      <v-card
+        :color="field.disabled ? '#6b8996' : 'secondary'"
+        style="cursor: pointer"
+        @click="abrirF8"
+        v-if="field.f8"
+        slot="append"
+        dark
+      >
         <v-icon>mdi-magnify</v-icon>
       </v-card>
     </v-text-field>
@@ -90,9 +97,13 @@ export default {
       this.reg_ = val;
     },
     flag_foco() {
-      if (this.flag_foco && !this.field.disabled) this.color_input = "input_foco";
+      if (this.flag_foco && !this.field.disabled)
+        this.color_input = "input_foco";
       else this.color_input = "input_blur";
     },
+  },
+  mounted() {
+    this.reg_ = this.reg;
   },
 
   methods: {
@@ -115,9 +126,17 @@ export default {
     },
     confirmar() {},
     async pressEnter() {
-      if (this.field.required && typeof this.reg_ == "string" && this.reg_?.trim() == "") {
+      if (
+        this.field.required &&
+        typeof this.reg_ == "string" &&
+        this.reg_?.trim() == ""
+      ) {
         this.CON851("PNZ", "info", `${this.field.label} es requerid@`);
-      } else if (this.field.required && typeof this.reg_ == "number" && [NaN, ""].includes(this.reg_)) {
+      } else if (
+        this.field.required &&
+        typeof this.reg_ == "number" &&
+        [NaN, ""].includes(this.reg_)
+      ) {
         this.CON851("PNZ", "info", `${this.field.label} es requerid@`);
       } else if (!/.+@.+\..+/.test(this.reg_) && this.field.tipo == "email") {
         this.CON851("PNZ", "info", `Correo ${this.field.label} invalido`);
@@ -161,7 +180,8 @@ export default {
           this.reg_ = parseInt(this.reg_);
         }
       }
-      if (["string", undefined, "email"].includes(this.field.tipo)) this.reg_ = this.quitarTildes(this.reg_);
+      if (["string", undefined, "email"].includes(this.field.tipo))
+        this.reg_ = this.quitarTildes(this.reg_);
       if (this.mask) {
         this.reg_ = this.mask({
           val: this.reg_,
@@ -171,7 +191,11 @@ export default {
       }
       this.field.tipo == "moneda" && this.input_mask(this.field.id);
       setTimeout(() => {
-        if (this.reg_.toString().length == this.field.max_length && this.field.tipo != "time") this.pressEnter();
+        if (
+          this.reg_.toString().length == this.field.max_length &&
+          this.field.tipo != "time"
+        )
+          this.pressEnter();
       }, 100);
     },
   },

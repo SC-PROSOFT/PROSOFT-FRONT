@@ -17,7 +17,12 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownAnoLlave)"
             :field="form_rescorr.anoLlave"
-            :reg="reg_rescorr.codResp"
+            :reg="reg_rescorr.anoLlave"
+            @onChange="
+              (data) => {
+                reg_rescorr.codResp[data.key] = data.value;
+              }
+            "
           ></INPUT>
         </v-col>
 
@@ -26,7 +31,12 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownRadicado)"
             :field="form_rescorr.cont"
-            :reg="reg_rescorr.codResp"
+            :reg="reg_rescorr.cont"
+            @onChange="
+              (data) => {
+                reg_rescorr.codResp[data.key] = data.value;
+              }
+            "
           ></INPUT>
         </v-col>
 
@@ -37,7 +47,8 @@
           <AUTOCOMPLETE
             @next-action="nextStep(form_rescorr, $event, keyDownTieneRadi)"
             :field="form_rescorr.swRadi"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.swRadi"
+            @onChange="onChange"
           ></AUTOCOMPLETE>
         </v-col>
 
@@ -46,7 +57,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownRadicadoAno)"
             :field="form_rescorr.anoRadi"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.anoRadi"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -56,7 +68,8 @@
             @next-action="nextStep(form_rescorr, $event, keyDownContRadi)"
             @abrirF8="openCOR868"
             :field="form_rescorr.contRadi"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.contRadi"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
 
@@ -65,7 +78,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event)"
             :field="form_rescorr.fechaRadi"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.fechaRadi"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -74,7 +88,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event)"
             :field="form_rescorr.horaRadi"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.horaRadi"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -86,13 +101,14 @@
             @next-action="nextStep(form_rescorr, $event, keyDownRemitente)"
             @abrirF8="openCORterce"
             :field="form_rescorr.nit"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.nit"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.nit_dataCard"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.nit_dataCard"
           ></data-card>
         </v-col>
 
@@ -102,13 +118,14 @@
             @next-action="nextStep(form_rescorr, $event, keyDownDptoRemit)"
             @abrirF8="openCORremidep"
             :field="form_rescorr.dptoRemit"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.dptoRemit"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.dptoRemit_dataCard"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.dptoRemit_dataCard"
           ></data-card>
         </v-col>
 
@@ -117,7 +134,7 @@
           <AUTOCOMPLETE
             @next-action="nextStep(form_rescorr, $event, keyDownProcedencia)"
             :field="form_rescorr.proceden"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.proceden"
           ></AUTOCOMPLETE>
         </v-col>
 
@@ -129,13 +146,14 @@
             @next-action="nextStep(form_rescorr, $event, keyDownTipoCorres)"
             @abrirF8="openCORtipco"
             :field="form_rescorr.tipoCorres"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.tipoCorres"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.tipoCorres_dataCard"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.tipoCorres_dataCard"
           ></data-card>
         </v-col>
 
@@ -145,13 +163,14 @@
             @next-action="nextStep(form_rescorr, $event, keyDownAuxTip)"
             @abrirF8="openCORauxco"
             :field="form_rescorr.codAuxco"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.codAuxco"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.codAuxco_dataCard"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.codAuxco_dataCard"
           ></data-card>
         </v-col>
 
@@ -161,13 +180,14 @@
             @next-action="nextStep(form_rescorr, $event, keyDownDpto)"
             @abrirF8="openCOR865"
             :field="form_rescorr.ser"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.ser"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.ser_dataCard"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.ser_dataCard"
           ></data-card>
         </v-col>
 
@@ -177,13 +197,14 @@
             @next-action="nextStep(form_rescorr, $event, keyDownResponsable)"
             @abrirF8="openCORdepco"
             :field="form_rescorr.dep"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.dep"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.dep_dataCard"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.dep_dataCard"
           ></data-card>
         </v-col>
 
@@ -192,7 +213,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownDescripcion)"
             :field="form_rescorr.descrip"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.descrip"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -201,7 +223,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownAsunto)"
             :field="form_rescorr.asunto"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.asunto"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -211,7 +234,8 @@
             @next-action="nextStep(form_rescorr, $event, keyDownClMacro)"
             @abrirF8="openCOR867"
             :field="form_rescorr.clMacro"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.clMacro"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -219,13 +243,14 @@
             @next-action="nextStep(form_rescorr, $event, keyDownCodigoMacro)"
             @abrirF8="openCORmacro"
             :field="form_rescorr.codigoMacro"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.codigoMacro"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.macro_dataCard"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.macro_dataCard"
           ></data-card>
         </v-col>
 
@@ -234,7 +259,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event)"
             :field="form_rescorr.fecha"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.fecha"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -243,7 +269,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event)"
             :field="form_rescorr.hora"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.hora"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -252,7 +279,8 @@
           <TEXTAREA
             @next-action="nextStep(form_rescorr, $event, keyDownMacroArea)"
             :field="form_rescorr.macro"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.macro"
+            @onChange="onChange"
           ></TEXTAREA>
         </v-col>
 
@@ -261,7 +289,8 @@
           <AUTOCOMPLETE
             @next-action="nextStep(form_rescorr, $event, keyDownMedioResp)"
             :field="form_rescorr.medio"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.medio"
+            @onChange="onChange"
           ></AUTOCOMPLETE>
         </v-col>
 
@@ -270,7 +299,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownNroFactura)"
             :field="form_rescorr.numeroFact"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.numeroFact"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -279,7 +309,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownValorFactura)"
             :field="form_rescorr.monto"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.monto"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -288,7 +319,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownNroGuia)"
             :field="form_rescorr.nroGuia"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.nroGuia"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -297,7 +329,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownPersonaRecibe)"
             :field="form_rescorr.perRec"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.perRec"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -306,13 +339,14 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownFirma)"
             :field="form_rescorr.firma"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.firma"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
           <data-card
             :field="form_rescorr.firma_dataCard"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.firma_dataCard"
           ></data-card>
         </v-col>
 
@@ -321,7 +355,8 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownCargo)"
             :field="form_rescorr.cargo"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.cargo"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -330,7 +365,7 @@
           <AUTOCOMPLETE
             @next-action="nextStep(form_rescorr, $event, keyDownEstadoCorres)"
             :field="form_rescorr.esta"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.esta"
           ></AUTOCOMPLETE>
         </v-col>
 
@@ -339,7 +374,7 @@
           <FILEINPUT
             @next-action="nextStep(form_rescorr, $event, keyDownFileInput)"
             :field="form_rescorr.file"
-            :reg="reg_rescorr"
+            :reg="reg_rescorr.file"
           ></FILEINPUT>
         </v-col>
       </v-row>
@@ -529,6 +564,9 @@ export default {
   },
 
   methods: {
+    onChange(data) {
+      this.reg_rescorr[data.key] = data.value;
+    },
     ...mapActions({
       /* rescorr */
       _getResscor: "rescorr/_getRescorr",
@@ -1014,7 +1052,7 @@ export default {
     /* functions swRadi */
     validateSwRadi() {
       const { swRadi } = this.reg_rescorr;
-
+      console.log(swRadi);
       switch (this.novedad.acceso) {
         case 7:
           swRadi == 1 && this.focusInput(this.form_rescorr, "anoRadi");
@@ -1520,12 +1558,9 @@ export default {
     keyDownAnoLlave(key) {
       switch (key) {
         case "esc":
-          this.abrirNovedad();
-          break;
-
+          return this.abrirNovedad();
         case "enter":
-          this.validateAnoLlave();
-          break;
+          return this.validateAnoLlave();
       }
     },
 
@@ -1546,7 +1581,6 @@ export default {
         case "esc":
           this.abrirNovedad();
           break;
-
         case "enter":
           this.validateSwRadi();
           break;

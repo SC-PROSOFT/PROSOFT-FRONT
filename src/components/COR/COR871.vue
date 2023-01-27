@@ -13,7 +13,8 @@
             <INPUT
               @next-action="nextStep(form_bus, $event, validarBusqueda)"
               :field="form_bus.busqueda"
-              :reg="busqueda"
+              :reg="busqueda.busqueda"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-divider></v-divider>
@@ -99,6 +100,9 @@ export default {
     this.focus_table = true;
   },
   methods: {
+    onChange(data) {
+      this.reg_dep[data.key] = data.value;
+    },
     ...mapActions({
       _getAuxcoF8: "auxtip/_getAuxcoF8",
     }),

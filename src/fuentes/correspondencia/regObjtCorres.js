@@ -68,7 +68,7 @@ function getObjCorres() {
     contAtnt1: "",
     contAtnt2: "",
     contAtnt3: "",
-    archivo_file: [],
+    archivo_file: {},
   };
 }
 

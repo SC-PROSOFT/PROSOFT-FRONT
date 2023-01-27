@@ -18,27 +18,29 @@
               @next-action="nextStep(form_corres, $event, datoEntidad)"
               :field="form_corres.entidad"
               @abrirF8="openCON802"
-              :reg="reg_corres"
+              :reg="reg_corres.entidad"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
             <data-card
               :field="form_corres.entidad_descripcion"
-              :reg="reg_corres"
+              :reg="reg_corres.entidad_descripcion"
             ></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <INPUT
               @next-action="nextStep(form_corres, $event, datoDependencia)"
               :field="form_corres.depenTipoCorres"
-              :reg="reg_corres"
+              :reg="reg_corres.depenTipoCorres"
               @abrirF8="openCOR866"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
             <data-card
               :field="form_corres.depen_descripcion"
-              :reg="reg_corres"
+              :reg="reg_corres.depen_descripcion"
             ></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
@@ -46,41 +48,42 @@
               @next-action="nextStep(form_corres, $event, datoTipoCorres)"
               :field="form_corres.tipoCorres"
               @abrirF8="openCOR867"
-              :reg="reg_corres"
+              :reg="reg_corres.tipoCorres"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <data-card
               :field="form_corres.corres_descripcion"
-              :reg="reg_corres"
+              :reg="reg_corres.corres_descripcion"
             ></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <AUTOCOMPLETE
               @next-action="nextStep(form_corres, $event, datoDescartarCorres)"
               :field="form_corres.descartarTipoCorres"
-              :reg="reg_corres"
+              :reg="reg_corres.descartarTipoCorres"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <AUTOCOMPLETE
               @next-action="nextStep(form_corres, $event, datoRadicado)"
               :field="form_corres.incluirRadiRes"
-              :reg="reg_corres"
+              :reg="reg_corres.incluirRadiRes"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <FECHA
               @next-action="nextStep(form_corres, $event, datoFechaIni)"
               :field="form_corres.fechaIni"
-              :reg="reg_corres"
+              :reg="reg_corres.fechaIni"
             ></FECHA>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <FECHA
               @next-action="nextStep(form_corres, $event, datoFechaFin)"
               :field="form_corres.fechaFin"
-              :reg="reg_corres"
+              :reg="reg_corres.fechaFin"
             ></FECHA>
           </v-col>
 
@@ -88,28 +91,28 @@
             <AUTOCOMPLETE
               @next-action="nextStep(form_corres, $event, datoJornada)"
               :field="form_corres.jornada"
-              :reg="reg_corres"
+              :reg="reg_corres.jornada"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
             <AUTOCOMPLETE
               @next-action="nextStep(form_corres, $event, datoProcedencia)"
               :field="form_corres.procedencia"
-              :reg="reg_corres"
+              :reg="reg_corres.procedencia"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
             <AUTOCOMPLETE
               @next-action="nextStep(form_corres, $event, datoManejo)"
               :field="form_corres.manejo"
-              :reg="reg_corres"
+              :reg="reg_corres.manejo"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
             <AUTOCOMPLETE
               @next-action="nextStep(form_corres, $event, datoEstado)"
               :field="form_corres.estado"
-              :reg="reg_corres"
+              :reg="reg_corres.estado"
             ></AUTOCOMPLETE>
           </v-col>
         </v-row>
@@ -176,7 +179,6 @@ export default {
     COR867,
   },
   data() {
-    console.log('hola');
     return {
       titulo: "3.1 Informe de correspondencia",
       modal_impresion: true,
@@ -199,6 +201,9 @@ export default {
     this.initialData();
   },
   methods: {
+    onChange(data) {
+      this.reg_corres[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),

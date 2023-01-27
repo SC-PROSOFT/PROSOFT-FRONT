@@ -5,9 +5,10 @@
     :shaped="field.shaped == false ? true : false"
     :class="`font-weight-light ${field.class}`"
     :messages="field.message"
-    :value="reg[field.id]"
     :style="field.css_vars"
     :label="field.label"
+    :value="reg_"
+    @keyup="onChange()"
     height="35"
     outlined
     filled
@@ -18,7 +19,7 @@
 <script>
 export default {
   props: {
-    reg: Object,
+    reg: [Number, String],
     field: {
       id: String,
       label: String,
@@ -26,7 +27,9 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      reg_: null,
+    };
   },
   computed: {
     cssVars() {
@@ -34,6 +37,19 @@ export default {
         "--label-color": this.field.label_color || "white",
       };
     },
+  },
+  methods: {
+    onChange() {
+      this.$emit("onChange", { key: this.field.id, value: this.reg_ });
+    },
+  },
+  watch: {
+    "$props.reg"(val) {
+      this.reg_ = val;
+    },
+  },
+  mounted() {
+    this.reg_ = this.reg;
   },
 };
 </script>

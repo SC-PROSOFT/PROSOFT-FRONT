@@ -97,10 +97,9 @@ function getRescorr_() {
 
     swRadi: {
       id: "swRadi",
-      label: "Tiene radicado?",
+      label: "¿Tiene radicado?",
       max_length: "1",
       disabled: true,
-
       items: [
         {
           id: 1,

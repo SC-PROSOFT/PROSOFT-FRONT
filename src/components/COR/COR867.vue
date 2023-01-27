@@ -14,6 +14,7 @@
               @next-action="nextStep(form_bus, $event, validarBusqueda)"
               :field="form_bus.busqueda"
               :reg="busqueda"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-divider></v-divider>
@@ -37,7 +38,6 @@ import { mapActions, mapGetters } from "vuex";
 import { global } from "../../mixins/global";
 import TABLE from "../GENERAL/DataTable.vue";
 
-
 export default {
   name: "COR867",
   mixins: [nextAction, global],
@@ -46,10 +46,13 @@ export default {
   data() {
     return {
       focus_table: false,
+<<<<<<< HEAD
 
-      busqueda: {
-        busqueda: "",
-      },
+      busqueda: "",
+
+=======
+      busqueda: "",
+>>>>>>> 0cf00ddc0d314e3491bf811d55254b500faf9a54
       form_bus: {
         busqueda: {
           id: "busqueda",
@@ -89,10 +92,7 @@ export default {
         ],
         rows: [],
       },
-      
- 
     };
-  
   },
   computed: {
     ...mapGetters({
@@ -105,6 +105,9 @@ export default {
     this.focus_table = true;
   },
   methods: {
+    onChange(data) {
+      this.reg[data.key] = data.value;
+    },
     ...mapActions({
       _getTipcoF8: "tipco/_getTipcoF8",
     }),
@@ -137,7 +140,7 @@ export default {
       this.f8.body = this._getListaTipco("lista").slice(0, 8);
     },
     async nextData(data) {
-      let filtro = this.busqueda.busqueda;
+      let filtro = this.busqueda;
       let f8 = this.f8;
       let cantidad = 9;
       let desde = 0;

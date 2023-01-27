@@ -7,7 +7,12 @@
           <INPUT
             @next-action="nextStep(form_corres, $event, datoAnoLlave)"
             :field="form_corres.anoLlave"
-            :reg="reg.llave"
+            :reg="reg.llave.anoLlave"
+            @onChange="
+              (data) => {
+                reg.llave[data.key] = data.value;
+              }
+            "
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -15,35 +20,44 @@
             @next-action="nextStep(form_corres, $event, datoAnoCont)"
             @abrirF8="openCOR868"
             :field="form_corres.cont"
-            :reg="reg.llave"
+            :reg="reg.llave.cont"
+            @onChange="
+              (data) => {
+                reg.llave[data.key] = data.value;
+              }
+            "
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <AUTOCOMPLETE
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.manejo"
-            :reg="reg"
+            :reg="reg.manejo"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <AUTOCOMPLETE
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.proceden"
-            :reg="reg"
+            :reg="reg.proceden"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <FECHA
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.fecha"
-            :reg="reg"
+            :reg="reg.fecha"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <data-card
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.hora"
-            :reg="reg"
+            :reg="reg.hora"
+            @onChange="onChange"
           />
         </v-col>
       </v-row>
@@ -52,37 +66,46 @@
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.nit"
-            :reg="reg"
+            :reg="reg.nit"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
-          <data-card :field="form_corres.descripTer" :reg="reg" />
+          <data-card :field="form_corres.descripTer" :reg="reg.descripTer" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.deptoremi"
-            :reg="reg"
+            :reg="reg.deptoremi"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.descripDeptoremi" :reg="reg" />
+          <data-card
+            :field="form_corres.descripDeptoremi"
+            :reg="reg.descripDeptoremi"
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.tipoCorres"
-            :reg="reg"
+            :reg="reg.tipoCorres"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.descripTipco" :reg="reg" />
+          <data-card
+            :field="form_corres.descripTipco"
+            :reg="reg.descripTipco"
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <data-card :field="form_corres.diasTipco" :reg="reg" />
+          <data-card :field="form_corres.diasTipco" :reg="reg.diasTipco" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <data-card :field="form_corres.fechaCau" :reg="reg" />
+          <data-card :field="form_corres.fechaCau" :reg="reg.fechaCau" />
         </v-col>
       </v-row>
       <v-row justify="start" align="center" class="input-row">
@@ -90,118 +113,136 @@
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.codAux"
-            :reg="reg"
+            :reg="reg.codAux"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.descripAux" :reg="reg" />
+          <data-card :field="form_corres.descripAux" :reg="reg.descripAux" />
         </v-col>
         <v-col cols="12" sm="6" md="6" xs="6" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.descrip"
-            :reg="reg"
+            :reg="reg.descrip"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.ser"
-            :reg="reg"
+            :reg="reg.ser"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.descripSer" :reg="reg" />
+          <data-card :field="form_corres.descripSer" :reg="reg.descripSer" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.dep"
-            :reg="reg"
+            :reg="reg.dep"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card :field="form_corres.responsableDep" :reg="reg" />
+          <data-card
+            :field="form_corres.responsableDep"
+            :reg="reg.responsableDep"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.fol"
-            :reg="reg"
+            :reg="reg.fol"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.fold"
-            :reg="reg"
+            :reg="reg.fold"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.anex"
-            :reg="reg"
+            :reg="reg.anex"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <AUTOCOMPLETE
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.tipoAnexo"
-            :reg="reg"
+            :reg="reg.tipoAnexo"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.nroFact"
-            :reg="reg"
+            :reg="reg.nroFact"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.monto"
-            :reg="reg"
+            :reg="reg.monto"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <FECHA
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.fechaFact"
-            :reg="reg"
+            :reg="reg.fechaFact"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <FECHA
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.fechaEntre"
-            :reg="reg"
+            :reg="reg.fechaEntre"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.nroGuia"
-            :reg="reg"
+            :reg="reg.nro_guia"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="12" md="12" xs="12" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.persentre"
-            :reg="reg"
+            :reg="reg.persentre"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="12" md="12" xs="12" class="input-col">
           <TEXTAREA
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.observ"
-            :reg="reg"
+            :reg="reg.observ"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="6" md="6" xs="6" class="input-col">
-          <AUTOCOMPLETE :field="form_corres.esta" :reg="reg" />
+          <AUTOCOMPLETE :field="form_corres.esta" :reg="reg.esta" />
         </v-col>
       </v-row>
     </v-card>
@@ -252,6 +293,9 @@ export default {
     this.buscarUltimaCorres();
   },
   methods: {
+    onChange(data) {
+      this.reg[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),
@@ -297,7 +341,6 @@ export default {
       if (RES.msg) this.CON851("N1", "info", `La correspondencia no existe`);
       else if (RES.llave) {
         console.log("my res: ", RES);
-        
 
         this.reg = RES;
         this.solicitarImpresion();
