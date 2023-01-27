@@ -10,14 +10,30 @@
       <v-container>
         <v-row>
           <v-col cols="3">
-            <AUTOCOMPLETE @next-action="nextStep(form_bus, $event, validarFiltro)" :field="form_bus.filtro" :reg="busqueda"></AUTOCOMPLETE>
+            <AUTOCOMPLETE
+              @next-action="nextStep(form_bus, $event, validarFiltro)"
+              :field="form_bus.filtro"
+              :reg="busqueda"
+              @onChange="(data) => (busqueda = data.value)"
+            ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="4">
-            <INPUT @next-action="nextStep(form_bus, $event, validarBusqueda)" :field="form_bus.busqueda" :reg="busqueda"></INPUT>
+            <INPUT
+              @next-action="nextStep(form_bus, $event, validarBusqueda)"
+              :field="form_bus.busqueda"
+              :reg="busqueda"
+              @onChange="(data) => (busqueda = data.value)"
+            ></INPUT>
           </v-col>
           <v-divider></v-divider>
           <v-col cols="12">
-            <TABLE :focus_table="focus_table" @escTable="datoBusqueda" @selectRow="selectRow" @nextData="nextData" :f8="f8"></TABLE>
+            <TABLE
+              :focus_table="focus_table"
+              @escTable="datoBusqueda"
+              @selectRow="selectRow"
+              @nextData="nextData"
+              :f8="f8"
+            ></TABLE>
           </v-col>
         </v-row>
       </v-container>
@@ -39,11 +55,9 @@ export default {
   data() {
     return {
       focus_table: false,
+      busqueda: "",
+      filtro: "",
 
-      busqueda: {
-        busqueda: "",
-        filtro: "",
-      },
       form_bus: {
         filtro: {
           id: "filtro",
@@ -125,6 +139,7 @@ export default {
     this.focus_table = true;
   },
   methods: {
+
     ...mapActions({
       _getCorr868F8: "corr/_getCorr868F8",
     }),
@@ -163,12 +178,12 @@ export default {
       this.$emit("callBack", item);
     },
     async nextDataValidation(desde, cantidad, filtro) {
-      let parametro = this.busqueda.filtro;
+      let parametro = this.busqueda
       await this._getCorr868F8({ desde, cantidad, filtro, parametro });
       this.f8.body = this.getLista("lista").slice(0, 8);
     },
     async nextData(data) {
-      let filtro = this.busqueda.busqueda;
+      let filtro = this.busqueda;
       let f8 = this.f8;
       let cantidad = 9;
       let desde = 0;

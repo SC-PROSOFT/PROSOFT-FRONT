@@ -12,6 +12,7 @@
           <v-col cols="4">
             <INPUT
               @next-action="nextStep(form_bus, $event, validarBusqueda)"
+              @onChange="(data) => (busqueda = data.value)"
               :field="form_bus.busqueda"
               :reg="busqueda"
             ></INPUT>
@@ -45,9 +46,8 @@ export default {
     return {
       focus_table: false,
 
-      busqueda: {
-        busqueda: "",
-      },
+      busqueda: "",
+
       form_bus: {
         busqueda: {
           id: "busqueda",
@@ -127,7 +127,7 @@ export default {
       this.f8.body = this._getListaDepremi("lista").slice(0, 8);
     },
     async nextData(data) {
-      let filtro = this.busqueda.busqueda;
+      let filtro = this.busqueda;
       let f8 = this.f8;
       let cantidad = 9;
       let desde = 0;

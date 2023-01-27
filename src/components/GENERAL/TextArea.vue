@@ -6,7 +6,7 @@
     :background-color="color_input"
     :maxlength="field.max_length"
     @keydown="onKeyDown($event)"
-    @keyup="onKeyUp($event)"
+    @keyup="onChange()"
     :counter="field.max_length"
     :disabled="field.disabled"
     @keydown.esc="pressEsc"
@@ -82,6 +82,9 @@ export default {
     },
     sinFoco() {
       this.flag_foco = true;
+    },
+    onChange() {
+      this.$emit("onChange", { key: this.field.id, value: this.reg_ });
     },
     // async pressEnter() {
     // this.$emit("next-action", { key: "enter", field: this.field.id });

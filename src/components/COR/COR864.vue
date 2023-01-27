@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="estado" persistent id="efe8" width="700">
-    <v-card flat >
+    <v-card flat>
       <v-toolbar color="primary" class="white--text">
         <h3 class="mx-auto">PRUEBA</h3>
         <v-btn icon dark @click="exitCOR864" class="botone">
@@ -13,7 +13,7 @@
             <INPUT
               @next-action="nextStep(form_bus, $event, validarBusqueda)"
               :field="form_bus.busqueda"
-              :reg="busqueda"
+              :reg="busqueda.busqueda"
             ></INPUT>
           </v-col>
           <v-divider></v-divider>
@@ -126,11 +126,11 @@ export default {
     },
     async nextDataValidation(desde, cantidad, filtro) {
       const RES = await this._getCorr864f8({ desde, cantidad, filtro });
-      console.log("RES864",RES);
+      console.log("RES864", RES);
       this.f8.body = this.getLista("lista").slice(0, 8);
     },
     async nextData(data) {
-      console.log("data",data);
+      console.log("data", data);
       let filtro = this.busqueda.busqueda;
       let f8 = this.f8;
       let cantidad = 9;
@@ -164,7 +164,7 @@ export default {
       let filtro = "";
       let cantidad = 9;
       const RES = await this._getCorr864f8({ desde, cantidad, filtro });
-      console.log("CORR",RES);
+      console.log("CORR", RES);
       f8.headers = this.data_table.columns;
       f8.body = this.getLista("lista").slice(0, 8);
     },

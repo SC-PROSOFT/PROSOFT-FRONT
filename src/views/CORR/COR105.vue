@@ -16,14 +16,16 @@
             @next-action="nextStep(form_unifun, $event, datoUnifun)"
             @abrirF8="openCOR876"
             :field="form_unifun.codigo"
-            :reg="reg_unifun"
+            :reg="reg_unifun.codigo"
+            @onChange="onChange"
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_unifun, $event, datoDescrip)"
             :field="form_unifun.descripcion"
-            :reg="reg_unifun"
+            :reg="reg_unifun.descripcion"
+            @onChange="onChange"
           />
         </v-col>
       </v-row>
@@ -84,6 +86,9 @@ export default {
     this.abrirNovedad();
   },
   methods: {
+    onChange(data) {
+      this.reg_unifun[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),

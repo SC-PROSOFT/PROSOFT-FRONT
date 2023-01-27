@@ -12,16 +12,36 @@
       </v-row>
       <v-row justify="start" align="center" class="input-row">
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT @next-action="nextStep(form_auxco, $event, datoCodAux)" @abrirF8="openCOR871" :field="form_auxco.codigo" :reg="reg_auxco" />
+          <INPUT
+            @next-action="nextStep(form_auxco, $event, datoCodAux)"
+            @abrirF8="openCOR871"
+            :field="form_auxco.codigo"
+            :reg="reg_auxco.codigo"
+            @onChange="onChange"
+            
+          />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT @next-action="nextStep(form_auxco, $event, datoCodSerco)" @abrirF8="openCOR867" :field="form_auxco.codSerco" :reg="reg_auxco" />
+          <INPUT
+            @next-action="nextStep(form_auxco, $event, datoCodSerco)"
+            @abrirF8="openCOR867"
+            :field="form_auxco.codSerco"
+            :reg="reg_auxco.codSerco"
+            @onChange="onChange"
+
+          />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
-          <data-card :field="form_tipico.descripcion" :reg="reg_tipco" />
+          <data-card :field="form_tipico.descripcion" :reg="reg_tipco.descripcion" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT @next-action="nextStep(form_auxco, $event, datoDescripcion)" :field="form_auxco.descripcion" :reg="reg_auxco" />
+          <INPUT
+            @next-action="nextStep(form_auxco, $event, datoDescripcion)"
+            :field="form_auxco.descripcion"
+            :reg="reg_auxco.descripcion"
+            @onChange="onChange"
+
+          />
         </v-col>
       </v-row>
     </v-card>
@@ -33,14 +53,32 @@
       v-if="alerta.estado"
       :alerta="alerta"
     ></CON851>
-    <CON850 @novedadSelec="novedadSelec($event)" :novedad_activa="novedad_activa" v-if="novedad_activa" />
-    <COR871 v-if="show_cor871" @callBack="callbackCOR871" @callbackEsc="callbackCOR871"></COR871>
-    <COR867 v-if="show_cor867" @callBack="callbackCOR867" @callbackEsc="callbackCOR867"></COR867>
+    <CON850
+      @novedadSelec="novedadSelec($event)"
+      :novedad_activa="novedad_activa"
+      v-if="novedad_activa"
+    />
+    <COR871
+      v-if="show_cor871"
+      @callBack="callbackCOR871"
+      @callbackEsc="callbackCOR871"
+    ></COR871>
+    <COR867
+      v-if="show_cor867"
+      @callBack="callbackCOR867"
+      @callbackEsc="callbackCOR867"
+    ></COR867>
   </v-container>
 </template>
 <script>
-import { getObjRegAuxco, getObjRegAuxco_ } from "../../fuentes/correspondencia/regAuxco";
-import { getObjRegTipco, getObjRegTipco_ } from "../../fuentes/correspondencia/regTipco";
+import {
+  getObjRegAuxco,
+  getObjRegAuxco_,
+} from "../../fuentes/correspondencia/regAuxco";
+import {
+  getObjRegTipco,
+  getObjRegTipco_,
+} from "../../fuentes/correspondencia/regTipco";
 import { mapMutations, mapActions, mapGetters } from "vuex";
 import COR871 from "../../components/COR/COR871.vue";
 import COR867 from "../../components/COR/COR867.vue";
@@ -80,6 +118,9 @@ export default {
   },
 
   methods: {
+    onChange(data){
+      this.reg_auxco[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),
@@ -132,14 +173,23 @@ export default {
         switch (this.novedad.acceso) {
           case 7:
             if (RES.codigo) {
-              this.CON851("N1", "info", `El código ${this.reg_auxco.codigo} ya existe`);
+              this.CON851(
+                "N1",
+                "info",
+                `El código ${this.reg_auxco.codigo} ya existe`
+              );
               this.reg_auxco = RES;
               this.mostrarDatos();
             } else this.focusInput(this.form_auxco, "codSerco");
 
             break;
           case 8:
-            if (RES.msg) this.CON851("N1", "info", `Aux tipo correspondencia ${this.reg_auxco.codigo} no existe`);
+            if (RES.msg)
+              this.CON851(
+                "N1",
+                "info",
+                `Aux tipo correspondencia ${this.reg_auxco.codigo} no existe`
+              );
             else {
               this.reg_auxco = RES;
               this.mostrarDatos();
@@ -147,10 +197,20 @@ export default {
             }
             break;
           case 9:
-            if (RES.msg) this.CON851("N1", "info", `El código  Auxiliar ${this.reg_auxco.codigo} no existe`);
+            if (RES.msg)
+              this.CON851(
+                "N1",
+                "info",
+                `El código  Auxiliar ${this.reg_auxco.codigo} no existe`
+              );
             if (RES.codigo) {
               this.reg_auxco = RES;
-              this.CON851("PNZ", "info", `¿Seguro que desea eliminar auxiliar?`, "P");
+              this.CON851(
+                "PNZ",
+                "info",
+                `¿Seguro que desea eliminar auxiliar?`,
+                "P"
+              );
             }
         }
         return RES;
@@ -163,7 +223,12 @@ export default {
         const RES = await this._getTipco({ codigo: this.reg_auxco.codSerco });
         if (RES.codigo) {
           this.reg_tipco = RES;
-        } else if (RES.msg) return this.CON851("N1", "info", `Aux tipo correspondencia ${this.reg_tipco.codigo} no existe`);
+        } else if (RES.msg)
+          return this.CON851(
+            "N1",
+            "info",
+            `Aux tipo correspondencia ${this.reg_tipco.codigo} no existe`
+          );
       } catch (error) {
         console.error(error);
       }
@@ -186,7 +251,12 @@ export default {
         if (RES.codigo) {
           this.reg_tipco = RES;
           this.focusInput(this.form_auxco, "descripcion");
-        } else if (RES.msg) return this.CON851("N1", "info", `Aux tipo correspondencia ${this.reg_tipco.codigo} no existe`);
+        } else if (RES.msg)
+          return this.CON851(
+            "N1",
+            "info",
+            `Aux tipo correspondencia ${this.reg_tipco.codigo} no existe`
+          );
       } catch (error) {
         console.error(error);
       }
@@ -197,9 +267,22 @@ export default {
           this.focusInput(this.form_auxco, "codSerco");
           break;
         case "enter":
-          if (this.reg_auxco.descripcion == "") return this.CON851("02", "info");
-          this.novedad.acceso == 7 && this.CON851("PNZ", "info", `¿Deseas crear Aux tipo de correspondencia?`, "p");
-          this.novedad.acceso == 8 && this.CON851("PNZ", "info", `Desea cambiar Aux tipo de correspondencia?`, "p");
+          if (this.reg_auxco.descripcion == "")
+            return this.CON851("02", "info");
+          this.novedad.acceso == 7 &&
+            this.CON851(
+              "PNZ",
+              "info",
+              `¿Deseas crear Aux tipo de correspondencia?`,
+              "p"
+            );
+          this.novedad.acceso == 8 &&
+            this.CON851(
+              "PNZ",
+              "info",
+              `Desea cambiar Aux tipo de correspondencia?`,
+              "p"
+            );
           break;
       }
     },
@@ -214,8 +297,14 @@ export default {
     async guardar() {
       try {
         const RES = await this._newAuxco({ ...this.reg_auxco });
-        RES.N1 && this.CON851("N1", "success", `Servicio de correspondencia guardado`);
-        RES.msg && this.CON851("N1", "error", `No se pudo crear Servicio de correspondencia`);
+        RES.N1 &&
+          this.CON851("N1", "success", `Servicio de correspondencia guardado`);
+        RES.msg &&
+          this.CON851(
+            "N1",
+            "error",
+            `No se pudo crear Servicio de correspondencia`
+          );
       } catch (error) {
         console.error(error);
       }
@@ -223,17 +312,32 @@ export default {
     async eliminar() {
       try {
         const RES = await this._delAuxco({ codigo: this.reg_auxco.codigo });
-        RES.N1 && this.CON851("N1", "success", `Servicio de correspondencia eliminado`);
-        RES.msg && this.CON851("N1", "error", `No existe Aux tipo de correspondencia`);
+        RES.N1 &&
+          this.CON851("N1", "success", `Servicio de correspondencia eliminado`);
+        RES.msg &&
+          this.CON851("N1", "error", `No existe Aux tipo de correspondencia`);
       } catch (error) {
         console.error(error);
       }
     },
     async editar() {
       try {
-        const RES = await this._editAuxco({ data: this.reg_auxco, codigo: this.reg_auxco.codigo });
-        RES.N1 && this.CON851("N1", "success", `Servicio de correspondencia modificado`);
-        RES.msg && this.CON851("N1", "error", `No se pudo modifica Aux tipo de correspondencia`);
+        const RES = await this._editAuxco({
+          data: this.reg_auxco,
+          codigo: this.reg_auxco.codigo,
+        });
+        RES.N1 &&
+          this.CON851(
+            "N1",
+            "success",
+            `Servicio de correspondencia modificado`
+          );
+        RES.msg &&
+          this.CON851(
+            "N1",
+            "error",
+            `No se pudo modifica Aux tipo de correspondencia`
+          );
       } catch (error) {
         console.error(error);
       }
@@ -260,7 +364,9 @@ export default {
     novedadSelec(data) {
       this.novedad_activa = false;
       this.firstField(this.form_auxco);
-      data.acceso == "F" ? this.$router.push("/Menu-Principal") : (this.novedad = Object.assign({}, data));
+      data.acceso == "F"
+        ? this.$router.push("/Menu-Principal")
+        : (this.novedad = Object.assign({}, data));
     },
   },
 };

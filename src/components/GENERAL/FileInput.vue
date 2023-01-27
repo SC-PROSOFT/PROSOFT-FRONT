@@ -3,14 +3,16 @@
     <v-file-input
       :error="field.error == true ? true : false"
       @focus="setCaja(field), focusCaja()"
+      :background-color="color_input"
       :disabled="field.disabled"
       @keydown.esc="pressEsc"
-      v-model="reg[field.id]"
       :accept="field.file"
       :label="field.label"
       @change="changeFile"
+      @keyup="onChange()"
       @blur="sinFoco()"
       :id="field.id"
+      v-model="reg_"
       ref="input"
       outlined
       dense
@@ -32,16 +34,17 @@ import { mapMutations } from "vuex";
 export default {
   mixins: [alert],
   props: {
-    reg: Object,
+    reg: [Object, Array, File],
     field: {
       label: String,
       value: String,
       disabled: Boolean,
     },
-    mask: Function,
   },
   data() {
     return {
+      reg_: null,
+      color_input: "",
       flag_foco: false,
     };
   },
@@ -54,15 +57,21 @@ export default {
         });
       }
     },
-    flag_foco() {
-      let elementos = document.getElementById(this.field.id);
-      if (this.flag_foco && !this.field.disabled) {
-        elementos.style.background = "#FFD700";
-        elementos.style.borderRadius = "0.2rem";
-      } else {
-        elementos.style.background = "";
-      }
+    "$props.reg"(val) {
+      console.log("val", val);
+      this.reg_ = val;
     },
+    reg_(val) {
+      this.onChange();
+    },
+    flag_foco() {
+      if (this.flag_foco && !this.field.disabled)
+        this.color_input = "input_foco";
+      else this.color_input = "input_blur";
+    },
+  },
+  mounted() {
+    this.reg_ = this.reg;
   },
 
   methods: {
@@ -81,6 +90,9 @@ export default {
       this.$refs.form.reset();
       this.$emit("next-action", { key: "esc", field: this.field.id });
     },
+    onChange() {
+      this.$emit("onChange", { key: this.field.id, value: this.reg_ });
+    },
 
     abrirF8() {
       this.$emit("abrirF8");
@@ -91,9 +103,9 @@ export default {
     sinFoco() {
       this.flag_foco = true;
     },
-
     changeFile(file) {
-      !!file?.name && this.$emit("next-action", { key: "enter", field: this.field.id });
+      !!file?.name &&
+        this.$emit("next-action", { key: "enter", field: this.field.id });
     },
   },
 };
