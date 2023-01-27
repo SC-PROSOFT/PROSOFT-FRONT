@@ -57,10 +57,6 @@ export default {
       focus_table: false,
       busqueda: "",
       filtro: "",
-<<<<<<< HEAD
-
-=======
->>>>>>> 0cf00ddc0d314e3491bf811d55254b500faf9a54
       form_bus: {
         filtro: {
           id: "filtro",

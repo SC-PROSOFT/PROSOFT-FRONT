@@ -49,13 +49,8 @@ export default {
       focus_table: false,
 
       estado: true,
-<<<<<<< HEAD
-      busqueda: "",
-
-=======
      busqueda: "",
       
->>>>>>> 0cf00ddc0d314e3491bf811d55254b500faf9a54
       form: {
         busqueda: {
           id: "busqueda",
