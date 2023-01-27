@@ -18,7 +18,6 @@
             :field="form_auxco.codigo"
             :reg="reg_auxco.codigo"
             @onChange="onChange"
-            
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -28,11 +27,13 @@
             :field="form_auxco.codSerco"
             :reg="reg_auxco.codSerco"
             @onChange="onChange"
-
           />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
-          <data-card :field="form_tipico.descripcion" :reg="reg_tipco.descripcion" />
+          <data-card
+            :field="form_tipico.descripcion"
+            :reg="reg_tipco.descripcion"
+          />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
@@ -40,7 +41,6 @@
             :field="form_auxco.descripcion"
             :reg="reg_auxco.descripcion"
             @onChange="onChange"
-
           />
         </v-col>
       </v-row>
@@ -118,7 +118,7 @@ export default {
   },
 
   methods: {
-    onChange(data){
+    onChange(data) {
       this.reg_auxco[data.key] = data.value;
     },
     ...mapMutations({
@@ -141,6 +141,7 @@ export default {
         this.reg_auxco.codSerco = item.codigo;
         this.reg_tipco = item;
       }
+
       this.show_cor867 = false;
       this.focusInput(this.form_auxco, "descripcion");
     },
@@ -153,6 +154,7 @@ export default {
         this.reg_auxco = item;
         this.mostrarDatos();
       }
+
       this.focusInput(this.form_auxco, "codigo");
       this.show_cor871 = false;
     },
