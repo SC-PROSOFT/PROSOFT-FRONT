@@ -14,6 +14,7 @@
               @next-action="nextStep(form_bus, $event, validarBusqueda)"
               :field="form_bus.busqueda"
               :reg="busqueda"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-divider></v-divider>
@@ -47,7 +48,7 @@ export default {
     return {
       focus_table: false,
       busqueda: "",
-      
+
       form_bus: {
         busqueda: {
           id: "busqueda",

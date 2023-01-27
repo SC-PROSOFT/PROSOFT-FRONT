@@ -12,9 +12,9 @@
           <v-col cols="4">
             <INPUT
               @next-action="nextStep(form_bus, $event, validarBusqueda)"
-              @onChange="(data) => (busqueda = data.value)"
               :field="form_bus.busqueda"
               :reg="busqueda"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-divider></v-divider>

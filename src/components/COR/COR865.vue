@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="estado" persistent id="efe8">
-    <v-card flat >
+    <v-card flat>
       <v-toolbar color="primary" class="white--text">
         <h3 class="mx-auto">CONSULTA DE CODIGOS DE DEPENDENCIA</h3>
         <v-btn icon dark @click="exitCOR865" class="botone">
@@ -10,11 +10,23 @@
       <v-container>
         <v-row>
           <v-col cols="4" class="">
-            <INPUT @next-action="nextStep(form_bus, $event, validarBusqueda)" :field="form_bus.busqueda" :reg="busqueda"></INPUT>
+            <INPUT
+              @next-action="nextStep(form_bus, $event, validarBusqueda)"
+              :field="form_bus.busqueda"
+              :reg="busqueda"
+              @onChange="(data) => (busqueda = data.value)"
+
+            ></INPUT>
           </v-col>
           <v-divider></v-divider>
           <v-col cols="12">
-            <TABLE :focus_table="focus_table" @escTable="datoBusqueda" @selectRow="selectRow" @nextData="nextData" :f8="f8"></TABLE>
+            <TABLE
+              :focus_table="focus_table"
+              @escTable="datoBusqueda"
+              @selectRow="selectRow"
+              @nextData="nextData"
+              :f8="f8"
+            ></TABLE>
           </v-col>
         </v-row>
       </v-container>

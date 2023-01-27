@@ -14,6 +14,7 @@
               @next-action="nextStep(form_bus, $event, validarBusqueda)"
               :field="form_bus.busqueda"
               :reg="busqueda"
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-divider></v-divider>
@@ -31,7 +32,7 @@
     </v-card>
   </v-dialog>
 </template>
-  <script>
+<script>
 import { nextAction } from "../../mixins/nextAction";
 import { mapActions, mapGetters } from "vuex";
 import { global } from "../../mixins/global";
@@ -52,7 +53,7 @@ export default {
   data() {
     return {
       focus_table: false,
-      busqueda: "",  
+      busqueda: "",
 
       form_bus: {
         busqueda: {
@@ -180,10 +181,9 @@ export default {
   },
 };
 </script>
-  <style>
+<style>
 #efe8 {
   transition: 1000ms;
   z-index: -100;
 }
 </style>
-  
