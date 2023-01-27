@@ -46,9 +46,14 @@ export default {
   data() {
     return {
       focus_table: false,
+<<<<<<< HEAD
 
       busqueda: "",
 
+=======
+      busqueda: "",
+      
+>>>>>>> 0cf00ddc0d314e3491bf811d55254b500faf9a54
       form_bus: {
         busqueda: {
           id: "busqueda",

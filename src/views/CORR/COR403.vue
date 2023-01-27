@@ -69,7 +69,7 @@
             @abrirF8="openCOR868"
             :field="form_rescorr.contRadi"
             :reg="reg_rescorr.contRadi"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
 
@@ -102,7 +102,7 @@
             @abrirF8="openCORterce"
             :field="form_rescorr.nit"
             :reg="reg_rescorr.nit"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
@@ -119,7 +119,7 @@
             @abrirF8="openCORremidep"
             :field="form_rescorr.dptoRemit"
             :reg="reg_rescorr.dptoRemit"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
@@ -147,7 +147,7 @@
             @abrirF8="openCORtipco"
             :field="form_rescorr.tipoCorres"
             :reg="reg_rescorr.tipoCorres"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
@@ -164,7 +164,7 @@
             @abrirF8="openCORauxco"
             :field="form_rescorr.codAuxco"
             :reg="reg_rescorr.codAuxco"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
@@ -181,7 +181,7 @@
             @abrirF8="openCOR865"
             :field="form_rescorr.ser"
             :reg="reg_rescorr.ser"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
@@ -198,7 +198,7 @@
             @abrirF8="openCORdepco"
             :field="form_rescorr.dep"
             :reg="reg_rescorr.dep"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
@@ -235,7 +235,7 @@
             @abrirF8="openCOR867"
             :field="form_rescorr.clMacro"
             :reg="reg_rescorr.clMacro"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -244,7 +244,7 @@
             @abrirF8="openCORmacro"
             :field="form_rescorr.codigoMacro"
             :reg="reg_rescorr.codigoMacro"
-            @onChange="onChange"
+            @onChange="(data) => (busqueda = data.value)"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">

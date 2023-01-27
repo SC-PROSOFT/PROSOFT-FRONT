@@ -46,9 +46,13 @@ export default {
   data() {
     return {
       focus_table: false,
+<<<<<<< HEAD
 
       busqueda: "",
 
+=======
+      busqueda: "",
+>>>>>>> 0cf00ddc0d314e3491bf811d55254b500faf9a54
       form_bus: {
         busqueda: {
           id: "busqueda",
@@ -136,7 +140,7 @@ export default {
       this.f8.body = this._getListaTipco("lista").slice(0, 8);
     },
     async nextData(data) {
-      let filtro = this.busqueda.busqueda;
+      let filtro = this.busqueda;
       let f8 = this.f8;
       let cantidad = 9;
       let desde = 0;
