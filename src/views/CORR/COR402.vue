@@ -17,13 +17,14 @@
             @abrirF8="openCOR867"
             :field="form_macro.tipo"
             :reg="reg_macro.tipo"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_macro.tipo_descripcion"
             :reg="reg_macro.tipo_descripcion"
+       
           ></data-card>
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
@@ -32,7 +33,7 @@
             @abrirF8="openCORmacro"
             :field="form_macro.codigo"
             :reg="reg_macro.codigo"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
@@ -137,12 +138,13 @@ export default {
   },
 
   mounted() {
+  
     this.abrirNovedad();
   },
 
   methods: {
-     onChange(data) {
-      this.reg_serco[data.key] = data.value;
+    onChange(data) {
+      this.reg_macro[data.key] = data.value;
     },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",

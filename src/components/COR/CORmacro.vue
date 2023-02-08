@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="estado" persistent width="700">
+  <v-dialog v-model="estado" persistent width="900">
     <v-card falt>
       <v-toolbar color="primary" class="white--text">
         <h3 class="mx-auto">VENTANA MACROS CORRESPONDENCIA</h3>
@@ -14,8 +14,7 @@
               @next-action="nextStep(form_bus, $event, validarBusqueda)"
               :field="form_bus.busqueda"
               :reg="busqueda"
-                            @onChange="(data) => (busqueda = data.value)"
-
+              @onChange="(data) => (busqueda = data.value)"
             ></INPUT>
           </v-col>
           <v-divider></v-divider>
@@ -81,17 +80,17 @@ export default {
           {
             title: "Codigo",
             body_conector: "llave",
-            cols: "2",
+            cols: "3",
           },
           {
             title: "Tipo",
             body_conector: "tipo",
-            cols: "5",
+            cols: "3",
           },
           {
             title: "Descripción",
             body_conector: "detalle",
-            cols: "5",
+            cols: "7",
           },
         ],
         rows: [],

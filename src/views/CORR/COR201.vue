@@ -545,7 +545,8 @@ export default {
     },
     async condicionesNovedad() {
       if (this.novedad.acceso == "7" || !this.reg.contAtnt)
-        await this.buscarNumero();
+        this.focusInput(this.form_corres);
+      await this.buscarNumero();
       if (this.novedad.acceso == "7") {
         let anio_actual = moment().format("YYYY-MM-DD").slice(0, 4);
         if (this.reg.llave.anoLlave == anio_actual) {
@@ -901,6 +902,18 @@ export default {
         case "esc":
           return this.focusInput(this.form_corres, "fold");
         case "enter":
+          return this.CON851P(
+            "PNZ",
+            "info",
+            "¿Tiene Anexos?",
+            () => {
+              this.focusInput(this.form_corres, "anex");
+            },
+            () => {
+              this.focusInput(this.form_corres, "nroFact");
+            }
+          );
+
           return this.focusInput(this.form_corres, "anex");
       }
     },
@@ -909,8 +922,8 @@ export default {
         case "esc":
           return this.focusInput(this.form_corres, "tipoAnexo");
         case "enter":
-          return this.focusInput(this.form_corres, "nroFact");
       }
+      return this.focusInput(this.form_corres, "nroFact");
     },
     datoFactura(val) {
       switch (val) {
