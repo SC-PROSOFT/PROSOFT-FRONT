@@ -15,13 +15,13 @@
       @keyup="onChange()"
       :type="field.tipo"
       @blur="sinFoco()"
-      @input="input()"
       v-model="reg_"
       :id="field.id"
       ref="input"
       outlined
       dense
     >
+      <!-- @input="input()" -->
       <v-icon
         :color="field.disabled ? '#6b8996' : 'secondary'"
         style="cursor: pointer"

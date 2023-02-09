@@ -16,17 +16,14 @@
           <v-col cols="12" sm="3" md="3" class="input-col">
             <INPUT
               @next-action="nextStep(form_corres, $event, datoEntidad)"
-              :field="form_corres.entidad"
-              @abrirF8="openCON802"
-              :reg="reg_corres.entidad"
               @onChange="(data) => (busqueda = data.value)"
+              :field="form_corres.entidad"
+              :reg="reg_corres.entidad"
+              @abrirF8="openCON802"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
-            <data-card
-              :field="form_corres.entidad_descripcion"
-              :reg="reg_corres.entidad_descripcion"
-            ></data-card>
+            <data-card :field="form_corres.entidad_descripcion" :reg="reg_corres.entidad_descripcion"></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <INPUT
@@ -38,10 +35,7 @@
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
-            <data-card
-              :field="form_corres.depen_descripcion"
-              :reg="reg_corres.depen_descripcion"
-            ></data-card>
+            <data-card :field="form_corres.depen_descripcion" :reg="reg_corres.depen_descripcion"></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <INPUT
@@ -53,10 +47,7 @@
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
-            <data-card
-              :field="form_corres.corres_descripcion"
-              :reg="reg_corres.corres_descripcion"
-            ></data-card>
+            <data-card :field="form_corres.corres_descripcion" :reg="reg_corres.corres_descripcion"></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <AUTOCOMPLETE
@@ -75,6 +66,7 @@
           <v-col cols="12" sm="2" md="2" class="input-col">
             <FECHA
               @next-action="nextStep(form_corres, $event, datoFechaIni)"
+              @onChange="(data) => (reg_corres.fechaIni = data.value)"
               :field="form_corres.fechaIni"
               :reg="reg_corres.fechaIni"
             ></FECHA>
@@ -82,6 +74,7 @@
           <v-col cols="12" sm="2" md="2" class="input-col">
             <FECHA
               @next-action="nextStep(form_corres, $event, datoFechaFin)"
+              @onChange="(data) => (reg_corres.fechaFin = data.value)"
               :field="form_corres.fechaFin"
               :reg="reg_corres.fechaFin"
             ></FECHA>
@@ -118,11 +111,7 @@
         </v-row>
         <v-row></v-row>
       </v-card-text>
-      <CON890P
-        :modal_impresion="modal_impresion"
-        @impresionSelec="impresionSelec"
-        class="mx-auto"
-      ></CON890P>
+      <CON890P :modal_impresion="modal_impresion" @impresionSelec="impresionSelec" class="mx-auto"></CON890P>
     </v-card>
     <CON851
       @cancelarAlerta="cancelarAlerta()"
@@ -132,29 +121,14 @@
       v-if="alerta.estado"
       :alerta="alerta"
     ></CON851>
-    <COR866
-      v-if="show_COR866"
-      @callBack="callbackCOR866"
-      @callbackEsc="callbackCOR866"
-    ></COR866>
-    <CON802
-      v-if="show_con802"
-      @callBack="callbackCON802"
-      @callbackEsc="callbackCON802"
-    ></CON802>
-    <COR867
-      v-if="show_COR867"
-      @callBack="callbackCOR867"
-      @callbackEsc="callbackCOR867"
-    ></COR867>
+    <COR866 v-if="show_COR866" @callBack="callbackCOR866" @callbackEsc="callbackCOR866"></COR866>
+    <CON802 v-if="show_con802" @callBack="callbackCON802" @callbackEsc="callbackCON802"></CON802>
+    <COR867 v-if="show_COR867" @callBack="callbackCOR867" @callbackEsc="callbackCOR867"></COR867>
   </v-container>
 </template>
 
 <script>
-import {
-  getCorrespondenciaImpresion_,
-  getCorrespondenciaImpresion,
-} from "../../fuentes/correspondencia/regCorrespondenciaImpresion";
+import { getCorrespondenciaImpresion_, getCorrespondenciaImpresion } from "../../fuentes/correspondencia/regCorrespondenciaImpresion";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import { global, image_base64 } from "../../mixins/global";
 import CON890P from "../../components/CONTAB/CON890P.vue";
@@ -287,11 +261,9 @@ export default {
     datoEntidad(val) {
       switch (val) {
         case "esc":
-          this.abrirImpresion();
-          break;
+          return this.abrirImpresion();
         case "enter":
-          this.validateEntidad();
-          break;
+          return this.validateEntidad();
       }
     },
 
@@ -326,15 +298,9 @@ export default {
     datoDependencia(val) {
       switch (val) {
         case "esc":
-          this.focusInput(this.form_corres, "entidad");
-          break;
-
+          return this.focusInput(this.form_corres, "entidad");
         case "enter":
-          this.validateDatoCorres();
-          break;
-
-        default:
-          break;
+          return this.validateDatoCorres();
       }
     },
 
@@ -362,13 +328,10 @@ export default {
     async datoTipoCorres(val) {
       switch (val) {
         case "esc":
-          this.focusInput(this.form_corres, "depenTipoCorres");
-          break;
+          return this.focusInput(this.form_corres, "depenTipoCorres");
         case "enter":
-          if (this.reg_corres.tipoCorres == "")
-            return this.CON851("02", "info");
-          await this.validateDatoTipoCorres();
-          break;
+          if (this.reg_corres.tipoCorres == "") return this.CON851("02", "info");
+          return await this.validateDatoTipoCorres();
       }
     },
 
@@ -396,47 +359,29 @@ export default {
     datoDescartarCorres(val) {
       switch (val) {
         case "esc":
-          this.focusInput(this.form_corres, "tipoCorres");
-          break;
-
+          return this.focusInput(this.form_corres, "tipoCorres");
         case "enter":
           if (this.descartarTipoCorres == "S") {
           } else this.descartarTipoCorres == "N";
-          this.focusInput(this.form_corres, "incluirRadiRes");
-          break;
-
-        default:
-          break;
+          return this.focusInput(this.form_corres, "incluirRadiRes");
       }
     },
 
     datoRadicado(val) {
       switch (val) {
         case "esc":
-          this.focusInput(this.form_corres, "descartarTipoCorres");
-          break;
-
+          return this.focusInput(this.form_corres, "descartarTipoCorres");
         case "enter":
-          this.focusInput(this.form_corres, "fechaIni");
-          break;
-
-        default:
-          break;
+          return this.focusInput(this.form_corres, "fechaIni");
       }
     },
 
     datoFechaIni(key) {
       switch (key) {
         case "esc":
-          this.focusInput(this.form_corres, "incluirRadiRes");
-          break;
-
+          return this.focusInput(this.form_corres, "incluirRadiRes");
         case "enter":
-          this.validateFechaIni();
-          break;
-
-        default:
-          break;
+          return this.validateFechaIni();
       }
     },
 
@@ -457,15 +402,9 @@ export default {
     datoFechaFin(key) {
       switch (key) {
         case "esc":
-          this.focusInput(this.form_corres, "fechaIni");
-          break;
-
+          return this.focusInput(this.form_corres, "fechaIni");
         case "enter":
-          this.validateFechaFin();
-          break;
-
-        default:
-          break;
+          return this.validateFechaFin();
       }
     },
 
@@ -482,34 +421,21 @@ export default {
       } else if (fechaFin.length == max_length) {
       }
     },
-
     datoJornada(val) {
       switch (val) {
         case "esc":
-          this.focusInput(this.form_corres, "fechaFin");
-          break;
-
+          return this.focusInput(this.form_corres, "fechaFin");
         case "enter":
-          this.focusInput(this.form_corres, "procedencia");
-          break;
-
-        default:
-          break;
+          return this.focusInput(this.form_corres, "procedencia");
       }
     },
 
     datoProcedencia(val) {
       switch (val) {
         case "esc":
-          this.focusInput(this.form_corres, "jornada");
-          break;
-
+          return this.focusInput(this.form_corres, "jornada");
         case "enter":
-          this.focusInput(this.form_corres, "manejo");
-          break;
-
-        default:
-          break;
+          return this.focusInput(this.form_corres, "manejo");
       }
     },
 
@@ -517,15 +443,9 @@ export default {
     datoManejo(val) {
       switch (val) {
         case "esc":
-          this.focusInput(this.form_corres, "procedencia");
-          break;
-
+          return this.focusInput(this.form_corres, "procedencia");
         case "enter":
-          this.focusInput(this.form_corres, "estado");
-          break;
-
-        default:
-          break;
+          return this.focusInput(this.form_corres, "estado");
       }
     },
 
@@ -533,28 +453,15 @@ export default {
     async datoEstado(val) {
       switch (val) {
         case "esc":
-          this.focusInput(this.form_corres, "manejo");
-          break;
+          return this.focusInput(this.form_corres, "manejo");
         case "enter":
-          await this.requestPrint();
-          break;
+          return await this.requestPrint();
       }
     },
 
     async requestPrint() {
-      const {
-        entidad,
-        depenTipoCorres,
-        tipoCorres,
-        descartarTipoCorres,
-        incluirRadiRes,
-        fechaIni,
-        fechaFin,
-        jornada,
-        procedencia,
-        manejo,
-        estado,
-      } = this.reg_corres;
+      const { entidad, depenTipoCorres, tipoCorres, descartarTipoCorres, incluirRadiRes, fechaIni, fechaFin, jornada, procedencia, manejo, estado } =
+        this.reg_corres;
 
       const data = {
         nit: entidad,
@@ -580,25 +487,26 @@ export default {
       };
       index.commit("spinnerConfig", spinnerConfig, { root: true });
       const RES = await this._getImpresion(data);
-      if (RES.length < 1) {
+      console.log(RES);
+      if (RES.length == 0) {
         this.CON851("personalizada", "warning", "No hay datos disponibles.");
       } else {
         let columnas = getImpresion301().columnas;
-        let logo = getImpresion301().logo
-       const impre = {
+        let logo = getImpresion301().logo;
+        const impre = {
           USUARIO: this.USUARIO_GLOBAL.nombre,
           NIT: this.USUARIO_GLOBAL.nit,
         };
         let header = [
           { text: `${impre.USUARIO}`, bold: true, size: 16 },
           `CONTROL DE CORRESPONDENCIA  NIT: ${impre.NIT}`,
-          `Periodo desde: ${data.fechaIni.slice(0,10)}  Hasta: ${data.fechaFin.slice(0,10)}`,
+          `Periodo desde: ${data.fechaIni.slice(0, 10)}  Hasta: ${data.fechaFin.slice(0, 10)}`,
         ];
-       
+
         if (RES && RES.msg) {
           this.CON851("personalizada", "warning", "No hay datos disponibles.");
           index.commit("isLoading", null, { root: true });
-        } else if (RES[0].nit) {
+        } else if ("nit" in RES[0]) {
           setTimeout(() => {
             generadorImpresion({
               header,
@@ -613,11 +521,7 @@ export default {
             this.focusInput(this.form_corres, "estado");
           }, 700);
         } else {
-          this.CON851(
-            "personalizada",
-            "warning",
-            "Verifique los datos introducidos y vuelva a intentarlo"
-          );
+          this.CON851("personalizada", "warning", "Verifique los datos introducidos y vuelva a intentarlo");
         }
       }
     },
@@ -634,15 +538,13 @@ export default {
       this.CON851("MENU", "warning", "", "P");
     },
     abrirImpresion() {
-      this.modal_impresion = false;
+      this.modal_impresion = true;
       this.offField();
     },
     impresionSelec(data) {
       this.modal_impresion = false;
       this.focusInput(this.form_corres, "entidad");
-      data.acceso == "F"
-        ? this.$router.push("/Menu-Principal")
-        : (this.tipo_impresion = Object.assign({}, data));
+      data.acceso == "F" ? this.$router.push("/Menu-Principal") : (this.tipo_impresion = Object.assign({}, data));
     },
   },
 };
