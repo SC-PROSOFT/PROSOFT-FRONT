@@ -9,7 +9,7 @@
               @next-action="nextStep(form_informe, $event, datoAno)"
               :field="form_informe.anio"
               :reg="reg.anio"
-              @onChange="onChange"
+              @onChange="(data) => (busqueda = data.value)"
             />
           </v-col>
         </v-row>

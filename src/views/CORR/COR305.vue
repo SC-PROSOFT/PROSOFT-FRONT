@@ -138,6 +138,7 @@
               "
               :field="form_distribucion_interna.manejo"
               :reg="reg_distribucion_interna.manejo"
+              @onChange="(data) => (busqueda = data.value)"
             ></AUTOCOMPLETE>
           </v-col>
         </v-row>
