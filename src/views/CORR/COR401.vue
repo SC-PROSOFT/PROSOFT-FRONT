@@ -387,7 +387,7 @@ export default {
 
   methods: {
     onChange(data) {
-      this.reg_serco[data.key] = data.value
+      this.reg_COR401[data.key] = data.value
     },
     ...mapActions({
       /* remidep */

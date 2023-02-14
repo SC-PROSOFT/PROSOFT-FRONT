@@ -120,6 +120,7 @@ export default {
       }
     },
     async _getCORR891({ commit }, { codigo }) {
+      console.log(codigo,"CODIGO PETICION")
       commit("isLoading", null, { root: true });
       try {
         const RES = await postData({

@@ -60,12 +60,7 @@ Finalmente devolverá true. */
         preTable.forEach((el) => {
           if (el.merge) {
             let rango = el.merge;
-            this.worksheet.mergeCells(
-              final_encabezado,
-              rango[0],
-              final_encabezado,
-              rango[1]
-            );
+            this.worksheet.mergeCells(final_encabezado, rango[0], final_encabezado, rango[1]);
             row.getCell(rango[0]).value = el.text;
           } else {
             let column = parseInt(el.columna);
@@ -81,12 +76,7 @@ Finalmente devolverá true. */
         posTable.forEach((el) => {
           if (el.merge) {
             let rango = el.merge;
-            this.worksheet.mergeCells(
-              final_encabezado,
-              rango[0],
-              final_encabezado,
-              rango[1]
-            );
+            this.worksheet.mergeCells(final_encabezado, rango[0], final_encabezado, rango[1]);
             row.getCell(rango[0]).value = el.text;
           } else {
             let column = parseInt(el.columna);
@@ -144,10 +134,7 @@ Finalmente devolverá true. */
     let final_text = String.fromCharCode(96 + columnas_limite);
 
     let inicial = $this.content.merge_header[0];
-    let final =
-      columnas_final < 4
-        ? $this.content.merge_header[1]
-        : final_text.toUpperCase();
+    let final = columnas_final < 4 ? $this.content.merge_header[1] : final_text.toUpperCase();
     header.forEach((val, index) => {
       index++;
       let key_inicial = `${inicial + index}`;
@@ -195,7 +182,6 @@ Finalmente devolverá true. */
 
     datos.forEach((row, index) => {
       formato_datos.push([]);
-
       columnas.forEach((columna) => {
         let val = row[columna.value] || "";
         val = val.toString().trim();
@@ -215,9 +201,7 @@ Finalmente devolverá true. */
     let limite_ini = rango[0].substr(1); // Row inicio de tabla
     // Row final de tabla
     let limite_fin = null;
-    columnas_final_2 > 26
-      ? (limite_fin = rango[1].substr(2))
-      : (limite_fin = rango[1].substr(1));
+    columnas_final_2 > 26 ? (limite_fin = rango[1].substr(2)) : (limite_fin = rango[1].substr(1));
 
     // David.M 17/07/2020
     // Se agrega escala, orientacion y encabezado repetible en cada pagina
@@ -230,8 +214,7 @@ Finalmente devolverá true. */
     // Ajusta la altura (height) de cada fila
     let heightRow = this.content.tabla.heightRow || false;
     this.worksheet._rows.forEach((row) => {
-      if (row._number >= limite_ini && row._number <= limite_fin)
-        row.height = heightRow || 30;
+      if (row._number >= limite_ini && row._number <= limite_fin) row.height = heightRow || 30;
     });
 
     //Ajusta todas las celdas al tamaño del texto
@@ -261,31 +244,15 @@ Finalmente devolverá true. */
           vertical: "middle",
         };
 
-        if (
-          coord >= parseInt(limite_ini) &&
-          coord < parseInt(limite_fin) &&
-          cell._address != "A1"
-        ) {
+        if (coord >= parseInt(limite_ini) && coord < parseInt(limite_fin) && cell._address != "A1") {
           let actual = cell.value ? (cell.value.length || 10) + 5 : 10;
           width = actual > width ? actual : width;
         }
 
-        if (
-          coord > parseInt(limite_ini) &&
-          columna == parent_columna &&
-          config_column &&
-          config_column.format &&
-          config_column.format == "money"
-        )
+        if (coord > parseInt(limite_ini) && columna == parent_columna && config_column && config_column.format && config_column.format == "money")
           cell.numFmt = "$#,##0.00;[Red]-$#,##0.00";
 
-        if (
-          coord > parseInt(limite_ini) &&
-          columna == parent_columna &&
-          config_column &&
-          config_column.format &&
-          config_column.format == "fecha"
-        )
+        if (coord > parseInt(limite_ini) && columna == parent_columna && config_column && config_column.format && config_column.format == "fecha")
           cell.numFmt = "dd/mm/yyyy";
       });
 

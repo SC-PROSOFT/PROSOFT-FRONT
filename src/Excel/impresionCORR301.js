@@ -25,7 +25,7 @@ function getImpresion301() {
     },
     {
       name: "FORMA DE INGRESO",
-      value: "nroFact" /* DATO VACIO */,
+      value: "medioIngR" /* DATO VACIO */,
       filterButton: false,
     },
     {

@@ -71,7 +71,7 @@ export default {
       commit("isLoading", null, { root: true });
       try {
         const RES = await postData({
-          url: `macorr/${cl}${codigo}`,
+          url: `macorrAll/${cl}${codigo}`,
           data,
           method: "GET",
           header: { x_token: sessionStorage.x_token },

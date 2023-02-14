@@ -18,7 +18,7 @@
             :reg="reg.llave.anoLlave"
             @onChange="
               (data) => {
-                reg.llave[data.key] = data.value;
+                reg.llave[data.key] = data.value
               }
             "
           />
@@ -31,7 +31,7 @@
             :reg="reg.llave.cont"
             @onChange="
               (data) => {
-                reg.llave[data.key] = data.value;
+                reg.llave[data.key] = data.value
               }
             "
           />
@@ -209,18 +209,18 @@
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <AUTOCOMPLETE
-            @next-action="nextStep(form_corres, $event, datoTipoAnexo)"
-            :field="form_corres.tipoAnexo"
-            :reg="reg.tipoAnexo"
-            @onChange="onChange"
-          />
-        </v-col>
-        <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
             @next-action="nextStep(form_corres, $event, datoAnex)"
             :field="form_corres.anex"
             :reg="reg.anex"
+            @onChange="onChange"
+          />
+        </v-col>
+        <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
+          <AUTOCOMPLETE
+            @next-action="nextStep(form_corres, $event, datoTipoAnexo)"
+            :field="form_corres.tipoAnexo"
+            :reg="reg.tipoAnexo"
             @onChange="onChange"
           />
         </v-col>
@@ -317,15 +317,17 @@
               color="red"
               @click="datoObserv()"
               dark
-              >cancelar
+            >
+              cancelar
             </v-btn>
             <v-btn
               class="mb-2 mx-1 botone"
               color="primary"
               @click="validarAbjunto()"
               dark
-              >aceptar</v-btn
             >
+              aceptar
+            </v-btn>
           </div>
         </v-container>
       </v-card>
@@ -386,23 +388,23 @@
 import {
   getObjCorres_,
   getObjCorres,
-} from "../../fuentes/correspondencia/regObjtCorres";
-import { global, currentUser, formatNumberMask_ } from "../../mixins/global";
-import { mapMutations, mapActions, mapGetters } from "vuex";
-import { nextAction } from "../../mixins/nextAction";
-import { informeCORR201P } from "../../Pdf/index";
-import moment from "moment";
+} from '../../fuentes/correspondencia/regObjtCorres'
+import { global, currentUser, formatNumberMask_ } from '../../mixins/global'
+import { mapMutations, mapActions, mapGetters } from 'vuex'
+import { nextAction } from '../../mixins/nextAction'
+import { informeCORR201P } from '../../Pdf/index'
+import moment from 'moment'
 
-import CON802 from "../../components/CONTAB/CON802.vue";
-import COR868 from "../../components/COR/COR868.vue";
-import COR879 from "../../components/COR/COR879.vue";
-import COR867 from "../../components/COR/COR867.vue";
-import COR871 from "../../components/COR/COR871.vue";
-import COR866 from "../../components/COR/COR866.vue";
-import COR865 from "../../components/COR/COR865.vue";
+import CON802 from '../../components/CONTAB/CON802.vue'
+import COR868 from '../../components/COR/COR868.vue'
+import COR879 from '../../components/COR/COR879.vue'
+import COR867 from '../../components/COR/COR867.vue'
+import COR871 from '../../components/COR/COR871.vue'
+import COR866 from '../../components/COR/COR866.vue'
+import COR865 from '../../components/COR/COR865.vue'
 
 export default {
-  name: "COR201",
+  name: 'COR201',
   mixins: [nextAction, global],
   components: { COR868, CON802, COR879, COR867, COR871, COR866, COR865 },
   data() {
@@ -427,68 +429,68 @@ export default {
       form_corres: getObjCorres_(),
       reg_ant: getObjCorres(),
       reg: getObjCorres(),
-    };
+    }
   },
   computed: {
-    ...mapGetters({ get: "formularios/get" }),
+    ...mapGetters({ get: 'formularios/get' }),
   },
   mounted() {
-    this.abrirNovedad();
+    this.abrirNovedad()
   },
   methods: {
     onChange(data) {
-      this.reg[data.key] = data.value;
+      this.reg[data.key] = data.value
     },
     ...mapMutations({
-      setDialogType: "formularios/setDialogType",
+      setDialogType: 'formularios/setDialogType',
     }),
     ...mapActions({
-      _deleteCorres: "corr/_deleteCorres",
-      _getUltCorr: "corr/_getUltCorr",
-      _getCORR891: "corr/_getCORR891",
-      _postCorres: "corr/_postCorres",
-      _putCorres: "corr/_putCorres",
-      _getCorr: "corr/_getCorr",
+      _deleteCorres: 'corr/_deleteCorres',
+      _getUltCorr: 'corr/_getUltCorr',
+      _getCORR891: 'corr/_getCORR891',
+      _postCorres: 'corr/_postCorres',
+      _putCorres: 'corr/_putCorres',
+      _getCorr: 'corr/_getCorr',
 
-      _sendEmail: "envioemail/_sendEmail",
-      _uploadFile: "archivos/_uploadFile",
-      _getDepremi: "depremi/_getDepremi",
-      _getAuxco: "auxtip/_getAuxco",
-      _getTerce: "terce/_getTerce",
-      _getTipco: "tipco/_getTipco",
-      _getDepco: "depco/_getDepco",
-      _getSerco: "serco/_getSerco",
+      _sendEmail: 'envioemail/_sendEmail',
+      _uploadFile: 'archivos/_uploadFile',
+      _getDepremi: 'depremi/_getDepremi',
+      _getAuxco: 'auxtip/_getAuxco',
+      _getTerce: 'terce/_getTerce',
+      _getTipco: 'tipco/_getTipco',
+      _getDepco: 'depco/_getDepco',
+      _getSerco: 'serco/_getSerco',
 
       /* dias no habil */
-      _getDiasNoHabil: "dianhabil/_getDiasNoHabil",
+      _getDiasNoHabil: 'dianhabil/_getDiasNoHabil',
     }),
     datoAnoLlave(key) {
       switch (key) {
-        case "esc":
-          return this.abrirNovedad();
-        case "enter":
-          return this.focusInput(this.form_corres, "cont");
+        case 'esc':
+          return this.abrirNovedad()
+        case 'enter':
+          return this.focusInput(this.form_corres, 'cont')
       }
     },
     datoAnoCont(val) {
-      !val && this.focusInput(this.form_corres, "cont");
+      !val && this.focusInput(this.form_corres, 'cont')
       switch (val) {
-        case "esc":
-          return this.abrirNovedad();
-        case "enter":
-          return this.leerCorrespondecia();
+        case 'esc':
+          return this.abrirNovedad()
+        case 'enter':
+          return this.leerCorrespondecia()
       }
     },
     datoContAtnt(val) {
       if (!val) {
-        this.focusInput(this.form_corres, "contAtnt");
-        this.flag_radicados = true;
+        this.focusInput(this.form_corres, 'contAtnt')
+        this.flag_radicados = true
       }
       switch (val) {
-        case "esc":
-          return this.abrirNovedad();
-        case "enter":
-          return this.validarContAnt();
+        case 'esc':
+          return this.abrirNovedad()
+        case 'enter':
+          return this.validarContAnt()
       }
     },
     async validarContAnt() {
@@ -496,237 +498,240 @@ export default {
         const llave = {
           anoLlave: this.reg_ant.contAtnt?.slice(0, 4),
           cont: this.reg_ant.contAtnt?.slice(4),
-        };
-        const RES = await this._getCorr({ llave });
+        }
+        const RES = await this._getCorr({ llave })
         if (!RES.msg) {
-          this.reg_ant.contAtnt1 = RES.contAtnt1;
-          this.reg_ant.contAtnt2 = RES.contAtnt2;
-          this.reg_ant.contAtnt3 = RES.contAtnt3;
-          this.reg.proceden = RES.proceden;
-          this.reg.manejo = RES.manejo;
-          this.validarRadicadosAnteriores();
+          this.reg_ant.contAtnt1 = RES.contAtnt1
+          this.reg_ant.contAtnt2 = RES.contAtnt2
+          this.reg_ant.contAtnt3 = RES.contAtnt3
+          this.reg.proceden = RES.proceden
+          this.reg.manejo = RES.manejo
+          this.validarRadicadosAnteriores()
         }
       } catch (error) {
-        this.onField();
-        console.error(error);
+        this.onField()
+        console.error(error)
       }
     },
     validarRadicadosAnteriores() {
       switch (true) {
         case this.reg_ant.contAtnt1 == 0:
-          this.reg.contAtnt1 = this.reg_ant.contAtnt;
-          break;
+          this.reg.contAtnt1 = this.reg_ant.contAtnt
+          break
         case this.reg_ant.contAtnt2 == 0:
-          this.reg.contAtnt1 = this.reg_ant.contAtnt1;
-          this.reg.contAtnt2 = this.reg_ant.contAtnt;
-          break;
+          this.reg.contAtnt1 = this.reg_ant.contAtnt1
+          this.reg.contAtnt2 = this.reg_ant.contAtnt
+          break
         case this.reg_ant.contAtnt3 == 0:
-          this.reg.contAtnt1 = this.reg_ant.contAtnt1;
-          this.reg.contAtnt2 = this.reg_ant.contAtnt2;
-          this.reg.contAtnt3 = this.reg_ant.contAtnt;
-          break;
+          this.reg.contAtnt1 = this.reg_ant.contAtnt1
+          this.reg.contAtnt2 = this.reg_ant.contAtnt2
+          this.reg.contAtnt3 = this.reg_ant.contAtnt
+          break
         default:
-          this.CON851("PNZ", "info", "Excede el limite de trazabilidad!");
-          return this.datoContAtnt(undefined);
+          this.CON851('PNZ', 'info', 'Excede el limite de trazabilidad!')
+          return this.datoContAtnt(undefined)
       }
-      this.focusInput(this.form_corres, "nit");
+      this.focusInput(this.form_corres, 'nit')
     },
     async leerCorrespondecia() {
-      this.original = null;
-      const RES = await this._getCorr({ llave: this.reg.llave });
-      if (RES.msg && this.novedad.acceso != "7")
-        this.CON851("N1", "info", `La correspondencia no existe`);
+      this.original = null
+      const RES = await this._getCorr({ llave: this.reg.llave })
+      if (RES.msg && this.novedad.acceso != '7')
+        this.CON851('N1', 'info', `La correspondencia no existe`)
       else {
-        this.original = JSON.parse(JSON.stringify(RES));
-        this.novedad.acceso == "7" && this.nuevo(RES);
-        this.novedad.acceso == "8" && this.cambio(RES);
-        this.novedad.acceso == "9" && this.confirmar(RES);
+        this.original = JSON.parse(JSON.stringify(RES))
+        this.novedad.acceso == '7' && this.nuevo(RES)
+        this.novedad.acceso == '8' && this.cambio(RES)
+        this.novedad.acceso == '9' && this.confirmar(RES)
       }
     },
     async condicionesNovedad() {
-      if (this.novedad.acceso == "7" || !this.reg.contAtnt)
-        await this.buscarNumero();
-      if (this.novedad.acceso == "7") {
-        let anio_actual = moment().format("YYYY-MM-DD").slice(0, 4);
+      if (this.novedad.acceso == '7' || !this.reg.contAtnt)
+        this.focusInput(this.form_corres)
+      await this.buscarNumero()
+      if (this.novedad.acceso == '7') {
+        let anio_actual = moment().format('YYYY-MM-DD').slice(0, 4)
         if (this.reg.llave.anoLlave == anio_actual) {
-          this.reg.llave.cont = this.reg.llave.cont + 1;
+          this.reg.llave.cont = this.reg.llave.cont + 1
         } else {
-          this.reg.llave.anoLlave = parseInt(anio_actual);
-          this.reg.llave.cont = 1;
+          this.reg.llave.anoLlave = parseInt(anio_actual)
+          this.reg.llave.cont += 1
         }
-        this.leerCorrespondecia();
-      } else this.focusInput(this.form_corres, "anoLlave");
+        this.leerCorrespondecia()
+      } else this.focusInput(this.form_corres, 'anoLlave')
     },
     async buscarNumero() {
       try {
-        const RES = await this._getUltCorr();
-        if ("llave" in RES) {
-          this.reg.llave.anoLlave = RES.llave.anoLlave;
-          this.reg.llave.cont = RES.llave.cont;
-          this.reg.fecha = RES.fechaR;
-          this.reg.hora = RES.hora;
-        } else if ("msg" in RES) {
-          this.CON851("PNZ", "info", "No se encontro correspondencia");
+        const RES = await this._getUltCorr()
+        if ('llave' in RES) {
+          this.reg.llave.anoLlave = RES.llave.anoLlave
+          this.reg.llave.cont = RES.llave.cont
+          this.reg.fecha = RES.fechaR
+          this.reg.hora = RES.hora
+        } else if ('msg' in RES) {
+          this.CON851('PNZ', 'info', 'No se encontro correspondencia')
         }
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     },
 
     holding() {
       if (this.nit_usu != 900566047) {
-        this.focusInput(this.form_corres, "manejo");
-      } else this.abrirNovedad();
+        this.focusInput(this.form_corres, 'manejo')
+      } else this.abrirNovedad()
     },
 
     async datoManejo(val) {
       switch (val) {
-        case "esc":
-          if (this.novedad.acceso == "7") return this.abrirNovedad();
-          return this.focusInput(this.form_corres, "cont");
-        case "enter":
-          return this.focusInput(this.form_corres, "proceden");
+        case 'esc':
+          if (this.novedad.acceso == '7') return this.abrirNovedad()
+          return this.focusInput(this.form_corres, 'cont')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'proceden')
       }
     },
     datoProcedencia(val) {
       switch (val) {
-        case "esc":
-          this.focusInput(this.form_corres, "manejo");
-          break;
-        case "enter":
-          const OPER = currentUser.llaveOper;
+        case 'esc':
+          this.focusInput(this.form_corres, 'manejo')
+          break
+        case 'enter':
+          const OPER = currentUser.llaveOper
           if (
-            OPER == "GMRI" ||
-            OPER == "ADMI" ||
-            OPER == "GEBC" ||
-            OPER == "YEYO"
+            OPER == 'GMRI' ||
+            OPER == 'ADMI' ||
+            OPER == 'GEBC' ||
+            OPER == 'YEYO'
           ) {
-            this.focusInput(this.form_corres, "fecha");
-          } else this.focusInput(this.form_corres, "nit");
-          break;
+            this.focusInput(this.form_corres, 'fecha')
+          } else this.focusInput(this.form_corres, 'nit')
+          break
       }
     },
     datoFecha(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "proceden");
-        case "enter":
-          return this.focusInput(this.form_corres, "nit");
+        case 'esc':
+          return this.focusInput(this.form_corres, 'proceden')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'nit')
       }
     },
     datoRemitente(val) {
       switch (val) {
-        case "esc":
-          return this.abrirNovedad();
-        case "enter":
+        case 'esc':
+          return this.abrirNovedad()
+        case 'enter':
           if (!this.reg.nit)
-            return this.focusInput(this.form_corres, "deptoremi");
-          return this.validarRemitente();
+            return this.focusInput(this.form_corres, 'deptoremi')
+          return this.validarRemitente()
       }
     },
     async validarRemitente() {
       try {
-        const RES = await this._getTerce({ codigo: this.reg.nit });
-        if ("codigo" in RES) {
-          this.reg.descripTer = RES.descrip;
-          this.focusInput(this.form_corres, "deptoremi");
-        } else if (RES.msg || "codigo" in RES) {
+        const RES = await this._getTerce({ codigo: this.reg.nit })
+        if ('codigo' in RES) {
+          this.reg.descripTer = RES.descrip
+          this.focusInput(this.form_corres, 'deptoremi')
+        } else if (RES.msg || 'codigo' in RES) {
           this.CON851P(
-            "PNZ",
-            "info",
-            "No existe tercero, ¿Deseas registrar uno?",
+            'PNZ',
+            'info',
+            'No existe tercero, ¿Deseas registrar uno?',
             () => {
-              window.open(`/CON110C/?codigo=${this.reg.nit} `, "_blank");
-              this.onField();
+              window.open(`/CON110C/?codigo=${this.reg.nit} `, '_blank')
+              this.onField()
             },
-            this.onField
-          );
-        } else this.CON851("000", "error");
+            this.onField,
+          )
+        } else this.CON851('000', 'error')
       } catch (error) {
-        this.focusInput(this.form_corres, "nit");
-        console.error(error);
+        this.focusInput(this.form_corres, 'nit')
+        console.error(error)
       }
     },
     datoDependencia(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "nit");
-        case "enter":
-          return this.validarDepremi();
+        case 'esc':
+          return this.focusInput(this.form_corres, 'nit')
+        case 'enter':
+          return this.validarDepremi()
       }
     },
     async validarDepremi() {
       try {
-        const RES = await this._getDepremi({ codigo: this.reg.deptoremi });
-        if ("codigo" in RES) {
-          this.reg.deptoremi = RES.codigo;
-          this.reg.descripDeptoremi = RES.descripcion;
+        const RES = await this._getDepremi({ codigo: this.reg.deptoremi })
+        if ('codigo' in RES) {
+          this.reg.deptoremi = RES.codigo
+          this.reg.descripDeptoremi = RES.descripcion
 
-          this.focusInput(this.form_corres, "tipoCorres");
+          this.focusInput(this.form_corres, 'tipoCorres')
         } else if (RES.msg) {
-          this.CON851("PNZ", "info", "No existe dependencia ");
-        } else this.CON851("000", "error");
+          this.CON851('PNZ', 'info', 'No existe dependencia ')
+        } else this.CON851('000', 'error')
       } catch (error) {
-        this.focusInput(this.form_corres, "nit");
-        console.error(error);
+        this.focusInput(this.form_corres, 'nit')
+        console.error(error)
       }
     },
     datoTipoCorres(val) {
       switch (val) {
-        case "esc":
-          this.focusInput(this.form_corres, "deptoremi");
-          break;
-        case "enter":
-          this.validarTipoCorres();
-          break;
+        case 'esc':
+          this.focusInput(this.form_corres, 'deptoremi')
+          break
+        case 'enter':
+          this.validarTipoCorres()
+          break
       }
     },
     async validarTipoCorres() {
       try {
-        const RES = await this._getTipco({ codigo: this.reg.tipoCorres });
+        const RES = await this._getTipco({ codigo: this.reg.tipoCorres })
 
-        if ("codigo" in RES) {
-          this.reg.descripTipco = RES.descripcion;
-          this.reg.diasTipco = RES.dias;
-          this.deadline();
-          this.focusInput(this.form_corres, "codAux");
+        if ('codigo' in RES) {
+          this.reg.descripTipco = RES.descripcion
+          this.reg.diasTipco = RES.dias
+          this.deadline()
+          this.focusInput(this.form_corres, 'codAux')
         } else if (RES.msg) {
-          this.CON851("PNZ", "info", "No existe tipo de correspondencia");
-        } else this.CON851("000", "error");
+          this.CON851('PNZ', 'info', 'No existe tipo de correspondencia')
+        } else this.CON851('000', 'error')
       } catch (error) {
-        this.focusInput(this.form_corres, "tipoCorres");
-        console.error(error);
+        this.focusInput(this.form_corres, 'tipoCorres')
+        console.error(error)
       }
     },
     async deadline() {
-      const { fecha } = this.reg;
-      const year = [];
-      const res_getDiasNoHabil = await this._getDiasNoHabil();
-      let yearIni = parseInt(fecha.slice(0, 4));
-      let date;
-      let festivo;
-      let anos = [];
-      let noHabilesDelAno = [];
-      let diasRestantes = this.reg.diasTipco;
+      const { fecha } = this.reg
+      const year = []
+      const res_getDiasNoHabil = await this._getDiasNoHabil()
+      let yearIni = parseInt(fecha.slice(0, 4))
+      let date
+      let festivo
+      let anos = []
+      let noHabilesDelAno = []
+      let diasRestantes = this.reg.diasTipco
 
       for (let i = 0; i < 730; i++) {
         date = new Date(
-          new Date(yearIni, 0, 1).setDate(new Date(yearIni, 0, 1).getDate() + i)
-        );
-        if (date.getDay() === 0 || date.getDay() === 6) festivo = true;
-        else festivo = false;
-        year.push({ date: date, fest: festivo });
+          new Date(yearIni, 0, 1).setDate(
+            new Date(yearIni, 0, 1).getDate() + i,
+          ),
+        )
+        if (date.getDay() === 0 || date.getDay() === 6) festivo = true
+        else festivo = false
+        year.push({ date: date, fest: festivo })
       }
       // Obtener los anos con los que voy a trabajar.
       year.forEach((elem) => {
         if (!anos.includes(elem.date.getUTCFullYear().toString()))
-          anos.push(elem.date.getUTCFullYear().toString());
-      });
+          anos.push(elem.date.getUTCFullYear().toString())
+      })
       // filtro los dias no habiles que voy a necesitar.
       const noHabilFilter = res_getDiasNoHabil.filter(
         (elem) =>
-          elem.date.slice(0, 4) == anos[0] || elem.date.slice(0, 4) == anos[1]
-      );
+          elem.date.slice(0, 4) == anos[0] || elem.date.slice(0, 4) == anos[1],
+      )
       // Agrego a year los festivos que filtre en el paso anterior.
       noHabilesDelAno = year.map((elem) => {
         noHabilFilter.forEach((elem2) => {
@@ -734,33 +739,33 @@ export default {
             elem2.date.slice(0, 10) ==
             `${elem.date.getFullYear()}-${
               (elem.date.getMonth() + 1).toString().length == 1
-                ? (elem.date.getMonth() + 1).toString().padStart(2, "0")
+                ? (elem.date.getMonth() + 1).toString().padStart(2, '0')
                 : (elem.date.getMonth() + 1).toString()
             }-${
               elem.date.getDate().toString().length == 1
-                ? elem.date.getDate().toString().padStart(2, "0")
+                ? elem.date.getDate().toString().padStart(2, '0')
                 : elem.date.getDate().toString()
             }`
           ) {
-            return (elem.fest = true);
+            return (elem.fest = true)
           }
-        });
-        return elem;
-      });
+        })
+        return elem
+      })
 
       // muestro en la caja la fecha limite para dar respuesta a la correspondencia
       let fecha_inicial = noHabilesDelAno.filter(
         (elem) =>
           `${elem.date.getFullYear()}-${
             (elem.date.getMonth() + 1).toString().length == 1
-              ? (elem.date.getMonth() + 1).toString().padStart(2, "0")
+              ? (elem.date.getMonth() + 1).toString().padStart(2, '0')
               : (elem.date.getMonth() + 1).toString()
           }-${
             elem.date.getDate().toString().length == 1
-              ? elem.date.getDate().toString().padStart(2, "0")
+              ? elem.date.getDate().toString().padStart(2, '0')
               : elem.date.getDate().toString()
-          }` == fecha
-      );
+          }` == fecha,
+      )
 
       for (
         let i = noHabilesDelAno.indexOf(fecha_inicial[0]);
@@ -768,223 +773,250 @@ export default {
         i++
       ) {
         if (noHabilesDelAno[i]?.fest == false) {
-          diasRestantes--;
+          diasRestantes--
         }
         if (diasRestantes == 0) {
           this.reg.fechaCau = `${noHabilesDelAno[i].date.getFullYear()}-${
             (noHabilesDelAno[i].date.getMonth() + 1).toString().length == 1
               ? (noHabilesDelAno[i].date.getMonth() + 1)
                   .toString()
-                  .padStart(2, "0")
+                  .padStart(2, '0')
               : (noHabilesDelAno[i].date.getMonth() + 1).toString()
           }-${
             noHabilesDelAno[i].date.getDate().toString().length == 1
-              ? noHabilesDelAno[i].date.getDate().toString().padStart(2, "0")
+              ? noHabilesDelAno[i].date.getDate().toString().padStart(2, '0')
               : noHabilesDelAno[i].date.getDate().toString()
-          }`;
-          break;
+          }`
+          break
         }
       }
     },
     datoAux(val) {
       switch (val) {
-        case "esc":
-          this.focusInput(this.form_corres, "tipoCorres");
-          break;
-        case "enter":
-          this.validarAux();
-          break;
+        case 'esc':
+          this.focusInput(this.form_corres, 'tipoCorres')
+          break
+        case 'enter':
+          this.validarAux()
+          break
       }
     },
     async validarAux() {
       try {
-        const RES = await this._getAuxco({ codigo: this.reg.codAux });
-        if ("codigo" in RES) {
-          this.reg.descripAux = RES.descripcion;
-          this.focusInput(this.form_corres, "descrip");
+        const RES = await this._getAuxco({ codigo: this.reg.codAux })
+        if ('codigo' in RES) {
+          this.reg.descripAux = RES.descripcion
+          this.focusInput(this.form_corres, 'descrip')
         } else if (RES.msg) {
-          this.CON851("PNZ", "info", "No existe auxiliar");
-        } else this.CON851("000", "error");
+          this.CON851('PNZ', 'info', 'No existe auxiliar')
+        } else this.CON851('000', 'error')
       } catch (error) {
-        this.focusInput(this.form_corres, "codAux");
-        console.error(error);
+        this.focusInput(this.form_corres, 'codAux')
+        console.error(error)
       }
     },
     datoDescrip(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "codAux");
-        case "enter":
-          return this.focusInput(this.form_corres, "ser");
+        case 'esc':
+          return this.focusInput(this.form_corres, 'codAux')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'ser')
       }
     },
     datoSer(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "descrip");
-        case "enter":
-          return this.validarSer();
+        case 'esc':
+          return this.focusInput(this.form_corres, 'descrip')
+        case 'enter':
+          return this.validarSer()
       }
     },
     async validarSer() {
       try {
-        const RES = await this._getSerco({ codigo: this.reg.ser });
-        if ("codigo" in RES) {
-          this.reg.descripSer = RES.descripcion;
-          this.focusInput(this.form_corres, "dep");
+        const RES = await this._getSerco({ codigo: this.reg.ser })
+        if ('codigo' in RES) {
+          this.reg.descripSer = RES.descripcion
+          this.focusInput(this.form_corres, 'dep')
         } else if (RES.msg) {
-          this.CON851("PNZ", "info", "No existe correspondencia");
-        } else this.CON851("PNZ", "error", "Error consultando datos");
+          this.CON851('PNZ', 'info', 'No existe correspondencia')
+        } else this.CON851('PNZ', 'error', 'Error consultando datos')
       } catch (error) {
-        this.focusInput(this.form_corres, "ser");
-        console.error(error);
+        this.focusInput(this.form_corres, 'ser')
+        console.error(error)
       }
     },
     datoDep(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "ser");
-        case "enter":
-          return this.validarDep();
+        case 'esc':
+          return this.focusInput(this.form_corres, 'ser')
+        case 'enter':
+          return this.validarDep()
       }
     },
     async validarDep() {
       try {
-        const RES = await this._getDepco({ codigo: this.reg.dep });
-        if ("codigo" in RES) {
+        const RES = await this._getDepco({ codigo: this.reg.dep })
+        if ('codigo' in RES) {
           !RES.correo &&
             this.CON851(
-              "PNZ",
-              "info",
-              "Personal de destino sin correo electronico"
-            );
-          this.reg.responsableDep = RES.responsable;
-          this.reg.correoDep = RES.correo;
-          this.focusInput(this.form_corres, "fol");
+              'PNZ',
+              'info',
+              'Personal de destino sin correo electronico',
+            )
+          this.reg.responsableDep = RES.responsable
+          this.reg.correoDep = RES.correo
+          this.focusInput(this.form_corres, 'fol')
         } else if (RES.msg) {
-          this.CON851("PNZ", "info", "No existe personal de destino");
-        } else this.CON851("000", "error");
+          this.CON851('PNZ', 'info', 'No existe personal de destino')
+        } else this.CON851('000', 'error')
       } catch (error) {
-        this.focusInput(this.form_corres, "ser");
-        console.error(error);
+        this.focusInput(this.form_corres, 'ser')
+        console.error(error)
       }
     },
     datoFol(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "dep");
-        case "enter":
-          return this.focusInput(this.form_corres, "fold");
+        case 'esc':
+          return this.focusInput(this.form_corres, 'dep')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'fold')
       }
     },
     datoFolD(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "fol");
-        case "enter":
+        case 'esc':
+          return this.focusInput(this.form_corres, 'fol')
+        case 'enter':
           if (Number(this.reg.fol) > Number(this.reg.fold)) {
             return this.CON851(
-              "PNZ",
-              "info",
-              "Numero de folios invalido",
+              'PNZ',
+              'info',
+              'Numero de folios invalido',
               null,
               () => {
-                this.focusInput(this.form_corres, "fol");
-              }
-            );
+                this.focusInput(this.form_corres, 'fol')
+              },
+            )
           }
-          return this.focusInput(this.form_corres, "tipoAnexo");
+          return this.CON851P(
+            'PNZ',
+            'info',
+            '¿Tiene Anexos?',
+            () => {
+              this.focusInput(this.form_corres, 'anex')
+            },
+            () => {
+              this.focusInput(this.form_corres, 'nroFact')
+            },
+          )
       }
     },
     datoTipoAnexo(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "fold");
-        case "enter":
-          return this.focusInput(this.form_corres, "anex");
+        case 'esc':
+          return this.focusInput(this.form_corres, 'anex')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'nroFact')
+
+        // return this.focusInput(this.form_corres, 'anex')
       }
     },
     datoAnex(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "tipoAnexo");
-        case "enter":
-          return this.focusInput(this.form_corres, "nroFact");
+        case 'esc':
+          return this.focusInput(this.form_corres, 'fold')
+        case 'enter':
       }
+      return this.focusInput(this.form_corres, 'tipoAnexo')
     },
     datoFactura(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "anex");
-        case "enter":
-          if (this.reg.nroFact.trim()) this.validarFactura();
-          else this.focusInput(this.form_corres, "fechaFact");
-          break;
+        case 'esc':
+          // if (this.reg.anex == '') {
+          return this.CON851P(
+            'PNZ',
+            'info',
+            '¿Tiene Anexos?',
+            () => {
+              this.focusInput(this.form_corres, 'anex')
+            },
+            () => {
+              this.focusInput(this.form_corres, 'nroFact')
+            },
+          )
+          // } else {
+          // return this.focusInput(this.form_corres, 'tipoAnex')
+          // }
+          break
+        case 'enter':
+          if (this.reg.nroFact.trim()) this.validarFactura()
+          else this.focusInput(this.form_corres, 'fechaFact')
+          break
       }
     },
     async validarFactura() {
       try {
-        const RES = await this._getCORR891({ codigo: this.reg.nroFact });
-        if ("codigo" in RES) {
-          if (RES.cartera == "1" && this.novedad.acceso != 8) {
-            this.CON851("9M", "info", "", null, () => {
-              this.focusInput(this.form_corres, "nroFact");
-            });
-          } else this.focusInput(this.form_corres, "monto");
+        const RES = await this._getCORR891({ codigo: this.reg.nroFact })
+        if ('codigo' in RES) {
+          if (RES.cartera == '1' && this.novedad.acceso != 8) {
+            this.CON851('9M', 'info', '', null, () => {
+              this.focusInput(this.form_corres, 'nroFact')
+            })
+          } else this.focusInput(this.form_corres, 'monto')
         } else if (RES.msg) {
           this.CON851(
-            "PNZ",
-            "info",
-            "No existe factura de destino",
+            'PNZ',
+            'info',
+            'No existe factura de destino',
             null,
             () => {
-              this.reg.nroFact = "";
-              this.focusInput(this.form_corres, "fechaFact");
-            }
-          );
+              this.reg.nroFact = ''
+              this.focusInput(this.form_corres, 'fechaFact')
+            },
+          )
         }
       } catch (error) {
-        this.focusInput(this.form_corres, "nroFact");
-        console.error(error);
+        this.focusInput(this.form_corres, 'nroFact')
+        console.error(error)
       }
     },
     datoMonto(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "nroFact");
-        case "enter":
-          return this.focusInput(this.form_corres, "fechaFact");
+        case 'esc':
+          return this.focusInput(this.form_corres, 'nroFact')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'fechaFact')
       }
     },
     datoFechaFact(val) {
       switch (val) {
-        case "esc":
+        case 'esc':
           if (this.reg.nroFact.trim())
-            return this.focusInput(this.form_corres, "monto");
-          else return this.focusInput(this.form_corres, "nroFact");
-        case "enter":
-          return this.focusInput(this.form_corres, "fechaEntre");
+            return this.focusInput(this.form_corres, 'monto')
+          else return this.focusInput(this.form_corres, 'nroFact')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'fechaEntre')
       }
     },
     datoFechaEntre(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "fechaFact");
-        case "enter":
+        case 'esc':
+          return this.focusInput(this.form_corres, 'fechaFact')
+        case 'enter':
           if (
             Date.parse(this.reg.fechaFact) > Date.parse(this.reg.fechaEntre)
           ) {
             return this.CON851(
-              "PNZ",
-              "info",
-              "La fecha de entrega debe ser despues a la fecha del documento",
+              'PNZ',
+              'info',
+              'La fecha de entrega debe ser despues a la fecha del documento',
               null,
               () => {
-                this.focusInput(this.form_corres, "fechaEntre");
-              }
-            );
+                this.focusInput(this.form_corres, 'fechaEntre')
+              },
+            )
           }
-          return this.validarFechaEntre();
+          return this.validarFechaEntre()
       }
     },
     validarFechaEntre() {
@@ -992,64 +1024,64 @@ export default {
         (this.USUARIO_GLOBAL.nit == 800162035 && this.reg.nroFact.trim()) ||
         this.USUARIO_GLOBAL.nit == 900405505
       ) {
-        return this.focusInput(this.form_corres, "fechaEntre");
-      } else return this.focusInput(this.form_corres, "medioIng");
+        return this.focusInput(this.form_corres, 'fechaEntre')
+      } else return this.focusInput(this.form_corres, 'medioIng')
     },
     datoMedioIng(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "nroFact");
-        case "enter":
+        case 'esc':
+          return this.focusInput(this.form_corres, 'nroFact')
+        case 'enter':
           if (this.reg.medioIng == 1)
-            return this.focusInput(this.form_corres, "nroGuia");
-          else return this.focusInput(this.form_corres, "persentre");
+            return this.focusInput(this.form_corres, 'nroGuia')
+          else return this.focusInput(this.form_corres, 'persentre')
       }
     },
     datoNroGuia(val) {
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "medioIng");
-        case "enter":
-          return this.focusInput(this.form_corres, "persentre");
+        case 'esc':
+          return this.focusInput(this.form_corres, 'medioIng')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'persentre')
       }
     },
     datoPersentre(val) {
       switch (val) {
-        case "esc":
+        case 'esc':
           if (this.reg.medioIng == 1)
-            return this.focusInput(this.form_corres, "nroGuia");
-          else return this.focusInput(this.form_corres, "medioIng");
-        case "enter":
-          return this.focusInput(this.form_corres, "observ");
+            return this.focusInput(this.form_corres, 'nroGuia')
+          else return this.focusInput(this.form_corres, 'medioIng')
+        case 'enter':
+          return this.focusInput(this.form_corres, 'observ')
       }
     },
     datoObserv(val) {
       !val && [
         (this.show_archivo_abjunto = false),
-        this.focusInput(this.form_corres, "observ"),
-      ];
+        this.focusInput(this.form_corres, 'observ'),
+      ]
       switch (val) {
-        case "esc":
-          return this.focusInput(this.form_corres, "persentre");
-        case "enter":
-          if (this.novedad.acceso == 7) return this.solicitarAbjunto();
-          else return this.confirmar();
+        case 'esc':
+          return this.focusInput(this.form_corres, 'persentre')
+        case 'enter':
+          if (this.novedad.acceso == 7) return this.solicitarAbjunto()
+          else return this.confirmar()
       }
     },
     solicitarAbjunto(data) {
-      this.show_archivo_abjunto = true;
+      this.show_archivo_abjunto = true
     },
     validarAbjunto() {
-      this.show_archivo_abjunto = false;
+      this.show_archivo_abjunto = false
       if (this.reg.archivo_file?.length == 0 || this.reg.archivo_file == null) {
         this.CON851(
-          "PNZ",
-          "info",
-          "Debes abjuntar un archivo pdf",
+          'PNZ',
+          'info',
+          'Debes abjuntar un archivo pdf',
           null,
-          this.datoObserv
-        );
-      } else this.subirArchivo();
+          this.datoObserv,
+        )
+      } else this.subirArchivo()
     },
     async subirArchivo() {
       try {
@@ -1057,120 +1089,120 @@ export default {
           anoLlave: this.reg.llave.anoLlave,
           cont: this.reg.llave.cont,
           file: this.reg.archivo_file,
-        };
-        const RES = await this._uploadFile({ data });
+        }
+        const RES = await this._uploadFile({ data })
         if (RES.N1) {
           this.CON851(
-            "PNZ",
-            "success",
-            "Abjunto subido correctamente",
+            'PNZ',
+            'success',
+            'Abjunto subido correctamente',
             null,
-            this.confirmar
-          );
-        } else if (RES.cod_error == "00")
+            this.confirmar,
+          )
+        } else if (RES.cod_error == '00')
           this.CON851(
-            "PNZ",
-            "info",
-            "Ya existe archivo con la llave digitada",
+            'PNZ',
+            'info',
+            'Ya existe archivo con la llave digitada',
             null,
-            this.datoObserv
-          );
+            this.datoObserv,
+          )
         else
           this.CON851(
-            "PNZ",
-            "error",
-            "Ha ocurrido un error intentando subir el archivo abjunto",
+            'PNZ',
+            'error',
+            'Ha ocurrido un error intentando subir el archivo abjunto',
             null,
-            this.datoObserv
-          );
+            this.datoObserv,
+          )
       } catch (error) {
         this.CON851(
-          "PNZ",
-          "error",
-          "Ha ocurrido un error intentando subir el archivo abjunto",
+          'PNZ',
+          'error',
+          'Ha ocurrido un error intentando subir el archivo abjunto',
           null,
-          this.datoObserv
-        );
-        console.error(error);
+          this.datoObserv,
+        )
+        console.error(error)
       }
     },
     confirmar() {
       this.novedad.acceso == 7 &&
         this.CON851P(
-          "PNZ",
-          "info",
-          "¿Guardar correspondencia?",
+          'PNZ',
+          'info',
+          '¿Guardar correspondencia?',
           this.guardar,
-          this.datoObserv
-        );
+          this.datoObserv,
+        )
       this.novedad.acceso == 8 &&
         this.CON851P(
-          "PNZ",
-          "info",
-          "Modificar correspondencia?",
+          'PNZ',
+          'info',
+          'Modificar correspondencia?',
           this.editar,
-          this.datoObserv
-        );
+          this.datoObserv,
+        )
       this.novedad.acceso == 9 &&
         this.CON851P(
-          "PNZ",
-          "info",
-          "¿Eliminar correspondencia?",
+          'PNZ',
+          'info',
+          '¿Eliminar correspondencia?',
           this.eliminar,
-          this.datoAnoCont
-        );
+          this.datoAnoCont,
+        )
     },
     nuevo(data) {
-      if ("llave" in data) {
+      if ('llave' in data) {
         return this.CON851(
-          "PNZ",
-          "info",
+          'PNZ',
+          'info',
           `Ya existe la correspondencia ${data.llave.anoLlave}${data.llave.cont} `,
           null,
           () => {
-            this.focusInput(this.form_corres, "cont");
-          }
-        );
+            this.focusInput(this.form_corres, 'cont')
+          },
+        )
       } else {
-        this.reg.oper = `${currentUser.llaveOper} - ${currentUser.nombre}`;
-        this.reg.fecha = moment().format("YYYY-MM-DD");
-        this.reg.hora = moment().format("HH:mm");
+        this.reg.oper = `${currentUser.llaveOper} - ${currentUser.nombre}`
+        this.reg.fecha = moment().format('YYYY-MM-DD')
+        this.reg.hora = moment().format('HH:mm')
         this.CON851P(
-          "PNZ",
-          "info",
-          "¿Continuar trazabilidad de radicado anterior?",
+          'PNZ',
+          'info',
+          '¿Continuar trazabilidad de radicado anterior?',
           this.datoContAtnt,
-          this.holding
-        );
+          this.holding,
+        )
       }
     },
     cambio(data) {
-      this.reg = Object.assign(this.reg, data);
-      this.reg.monto = formatNumberMask_(this.reg.monto);
-      this.focusInput(this.form_corres, "manejo");
+      this.reg = Object.assign(this.reg, data)
+      this.reg.monto = formatNumberMask_(this.reg.monto)
+      this.focusInput(this.form_corres, 'manejo')
     },
 
     async guardar() {
       try {
-        let data = JSON.parse(JSON.stringify(this.reg));
-        data.esta = data.manejo == 1 ? 4 : 1;
-        data.fecha = this.formatFecha_(data.fecha, data.hora);
-        data.otroAnexo = data.tipoAnexo == 6 ? data.otroAnexo || "" : "";
-        data.monto = this.formatNumber_(data.monto);
+        let data = JSON.parse(JSON.stringify(this.reg))
+        data.esta = data.manejo == 1 ? 4 : 1
+        data.fecha = this.formatFecha_(data.fecha, data.hora)
+        data.otroAnexo = data.tipoAnexo == 6 ? data.otroAnexo || '' : ''
+        data.monto = this.formatNumber_(data.monto)
 
-        const RES = await this._postCorres({ data });
+        const RES = await this._postCorres({ data })
         if (RES.N1)
           this.CON851(
-            "N1",
-            "success",
+            'N1',
+            'success',
             `Datos grabados correctamente`,
             null,
-            this.enviarEmail
-          );
-        RES.msg && this.CON851("N1", "error", `Error escribiendo datos!`);
+            this.enviarEmail,
+          )
+        RES.msg && this.CON851('N1', 'error', `Error escribiendo datos!`)
       } catch (error) {
-        this.onField();
-        console.error(error);
+        this.onField()
+        console.error(error)
       }
     },
     async enviarEmail() {
@@ -1182,205 +1214,205 @@ export default {
           cont: this.reg.llave.cont,
           destino: this.reg.correoDep,
           nom_empresa: this.USUARIO_GLOBAL.nombre,
-        };
-        const RES = await this._sendEmail({ data });
-        if ("accepted" in RES)
+        }
+        const RES = await this._sendEmail({ data })
+        if ('accepted' in RES)
           this.CON851(
-            "N1",
-            "success",
+            'N1',
+            'success',
             `Correo enviado correctamente`,
             null,
-            this.solicitarImpresion
-          );
+            this.solicitarImpresion,
+          )
         RES.msg &&
           this.CON851(
-            "N1",
-            "error",
+            'N1',
+            'error',
             `¡Error enviando el correo!`,
             null,
-            this.abrirNovedad
-          );
+            this.abrirNovedad,
+          )
       } catch (error) {
-        this.abrirNovedad();
-        console.error(error);
+        this.abrirNovedad()
+        console.error(error)
       }
     },
 
     async editar() {
       try {
-        let data = JSON.parse(JSON.stringify(this.reg));
-        data.fecha = this.formatFecha_(data.fecha, data.hora);
-        data.esta = data.esta;
-        data.fechaModi = this.formatFecha_(moment().format("YYYY-MM-DD"));
-        data.operModi = `${currentUser.llaveOper} - ${currentUser.nombre}`;
-        data.monto = this.formatNumber_(data.monto);
-        const RES = await this._putCorres({ data });
+        let data = JSON.parse(JSON.stringify(this.reg))
+        data.fecha = this.formatFecha_(data.fecha, data.hora)
+        data.esta = data.esta
+        data.fechaModi = this.formatFecha_(moment().format('YYYY-MM-DD'))
+        data.operModi = `${currentUser.llaveOper} - ${currentUser.nombre}`
+        data.monto = this.formatNumber_(data.monto)
+        const RES = await this._putCorres({ data })
         if (RES.N1)
           return this.CON851(
-            "N1",
-            "success",
+            'N1',
+            'success',
             `Datos modificados correctamente!`,
             null,
-            this.solicitarImpresion
-          );
-        RES.msg && this.CON851("N1", "error", `Error grabando datos!`);
+            this.solicitarImpresion,
+          )
+        RES.msg && this.CON851('N1', 'error', `Error grabando datos!`)
       } catch (error) {
-        this.onField();
-        console.error(error);
+        this.onField()
+        console.error(error)
       }
     },
     async eliminar() {
       try {
-        const RES = await this._deleteCorres({ llave: this.reg.llave });
+        const RES = await this._deleteCorres({ llave: this.reg.llave })
         if (RES.N1)
           return this.CON851(
-            "N1",
-            "success",
-            `Correspondencia borrada correctamente!`
-          );
-        RES.msg && this.CON851("N1", "error", `No se encontro correspondencia`);
+            'N1',
+            'success',
+            `Correspondencia borrada correctamente!`,
+          )
+        RES.msg && this.CON851('N1', 'error', `No se encontro correspondencia`)
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     },
     solicitarImpresion() {
-      this.CON851P("00", "info", "", this.generarImpresion, this.abrirNovedad);
+      this.CON851P('00', 'info', '', this.generarImpresion, this.abrirNovedad)
     },
     async generarImpresion() {
       const data = {
         USUARIO: this.USUARIO_GLOBAL.nombre,
         ...this.reg,
-      };
-      await informeCORR201P(data);
-      this.abrirNovedad();
+      }
+      await informeCORR201P(data)
+      this.abrirNovedad()
     },
     openCON802() {
-      this.offField();
-      this.show_con802 = true;
+      this.offField()
+      this.show_con802 = true
     },
     async callbackCON802(item) {
-      this.show_con802 = false;
+      this.show_con802 = false
       if (item) {
-        this.reg.nit = item.codigo;
-        this.reg.descripTer = item.descrip;
-        return this.focusInput(this.form_corres, "deptoremi");
+        this.reg.nit = item.codigo
+        this.reg.descripTer = item.descrip
+        return this.focusInput(this.form_corres, 'deptoremi')
       }
-      this.focusInput(this.form_corres, "nit");
+      this.focusInput(this.form_corres, 'nit')
     },
     openCOR868() {
-      this.offField();
-      this.show_cor868 = true;
+      this.offField()
+      this.show_cor868 = true
     },
     callbackCOR868(item) {
       if (item) {
-        this.show_cor868 = false;
+        this.show_cor868 = false
         if (this.flag_radicados) {
-          this.reg_ant.contAtnt = item.llaveBusqueda;
-          this.reg_ant.contAtnt1 = item.contAtnt1;
-          this.reg_ant.contAtnt2 = item.contAtnt2;
-          this.reg_ant.contAtnt3 = item.contAtnt3;
-          this.reg.proceden = item.proceden;
-          this.reg.manejo = item.manejo;
-          return this.focusInput(this.form_corres, "nit");
+          this.reg_ant.contAtnt = item.llaveBusqueda
+          this.reg_ant.contAtnt1 = item.contAtnt1
+          this.reg_ant.contAtnt2 = item.contAtnt2
+          this.reg_ant.contAtnt3 = item.contAtnt3
+          this.reg.proceden = item.proceden
+          this.reg.manejo = item.manejo
+          return this.focusInput(this.form_corres, 'nit')
         } else {
-          this.reg = item;
-          return this.focusInput(this.form_corres, "manejo");
+          this.reg = item
+          return this.focusInput(this.form_corres, 'manejo')
         }
       }
-      this.show_cor868 = false;
+      this.show_cor868 = false
       if (this.flag_radicados)
-        return this.focusInput(this.form_corres, "contAtnt");
-      this.focusInput(this.form_corres, "cont");
+        return this.focusInput(this.form_corres, 'contAtnt')
+      this.focusInput(this.form_corres, 'cont')
     },
     openCOR879() {
-      this.offField();
-      this.show_cor879 = true;
+      this.offField()
+      this.show_cor879 = true
     },
     callbackCOR879(item) {
-      this.show_cor879 = false;
+      this.show_cor879 = false
       if (item) {
-        this.reg.deptoremi = item.codigo;
-        this.reg.descripDeptoremi = item.descripcion;
-        return this.focusInput(this.form_corres, "tipoCorres");
+        this.reg.deptoremi = item.codigo
+        this.reg.descripDeptoremi = item.descripcion
+        return this.focusInput(this.form_corres, 'tipoCorres')
       }
-      this.focusInput(this.form_corres, "deptoremi");
+      this.focusInput(this.form_corres, 'deptoremi')
     },
 
     openCOR867() {
-      this.offField();
-      this.show_cor867 = true;
+      this.offField()
+      this.show_cor867 = true
     },
     callbackCOR867(item) {
-      this.show_cor867 = false;
+      this.show_cor867 = false
       if (item) {
-        this.reg.tipoCorres = item.codigo;
-        this.reg.descripTipco = item.descripcion;
-        this.deadline();
-        this.reg.diasTipco = item.dias;
-        return this.focusInput(this.form_corres, "codAux");
+        this.reg.tipoCorres = item.codigo
+        this.reg.descripTipco = item.descripcion
+        this.deadline()
+        this.reg.diasTipco = item.dias
+        return this.focusInput(this.form_corres, 'codAux')
       }
-      this.focusInput(this.form_corres, "tipoCorres");
+      this.focusInput(this.form_corres, 'tipoCorres')
     },
     openCOR871() {
-      this.offField();
-      this.show_cor871 = true;
+      this.offField()
+      this.show_cor871 = true
     },
     callbackCOR871(item) {
-      this.show_cor871 = false;
+      this.show_cor871 = false
       if (item) {
-        this.reg.codAux = item.codigo;
-        this.reg.descripAux = item.descripcion;
-        return this.focusInput(this.form_corres, "descrip");
+        this.reg.codAux = item.codigo
+        this.reg.descripAux = item.descripcion
+        return this.focusInput(this.form_corres, 'descrip')
       }
-      this.focusInput(this.form_corres, "codAux");
+      this.focusInput(this.form_corres, 'codAux')
     },
     openCOR865() {
-      this.offField();
-      this.show_cor865 = true;
+      this.offField()
+      this.show_cor865 = true
     },
     callbackCOR865(item) {
-      this.show_cor865 = false;
+      this.show_cor865 = false
       if (item) {
-        this.reg.ser = item.codigo;
-        this.reg.descripSer = item.descripcion;
-        return this.focusInput(this.form_corres, "dep");
+        this.reg.ser = item.codigo
+        this.reg.descripSer = item.descripcion
+        return this.focusInput(this.form_corres, 'dep')
       }
-      this.focusInput(this.form_corres, "ser");
+      this.focusInput(this.form_corres, 'ser')
     },
     openCOR866() {
-      this.offField();
-      this.show_cor866 = true;
+      this.offField()
+      this.show_cor866 = true
     },
     callbackCOR866(item) {
-      this.show_cor866 = false;
+      this.show_cor866 = false
       if (item) {
-        this.reg.dep = item.codigo;
-        this.reg.responsableDep = item.responsable;
-        return this.validarDep();
+        this.reg.dep = item.codigo
+        this.reg.responsableDep = item.responsable
+        return this.validarDep()
       }
-      this.focusInput(this.form_corres, "dep");
+      this.focusInput(this.form_corres, 'dep')
     },
     cancelar() {
-      this.onField();
-      this.cerrar_CON851();
+      this.onField()
+      this.cerrar_CON851()
     },
     cancelarAlerta() {
-      this.cerrar_CON851();
-      this.get("dialogType") == "done" ? this.abrirNovedad() : this.onField();
+      this.cerrar_CON851()
+      this.get('dialogType') == 'done' ? this.abrirNovedad() : this.onField()
     },
     abrirNovedad() {
-      this.reg = getObjCorres();
-      this.novedad_activa = true;
-      this.flag_radicados = false;
-      this.offField();
+      this.reg = getObjCorres()
+      this.novedad_activa = true
+      this.flag_radicados = false
+      this.offField()
     },
     novedadSelec(data) {
-      this.novedad_activa = false;
-      data.acceso == "F"
-        ? this.$router.push("/Menu-Principal")
-        : (this.novedad = Object.assign({}, data));
-      if ([7, 8, 9].includes(data.acceso)) this.condicionesNovedad();
+      this.novedad_activa = false
+      data.acceso == 'F'
+        ? this.$router.push('/Menu-Principal')
+        : (this.novedad = Object.assign({}, data))
+      if ([7, 8, 9].includes(data.acceso)) this.condicionesNovedad()
     },
   },
-};
+}
 </script>
