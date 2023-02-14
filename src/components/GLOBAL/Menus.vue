@@ -82,6 +82,7 @@ import menuContabilidad from "../../menus/menuContabilidad.json";
 import { currentUser, global } from "../../mixins/global";
 import menuNomina from "../../menus/menuNomina.json";
 import menuCorr from "../../menus/menuCorr.json";
+import menuConse from "../../menus/menuConse.json";
 import Header from "./Header.vue";
 import Vue from "vue";
 
@@ -128,6 +129,11 @@ export default {
           this.historial.push(menuCorr);
           this.menu = menuCorr.Menu;
           this.menuP = menuCorr.Menu;
+          break;
+        case "CONSENTIMIENTOS":
+          this.historial.push(menuConse);
+          this.menu = menuConse.Menu;
+          this.menuP = menuConse.Menu;
           break;
         case "CONFIG":
           this.historial.push(menuConfiguracion);

@@ -1,0 +1,74 @@
+{
+    "Menu": [
+      {
+        "opc": "1",
+        "text": "Maestros",
+        "opc_segu":"",
+        "Sub": [
+          {
+            "opc": "1",
+            "text": "Mestros",
+            "route": "/maestro",
+            "opc_segu": "R11",
+            "name": "actualiza-maestros",
+            "ruta": "1.1"
+          },
+          {
+            "opc": "2",
+            "text": "Elaborar",
+            "route": "/elaborar",
+            "name": "elaborar",
+            "ruta": "2.1"
+          }
+        ]
+        
+      },
+      {
+        "opc": "2",
+        "text": "Consentimientos",
+        "opc_segu": "R2",
+  
+        "Sub": [
+          {
+            "opc": "1",
+            "text": "Elaborar",
+            "route": "/elaborar",
+            "name": "elaborar",
+            "ruta": "2.1"
+          },
+          {
+            "opc": "2",
+            "text": "Revocar",
+            "route": "/elaboar",
+            "name": "revocar",
+            "ruta": "2.2"
+          },
+          {
+            "opc": "3",
+            "text": "Desentir",
+            "opc_segu": "R33",
+            "route": "/elaborar",
+            "name": "desentir",
+            "ruta": "2.3"
+          }
+        ]
+      },
+      {
+        "opc": "3",
+        "text": "Imprimir",
+        "route" : "/imprimir",
+        "Sub": [
+          {
+            "opc": "1",
+            "text": "Imprimir",
+            "route": "/imprimir",
+            "opc_segu": "R3",
+            "name": "Impresion",
+            "ruta": "3.1"
+          }
+        ]
+  
+      }
+    ]
+  }
+  
