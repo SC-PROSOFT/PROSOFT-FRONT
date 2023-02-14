@@ -41,6 +41,7 @@
 import menuContabilidad from "../../menus/menuContabilidad.json";
 import menuNomina from "../../menus/menuNomina.json";
 import menuCorr from "../../menus/menuCorr.json";
+import menuConse from "../../menus/menuConse.json";
 import { scrollTo } from "scroll-js";
 export default {
   props: {
@@ -144,8 +145,9 @@ export default {
         let menu = JSON.stringify([...menuCorr.Menu]);
         this.menu = JSON.parse(menu);
         break;
-
-      default:
+      case "consentimientos":
+        let menuP = JSON.stringify([...menuConse.Menu]);
+        this.menuP = JSON.parse(menuP);
         break;
     }
     this.base_Menu_Filtro();

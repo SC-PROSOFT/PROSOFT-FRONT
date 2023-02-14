@@ -6,7 +6,6 @@
       "route": "/maestro",
       "name": "actualiza-maestros",
       "ruta": "1.1"
-   
     },
     {
       "opc": "2",
@@ -14,8 +13,6 @@
       "opc_segu": "R2",
       "route": "/elaborar",
       "name": "elaborar"
-      
-    
     },
     {
       "opc": "3",
@@ -23,8 +20,6 @@
       "opc_segu": "R2",
       "route": "/elaborar",
       "name": "elaborar"
-      
-    
     },
     {
       "opc": "4",
@@ -32,15 +27,13 @@
       "opc_segu": "R2",
       "route": "/elaborar",
       "name": "elaborar"
-      
-    
     },
     {
       "opc": "5",
       "text": "Imprimir",
       "route": "/imprimir",
-      "name": "Impresion"
-   
+      "opc_segu": "R5",
+      "name": "imprimir-consentimientos"
     },
     {
       "opc": "S",

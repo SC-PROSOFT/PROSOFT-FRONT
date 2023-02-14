@@ -318,6 +318,15 @@ const routes = [
           title: `${title} - Imprimir Anexos Correspondencia`,
         },
       },
+      {
+        path: "/imprimir",
+        name: "imprimir-consentimientos",
+        component: () => import("@/views/CONSE/impresion.vue"),
+        meta: {
+          requiresAuth: true,
+          title: `${title} - Imprimir Consentimientos`,
+        },
+      },
     ],
   },
   {
