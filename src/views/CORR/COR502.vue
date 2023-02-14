@@ -8,6 +8,9 @@
             <INPUT
               @next-action="nextStep(form, $event, validarBusqueda)"
               :field="form.busqueda"
+              @onChange="((data)=>{
+                busqueda = data.value
+              })"
               :reg="busqueda"
             ></INPUT>
           </v-col>
@@ -18,7 +21,7 @@
             class="elevation-16"
             :headers="headers"
             :items="desserts"
-            :search="busqueda.busqueda"
+            :search="busqueda"
           >
             <v-col
               cols="12"
@@ -89,10 +92,7 @@ export default {
           max_length: "20",
         },
       },
-      busqueda: {
-        busqueda: "",
-      },
-
+      busqueda: "",
       headers: [
         {
           text: "Radicado",
