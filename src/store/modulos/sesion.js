@@ -19,6 +19,7 @@ export default {
 
       try {
         const RES = await postData({ url: `usuvue?llave=${usuario}&clave=${password}`, method: "GET" });
+        console.log(RES, "RESSS")
 
         const USUARIO = await postData({
           url: `usuar`,

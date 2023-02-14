@@ -111,6 +111,7 @@ export default {
   },
   methods: {
     select_Modulo(item) {
+
       switch (item.cod) {
         case "CON":
           localStorage.modulo = item.descripcion;
@@ -121,6 +122,10 @@ export default {
           this.$router.push("/Menu-Principal");
           break;
         case "COR":
+          localStorage.modulo = item.descripcion;
+          this.$router.push("/Menu-Principal");
+          break;
+        case "CONS":
           localStorage.modulo = item.descripcion;
           this.$router.push("/Menu-Principal");
           break;

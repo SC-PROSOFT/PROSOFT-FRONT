@@ -219,6 +219,7 @@ export default {
         descripcion: this.form.descripcion,
       };
       const RES = await this._editModulo({ data });
+      console.log(RES,"RES MODULOS")
       if (RES.N1) {
         const RES = await this._getModulos();
         if (!RES.msg) this.modulos = RES;
