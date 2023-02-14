@@ -56,6 +56,7 @@
             :reg="reg_macro.text"
             @onChange="onChange"
           ></TEXTAREA>
+            <h5>CTRL + ENTER Guardar</h5>
         </v-col>
       </v-row>
     </v-card>

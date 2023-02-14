@@ -7,6 +7,7 @@
           <INPUT
             @next-action="nextStep(form_corres, $event, datoAnoLlave)"
             :field="form_corres.anoLlave"
+            :reg="reg.llave.anoLlave"
             @onChange="
               (data) => {
                 reg.llave[data.key] = data.value;
@@ -19,7 +20,7 @@
             @next-action="nextStep(form_corres, $event, datoAnoCont)"
             @abrirF8="openCOR868"
             :field="form_corres.cont"
-            :reg="reg.cont"
+            :reg="reg.llave.cont"
             @onChange="
               (data) => {
                 reg.llave[data.key] = data.value;
@@ -231,7 +232,7 @@
           <TEXTAREA
             @next-action="nextStep(form_corres, $event)"
             :field="form_corres.observ"
-            :reg="reg"
+            :reg="reg.observ"
           />
         </v-col>
         <v-col cols="12" sm="6" md="6" xs="6" class="input-col">

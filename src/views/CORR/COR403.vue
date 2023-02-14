@@ -17,7 +17,7 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownAnoLlave)"
             :field="form_rescorr.anoLlave"
-            :reg="reg_rescorr.anoLlave"
+            :reg="reg_rescorr.codResp.anoLlave"
             @onChange="
               (data) => {
                 reg_rescorr.codResp[data.key] = data.value;
@@ -31,7 +31,7 @@
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownRadicado)"
             :field="form_rescorr.cont"
-            :reg="reg_rescorr.cont"
+            :reg="reg_rescorr.codResp.cont"
             @onChange="
               (data) => {
                 reg_rescorr.codResp[data.key] = data.value;
@@ -308,9 +308,9 @@
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownValorFactura)"
+            @onChange="(data) => (reg_rescorr.monto = data.value)"
             :field="form_rescorr.monto"
             :reg="reg_rescorr.monto"
-            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -375,6 +375,7 @@
             @next-action="nextStep(form_rescorr, $event, keyDownFileInput)"
             :field="form_rescorr.file"
             :reg="reg_rescorr.file"
+            @onChange="onChange"
           ></FILEINPUT>
         </v-col>
       </v-row>
@@ -885,10 +886,12 @@ export default {
     async completeNumeroResp() {
       const anoActual = new Date().toISOString().slice(0, 4);
       const getUltRescorr_ = await this._getUltRescorr();
+      console.log(getUltRescorr_ )
       let sumaCont;
 
       this.reg_rescorr.codResp.anoLlave = getUltRescorr_.fecha.slice(0, 4);
       this.reg_rescorr.codResp.cont = getUltRescorr_.cont.toString();
+      
 
       if (this.novedad.acceso == 7) {
         if (this.reg_rescorr.codResp.anoLlave == anoActual) {
@@ -903,7 +906,6 @@ export default {
 
     abrirNovedad() {
       this.reg_rescorr = getRescorr();
-
       this.novedad_activa = true;
       this.offField();
     },
@@ -1444,6 +1446,7 @@ export default {
       data.monto = this.formatNumber_(data.monto);
 
       const postRescorr_ = await this._postRescorr(data);
+      console.log("RES", postRescorr_);
 
       if (postRescorr_?.N1 == "guardado") {
         const res_getCorr = await this._getCorr({
@@ -1482,6 +1485,7 @@ export default {
         radi: codResp.cont,
         file,
       });
+      console.log(postRescorrPdf_)
 
       if (postRescorrPdf_?.N1 == "guardado") {
         this.CON851(

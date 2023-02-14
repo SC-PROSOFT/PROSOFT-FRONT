@@ -100,15 +100,19 @@ export default {
     },
 
     async _postRescorrUploadPdf({ commit }, { ano, radi, file }) {
-      const InstFormData = new FormData();
-      InstFormData.append("file", file);
+      console.log("1", ano);
+      console.log("2", radi);
+      console.log("3", file);
       commit("isLoading", null, { root: true });
+      let InstFormData = new FormData();
+      InstFormData.append("file", file);
+      console.log(file);
       try {
         const RES = await postData({
           url: `guardarPdf_res/${ano}/${radi}`,
           method: "POST",
-          data: InstFormData,
           header: { x_token: sessionStorage.x_token },
+          data: InstFormData,
         });
         return RES;
       } catch (error) {

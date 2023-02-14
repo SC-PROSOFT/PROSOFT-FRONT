@@ -17,6 +17,12 @@
       "text": "correspondencia",
       "icon": "mdi-email-newsletter",
       "route": "/Menu-Principal"
+    },
+    {
+      "opc": "4",
+      "text": "consentimientos",
+      "icon": "mdi-email-newsletter",
+      "route": "/Menu-Principal"
     }
   ]
 }
