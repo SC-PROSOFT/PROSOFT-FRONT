@@ -1,5 +1,5 @@
 {
-  "ip_global": "localhost",
+  "ip_global": "192.168.0.51",
   "ip_local": "",
   "puerto": "3000"
 }
