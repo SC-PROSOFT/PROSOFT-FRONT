@@ -318,6 +318,15 @@ const routes = [
           title: `${title} - Imprimir Anexos Correspondencia`,
         },
       },
+      {
+        path: "/CONSEN_INF",
+        name: "consentimientos-HIC",
+        component: () => import("../views/CONSE/CONSEN_INF"),
+        meta: {
+          requiresAuth: true,
+          title: `${title} - Imprimir Anexos consentimientos`,
+        },
+      },
     ],
   },
   {
