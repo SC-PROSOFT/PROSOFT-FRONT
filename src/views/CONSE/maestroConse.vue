@@ -64,7 +64,6 @@
                             v-model="maesItem.codigo"
                             label="Código"
                             maxlength="15"
-                            autofocus
                             flat
                             outlined
                             hide-details
@@ -171,11 +170,23 @@
 
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn  color="red" class="ma-4" elevation="10" text @click="close">
+                    <v-btn
+                      color="red"
+                      class="ma-4"
+                      elevation="10"
+                      text
+                      @click="close"
+                    >
                       Cancelar
                       <v-icon class="mx-2"> mdi-close </v-icon>
                     </v-btn>
-                    <v-btn  color="success" class="ma-4" elevation="10" text @click="saveMaestroMongo">
+                    <v-btn
+                      color="success"
+                      class="ma-4"
+                      elevation="10"
+                      text
+                      @click="saveMaestroMongo"
+                    >
                       Guardar
                       <v-icon class="mx-3"> mdi-content-save </v-icon>
                     </v-btn>
@@ -246,10 +257,15 @@ export default {
       ],
 
       arrayConsen: [],
+      busqueda: "",
       calendarioFechaAprobo: false,
       calendarioFechaReviso: false,
-      busqueda: "",
       dialog: false,
+      date: new Date().toISOString().substr(0, 10),
+      card: {
+        loader: false,
+        disabled: false,
+      },
 
       maesItem: {
         codigo_mae: "",
@@ -311,12 +327,40 @@ export default {
       _getMaestros: "maestrosConse/_getMaestros",
     }),
 
-    async saveMaestroMongo () {
-        console.log("Estoy en saveMaesMongo")
+    fecha(date) {
+      let anio = date.slice(0, 4);
+      let mes = date.slice(4, 6);
+      let dia = date.slice(6);
+      return `${anio}-${mes}-${dia}`;
+    },
+
+    async saveMaestroMongo() {
+      console.log("Estoy en saveMaesMongo");
+      let item = this.editedItem;
+      let nombreCodigo = "";
+      let count = await this._getMaestroMongo();
+
+      if (this.desserts.length + count.length < 99) {
+        nombreCodigo = `0${this.desserts.length + count.length + 1}`;
+      } else if (this.desserts.length + count.length >= 99) {
+        nombreCodigo = `${this.desserts.length + count.length + 1}`;
+      }
+      let datos = {
+        COD_MAE: `${this.datos_sesion.modulo}${nombreCodigo}`,
+        DESCRIP: item.descrip,
+        CODIGO: item.codigo,
+        VERSION: item.version,
+        FECHA_APROB: item.fechaAprob.split("-").join(""),
+        APROBO: item.aprobo,
+        REVISO: item.reviso,
+        FECHA_ACT: item.fechaAct.split("-").join(""),
+      };
+      console.log("CONSOLE", await this.grabarMaesConse(datos));
+      this.dialog = false;
     },
 
     async getMaestroMongo() {
-        console.log("Estoy en getMaestroMongo")
+      console.log("Estoy en getMaestroMongo");
       const DATA = await this._getMaestros();
       index.commit("isLoading", null, { root: true });
       const RES = RES.map((item) => {
@@ -335,7 +379,7 @@ export default {
     },
 
     close() {
-        console.log("Estoy en CLOSE")
+      console.log("Estoy en CLOSE");
       this.dialog = false;
       this.$nextTick(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
@@ -344,7 +388,7 @@ export default {
     },
 
     createMaes(item) {
-        console.log("Estoy en CREATEMAES")
+      console.log("Estoy en CREATEMAES");
       this.noved = "Creando";
       this.createdIndex = this.arrayConsen.indexOf(item);
       this.createdtem = Object.assign({}, item);
