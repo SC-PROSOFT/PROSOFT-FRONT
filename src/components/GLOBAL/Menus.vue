@@ -257,6 +257,8 @@ export default {
                   this.opcs.push(er.opc),
                   this.subtitle.push(er.text),
                   (this.titulo = [er.text]);
+              } else if (!er.Sub && er.route) {
+                this.$router.push({ path: er.route });
               } else if (
                 this.historial[this.historial.length - 1] == this.historial[0]
               )
@@ -317,6 +319,7 @@ export default {
     },
 
     validClickOpcMenu(data) {
+      console.log(data);
       this.itemActive = 0;
       this.validarRestric(data);
       if (this.restriccion == "") {
@@ -326,6 +329,8 @@ export default {
           this.opcs.push(data.opc);
           this.titulo = [data.text];
           this.subtitle.push(data.text);
+        } else if (!data.Sub && data.route) {
+          this.$router.push({ path: data.route });
         } else if (
           this.historial[this.historial.length - 1] == this.historial[0]
         ) {

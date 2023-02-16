@@ -1,278 +1,150 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="desserts"
-    :sort-by="[{ key: 'calories', order: 'asc' }]"
-    class="elevation-1"
-  >
-    <template v-slot:top>
-      <v-toolbar flat>
-        <v-toolbar-title>My CRUD</v-toolbar-title>
-        <v-divider class="mx-4" inset vertical></v-divider>
-        <v-spacer></v-spacer>
-        <v-dialog v-model="dialog" max-width="500px">
-          <template v-slot:activator="{ props }">
-            <v-btn color="primary" dark class="mb-2" v-bind="props">
-              New Item
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
-            </v-card-title>
+  <v-container calss="mt-4" fluid>
+    <form-titulo :titulo="titulo"></form-titulo>
+    <v-card elevation="20" class="px-4 py-4 mx-auto">
+      <v-row justify="start" align="center" class="input-row">
+        <v-card elevation="5" width="1800" class="mx-3">
+          <v-col cols="2">
+            <INPUT
+              @next-action="nextStep(form, $event)"
+              :field="form.busqueda"
+            ></INPUT>
+          </v-col>
+        </v-card>
+        <v-col cols="12" sm="12" md="12" xs="12" class="input-col mt-2">
+          <v-data-table
+            class="elevation-16"
+            :headers="headers"
+            :items="desserts"
+            :search="busqueda"
+          >
+            <template v-slot:[`item.actions`]="{ item }">
+              <v-col align-self="baseline">
+                <v-col>
+                  <v-row class="left">
+                    <v-icon
+                      class="mr-2"
+                      alignith="center"
+                      @click="imprimir_conse(item)"
+                    >
+                      mdi-cloud-print
+                    </v-icon>
+                  </v-row>
+                </v-col>
+              </v-col>
+            </template>
+            <v-col
+              cols="12"
+              sm="3"
+              md="3"
+              xs="3"
+              class="input-col"
+              v-if="!this.desserts[0]"
+            ></v-col>
+            <!-- <template v-slot:[`item.estado`]="{ item }">
+              <v-chip :color="getColor(item.estado)" dark>
+                {{ item.estado }}
+              </v-chip>
+            </template> -->
+            <template v-slot:no-data>
+              <lottie-animation
+                :animationData="require('../../assets/image/no_found.json')"
+                style="height: 230px; width: 300px"
+                class="text-center mx-auto"
+                :autoPlay="true"
+                :loop="true"
+                :speed="2"
+                ref="anim"
+              />
+              <h1>No existen datos</h1>
+            </template>
 
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedItem.name"
-                      label="Dessert name"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedItem.calories"
-                      label="Calories"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedItem.fat"
-                      label="Fat (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Carbs (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedItem.protein"
-                      label="Protein (g)"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card-text>
+            <v-row justify="center">
+              <v-col cols="12"></v-col>
+            </v-row>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue-darken-1" variant="text" @click="close">
-                Cancel
-              </v-btn>
-              <v-btn color="blue-darken-1" variant="text" @click="save">
-                Save
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5"
-              >Are you sure you want to delete this item?</v-card-title
-            >
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue-darken-1" variant="text" @click="closeDelete"
-                >Cancel</v-btn
-              >
-              <v-btn
-                color="blue-darken-1"
-                variant="text"
-                @click="deleteItemConfirm"
-                >OK</v-btn
-              >
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-toolbar>
-    </template>
-    <template v-slot:[`item.actions`]="{ item }">
-      <v-icon size="small" class="me-2" @click="editItem(item.raw)">
-        mdi-pencil
-      </v-icon>
-      <v-icon size="small" @click="deleteItem(item.raw)"> mdi-delete </v-icon>
-    </template>
-    <template v-slot:no-data>
-      <v-btn color="primary" @click="initialize"> Reset </v-btn>
-    </template>
-  </v-data-table>
+            <h2 class="text-center mt-5">¡Ups, No existen registros!</h2>
+          </v-data-table>
+        </v-col>
+      </v-row>
+    </v-card>
+    <CON851
+      @cancelar="cerrarDialogo"
+      @salirEsc="cerrarDialogo"
+      @confirmar="confirmar"
+      v-if="alerta.estado"
+      :alerta="alerta"
+    ></CON851>
+  </v-container>
 </template>
 <script>
+import { global } from "../../mixins/global";
+import { nextAction } from "../../mixins/nextAction";
+import { mapState } from "vuex";
+import LottieAnimation from "lottie-web-vue";
+/* INDEX VUEX */
+import index from "../../store/index";
+
 export default {
-  data: () => ({
-    dialog: false,
-    dialogDelete: false,
-    headers: [
-      {
-        title: "Dessert (100g serving)",
-        align: "start",
-        sortable: false,
-        key: "name",
+  name: "Impresion",
+  mixins: [nextAction, global],
+  components: { LottieAnimation },
+
+  data() {
+    return {
+      titulo: "4.Imprimir Consentimientos",
+      form: {
+        busqueda: {
+          id: "busqueda",
+          label: "Buscar",
+          max_length: "20",
+        },
       },
-      { title: "Calories", key: "calories" },
-      { title: "Fat (g)", key: "fat" },
-      { title: "Carbs (g)", key: "carbs" },
-      { title: "Protein (g)", key: "protein" },
-      { title: "Actions", key: "actions", sortable: false },
-    ],
-    desserts: [],
-    editedIndex: -1,
-    editedItem: {
-      name: "",
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-    },
-    defaultItem: {
-      name: "",
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-    },
-  }),
+
+      headers: [
+        { text: "Codigo", value: "reg_coninf.cod" },
+        { text: "Fecha", value: "reg_coninf.llave.fecha" },
+        { text: "Hora", value: "reg_coninf.llave.hora" },
+        { text: "Descripcion", value: "reg_coninf.datos_encab.descrip" },
+        {
+          text: "Imprimpir",
+          align: "center",
+          value: "actions",
+          sortable: false,
+        },
+      ],
+      desserts: [
+        {
+          reg_coninf: {
+            codigo: "5454",
+            cod: "123",
+            llave: {
+              fecha: "12/05/2022",
+              hora: "11:55",
+            },
+            datos_encab: {
+              descrip: "Consentimientos",
+            },
+          },
+        },
+      ],
+    };
+  },
 
   computed: {
-    formTitle() {
-      return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    },
+    ...mapState({ isLoading: "isLoading" }),
   },
 
-  watch: {
-    dialog(val) {
-      val || this.close();
-    },
-    dialogDelete(val) {
-      val || this.closeDelete();
-    },
-  },
+  watch: {},
 
   created() {
     this.initialize();
   },
 
   methods: {
-    initialize() {
-      this.desserts = [
-        {
-          name: "Frozen Yogurt",
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-        },
-        {
-          name: "Ice cream sandwich",
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-        },
-        {
-          name: "Eclair",
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-        },
-        {
-          name: "Cupcake",
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-        },
-        {
-          name: "Gingerbread",
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
-        },
-        {
-          name: "Jelly bean",
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
-        },
-        {
-          name: "Lollipop",
-          calories: 392,
-          fat: 0.2,
-          carbs: 98,
-          protein: 0,
-        },
-        {
-          name: "Honeycomb",
-          calories: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5,
-        },
-        {
-          name: "Donut",
-          calories: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9,
-        },
-        {
-          name: "KitKat",
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-        },
-      ];
-    },
-
-    editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialog = true;
-    },
-
-    deleteItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialogDelete = true;
-    },
-
-    deleteItemConfirm() {
-      this.desserts.splice(this.editedIndex, 1);
-      this.closeDelete();
-    },
-
-    close() {
-      this.dialog = false;
-      this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
-      });
-    },
-
-    closeDelete() {
-      this.dialogDelete = false;
-      this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
-      });
-    },
-
-    save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem);
-      } else {
-        this.desserts.push(this.editedItem);
-      }
-      this.close();
+    initialize() {},
+    async imprimir_conse(data) {
+      console.log("Estamos Editando", data);
     },
   },
 };

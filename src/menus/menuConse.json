@@ -32,7 +32,7 @@
       "opc": "5",
       "text": "Imprimir",
       "route": "/imprimir",
-      "opc_segu": "R5",
+      "opc_segu": "",
       "name": "imprimir-consentimientos"
     },
     {
