@@ -1,5 +1,8 @@
 <template>
-  <v-app style="background-color: #ececf5" :onclick="$router.path == 'Menu-Principal' ? foo.focus() : null">
+  <v-app
+    style="background-color: #ececf5"
+    :onclick="$router.path == 'Menu-Principal' ? foo.focus() : null"
+  >
     <CON851
       v-if="alerta.estado"
       :alerta="alerta"
@@ -14,9 +17,21 @@
     <v-container class="---fill-height" v-if="ver">
       <v-row align="center" justify="center">
         <v-col>
-          <v-card color="primary" dark elevation="24" width="520" height="32" outlined class="mx-auto ma-2">
+          <v-card
+            color="primary"
+            dark
+            elevation="24"
+            width="520"
+            height="32"
+            outlined
+            class="mx-auto ma-2"
+          >
             <h5 class="white--text text-center text-md-h6 ma-0 text-caption">
-              {{ this.historial[this.historial.length - 1] == this.historial[0] ? "" : "Opc " + this.opcs.join(",") + " " + "|" }}&nbsp;
+              {{
+                this.historial[this.historial.length - 1] == this.historial[0]
+                  ? ""
+                  : "Opc " + this.opcs.join(",") + " " + "|"
+              }}&nbsp;
               {{ this.subtitle[this.subtitle.length - 1] }}
             </h5>
           </v-card>
@@ -43,8 +58,16 @@
                   autofocus
                   link
                 >
-                  <v-list-item-content @click="validClickOpcMenu(opc)" style="min-height: 0px" class="py-0 ma-0" height="400">
-                    <v-list-item-title class="text-md-h6 font-weight-light" style="min-height: 0px">
+                  <v-list-item-content
+                    @click="validClickOpcMenu(opc)"
+                    style="min-height: 0px"
+                    class="py-0 ma-0"
+                    height="400"
+                  >
+                    <v-list-item-title
+                      class="text-md-h6 font-weight-light"
+                      style="min-height: 0px"
+                    >
                       {{ opc.opc }}.
                       {{ opc.text }}
                     </v-list-item-title>
@@ -62,8 +85,18 @@
                     style="margin: 5px"
                     class="botone"
                   >
-                    <v-icon dense x-small :color="lista_favoritos.includes(opc.route) ? 'yellow' : 'white'">
-                      {{ lista_favoritos.includes(opc.route) ? "mdi-star" : "mdi-star-outline" }}
+                    <v-icon
+                      dense
+                      x-small
+                      :color="
+                        lista_favoritos.includes(opc.route) ? 'yellow' : 'white'
+                      "
+                    >
+                      {{
+                        lista_favoritos.includes(opc.route)
+                          ? "mdi-star"
+                          : "mdi-star-outline"
+                      }}
                     </v-icon>
                   </v-list-item-icon>
                 </v-list-item>
@@ -158,7 +191,10 @@ export default {
       reinicio: "sesion/reinicioAcceso",
     }),
     async init() {
-      let res = await this.getFavorito([currentUser.llaveOper, localStorage.modulo]);
+      let res = await this.getFavorito([
+        currentUser.llaveOper,
+        localStorage.modulo,
+      ]);
       let array = this.list("list_favorito");
       if (array[0]) {
         if (res.status != -1) {
@@ -212,6 +248,7 @@ export default {
           if (this.item != this.menu.length) {
             let er = this.menu.find((el) => el.opc == this.item);
             this.validarRestric(er);
+            console.log("ValidateRestricion", er);
             if (this.restriccion == "") {
               if (er.Sub) {
                 Vue.set(this, "menu", er.Sub),
@@ -220,7 +257,12 @@ export default {
                   this.opcs.push(er.opc),
                   this.subtitle.push(er.text),
                   (this.titulo = [er.text]);
-              } else if (this.historial[this.historial.length - 1] == this.historial[0]) this.validarSalir();
+              } else if (!er.Sub && er.route) {
+                this.$router.push({ path: er.route });
+              } else if (
+                this.historial[this.historial.length - 1] == this.historial[0]
+              )
+                this.validarSalir();
               else this.$router.push({ path: er.route });
             }
           } else {
@@ -251,13 +293,16 @@ export default {
       }
     },
     validarRestric(item) {
+      console.log(item, "validarRestric");
       let array_rest = [];
       currentUser.restr.forEach((e, i) => {
         array_rest.push(e.opc);
       });
+      console.log(array_rest, "array_rest");
 
       if (array_rest.includes(item?.opc_segu)) {
         this.restriccion = item.opc_segu;
+        console.log(this.restriccion, "restricion de array");
         return this.CON851("15", "info");
       } else this.restriccion = "";
     },
@@ -274,6 +319,7 @@ export default {
     },
 
     validClickOpcMenu(data) {
+      console.log(data);
       this.itemActive = 0;
       this.validarRestric(data);
       if (this.restriccion == "") {
@@ -283,7 +329,11 @@ export default {
           this.opcs.push(data.opc);
           this.titulo = [data.text];
           this.subtitle.push(data.text);
-        } else if (this.historial[this.historial.length - 1] == this.historial[0]) {
+        } else if (!data.Sub && data.route) {
+          this.$router.push({ path: data.route });
+        } else if (
+          this.historial[this.historial.length - 1] == this.historial[0]
+        ) {
           this.menu;
           this.CON851("SALIR", "warning", "", "P");
         } else if (data.opc == "F") {

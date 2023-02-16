@@ -319,12 +319,21 @@ const routes = [
         },
       },
       {
-        path: "/CONSEN_INF",
-        name: "consentimientos-HIC",
-        component: () => import("../views/CONSE/CONSEN_INF"),
+        path: "/imprimir",
+        name: "imprimir-consentimientos",
+        component: () => import("@/views/CONSE/Impresion.vue"),
         meta: {
           requiresAuth: true,
-          title: `${title} - Imprimir Anexos consentimientos`,
+          title: `${title} - Imprimir Consentimientos`,
+        },
+      },
+      {
+        path: "/maestro",
+        name: "maestro-consentimientos",
+        component: () => import("@/views/CONSE/maestroConse.vue"),
+        meta: {
+          requiresAuth: true,
+          title: `${title} - Maestros Consentimientos`,
         },
       },
     ],
