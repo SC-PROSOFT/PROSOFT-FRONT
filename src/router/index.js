@@ -330,7 +330,7 @@ const routes = [
       {
         path: "/maestro",
         name: "maestro-consentimientos",
-        component: () => import("@/views/CONSE/MaestroConse.vue"),
+        component: () => import("@/views/CONSE/maestroConse.vue"),
         meta: {
           requiresAuth: true,
           title: `${title} - Maestros Consentimientos`,
