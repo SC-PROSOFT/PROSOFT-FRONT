@@ -321,7 +321,7 @@ const routes = [
       {
         path: "/imprimir",
         name: "imprimir-consentimientos",
-        component: () => import("@/views/CONSE/impresion.vue"),
+        component: () => import("@/views/CONSE/Impresion.vue"),
         meta: {
           requiresAuth: true,
           title: `${title} - Imprimir Consentimientos`,
