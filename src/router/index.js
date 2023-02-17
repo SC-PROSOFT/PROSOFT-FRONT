@@ -321,7 +321,7 @@ const routes = [
       {
         path: "/imprimir",
         name: "imprimir-consentimientos",
-        component: () => import("@/views/CONSE/Impresion.vue"),
+        component: () => import("@/views/CONSE/impresion.vue"),
         meta: {
           requiresAuth: true,
           title: `${title} - Imprimir Consentimientos`,
@@ -334,6 +334,15 @@ const routes = [
         meta: {
           requiresAuth: true,
           title: `${title} - Maestros Consentimientos`,
+        },
+      },
+      {
+        path: "/utm",
+        name: "laboratorio-consentimiento",
+        component: () => import("../views/CONSE/Utm2.vue"),
+        meta: {
+          requiresAuth: true,
+          title: `${title} - laboratorio consentimientos`,
         },
       },
     ],

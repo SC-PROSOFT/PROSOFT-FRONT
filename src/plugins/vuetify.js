@@ -18,6 +18,7 @@ export default new Vuetify({
       light: {
         primary: "#123d7d",
         secondary: "#21759c",
+        text: "#808285",
         tertiary: "#054D50",
         background: "#EDF2FA",
         input_foco: "#FFD700",

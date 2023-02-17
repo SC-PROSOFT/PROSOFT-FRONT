@@ -24,9 +24,9 @@
     {
       "opc": "4",
       "text": "Laboratorio",
-      "opc_segu": "R2",
-      "route": "/elaborar",
-      "name": "elaborar"
+      "opc_segu": "",
+      "route": "/utm",
+      "name": "laboratorio-consentimiento"
     },
     {
       "opc": "5",
