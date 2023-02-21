@@ -7,7 +7,7 @@ const { ip_global, ip_local, puerto } = ip;
 // let ip = localStorage.ipPublica || localStorage.ipLocal;
 // let puerto = localStorage.puerto;
 
-// const URl = "http://localhost:3000/api/";
+// const URl = "http://192.168.0.174:8083/api/";
 
 const URl = `http://${ip_global || ip_local}:${puerto}/api/`;
 
