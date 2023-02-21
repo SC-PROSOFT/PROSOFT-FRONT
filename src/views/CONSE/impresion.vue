@@ -19,19 +19,13 @@
             :search="busqueda"
           >
             <template v-slot:[`item.actions`]="{ item }">
-              <v-col align-self="baseline">
-                <v-col>
-                  <v-row class="left">
-                    <v-icon
-                      class="mr-2"
-                      alignith="center"
-                      @click="imprimir_conse(item)"
-                    >
-                      mdi-cloud-print
-                    </v-icon>
-                  </v-row>
+              <v-row>
+                <v-col align-self="baseline">
+                  <v-icon align="right" @click="imprimir_conse(item)">
+                    mdi-cloud-print
+                  </v-icon>
                 </v-col>
-              </v-col>
+              </v-row>
             </template>
             <v-col
               cols="12"
@@ -41,11 +35,6 @@
               class="input-col"
               v-if="!this.desserts[0]"
             ></v-col>
-            <!-- <template v-slot:[`item.estado`]="{ item }">
-              <v-chip :color="getColor(item.estado)" dark>
-                {{ item.estado }}
-              </v-chip>
-            </template> -->
             <template v-slot:no-data>
               <lottie-animation
                 :animationData="require('../../assets/image/no_found.json')"
@@ -100,12 +89,21 @@ export default {
           max_length: "20",
         },
       },
+      busqueda: "",
 
       headers: [
-        { text: "Codigo", value: "reg_coninf.cod" },
-        { text: "Fecha", value: "reg_coninf.llave.fecha" },
-        { text: "Hora", value: "reg_coninf.llave.hora" },
-        { text: "Descripcion", value: "reg_coninf.datos_encab.descrip" },
+        { text: "Codigo", value: "reg_coninf.cod", align: "center" },
+        { text: "Fecha", value: "reg_coninf.llave.fecha", align: "center" },
+        {
+          text: "Hora",
+          value: "reg_coninf.llave.hora",
+          align: "justify-between",
+        },
+        {
+          text: "Descripcion",
+          value: "reg_coninf.datos_encab.descrip",
+          align: "center",
+        },
         {
           text: "Imprimpir",
           align: "center",
@@ -117,7 +115,59 @@ export default {
         {
           reg_coninf: {
             codigo: "5454",
-            cod: "123",
+            cod: "HIC001",
+            llave: {
+              fecha: "12/05/2022",
+              hora: "11:55",
+            },
+            datos_encab: {
+              descrip: "Consentimientos",
+            },
+          },
+        },
+        {
+          reg_coninf: {
+            codigo: "5454",
+            cod: "HIC002",
+            llave: {
+              fecha: "12/05/2022",
+              hora: "11:55",
+            },
+            datos_encab: {
+              descrip: "Consentimientos",
+            },
+          },
+        },
+        {
+          reg_coninf: {
+            codigo: "5454",
+            cod: "HIC003",
+            llave: {
+              fecha: "12/05/2022",
+              hora: "11:55",
+            },
+            datos_encab: {
+              descrip: "Consentimientos",
+            },
+          },
+        },
+        {
+          reg_coninf: {
+            codigo: "5454",
+            cod: "HIC004",
+            llave: {
+              fecha: "12/05/2022",
+              hora: "11:55",
+            },
+            datos_encab: {
+              descrip: "Consentimientos",
+            },
+          },
+        },
+        {
+          reg_coninf: {
+            codigo: "5454",
+            cod: "HIC005",
             llave: {
               fecha: "12/05/2022",
               hora: "11:55",
@@ -128,7 +178,49 @@ export default {
           },
         },
       ],
+      datos_sesion: {
+        admi: "ADMI",
+        cod_acomp: "",
+        cod_prof: "0017329215",
+        llave_hc: "00000000000000101000019",
+        modulo: "HIC",
+        parentesco: "",
+      },
+      reg_hc: {
+        cierre: {
+          estado: "1",
+          fact: "000000",
+          temporal: "0",
+        },
+        descrip_med: "BOHORQUEZ CASTAÑO GABRIEL",
+        fecha: "20230210",
+        hora: "1545",
+        llave: "00000000000000101000019",
+        med: "0017329215",
+        motiv: "EXAMEN DE PRE-INGRESO",
+        oper_elab: "ADMI",
+        rips: [
+          {
+            cod: "",
+            descrip: "",
+          },
+        ],
+        serv: "02",
+        unid_edad: "A",
+        vlr_edad: "028",
+      },
+      reg_od: {},
+
+      reg_prof: {
+        atiende: "2",
+        cod: "0017329215",
+        descrip: "BOHORQUEZ CASTAÑO GABRIEL",
+        descrip_atiende: "MEDICO GENERAL",
+      },
     };
+  },
+  mounted() {
+    this.datos_sesion = this.datos_sesion;
   },
 
   computed: {
@@ -138,13 +230,39 @@ export default {
   watch: {},
 
   created() {
-    this.initialize();
+    this.datos_sesion;
+    console.log("datos_sesion create", this.datos_sesion);
+    switch (this.datos_sesion.modulo) {
+      case "HIC":
+        this.get_hc();
+
+        break;
+
+      default:
+        break;
+    }
   },
 
   methods: {
-    initialize() {},
-    async imprimir_conse(data) {
-      console.log("Estamos Editando", data);
+    async get_hc() {
+      this.datos_sesion.llave_hc;
+      this.reg_hc = this.reg_hc;
+      console.log("get_hc", this.datos_sesion.llave_hc);
+      this.get_consen();
+    },
+    async get_consen() {
+      this.reg_hc;
+      console.log("get_conce", this.reg_hc);
+    },
+
+    async imprimir_conse(consen) {
+      this.reg_prof;
+      let medico = this.reg_prof.cod;
+      let llave = consen.reg_coninf.llave
+      this.impresion({})
+      console.log(this.reg_prof, "reg_prof");
+      console.log(llave, "llave");
+      console.log(medico, "medico");
     },
   },
 };

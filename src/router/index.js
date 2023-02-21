@@ -330,10 +330,28 @@ const routes = [
       {
         path: "/maestro",
         name: "maestro-consentimientos",
-        component: () => import("@/views/CONSE/MaestroConse.vue"),
+        component: () => import("@/views/CONSE/maestroConse.vue"),
         meta: {
           requiresAuth: true,
           title: `${title} - Maestros Consentimientos`,
+        },
+      },
+      {
+        path: "/utm",
+        name: "laboratorio-consentimiento",
+        component: () => import("../views/CONSE/Utm2.vue"),
+        meta: {
+          requiresAuth: true,
+          title: `${title} - laboratorio consentimientos`,
+        },
+      },
+      {
+        path: "/hic002",
+        name: "HIC",
+        component: () => import("@/views/CONSE/plantillas/HICLIN/HIC002.vue"),
+        meta: {
+          requiresAuth: true,
+          title: `${title} - hiclin`,
         },
       },
     ],

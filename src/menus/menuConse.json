@@ -11,8 +11,8 @@
       "opc": "2",
       "text": "Hiclin",
       "opc_segu": "R2",
-      "route": "/elaborar",
-      "name": "elaborar"
+      "route": "/hic002",
+      "name": "HIC"
     },
     {
       "opc": "3",
@@ -24,9 +24,9 @@
     {
       "opc": "4",
       "text": "Laboratorio",
-      "opc_segu": "R2",
-      "route": "/elaborar",
-      "name": "elaborar"
+      "opc_segu": "",
+      "route": "/utm",
+      "name": "laboratorio-consentimiento"
     },
     {
       "opc": "5",
