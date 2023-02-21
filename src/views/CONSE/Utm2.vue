@@ -9,7 +9,7 @@
         <!-- buscar por paciente -->
         <v-col cols="6" sm="2" md="2" xs="2" class="input-col">
           <CHECKBOX
-            @next-action="nextStep(form_terce, $event, datoCodigo)"
+            @next-action="nextStep(form_terce, $event, buscarpaciente)"
             :field="form_validar.buscar_paci"
             :reg="reg_validar.buscar_paci"
             @onChange="
@@ -22,7 +22,7 @@
         <!-- sucursal -->
         <v-col cols="12" sm="2" md="1" xs="2" class="input-col">
           <INPUT
-            @next-action="nextStep(form_fact, $event, datoCodigo)"
+            @next-action="nextStep(form_fact, $event, validarDatoSucursal)"
             :field="form_fact.suc"
             :reg="reg_fact.suc"
             @onChange="
@@ -37,7 +37,7 @@
           <v-row label="clase servico">
             <v-col>
               <INPUT
-                @next-action="nextStep(form_fact, $event, datoCodigo)"
+                @next-action="nextStep(form_fact, $event, datoTipo)"
                 :field="form_fact.cl"
                 :reg="reg_fact.cl"
                 @onChange="
@@ -298,7 +298,9 @@ export default {
       }
     },
   },
-  mounted() {},
+  mounted() {
+    this.buscarpaciente();
+  },
   methods: {
     onChange(data) {
       this.reg_dep[data.key] = data.value;
@@ -321,6 +323,67 @@ export default {
       setDialogType: "formularios/setDialogType",
     }),
     ...mapActions({}),
+    buscarpaciente(key) {
+      switch (key) {
+        case "esc":
+          return this.validarSalir();
+        case "enter":
+          return this.focusInput(this.form_traslado, "cont");
+      }
+    },
+    validarDatoSucursal(key) {
+      switch (key) {
+        case "esc":
+          return this.buscarpaciente();
+        case "enter":
+          return this.datoTipo();
+      }
+    },
+    datoTipo(key) {
+      switch (key) {
+        case "esc":
+          return this.validarDatoSucursal();
+        case "enter":
+          return this.validarDatoSucursal();
+      }
+    },
+    aceptarComprobante(key) {
+      switch (key) {
+        case "esc":
+          return this.datoTipo();
+        case "enter":
+          return this.datoComprobante();
+      }
+    },
+    datoComprobante(key) {
+      switch (key) {
+        case "esc":
+          return this.aceptarComprobante();
+        case "enter":
+          return this.pacienteFirma();
+      }
+    },
+    pacienteFirma(key) {
+      switch (key) {
+        case "esc":
+          return this.datoComprobante();
+        case "enter":
+          return this.validarSalir();
+      }
+    },
+    validarSalir() {
+      // this.CON851P(
+      //   "PNZ",
+      //   "warning",
+      //   "¿Seguro que desea volver al menu principal?",
+      //   () => {
+      //     this.$router.push("/Menu-Principal");
+      //   },
+      //   () => {
+      //     this.focusInput(this.form_traslado, "anoLlave");
+      //   }
+      // );
+    },
   },
 };
 </script>
