@@ -11,8 +11,8 @@
       "opc": "2",
       "text": "Hiclin",
       "opc_segu": "R2",
-      "route": "/elaborar",
-      "name": "elaborar"
+      "route": "/hic002",
+      "name": "HIC"
     },
     {
       "opc": "3",

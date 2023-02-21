@@ -35,11 +35,6 @@
               class="input-col"
               v-if="!this.desserts[0]"
             ></v-col>
-            <!-- <template v-slot:[`item.estado`]="{ item }">
-              <v-chip :color="getColor(item.estado)" dark>
-                {{ item.estado }}
-              </v-chip>
-            </template> -->
             <template v-slot:no-data>
               <lottie-animation
                 :animationData="require('../../assets/image/no_found.json')"
@@ -215,6 +210,7 @@ export default {
         vlr_edad: "028",
       },
       reg_od: {},
+
       reg_prof: {
         atiende: "2",
         cod: "0017329215",
@@ -260,9 +256,13 @@ export default {
     },
 
     async imprimir_conse(consen) {
-      let medico = parseInt(consen.reg_prof.cod) || 0;
-
-      console.log("Estamos Editando");
+      this.reg_prof;
+      let medico = this.reg_prof.cod;
+      let llave = consen.reg_coninf.llave
+      this.impresion({})
+      console.log(this.reg_prof, "reg_prof");
+      console.log(llave, "llave");
+      console.log(medico, "medico");
     },
   },
 };
