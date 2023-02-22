@@ -283,7 +283,7 @@ export default {
     },
     novedadSelec(data) {
       this.novedad_activa = false;
-      this.firstField(this.form_serco);
+      this.focusInput(this.form_serco, "codigo");
       data.acceso == "F"
         ? this.$router.push("/Menu-Principal")
         : (this.novedad = Object.assign({}, data));
