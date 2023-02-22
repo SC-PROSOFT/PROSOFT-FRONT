@@ -16,14 +16,18 @@
           <v-col cols="12" sm="3" md="3" class="input-col">
             <INPUT
               @next-action="nextStep(form_corres, $event, datoEntidad)"
-              @onChange="(data) => (busqueda = data.value)"
+              @onChange="onChange"
               :field="form_corres.entidad"
               :reg="reg_corres.entidad"
               @abrirF8="openCON802"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
-            <data-card :field="form_corres.entidad_descripcion" :reg="reg_corres.entidad_descripcion"></data-card>
+            <data-card
+              :field="form_corres.entidad_descripcion"
+              :reg="reg_corres.entidad_descripcion"
+              @onChange="onChange"
+            ></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <INPUT
@@ -31,11 +35,15 @@
               :field="form_corres.depenTipoCorres"
               :reg="reg_corres.depenTipoCorres"
               @abrirF8="openCOR866"
-              @onChange="(data) => (busqueda = data.value)"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
-            <data-card :field="form_corres.depen_descripcion" :reg="reg_corres.depen_descripcion"></data-card>
+            <data-card
+              :field="form_corres.depen_descripcion"
+              :reg="reg_corres.depen_descripcion"
+              @onChange="onChange"
+            ></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <INPUT
@@ -43,17 +51,22 @@
               :field="form_corres.tipoCorres"
               @abrirF8="openCOR867"
               :reg="reg_corres.tipoCorres"
-              @onChange="(data) => (busqueda = data.value)"
+              @onChange="onChange"
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
-            <data-card :field="form_corres.corres_descripcion" :reg="reg_corres.corres_descripcion"></data-card>
+            <data-card
+              :field="form_corres.corres_descripcion"
+              :reg="reg_corres.corres_descripcion"
+              @onChange="onChange"
+            ></data-card>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
             <AUTOCOMPLETE
               @next-action="nextStep(form_corres, $event, datoDescartarCorres)"
               :field="form_corres.descartarTipoCorres"
               :reg="reg_corres.descartarTipoCorres"
+              @onChange="onChange"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
@@ -61,6 +74,7 @@
               @next-action="nextStep(form_corres, $event, datoRadicado)"
               :field="form_corres.incluirRadiRes"
               :reg="reg_corres.incluirRadiRes"
+              @onChange="onChange"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="2" md="2" class="input-col">
@@ -85,6 +99,7 @@
               @next-action="nextStep(form_corres, $event, datoJornada)"
               :field="form_corres.jornada"
               :reg="reg_corres.jornada"
+              @onChange="onChange"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
@@ -92,6 +107,7 @@
               @next-action="nextStep(form_corres, $event, datoProcedencia)"
               :field="form_corres.procedencia"
               :reg="reg_corres.procedencia"
+              @onChange="onChange"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
@@ -99,6 +115,7 @@
               @next-action="nextStep(form_corres, $event, datoManejo)"
               :field="form_corres.manejo"
               :reg="reg_corres.manejo"
+              @onChange="onChange"
             ></AUTOCOMPLETE>
           </v-col>
           <v-col cols="12" sm="3" md="3" class="input-col">
@@ -106,12 +123,17 @@
               @next-action="nextStep(form_corres, $event, datoEstado)"
               :field="form_corres.estado"
               :reg="reg_corres.estado"
+              @onChange="onChange"
             ></AUTOCOMPLETE>
           </v-col>
         </v-row>
         <v-row></v-row>
       </v-card-text>
-      <CON890P :modal_impresion="modal_impresion" @impresionSelec="impresionSelec" class="mx-auto"></CON890P>
+      <CON890P
+        :modal_impresion="modal_impresion"
+        @impresionSelec="impresionSelec"
+        class="mx-auto"
+      ></CON890P>
     </v-card>
     <CON851
       @cancelarAlerta="cancelarAlerta()"
@@ -121,14 +143,29 @@
       v-if="alerta.estado"
       :alerta="alerta"
     ></CON851>
-    <COR866 v-if="show_COR866" @callBack="callbackCOR866" @callbackEsc="callbackCOR866"></COR866>
-    <CON802 v-if="show_con802" @callBack="callbackCON802" @callbackEsc="callbackCON802"></CON802>
-    <COR867 v-if="show_COR867" @callBack="callbackCOR867" @callbackEsc="callbackCOR867"></COR867>
+    <COR866
+      v-if="show_COR866"
+      @callBack="callbackCOR866"
+      @callbackEsc="callbackCOR866"
+    ></COR866>
+    <CON802
+      v-if="show_con802"
+      @callBack="callbackCON802"
+      @callbackEsc="callbackCON802"
+    ></CON802>
+    <COR867
+      v-if="show_COR867"
+      @callBack="callbackCOR867"
+      @callbackEsc="callbackCOR867"
+    ></COR867>
   </v-container>
 </template>
 
 <script>
-import { getCorrespondenciaImpresion_, getCorrespondenciaImpresion } from "../../fuentes/correspondencia/regCorrespondenciaImpresion";
+import {
+  getCorrespondenciaImpresion_,
+  getCorrespondenciaImpresion,
+} from "../../fuentes/correspondencia/regCorrespondenciaImpresion";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import { global, image_base64 } from "../../mixins/global";
 import CON890P from "../../components/CONTAB/CON890P.vue";
@@ -330,7 +367,8 @@ export default {
         case "esc":
           return this.focusInput(this.form_corres, "depenTipoCorres");
         case "enter":
-          if (this.reg_corres.tipoCorres == "") return this.CON851("02", "info");
+          if (this.reg_corres.tipoCorres == "")
+            return this.CON851("02", "info");
           return await this.validateDatoTipoCorres();
       }
     },
@@ -460,8 +498,19 @@ export default {
     },
 
     async requestPrint() {
-      const { entidad, depenTipoCorres, tipoCorres, descartarTipoCorres, incluirRadiRes, fechaIni, fechaFin, jornada, procedencia, manejo, estado } =
-        this.reg_corres;
+      const {
+        entidad,
+        depenTipoCorres,
+        tipoCorres,
+        descartarTipoCorres,
+        incluirRadiRes,
+        fechaIni,
+        fechaFin,
+        jornada,
+        procedencia,
+        manejo,
+        estado,
+      } = this.reg_corres;
 
       const data = {
         nit: entidad,
@@ -500,7 +549,10 @@ export default {
         let header = [
           { text: `${impre.USUARIO}`, bold: true, size: 16 },
           `CONTROL DE CORRESPONDENCIA  NIT: ${impre.NIT}`,
-          `Periodo desde: ${data.fechaIni.slice(0, 10)}  Hasta: ${data.fechaFin.slice(0, 10)}`,
+          `Periodo desde: ${data.fechaIni.slice(
+            0,
+            10
+          )}  Hasta: ${data.fechaFin.slice(0, 10)}`,
         ];
 
         if (RES && RES.msg) {
@@ -521,7 +573,11 @@ export default {
             this.focusInput(this.form_corres, "estado");
           }, 700);
         } else {
-          this.CON851("personalizada", "warning", "Verifique los datos introducidos y vuelva a intentarlo");
+          this.CON851(
+            "personalizada",
+            "warning",
+            "Verifique los datos introducidos y vuelva a intentarlo"
+          );
         }
       }
     },
@@ -544,7 +600,9 @@ export default {
     impresionSelec(data) {
       this.modal_impresion = false;
       this.focusInput(this.form_corres, "entidad");
-      data.acceso == "F" ? this.$router.push("/Menu-Principal") : (this.tipo_impresion = Object.assign({}, data));
+      data.acceso == "F"
+        ? this.$router.push("/Menu-Principal")
+        : (this.tipo_impresion = Object.assign({}, data));
     },
   },
 };
