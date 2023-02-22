@@ -21,44 +21,19 @@
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <AUTOCOMPLETE
-            @next-action="nextStep(form_terce, $event, datoTipo)"
-            :field="form_terce.tipoR"
-            :reg="reg_terce.tipoR"
-            @onChange="onChange"
-          />
+          <AUTOCOMPLETE @next-action="nextStep(form_terce, $event, datoTipo)" :field="form_terce.tipoR" :reg="reg_terce.tipoR" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_terce, $event, datoNom1a)"
-            :field="form_terce.nomb1a"
-            :reg="reg_terce.nomb1a"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_terce, $event, datoNom1a)" :field="form_terce.nomb1a" :reg="reg_terce.nomb1a" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_terce, $event, datoNom1b)"
-            :field="form_terce.nomb1b"
-            :reg="reg_terce.nomb1b"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_terce, $event, datoNom1b)" :field="form_terce.nomb1b" :reg="reg_terce.nomb1b" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_terce, $event, datoApel1)"
-            :field="form_terce.apel1"
-            :reg="reg_terce.apel1"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_terce, $event, datoApel1)" :field="form_terce.apel1" :reg="reg_terce.apel1" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_terce, $event, datoApel2)"
-            :field="form_terce.apel2"
-            :reg="reg_terce.apel2"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_terce, $event, datoApel2)" :field="form_terce.apel2" :reg="reg_terce.apel2" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
           <INPUT
@@ -69,12 +44,7 @@
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_terce, $event, datoEmail)"
-            :field="form_terce.email"
-            :reg="reg_terce.email"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_terce, $event, datoEmail)" :field="form_terce.email" :reg="reg_terce.email" @onChange="onChange" />
         </v-col>
       </v-row>
     </v-card>
@@ -86,24 +56,13 @@
       v-if="alerta.estado"
       :alerta="alerta"
     />
-    <CON850
-      @novedadSelec="novedadSelec($event)"
-      :novedad_activa="novedad_activa"
-      v-if="novedad_activa"
-    />
+    <CON850 @novedadSelec="novedadSelec($event)" :novedad_activa="novedad_activa" v-if="novedad_activa" />
     <CON851P v-if="con851_p.estado" :con851_p="con851_p" />
-    <CON802
-      v-if="show_con802"
-      @callBack="callbackCON802"
-      @callbackEsc="callbackCON802"
-    />
+    <CON802 v-if="show_con802" @callBack="callbackCON802" @callbackEsc="callbackCON802" />
   </v-container>
 </template>
 <script>
-import {
-  getObjTerce_,
-  getObjTerce,
-} from "../../fuentes/correspondencia/regTerce";
+import { getObjTerce_, getObjTerce } from "../../fuentes/correspondencia/regTerce";
 import { mapMutations, mapActions, mapGetters } from "vuex";
 import CON802 from "../../components/CONTAB/CON802.vue";
 import { nextAction } from "../../mixins/nextAction";
@@ -137,7 +96,7 @@ export default {
     this.abrirNovedad();
   },
   methods: {
-      onChange(data) {
+    onChange(data) {
       this.reg_terce[data.key] = data.value;
     },
     ...mapMutations({
@@ -163,32 +122,18 @@ export default {
         switch (this.novedad.acceso) {
           case 7:
             if (RES.codigo) {
-              this.CON851(
-                "N1",
-                "info",
-                `El código ${this.reg_terce.codigo}de tercero ya existe`
-              );
+              this.CON851("N1", "info", `El código ${this.reg_terce.codigo}de tercero ya existe`);
               this.mostrarDatosTerce(RES);
             } else this.focusInput(this.form_terce, "tipoR");
             break;
           case 8:
             this.mostrarDatosTerce(RES);
-            if (RES.msg)
-              this.CON851(
-                "N1",
-                "info",
-                `El tercero ${this.reg_terce.codigo} no existe`
-              );
+            if (RES.msg) this.CON851("N1", "info", `El tercero ${this.reg_terce.codigo} no existe`);
             else this.focusInput(this.form_terce, "tipoR");
             break;
           case 9:
             this.mostrarDatosTerce(RES);
-            RES.msg &&
-              this.CON851(
-                "N1",
-                "info",
-                `El tercero ${this.reg_terce.codigo} no existe`
-              );
+            RES.msg && this.CON851("N1", "info", `El tercero ${this.reg_terce.codigo} no existe`);
             RES.codigo && this.validarOpc();
         }
         return RES;
@@ -258,30 +203,9 @@ export default {
       }
     },
     async validarOpc() {
-      this.novedad.acceso == 7 &&
-        this.CON851P(
-          "PNZ",
-          "info",
-          `¿Deseas crear tercero?`,
-          this.guardar,
-          this.onField
-        );
-      this.novedad.acceso == 8 &&
-        this.CON851P(
-          "PNZ",
-          "info",
-          `Desea cambiar tercero?`,
-          this.editar,
-          this.onField
-        );
-      this.novedad.acceso == 9 &&
-        this.CON851P(
-          "PNZ",
-          "info",
-          `¿Deseas eliminar tercero?`,
-          this.eliminar,
-          this.onField
-        );
+      this.novedad.acceso == 7 && this.CON851P("PNZ", "info", `¿Deseas crear tercero?`, this.guardar, this.onField);
+      this.novedad.acceso == 8 && this.CON851P("PNZ", "info", `Desea cambiar tercero?`, this.editar, this.onField);
+      this.novedad.acceso == 9 && this.CON851P("PNZ", "info", `¿Deseas eliminar tercero?`, this.eliminar, this.onField);
     },
     async guardar() {
       try {
@@ -299,14 +223,7 @@ export default {
             if (this.$route.query.codigo) return window.close();
             this.abrirNovedad();
           });
-        RES.msg &&
-          this.CON851(
-            "N1",
-            "error",
-            `No se pudo crear tercero`,
-            null,
-            this.abrirNovedad
-          );
+        RES.msg && this.CON851("N1", "error", `No se pudo crear tercero`, null, this.abrirNovedad);
       } catch (error) {
         console.error(error);
       }
@@ -318,22 +235,8 @@ export default {
           data: this.reg_terce,
           codigo: this.reg_terce.codigo,
         });
-        RES.N1 &&
-          this.CON851(
-            "N1",
-            "success",
-            `tercero modificado`,
-            null,
-            this.abrirNovedad
-          );
-        RES.msg &&
-          this.CON851(
-            "N1",
-            "error",
-            `No se pudo modifica tercero`,
-            null,
-            this.abrirNovedad
-          );
+        RES.N1 && this.CON851("N1", "success", `tercero modificado`, null, this.abrirNovedad);
+        RES.msg && this.CON851("N1", "error", `No se pudo modifica tercero`, null, this.abrirNovedad);
       } catch (error) {
         console.error(error);
       }
@@ -341,22 +244,8 @@ export default {
     async eliminar() {
       try {
         const RES = await this._deleteTerce({ codigo: this.reg_terce.codigo });
-        RES.N1 &&
-          this.CON851(
-            "N1",
-            "success",
-            `tercero eliminado`,
-            null,
-            this.abrirNovedad
-          );
-        RES.msg &&
-          this.CON851(
-            "N1",
-            "error",
-            `No existe tercero`,
-            null,
-            this.abrirNovedad
-          );
+        RES.N1 && this.CON851("N1", "success", `tercero eliminado`, null, this.abrirNovedad);
+        RES.msg && this.CON851("N1", "error", `No existe tercero`, null, this.abrirNovedad);
       } catch (error) {
         console.error(error);
       }
@@ -391,12 +280,9 @@ export default {
     },
     novedadSelec(data) {
       this.novedad_activa = false;
-      this.firstField(this.form_terce);
-      if ("codigo" in this.$route.query)
-        this.reg_terce.codigo = this.$route.query.codigo;
-      data.acceso == "F"
-        ? this.$router.push("/Menu-Principal")
-        : (this.novedad = Object.assign({}, data));
+      this.focusInput(this.form_terce, "codigo");
+      if ("codigo" in this.$route.query) this.reg_terce.codigo = this.$route.query.codigo;
+      data.acceso == "F" ? this.$router.push("/Menu-Principal") : (this.novedad = Object.assign({}, data));
     },
   },
 };

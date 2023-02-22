@@ -7,22 +7,10 @@
           <div class="elevation-12">
             <v-sheet class="elevation-12 mb-16">
               <v-toolbar flat>
-                <v-btn
-                  fab
-                  text
-                  small
-                  color="grey darken-2"
-                  @click="$refs.calendar.prev()"
-                >
+                <v-btn fab text small color="grey darken-2" @click="$refs.calendar.prev()">
                   <v-icon small> mdi-chevron-left </v-icon>
                 </v-btn>
-                <v-btn
-                  fab
-                  text
-                  small
-                  color="grey darken-2"
-                  @click="$refs.calendar.next()"
-                >
+                <v-btn fab text small color="grey darken-2" @click="$refs.calendar.next()">
                   <v-icon small> mdi-chevron-right </v-icon>
                 </v-btn>
                 <v-toolbar-title v-if="$refs.calendar">
@@ -44,11 +32,7 @@
           <v-toolbar color="primary">
             <h1 class="white--text">{{ title_novedad }}</h1>
             <v-spacer></v-spacer>
-            <v-btn fav icon @click="flag_dia = false">
-              <v-icon class="botone" color="white"
-                >mdi-close-circle</v-icon
-              ></v-btn
-            >
+            <v-btn fav icon @click="flag_dia = false"> <v-icon class="botone" color="white">mdi-close-circle</v-icon></v-btn>
           </v-toolbar>
           <v-card>
             <v-row justify="start" align="center" class="input-row pt-10">
@@ -56,33 +40,26 @@
                 <FECHA
                   @next-action="nextStep(form_dia_n_habil, $event)"
                   :field="form_dia_n_habil.date"
-                  :reg="reg_dia_n_habil"
+                  :reg="reg_dia_n_habil.date"
+                  @onChange="
+                    (data) => {
+                      reg_dia_n_habil.date[data.key] = data.value;
+                    }
+                  "
                 />
               </v-col>
               <v-col cols="12" sm="7" md="7" xs="7" class="input-col">
                 <INPUT
-                  @next-action="
-                    nextStep(form_dia_n_habil, $event, datoDescripcion)
-                  "
+                  @next-action="nextStep(form_dia_n_habil, $event, datoDescripcion)"
                   :field="form_dia_n_habil.descripcion"
-                  :reg="reg_dia_n_habil"
+                  :reg="reg_dia_n_habil.descripcion"
+                  @onChange="onChange"
                 />
               </v-col>
               <v-col cols="12" sm="12" md="12" xs="12" class="input-col">
                 <div class="text-end">
-                  <v-btn
-                    v-if="this.novedad != '7'"
-                    color="error"
-                    @click="(novedad = 9), solicitarAccion()"
-                    class="ma-5 botone"
-                    >Eliminar</v-btn
-                  >
-                  <v-btn
-                    color="success"
-                    @click="solicitarAccion()"
-                    class="ma-5 botone"
-                    >Aceptar</v-btn
-                  >
+                  <v-btn v-if="this.novedad != '7'" color="error" @click="(novedad = 9), solicitarAccion()" class="ma-5 botone">Eliminar</v-btn>
+                  <v-btn color="success" @click="solicitarAccion()" class="ma-5 botone">Aceptar</v-btn>
                 </div>
               </v-col>
             </v-row>
@@ -99,16 +76,8 @@
       :alerta="alerta"
     />
     <CON851P v-if="con851_p.estado" :con851_p="con851_p" />
-    <CON850
-      @novedadSelec="novedadSelec($event)"
-      :novedad_activa="novedad_activa"
-      v-if="novedad_activa"
-    />
-    <COR869
-      v-if="show_cor869"
-      @callBack="callbackCOR869"
-      @callbackEsc="callbackCOR869"
-    />
+    <CON850 @novedadSelec="novedadSelec($event)" :novedad_activa="novedad_activa" v-if="novedad_activa" />
+    <COR869 v-if="show_cor869" @callBack="callbackCOR869" @callbackEsc="callbackCOR869" />
   </v-container>
 </template>
 <script>
@@ -116,10 +85,7 @@ import { mapMutations, mapActions, mapGetters } from "vuex";
 import { nextAction } from "../../mixins/nextAction";
 import { global } from "../../mixins/global";
 import COR869 from "../../components/COR/COR869.vue";
-import {
-  getObjectDNHABIL,
-  getObjectDNHABIL_,
-} from "../../fuentes/correspondencia/regDNHABIL";
+import { getObjectDNHABIL, getObjectDNHABIL_ } from "../../fuentes/correspondencia/regDNHABIL";
 
 export default {
   name: "COR109",
@@ -150,13 +116,14 @@ export default {
       _getListaMotcn: "motcn/getLista",
     }),
     title_novedad() {
-      return this.novedad == "7"
-        ? "Crear dia feriado"
-        : "Modificar Dia feriado";
+      return this.novedad == "7" ? "Crear dia feriado" : "Modificar Dia feriado";
     },
   },
 
   methods: {
+    onChange(data) {
+      this.reg_dia_n_habil[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),
@@ -219,30 +186,9 @@ export default {
     },
 
     solicitarAccion() {
-      this.novedad == 7 &&
-        this.CON851P(
-          "PNZ",
-          "info",
-          "¿Estas seguro de crear este dia feriado",
-          this.guardar,
-          this.cerrar_CON851P
-        );
-      this.novedad == 8 &&
-        this.CON851P(
-          "PNZ",
-          "info",
-          "¿Estas seguro de editar este dia feriado",
-          this.editar,
-          this.cerrar_CON851P
-        );
-      this.novedad == 9 &&
-        this.CON851P(
-          "PNZ",
-          "info",
-          "¿Estas seguro de eliminar este dia feriado",
-          this.eliminar,
-          this.cerrar_CON851P
-        );
+      this.novedad == 7 && this.CON851P("PNZ", "info", "¿Estas seguro de crear este dia feriado", this.guardar, this.cerrar_CON851P);
+      this.novedad == 8 && this.CON851P("PNZ", "info", "¿Estas seguro de editar este dia feriado", this.editar, this.cerrar_CON851P);
+      this.novedad == 9 && this.CON851P("PNZ", "info", "¿Estas seguro de eliminar este dia feriado", this.eliminar, this.cerrar_CON851P);
     },
 
     async confirmar() {
@@ -258,9 +204,7 @@ export default {
     },
     cancelarAlerta() {
       this.cerrar_CON851();
-      this.get("dialogType") == "done"
-        ? this.abrirNovedad()
-        : this.onFieldFree();
+      this.get("dialogType") == "done" ? this.abrirNovedad() : this.onFieldFree();
     },
 
     datoDescripcion(key) {
@@ -280,16 +224,10 @@ export default {
       try {
         const RES = await this._newDiaNoHabil({ ...this.reg_dia_n_habil });
         RES.N1 &&
-          this.CON851(
-            "N1",
-            "success",
-            `Fecha grabada correctamente`,
-            null,
-            () => {
-              this.flag_dia = false;
-              this.getEvents();
-            }
-          );
+          this.CON851("N1", "success", `Fecha grabada correctamente`, null, () => {
+            this.flag_dia = false;
+            this.getEvents();
+          });
         RES.msg && this.CON851("N1", "error", `Error escribiendo datos!`);
       } catch (error) {
         console.error(error);
@@ -299,16 +237,10 @@ export default {
       try {
         const RES = await this._editDiaNoHabil({ data: this.reg_dia_n_habil });
         RES.N1 &&
-          this.CON851(
-            "N1",
-            "success",
-            `Fecha modificada correctamente!`,
-            null,
-            () => {
-              this.flag_dia = false;
-              this.getEvents();
-            }
-          );
+          this.CON851("N1", "success", `Fecha modificada correctamente!`, null, () => {
+            this.flag_dia = false;
+            this.getEvents();
+          });
         RES.msg && this.CON851("N1", "error", `Error grabando datos!`);
       } catch (error) {
         console.error(error);
@@ -320,16 +252,10 @@ export default {
           date: this.reg_dia_n_habil.date,
         });
         RES.N1 &&
-          this.CON851(
-            "N1",
-            "success",
-            `Fecha borrada correctamente!`,
-            null,
-            () => {
-              this.flag_dia = false;
-              this.getEvents();
-            }
-          );
+          this.CON851("N1", "success", `Fecha borrada correctamente!`, null, () => {
+            this.flag_dia = false;
+            this.getEvents();
+          });
         RES.msg && this.CON851("N1", "error", `No se encontraron fechas`);
       } catch (error) {
         console.error(error);
