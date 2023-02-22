@@ -64,6 +64,8 @@
           <data-card
             :field="form_traslado.descripTer"
             :reg="reg_traslado.descripTer"
+            @onChange="onChange"
+
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -78,6 +80,8 @@
           <data-card
             :field="form_traslado.descripTipco"
             :reg="reg_traslado.descripTipco"
+            @onChange="onChange"
+
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
@@ -100,6 +104,8 @@
           <data-card
             :field="form_traslado.descripSer"
             :reg="reg_traslado.descripSer"
+            @onChange="onChange"
+
           />
         </v-col>
         <v-col cols="12" sm="1" md="1" xs="1" class="input-col">

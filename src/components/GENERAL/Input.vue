@@ -52,7 +52,7 @@ import { mapMutations } from "vuex";
 export default {
   mixins: [alert],
   props: {
-    reg: [Number, String],
+    reg: [Number, String, File],
     field: {
       label: String,
       value: String,

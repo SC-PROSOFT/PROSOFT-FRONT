@@ -98,7 +98,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.firstField(this.form_serco.codigo);
+      this.focusInput(this.form_serco, "codigo");
     }, 100);
   },
 };

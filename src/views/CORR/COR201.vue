@@ -135,6 +135,8 @@
           <data-card
             :field="form_corres.descripTipco"
             :reg="reg.descripTipco"
+            @onChange="onChange"
+
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -190,6 +192,8 @@
           <data-card
             :field="form_corres.responsableDep"
             :reg="reg.responsableDep"
+            @onChange="onChange"
+
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
@@ -439,6 +443,7 @@ export default {
   },
   methods: {
     onChange(data) {
+      console.log(data,"data")
       this.reg[data.key] = data.value
     },
     ...mapMutations({

@@ -69,7 +69,7 @@
             @abrirF8="openCOR868"
             :field="form_rescorr.contRadi"
             :reg="reg_rescorr.contRadi"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
 
@@ -102,13 +102,14 @@
             @abrirF8="openCORterce"
             :field="form_rescorr.nit"
             :reg="reg_rescorr.nit"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.nit_dataCard"
             :reg="reg_rescorr.nit_dataCard"
+            @onChange="onChange"
           ></data-card>
         </v-col>
 
@@ -119,13 +120,14 @@
             @abrirF8="openCORremidep"
             :field="form_rescorr.dptoRemit"
             :reg="reg_rescorr.dptoRemit"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.dptoRemit_dataCard"
             :reg="reg_rescorr.dptoRemit_dataCard"
+            @onChange="onChange"
           ></data-card>
         </v-col>
 
@@ -135,6 +137,7 @@
             @next-action="nextStep(form_rescorr, $event, keyDownProcedencia)"
             :field="form_rescorr.proceden"
             :reg="reg_rescorr.proceden"
+            @onChange="onChange"
           ></AUTOCOMPLETE>
         </v-col>
 
@@ -147,13 +150,14 @@
             @abrirF8="openCORtipco"
             :field="form_rescorr.tipoCorres"
             :reg="reg_rescorr.tipoCorres"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.tipoCorres_dataCard"
             :reg="reg_rescorr.tipoCorres_dataCard"
+            @onChange="onChange"
           ></data-card>
         </v-col>
 
@@ -164,13 +168,14 @@
             @abrirF8="openCORauxco"
             :field="form_rescorr.codAuxco"
             :reg="reg_rescorr.codAuxco"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.codAuxco_dataCard"
             :reg="reg_rescorr.codAuxco_dataCard"
+            @onChange="onChange"
           ></data-card>
         </v-col>
 
@@ -181,13 +186,14 @@
             @abrirF8="openCOR865"
             :field="form_rescorr.ser"
             :reg="reg_rescorr.ser"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.ser_dataCard"
             :reg="reg_rescorr.ser_dataCard"
+            @onChange="onChange"
           ></data-card>
         </v-col>
 
@@ -198,13 +204,14 @@
             @abrirF8="openCORdepco"
             :field="form_rescorr.dep"
             :reg="reg_rescorr.dep"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.dep_dataCard"
             :reg="reg_rescorr.dep_dataCard"
+            @onChange="onChange"
           ></data-card>
         </v-col>
 
@@ -235,7 +242,7 @@
             @abrirF8="openCOR867"
             :field="form_rescorr.clMacro"
             :reg="reg_rescorr.clMacro"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -244,13 +251,14 @@
             @abrirF8="openCORmacro"
             :field="form_rescorr.codigoMacro"
             :reg="reg_rescorr.codigoMacro"
-            @onChange="(data) => (busqueda = data.value)"
+            @onChange="onChange"
           ></INPUT>
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
           <data-card
             :field="form_rescorr.macro_dataCard"
             :reg="reg_rescorr.macro_dataCard"
+            @onChange="onChange"
           ></data-card>
         </v-col>
 
@@ -308,7 +316,7 @@
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <INPUT
             @next-action="nextStep(form_rescorr, $event, keyDownValorFactura)"
-            @onChange="(data) => (reg_rescorr.monto = data.value)"
+            @onChange="onChange"
             :field="form_rescorr.monto"
             :reg="reg_rescorr.monto"
           ></INPUT>
@@ -347,6 +355,7 @@
           <data-card
             :field="form_rescorr.firma_dataCard"
             :reg="reg_rescorr.firma_dataCard"
+            @onChange="onChange"
           ></data-card>
         </v-col>
 
@@ -366,6 +375,7 @@
             @next-action="nextStep(form_rescorr, $event, keyDownEstadoCorres)"
             :field="form_rescorr.esta"
             :reg="reg_rescorr.esta"
+            @onChange="onChange"
           ></AUTOCOMPLETE>
         </v-col>
 
@@ -566,6 +576,7 @@ export default {
 
   methods: {
     onChange(data) {
+      console.log("data", data);
       this.reg_rescorr[data.key] = data.value;
     },
     ...mapActions({
@@ -886,12 +897,11 @@ export default {
     async completeNumeroResp() {
       const anoActual = new Date().toISOString().slice(0, 4);
       const getUltRescorr_ = await this._getUltRescorr();
-      console.log(getUltRescorr_ )
+      console.log(getUltRescorr_);
       let sumaCont;
 
       this.reg_rescorr.codResp.anoLlave = getUltRescorr_.fecha.slice(0, 4);
       this.reg_rescorr.codResp.cont = getUltRescorr_.cont.toString();
-      
 
       if (this.novedad.acceso == 7) {
         if (this.reg_rescorr.codResp.anoLlave == anoActual) {
@@ -1485,7 +1495,7 @@ export default {
         radi: codResp.cont,
         file,
       });
-      console.log(postRescorrPdf_)
+      console.log(postRescorrPdf_);
 
       if (postRescorrPdf_?.N1 == "guardado") {
         this.CON851(
