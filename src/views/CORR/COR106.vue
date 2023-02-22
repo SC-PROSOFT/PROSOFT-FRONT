@@ -24,7 +24,7 @@
           <INPUT
             @next-action="nextStep(form_depremi, $event, keyDownDescrip)"
             :field="form_depremi.descripcion"
-            :reg="reg_depremi.descripcion"
+            :reg="reg_depremi.codigo"
             @onChange="onChange"
           />
         </v-col>
@@ -38,12 +38,23 @@
       v-if="alerta.estado"
       :alerta="alerta"
     />
-    <CON850 @novedadSelec="novedadSelec($event)" :novedad_activa="novedad_activa" v-if="novedad_activa" />
-    <COR879 v-if="show_cor879" @callBack="callbackCOR879" @callbackEsc="callbackCOR879" />
+    <CON850
+      @novedadSelec="novedadSelec($event)"
+      :novedad_activa="novedad_activa"
+      v-if="novedad_activa"
+    />
+    <COR879
+      v-if="show_cor879"
+      @callBack="callbackCOR879"
+      @callbackEsc="callbackCOR879"
+    />
   </v-container>
 </template>
 <script>
-import { getObjRegDepremi_, getObjRegDepremi } from "../../fuentes/correspondencia/regDepremi";
+import {
+  getObjRegDepremi_,
+  getObjRegDepremi,
+} from "../../fuentes/correspondencia/regDepremi";
 import { mapMutations, mapActions, mapGetters } from "vuex";
 import { nextAction } from "../../mixins/nextAction";
 import { global } from "../../mixins/global";
@@ -138,7 +149,8 @@ export default {
         const codigo = this.reg_depremi.codigo;
         const RES = await this._delDepremi({ codigo });
         RES.N1 && this.CON851("N1", "success", `Datos borrados correctamente!`);
-        RES.msg && this.CON851("N1", "error", `No se encontraron coincidencias`);
+        RES.msg &&
+          this.CON851("N1", "error", `No se encontraron coincidencias`);
       } catch (error) {
         console.error(error);
       }
@@ -155,7 +167,9 @@ export default {
       this.novedad_activa = false;
       this.focusInput(this.form_depremi, "codigo");
 
-      data.acceso == "F" ? this.$router.push("/Menu-Principal") : (this.novedad = Object.assign({}, data));
+      data.acceso == "F"
+        ? this.$router.push("/Menu-Principal")
+        : (this.novedad = Object.assign({}, data));
     },
 
     openCOR879() {
@@ -185,18 +199,29 @@ export default {
 
         switch (this.novedad.acceso) {
           case 7:
-            if (RES.codigo) this.CON851("N1", "info", `El código ${this.reg_depremi.codigo} ya existe`);
+            if (RES.codigo)
+              this.CON851(
+                "N1",
+                "info",
+                `El código ${this.reg_depremi.codigo} ya existe`
+              );
             else this.focusInput(this.form_depremi, "descripcion");
             break;
 
           case 8:
-            if (RES.msg) this.CON851("N1", "info", `El código ${this.reg_depremi.codigo} no existe`);
+            if (RES.msg)
+              this.CON851(
+                "N1",
+                "info",
+                `El código ${this.reg_depremi.codigo} no existe`
+              );
             else this.focusInput(this.form_depremi, "descripcion");
             break;
 
           case 9:
             if (RES.msg) this.CON851("N1", "info", `El código no existe`);
-            if (RES.codigo) this.CON851("PNZ", "info", `¿Eliminar documento?`, "P");
+            if (RES.codigo)
+              this.CON851("PNZ", "info", `¿Eliminar documento?`, "P");
             break;
 
           default:
