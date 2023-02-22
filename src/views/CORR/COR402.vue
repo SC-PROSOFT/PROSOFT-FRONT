@@ -442,7 +442,7 @@ export default {
     },
     novedadSelec(data) {
       this.novedad_activa = false;
-      this.firstField(this.form_macro);
+      this.focusInput(this.form_macro, "tipo");
       data.acceso == "F"
         ? this.$router.push("/Menu-Principal")
         : (this.novedad = Object.assign({}, data));
