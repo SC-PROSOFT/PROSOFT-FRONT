@@ -22,13 +22,16 @@
               @abrirF8="openCON802"
               :field="form_distribucion_externa.entidad"
               :reg="reg_distribucion_externa.entidad"
-              @onChange="(data) => (busqueda = data.value)"
+              @onChange="onChange"
+
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
             <data-card
               :field="form_distribucion_externa.entidad_dataCard"
               :reg="reg_distribucion_externa.entidad_dataCard"
+              @onChange="onChange"
+
             ></data-card>
           </v-col>
 
@@ -41,13 +44,16 @@
               @abrirF8="openCOR866"
               :field="form_distribucion_externa.depen_corres"
               :reg="reg_distribucion_externa.depen_corres"
-              @onChange="(data) => (busqueda = data.value)"
+              @onChange="onChange"
+              
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
             <data-card
               :field="form_distribucion_externa.depen_corres_dataCard"
               :reg="reg_distribucion_externa.depen_corres_dataCard"
+              @onChange="onChange"
+
             ></data-card>
           </v-col>
 
@@ -60,13 +66,16 @@
               @abrirF8="openCOR867"
               :field="form_distribucion_externa.tipo_corres"
               :reg="reg_distribucion_externa.tipo_corres"
-              @onChange="(data) => (busqueda = data.value)"
+              @onChange="onChange"
+              
             ></INPUT>
           </v-col>
           <v-col cols="12" sm="4" md="4" class="input-col">
             <data-card
               :field="form_distribucion_externa.tipo_corres_dataCard"
               :reg="reg_distribucion_externa.tipo_corres_dataCard"
+              @onChange="onChange"
+
             ></data-card>
           </v-col>
           <v-col cols="12" sm="6" md="6"></v-col>
@@ -79,6 +88,8 @@
               "
               :field="form_distribucion_externa.fecha_init"
               :reg="reg_distribucion_externa.fecha_init"
+              @onChange="(data) => (reg_distribucion_externa.fecha_init = data.value)"
+
             ></FECHA>
           </v-col>
 
@@ -90,6 +101,8 @@
               "
               :field="form_distribucion_externa.fecha_fin"
               :reg="reg_distribucion_externa.fecha_fin"
+              @onChange="(data) => (reg_distribucion_externa.fecha_fin = data.value)"
+
             ></FECHA>
           </v-col>
 
@@ -101,6 +114,8 @@
               "
               :field="form_distribucion_externa.jornada"
               :reg="reg_distribucion_externa.jornada"
+              @onChange="onChange"
+
             ></AUTOCOMPLETE>
           </v-col>
 
@@ -112,6 +127,8 @@
               "
               :field="form_distribucion_externa.procedencia"
               :reg="reg_distribucion_externa.procedencia"
+              @onChange="onChange"
+
             ></AUTOCOMPLETE>
           </v-col>
 
@@ -123,6 +140,8 @@
               "
               :field="form_distribucion_externa.manejo"
               :reg="reg_distribucion_externa.manejo"
+              @onChange="onChange"
+
             ></AUTOCOMPLETE>
           </v-col>
         </v-row>
@@ -165,7 +184,7 @@
 <script>
 import moment from "moment";
 import { mapActions, mapGetters, mapMutations } from "vuex";
-import { global, image_base64 } from "../../mixins/global";
+import { global } from "../../mixins/global";
 import CON890P from "../../components/CONTAB/CON890P.vue";
 import { nextAction } from "../../mixins/nextAction";
 import { alert } from "../../mixins/CON851";
@@ -173,7 +192,6 @@ import {
   getObjRegDistribucionExterna,
   getObjRegDistribucionExterna_,
 } from "../../fuentes/correspondencia/regDistribucionExterna";
-//import informeCorr304 from "../../Excel/informeCorr304";
 import generadorImpresion from "../../Excel/generadorImpresion";
 import { getImpresionprueba304 } from "../../Excel/impresionCORR304";
 
@@ -221,7 +239,7 @@ export default {
   },
   methods: {
     onChange(data) {
-      this.reg_serco[data.key] = data.value;
+      this.reg_distribucion_externa[data.key] = data.value;
     },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",

@@ -298,14 +298,6 @@
           "ruta": "5.3"
         },
         {
-          "opc": "4",
-          "text": "JqueryTable",
-          "route": "/COR504",
-          "opc_segu": "R4",
-          "name": "COR504",
-          "ruta": "5.4"
-        },
-        {
           "opc": "F",
           "text": "Regresar",
           "icon": "mdi-arrow-left-circle",
