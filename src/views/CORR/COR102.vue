@@ -30,10 +30,7 @@
           />
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
-          <data-card
-            :field="form_depen.descripcion"
-            :reg="reg_dep.descripcion"
-          />
+          <data-card :field="form_depen.descripcion" :reg="reg_dep.descripcion" />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
           <INPUT
@@ -44,20 +41,10 @@
           />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_depen, $event, datoCargoDep)"
-            :field="form_depen.cargo"
-            :reg="reg_dep.cargo"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_depen, $event, datoCargoDep)" :field="form_depen.cargo" :reg="reg_dep.cargo" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_depen, $event, datoCorreoDep)"
-            :field="form_depen.correo"
-            :reg="reg_dep.correo"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_depen, $event, datoCorreoDep)" :field="form_depen.correo" :reg="reg_dep.correo" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <INPUT
@@ -81,37 +68,15 @@
       v-if="alerta.estado"
       :alerta="alerta"
     />
-    <CON850
-      @novedadSelec="novedadSelec($event)"
-      :novedad_activa="novedad_activa"
-      v-if="novedad_activa"
-    />
-    <COR865
-      v-if="show_cor865"
-      @callBack="callbackCOR865"
-      @callbackEsc="callbackCOR865"
-    />
-    <COR866
-      v-if="show_cor866"
-      @callBack="callbackCOR866"
-      @callbackEsc="callbackCOR866"
-    />
-    <CON982
-      v-if="show_con982"
-      @callBack="callbackCON982"
-      @callbackEsc="callbackCON982"
-    />
+    <CON850 @novedadSelec="novedadSelec($event)" :novedad_activa="novedad_activa" v-if="novedad_activa" />
+    <COR865 v-if="show_cor865" @callBack="callbackCOR865" @callbackEsc="callbackCOR865" />
+    <COR866 v-if="show_cor866" @callBack="callbackCOR866" @callbackEsc="callbackCOR866" />
+    <CON982 v-if="show_con982" @callBack="callbackCON982" @callbackEsc="callbackCON982" />
   </v-container>
 </template>
 <script>
-import {
-  getObjRegRest,
-  getObjRegRest_,
-} from "../../fuentes/correspondencia/regRest";
-import {
-  getObjRegDep_,
-  getObjRegDep,
-} from "../../fuentes/correspondencia/regDepen";
+import { getObjRegRest, getObjRegRest_ } from "../../fuentes/correspondencia/regRest";
+import { getObjRegDep_, getObjRegDep } from "../../fuentes/correspondencia/regDepen";
 import { getObjRegSerco } from "../../fuentes/correspondencia/regSerco";
 
 import { mapMutations, mapActions, mapGetters } from "vuex";
@@ -233,39 +198,19 @@ export default {
         switch (this.novedad.acceso) {
           case 7:
             if (RES.codigo) {
-              this.CON851(
-                "N1",
-                "info",
-                `El código ${this.reg_dep.codigo} ya existe`
-              );
+              this.CON851("N1", "info", `El código ${this.reg_dep.codigo} ya existe`);
               this.mostrarDatosCodDep(RES);
             } else this.focusInput(this.form_depen, "codSerco");
 
             break;
           case 8:
             this.mostrarDatosCodDep(RES);
-            if (RES.msg)
-              this.CON851(
-                "N1",
-                "info",
-                `El funcionario ${this.reg_dep.codigo} no existe`
-              );
+            if (RES.msg) this.CON851("N1", "info", `El funcionario ${this.reg_dep.codigo} no existe`);
             else this.focusInput(this.form_depen, "codSerco");
             break;
           case 9:
-            if (RES.msg)
-              this.CON851(
-                "N1",
-                "info",
-                `El código ${this.reg_dep.codigo} no existe`
-              );
-            if (RES.codigo)
-              this.CON851(
-                "PNZ",
-                "info",
-                `¿Seguro que desea eliminar funcionario?`,
-                "P"
-              );
+            if (RES.msg) this.CON851("N1", "info", `El código ${this.reg_dep.codigo} no existe`);
+            if (RES.codigo) this.CON851("PNZ", "info", `¿Seguro que desea eliminar funcionario?`, "P");
         }
         return RES;
       } catch (error) {
@@ -297,12 +242,7 @@ export default {
     async validateSerco(codigo) {
       try {
         const RES = await this._getSerco({ codigo });
-        if (RES.msg)
-          this.CON851(
-            "N1",
-            "info",
-            `El código ${this.reg_dep.codSerco} no existe`
-          );
+        if (RES.msg) this.CON851("N1", "info", `El código ${this.reg_dep.codSerco} no existe`);
         else {
           this.reg_dep.descripcion = RES.descripcion;
           this.focusInput(this.form_depen, "responsable");
@@ -360,16 +300,10 @@ export default {
         this.reg_rest = await this._getOper({ codigo: this.reg_dep.oper });
         if ("llaveOper" in this.reg_rest) {
           this.reg_dep.oper = this.reg_rest.llaveOper;
-          this.novedad.acceso == 7 &&
-            this.CON851("PNZ", "info", `¿Deseas crear funcionario?`, "p");
-          this.novedad.acceso == 8 &&
-            this.CON851("PNZ", "info", `Desea cambiar funcionario?`, "p");
+          this.novedad.acceso == 7 && this.CON851("PNZ", "info", `¿Deseas crear funcionario?`, "p");
+          this.novedad.acceso == 8 && this.CON851("PNZ", "info", `Desea cambiar funcionario?`, "p");
         } else {
-          this.CON851(
-            "N1",
-            "info",
-            `No existe el operador ${this.reg_dep.oper}`
-          );
+          this.CON851("N1", "info", `No existe el operador ${this.reg_dep.oper}`);
         }
       } catch (error) {
         console.error(error);
@@ -417,8 +351,7 @@ export default {
           this.reg_dep = getObjRegDep();
           this.CON851("N1", "success", `Funcionario modificado`);
         }
-        RES.msg &&
-          this.CON851("N1", "error", `No se pudo modifica funcionario`);
+        RES.msg && this.CON851("N1", "error", `No se pudo modifica funcionario`);
       } catch (error) {
         console.error(error);
       }
@@ -444,10 +377,8 @@ export default {
     },
     novedadSelec(data) {
       this.novedad_activa = false;
-      this.firstField(this.form_depen);
-      data.acceso == "F"
-        ? this.$router.push("/Menu-Principal")
-        : (this.novedad = Object.assign({}, data));
+      this.focusInput(this.form_depen);
+      data.acceso == "F" ? this.$router.push("/Menu-Principal") : (this.novedad = Object.assign({}, data));
     },
   },
 };
