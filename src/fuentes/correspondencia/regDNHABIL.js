@@ -19,6 +19,7 @@ function getObjectDNHABIL_() {
       label: "Descripción",
       tipo: "string",
       max_length: "70",
+      disabled: false,
     },
   };
 }
