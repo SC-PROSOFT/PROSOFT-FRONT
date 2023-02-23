@@ -298,6 +298,7 @@ export default {
         }
       } catch (error) {
         console.error(error);
+        console.log("liderrrrrrr!!!!!");
       }
     },
     datoAnoLlave(key) {
