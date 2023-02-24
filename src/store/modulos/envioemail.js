@@ -13,8 +13,8 @@ export default {
       //   clave: "PROSOFT999999",
       const datos_envio = {
         server_email: "smtp.gmail.com",
-        remitente: "victorcobo22@gmail.com",
-        clave: "vluwtqclqxxvuhgc",
+        remitente: "pruebasprosofts@gmail.com",
+        clave: "ldpddvqikedwhpqq",
         puerto: 587,
         id: data.id,
         propietario: data.propietario,
@@ -44,8 +44,8 @@ export default {
 
       const datos_envio = {
         server_email: "smtp.gmail.com",
-        remitente: "victorcobo22@gmail.com",
-        clave: "vluwtqclqxxvuhgc",
+        remitente: "pruebasprosofts@gmail.com",
+        clave: "ldpddvqikedwhpqq",
         puerto: 587,
         id: data.id,
         anoLlave: data.anoLlave,
