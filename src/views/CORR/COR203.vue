@@ -29,20 +29,10 @@
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_traslado, $event)"
-            :field="form_traslado.fecha"
-            :reg="reg_traslado.fecha"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_traslado, $event)" :field="form_traslado.fecha" :reg="reg_traslado.fecha" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_traslado, $event)"
-            :field="form_traslado.hora"
-            :reg="reg_traslado.hora"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_traslado, $event)" :field="form_traslado.hora" :reg="reg_traslado.hora" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
           <AUTOCOMPLETE
@@ -53,20 +43,10 @@
           />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_traslado, $event)"
-            :field="form_traslado.nit"
-            :reg="reg_traslado.nit"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_traslado, $event)" :field="form_traslado.nit" :reg="reg_traslado.nit" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="4" md="4" class="input-col">
-          <data-card
-            :field="form_traslado.descripTer"
-            :reg="reg_traslado.descripTer"
-            @onChange="onChange"
-
-          />
+          <data-card :field="form_traslado.descripTer" :reg="reg_traslado.descripTer" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
           <INPUT
@@ -77,70 +57,27 @@
           />
         </v-col>
         <v-col cols="12" sm="4" md="4" xs="4" class="input-col">
-          <data-card
-            :field="form_traslado.descripTipco"
-            :reg="reg_traslado.descripTipco"
-            @onChange="onChange"
-
-          />
+          <data-card :field="form_traslado.descripTipco" :reg="reg_traslado.descripTipco" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_traslado, $event)"
-            :field="form_traslado.descrip"
-            :reg="reg_traslado.descrip"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_traslado, $event)" :field="form_traslado.descrip" :reg="reg_traslado.descrip" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_traslado, $event)"
-            :field="form_traslado.ser"
-            :reg="reg_traslado.ser"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_traslado, $event)" :field="form_traslado.ser" :reg="reg_traslado.ser" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
-          <data-card
-            :field="form_traslado.descripSer"
-            :reg="reg_traslado.descripSer"
-            @onChange="onChange"
-
-          />
+          <data-card :field="form_traslado.descripSer" :reg="reg_traslado.descripSer" />
         </v-col>
         <v-col cols="12" sm="1" md="1" xs="1" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_traslado, $event)"
-            :field="form_traslado.fol"
-            :reg="reg_traslado.fol"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_traslado, $event)" :field="form_traslado.fol" :reg="reg_traslado.fol" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="1" md="1" xs="1" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_traslado, $event)"
-            :field="form_traslado.fold"
-            :reg="reg_traslado.fold"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_traslado, $event)" :field="form_traslado.fold" :reg="reg_traslado.fold" @onChange="onChange" />
         </v-col>
         <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
-          <INPUT
-            @next-action="nextStep(form_traslado, $event)"
-            :field="form_traslado.anex"
-            :reg="reg_traslado.anex"
-            @onChange="onChange"
-          />
+          <INPUT @next-action="nextStep(form_traslado, $event)" :field="form_traslado.anex" :reg="reg_traslado.anex" @onChange="onChange" />
         </v-col>
-        <v-col
-          cols="12"
-          sm="12"
-          md="12"
-          xs="12"
-          class="ma-0 pa-0"
-          v-for="item in 5"
-          :key="item"
-        >
+        <v-col cols="12" sm="12" md="12" xs="12" class="ma-0 pa-0" v-for="item in 5" :key="item">
           <v-row justify="start" align="center" class="ma-0 pa-0">
             <v-col cols="12" sm="3" md="3" xs="3" class="input-col">
               <INPUT
@@ -150,6 +87,11 @@
                   })
                 "
                 @abrirF8="openCOR866(item)"
+                @onChange="
+                  (data) => {
+                    reg_traslado[`personal_${item}`] = data.value;
+                  }
+                "
                 @F2="validarTranslado()"
                 :field="form_traslado[`personal_${item}`]"
                 :reg="reg_traslado[`personal_${item}`]"
@@ -159,18 +101,33 @@
               <data-card
                 :field="form_traslado[`descripPer_${item}`]"
                 :reg="reg_traslado[`descripPer_${item}`]"
+                @onChange="
+                  (data) => {
+                    reg_traslado[`manejo_${item}`] = data.value;
+                  }
+                "
               />
             </v-col>
             <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
               <data-card
                 :field="form_traslado[`correoPer_${item}`]"
                 :reg="reg_traslado[`correoPer_${item}`]"
+                @onChange="
+                  (data) => {
+                    reg_traslado[`manejo_${item}`] = data.value;
+                  }
+                "
               />
             </v-col>
             <v-col cols="12" sm="1" md="1" xs="1" class="input-col">
               <data-card
                 :field="form_traslado[`oper_${item}`]"
                 :reg="reg_traslado[`oper_${item}`]"
+                @onChange="
+                  (data) => {
+                    reg_traslado[`manejo_${item}`] = data.value;
+                  }
+                "
               />
             </v-col>
             <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -182,6 +139,11 @@
                 "
                 :field="form_traslado[`manejo_${item}`]"
                 :reg="reg_traslado[`manejo_${item}`]"
+                @onChange="
+                  (data) => {
+                    reg_traslado[`manejo_${item}`] = data.value;
+                  }
+                "
               />
             </v-col>
             <v-col cols="12" sm="2" md="2" xs="2" class="input-col">
@@ -200,16 +162,8 @@
       </v-row>
     </v-card>
 
-    <COR866
-      v-if="show_cor866"
-      @callBack="callbackCOR866"
-      @callbackEsc="callbackCOR866"
-    />
-    <COR868
-      v-if="show_cor868"
-      @callBack="callbackCOR868"
-      @callbackEsc="callbackCOR868"
-    />
+    <COR866 v-if="show_cor866" @callBack="callbackCOR866" @callbackEsc="callbackCOR866" />
+    <COR868 v-if="show_cor868" @callBack="callbackCOR868" @callbackEsc="callbackCOR868" />
     <CON851P v-if="con851_p.estado" :con851_p="con851_p" />
     <CON851
       @cancelarAlerta="cancelar()"
@@ -222,16 +176,12 @@
   </v-container>
 </template>
 <script>
-import {
-  getObjCorres,
-  getObjCorres_,
-} from "../../fuentes/correspondencia/regCorres203";
+import { getObjCorres, getObjCorres_ } from "../../fuentes/correspondencia/regCorres203";
 import { mapMutations, mapActions, mapGetters } from "vuex";
 import { global, currentUser } from "../../mixins/global";
 import { nextAction } from "../../mixins/nextAction";
 import COR866 from "../../components/COR/COR866.vue";
 import COR868 from "../../components/COR/COR868.vue";
-
 export default {
   name: "COR203",
   mixins: [nextAction, global],
@@ -239,16 +189,12 @@ export default {
   data() {
     return {
       titulo: `2.3 Tralado de Correspondencia`,
-
       novedad_activa: false,
       novedad: {},
       index: 0,
-
       show_cor866: false,
       show_cor868: false,
-
       listado_email: [],
-
       form_traslado: getObjCorres_(),
       reg_traslado: getObjCorres(),
     };
@@ -274,7 +220,6 @@ export default {
       _postCorres: "corr/_postCorres",
       _putCorres: "corr/_putCorres",
       _getCorr: "corr/_getCorr",
-
       _sendEmail: "envioemail/_sendEmail",
       _uploadFile: "archivos/_uploadFile",
       _getDepremi: "depremi/_getDepremi",
@@ -329,8 +274,7 @@ export default {
             this.reg_traslado[`descripPer_${i + 1}`] = RES.descripcion;
             this.reg_traslado[`correoPer_${i + 1}`] = RES.correo;
             this.reg_traslado[`oper_${i + 1}`] = RES.oper;
-            this.reg_traslado[`manejo_${i + 1}`] =
-              this.reg_traslado.tablaDep[i]?.estaTab;
+            this.reg_traslado[`manejo_${i + 1}`] = this.reg_traslado.tablaDep[i]?.estaTab;
           }
         }
       } catch (error) {
@@ -340,9 +284,7 @@ export default {
     async leerCorrespondecia() {
       try {
         const RES = await this._getCorr({ llave: this.reg_traslado.llave });
-
-        if (RES.msg)
-          return this.CON851("N1", "info", `La correspondencia no existe`);
+        if (RES.msg) return this.CON851("N1", "info", `La correspondencia no existe`);
         else if (RES?.llave) {
           this.reg_traslado = Object.assign(this.reg_traslado, RES);
           this.reg_traslado.hora = this.reg_traslado.hora.padStart(5, "0");
@@ -357,11 +299,7 @@ export default {
       switch (val.key) {
         case "esc":
           if (item == 1) return this.focusInput(this.form_traslado, "cont");
-          else
-            return this.focusInput(
-              this.form_traslado,
-              `inluir_correo_${item - 1}`
-            );
+          else return this.focusInput(this.form_traslado, `inluir_correo_${item - 1}`);
         case "enter":
           await this.validarPersonal(item);
       }
@@ -397,34 +335,20 @@ export default {
           return this.focusInput(this.form_traslado, `manejo_${item}`);
         case "enter":
           if (item == 5) return this.validarTranslado();
-          else
-            return this.focusInput(this.form_traslado, `personal_${item + 1}`);
+          else return this.focusInput(this.form_traslado, `personal_${item + 1}`);
       }
     },
     async validarTranslado() {
       this.offField();
       if (!this.reg_traslado.personal_1)
-        return this.CON851(
-          "PNZ",
-          "info",
-          "Debes ingresar almenos un destino",
-          null,
-          () => {
-            this.focusInput(this.form_traslado, "personal_1");
-          }
-        );
+        return this.CON851("PNZ", "info", "Debes ingresar almenos un destino", null, () => {
+          this.focusInput(this.form_traslado, "personal_1");
+        });
       if (!this.reg_traslado.manejo_1) {
-        return this.CON851(
-          "PNZ",
-          "info",
-          "Completa el tramite de destino",
-          null,
-          () => {
-            this.focusInput(this.form_traslado, "manejo_1");
-          }
-        );
+        return this.CON851("PNZ", "info", "Completa el tramite de destino", null, () => {
+          this.focusInput(this.form_traslado, "manejo_1");
+        });
       }
-
       for (let i = 0; i <= 4; i++) {
         this.reg_traslado.tablaDep[i] = {
           depTap: this.reg_traslado[`personal_${i + 1}`],
@@ -458,24 +382,9 @@ export default {
         data.fecha = this.formatFecha_(data.fecha, data.hora);
         const RES = await this._putCorres({ data });
         if (RES.N1) {
-          if (this.listado_email.length > 0)
-            return this.CON851(
-              "N1",
-              "success",
-              `¡Traslado realizado correctamente!`,
-              null,
-              this.enviarEmail
-            );
-          else
-            this.CON851(
-              "N1",
-              "success",
-              `¡Traslado realizado correctamente!`,
-              null,
-              this.limpiarDatos
-            );
+          if (this.listado_email.length > 0) return this.CON851("N1", "success", `¡Traslado realizado correctamente!`, null, this.enviarEmail);
+          else this.CON851("N1", "success", `¡Traslado realizado correctamente!`, null, this.limpiarDatos);
         }
-
         RES.msg && this.CON851("N1", "error", `Error grabando datos!`);
       } catch (error) {
         this.onField();
@@ -489,21 +398,9 @@ export default {
           if ("accepted" in RES) {
             if (this.listado_email.length == i + 1) {
               this.cerrar_CON851();
-              this.CON851(
-                "N1",
-                "success",
-                `Correo enviado correctamente  a ${this.listado_email[i]?.destino}`,
-                null,
-                this.limpiarDatos
-              );
+              this.CON851("N1", "success", `Correo enviado correctamente  a ${this.listado_email[i]?.destino}`, null, this.limpiarDatos);
             } else {
-              this.CON851(
-                "N1",
-                "success",
-                `Correo enviado correctamente  a ${this.listado_email[i]?.destino}`,
-                null,
-                this.offField
-              );
+              this.CON851("N1", "success", `Correo enviado correctamente  a ${this.listado_email[i]?.destino}`, null, this.offField);
               this.cerrar_CON851();
             }
           }
@@ -542,7 +439,6 @@ export default {
       }
       this.focusInput(this.form_traslado, `personal_${this.index}`);
     },
-
     limpiarDatos() {
       this.listado_email = [];
       this.reg_traslado = getObjCorres();

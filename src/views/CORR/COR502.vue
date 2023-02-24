@@ -8,9 +8,11 @@
             <INPUT
               @next-action="nextStep(form, $event, validarBusqueda)"
               :field="form.busqueda"
-              @onChange="((data)=>{
-                busqueda = data.value
-              })"
+              @onChange="
+                (data) => {
+                  busqueda = data.value;
+                }
+              "
               :reg="busqueda"
             ></INPUT>
           </v-col>
@@ -33,7 +35,12 @@
             >
             </v-col>
             <template v-slot:[`item.estado`]="{ item }">
-              <v-chip :color="getColor(item.estado)" dark>
+              <v-chip
+                class="short"
+                :color="getColor(item.estado)"
+                dark
+                text-align="center"
+              >
                 {{ item.estado }}</v-chip
               >
             </template>
@@ -83,7 +90,7 @@ export default {
 
   data() {
     return {
-      titulo: "5.1 CORRESPONDENCIA INFORMATIVO",
+      titulo: "5.2 CORRESPONDENCIA INFORMATIVO",
 
       form: {
         busqueda: {
@@ -105,9 +112,9 @@ export default {
         { text: "Tipo", value: "tipo" },
         { text: "Dependencia", value: "depen" },
         { text: "Estado", value: "estado" },
-        { text: "Fecha de Vence", value: "fecha_vence" },
-        { text: "Fecha de Respuesta", value: "fecha_respuesta" },
-        { text: "Dias transcurridos", value: "dias_trans" },
+        // { text: "Fecha de Vence", value: "fechaVence" },
+        // { text: "Fecha de Respuesta", value: "fechaR" },
+        { text: "Dias transcurridos", value: "diasTrans" },
       ],
       desserts: [],
     };
@@ -132,6 +139,10 @@ export default {
   },
 
   methods: {
+    onChange(data) {
+      console.log(data, "data");
+      this.busqueda[data.key] = data.value;
+    },
     ...mapMutations({
       setDialogType: "formularios/setDialogType",
     }),
@@ -171,15 +182,18 @@ export default {
           tipo: val.manejoR,
           depen: val.descripSerco,
           estado: val.estaR,
-          fecha_vence:
-            val.fecha_vence == null ? "" : val.fecha_vence.slice(0, 10),
-          fecha_respuesta:
-            val.fechaRespuesta == null ? "" : val.fechaRespuesta.slice(0, 10),
-          dias_trans: `${val.dias_vence}${val.diasTipc}`,
+          // fechaVence: val.fechaVence,
+          // fechaR: val.fechaR,
+          diasTrans: val.diasTrans,
         };
       }).filter((val) => {
+        if (val.estado == "EN TRAMITE") {
+          this.estado = "RESUELTA";
+        }
+        console.log(val, "tipoDato");
         return val.tipo == "INFORMATIVO";
       });
+      console.log(filter_res, "filter Res");
       this.desserts = filter_res;
     },
 
@@ -219,13 +233,22 @@ export default {
           break;
         case "enter":
           this.offField();
-          this.nextData();
-          setTimeout(() => {
-            this.focus_table = true;
-          }, 100);
+          // this.nextData();
+          setTimeout(() => {}, 100);
           break;
       }
     },
   },
 };
 </script>
+<style>
+.short {
+  width: 110px;
+  text-align: center;
+}
+.short span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>

@@ -64,10 +64,10 @@ function getObjCorres() {
     fechaModi: "",
     diasTipco: "",
     medioIng: "",
-    contAtnt: "",
-    contAtnt1: "",
-    contAtnt2: "",
-    contAtnt3: "",
+    contAtnt: 0,
+    contAtnt1: 0,
+    contAtnt2: 0,
+    contAtnt3: 0,
     archivo_file: {},
   };
 }

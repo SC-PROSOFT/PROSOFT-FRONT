@@ -10,7 +10,7 @@
               :field="form.busqueda"
               @onChange="
                 (data) => {
-                  busqueda = data.value
+                  busqueda = data.value;
                 }
               "
               :reg="busqueda"
@@ -34,14 +34,14 @@
               v-if="!this.desserts[0]"
             ></v-col>
             <template v-slot:[`item.estado`]="{ item }">
-              <v-chip :color="getColor(item.estado)" dark>
+              <v-chip class="short" :color="getColor(item.estado)" dark>
                 {{ item.estado }}
               </v-chip>
             </template>
             <template v-slot:no-data>
               <lottie-animation
                 :animationData="require('../../assets/image/no_found.json')"
-                style="height: 230px; width: 300px;"
+                style="height: 230px; width: 300px"
                 class="text-center mx-auto"
                 :autoPlay="true"
                 :loop="true"
@@ -70,13 +70,13 @@
   </v-container>
 </template>
 <script>
-import { mapMutations, mapActions, mapGetters, mapState } from 'vuex'
-import { nextAction } from '../../mixins/nextAction'
-import LottieAnimation from 'lottie-web-vue'
-import { global } from '../../mixins/global'
+import { mapMutations, mapActions, mapGetters, mapState } from "vuex";
+import { nextAction } from "../../mixins/nextAction";
+import LottieAnimation from "lottie-web-vue";
+import { global } from "../../mixins/global";
 
 /* index vuex */
-import index from '../../store/index'
+import index from "../../store/index";
 
 export default {
   mixins: [nextAction, global],
@@ -84,87 +84,87 @@ export default {
 
   data() {
     return {
-      titulo: '5.1 CORRESPONDENCIA RESOLUTIVO',
+      titulo: "5.1 CORRESPONDENCIA RESOLUTIVO",
 
       form: {
         busqueda: {
-          id: 'busqueda',
-          label: 'Buscar',
-          max_length: '20',
+          id: "busqueda",
+          label: "Buscar",
+          max_length: "20",
         },
       },
 
-      busqueda: '',
+      busqueda: "",
 
       headers: [
         {
-          text: 'Radicado',
-          align: 'start',
+          text: "Radicado",
+          align: "start",
           sortable: false,
-          value: 'cont',
+          value: "cont",
         },
-        { text: 'Fecha', value: 'fecha' },
-        { text: 'Hora', value: 'hora' },
-        { text: 'Tipo', value: 'tipo' },
-        { text: 'Dependencia', value: 'depen' },
-        { text: 'Estado', value: 'estado' },
-        { text: 'Fecha de Vence', value: 'fecha_vence' },
-        { text: 'Fecha de Respuesta', value: 'fecha_respuesta' },
-        { text: 'Dias transcurridos', value: 'dias_trans' },
+        { text: "Fecha", value: "fecha" },
+        { text: "Hora", value: "hora" },
+        { text: "Tipo", value: "tipo" },
+        { text: "Dependencia", value: "depen" },
+        { text: "Estado", value: "estado",align:"center"},
+        { text: "Fecha de Vence", value: "fechaVence" },
+        { text: "Fecha de Respuesta", value: "fechaR" },
+        { text: "Dias transcurridos", value: "diasTrans" },
       ],
       desserts: [],
-    }
+    };
   },
 
   computed: {
-    ...mapState({ isLoading: 'isLoading' }),
+    ...mapState({ isLoading: "isLoading" }),
 
     ...mapGetters({
-      get: 'formularios/get',
-      _getListaMotcn: 'motcn/getLista',
+      get: "formularios/get",
+      _getListaMotcn: "motcn/getLista",
     }),
     state_body() {
-      if (!this.desserts[0]) return true
-      else return false
+      if (!this.desserts[0]) return true;
+      else return false;
     },
   },
 
   mounted() {
-    this.getData()
-    this.focusInput(this.form, 'busqueda', 'busqueda')
+    this.getData();
+    this.focusInput(this.form, "busqueda", "busqueda");
   },
 
   methods: {
     ...mapMutations({
-      setDialogType: 'formularios/setDialogType',
+      setDialogType: "formularios/setDialogType",
     }),
     ...mapActions({
-      _getImpresion: 'impresion301/_getImpresion',
+      _getImpresion: "impresion301/_getImpresion",
     }),
 
     getColor(estado) {
-      if (estado == 'EN TRAMITE') return 'orange'
-      else if (estado == 'VENCIDA') return 'red'
-      else if (estado == 'RESUELTA') return 'green'
-      else if (estado == 'PRORROGADA') return 'green'
-      else if (estado == 'ANULADO') return '#cc9900'
-      else return ''
+      if (estado == "EN TRAMITE") return "orange";
+      else if (estado == "VENCIDA") return "red";
+      else if (estado == "RESUELTA") return "green";
+      else if (estado == "PRORROGADA") return "green";
+      else if (estado == "ANULADO") return "#cc9900";
+      else return "";
     },
 
     async getData() {
       const datos_envio = {
-        nit: '99',
-        dep: '**',
-        estado: '**',
-        tipoCorr: '**',
-        jornada: '**',
-        proceden: '2',
-        manejo: '**',
-        fechaIni: '2021-01-14T00:00:00.000Z',
-        fechaFin: '2023-12-22T00:00:00.000Z',
-      }
-      const RES = await this._getImpresion(datos_envio)
-      index.commit('isLoading', null, { root: true })
+        nit: "99",
+        dep: "**",
+        estado: "**",
+        tipoCorr: "**",
+        jornada: "**",
+        proceden: "2",
+        manejo: "**",
+        fechaIni: "2021-01-14T00:00:00.000Z",
+        fechaFin: "2023-12-22T00:00:00.000Z",
+      };
+      const RES = await this._getImpresion(datos_envio);
+      index.commit("isLoading", null, { root: true });
 
       const filter_res = RES.map((val) => {
         return {
@@ -174,61 +174,74 @@ export default {
           tipo: val.manejoR,
           depen: val.descripSerco,
           estado: val.estaR,
-          fecha_vence:
-            val.fecha_vence == null ? '' : val.fecha_vence.slice(0, 10),
-          fecha_respuesta:
-            val.fechaRespuesta == null ? '' : val.fechaRespuesta.slice(0, 10),
-          dias_trans: `${val.dias_vence}${val.diasTipc}`,
-        }
+          fechaVence: JSON.stringify(val.fechaVence).slice(1,11),
+          fechaR: val.fechaR,
+          diasTrans: val.diasTrans,
+        };
       }).filter((val) => {
-        return val.tipo == 'RESOLUTIVO'
-      })
-      this.desserts = filter_res
+        return val.tipo == "RESOLUTIVO";
+      });
+
+      this.desserts = filter_res;
     },
 
     async confirmar() {
       try {
-        let dialogType = this.get('dialogType')
+        let dialogType = this.get("dialogType");
         switch (dialogType) {
-          case 'salir':
-            this.$router.push('/Menu-Principal')
-            break
-          case 'done':
-            break
+          case "salir":
+            this.$router.push("/Menu-Principal");
+            break;
+          case "done":
+            break;
         }
-        this.firstField(this.form)
+        this.firstField(this.form);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     },
+    async hsliceFecha() {},
 
     cancelarAlerta() {
       setTimeout(() => {
-        this.firstFieldFree(this.form)
-      }, 100)
-      this.cerrar_CON851()
+        this.firstFieldFree(this.form);
+      }, 100);
+      this.cerrar_CON851();
     },
 
     cerrarDialogo() {
-      this.cerrar_CON851()
-      this.focusInput(this.form, null, 'busqueda')
+      this.cerrar_CON851();
+      this.focusInput(this.form, null, "busqueda");
     },
 
     validarBusqueda(val) {
       switch (val) {
-        case 'esc':
-          this.CON851('PNZ', 'warning', '¿Esta seguro que desea salir?', 'P')
+        case "esc":
+          this.CON851("PNZ", "warning", "¿Esta seguro que desea salir?", "P");
+          wefwe;
+          break;
+        case "enter":
+          // this.offField();
+          this.focusInput(this.form.busqueda, "busqueda");
 
-          break
-        case 'enter':
-          this.offField()
-          this.nextData()
+          // this.nextData();
           setTimeout(() => {
-            this.focus_table = true
-          }, 100)
-          break
+            this.focus_table = true;
+          }, 100);
+          break;
       }
     },
   },
-}
+};
 </script>
+<style scoped>
+.short {
+  width: 110px;
+  text-align: center;
+}
+.short span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>

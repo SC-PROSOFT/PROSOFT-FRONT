@@ -536,11 +536,13 @@ export default {
       };
       index.commit("spinnerConfig", spinnerConfig, { root: true });
       const RES = await this._getImpresion(data);
-      console.log(RES);
+      console.log(RES,"RES")
       if (RES.length == 0) {
         this.CON851("personalizada", "warning", "No hay datos disponibles.");
       } else {
         let columnas = getImpresion301().columnas;
+        // columnas[22].value= JSON.stringify('fechaVence').slice(1,11);
+        // console.log(typeof"fechaVence")
         let logo = getImpresion301().logo;
         const impre = {
           USUARIO: this.USUARIO_GLOBAL.nombre,
@@ -567,11 +569,13 @@ export default {
                 columnas,
                 data: RES,
               },
-              incluirRadiRes: incluirRadiRes,
+              incluirRadiRes,
             });
             this.initialData();
+            //location.reload()
             this.focusInput(this.form_corres, "estado");
           }, 700);
+          console.log("colunas",columnas)
         } else {
           this.CON851(
             "personalizada",
