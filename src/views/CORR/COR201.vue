@@ -218,6 +218,7 @@
         </v-col>
         <v-col cols="12" sm="12" md="12" xs="12" class="input-col">
           <TEXTAREA @next-action="nextStep(form_corres, $event, datoObserv)" :field="form_corres.observ" :reg="reg.observ" @onChange="onChange" />
+          <h5 align-start>CTRL + ENTER para continuar</h5>
         </v-col>
         <v-col cols="12" sm="6" md="6" xs="6" class="input-col">
           <AUTOCOMPLETE :field="form_corres.esta" :reg="reg.esta" />

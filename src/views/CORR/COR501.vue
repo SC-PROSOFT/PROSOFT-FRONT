@@ -19,20 +19,8 @@
         </v-card>
 
         <v-col cols="12" sm="12" md="12" xs="12" class="input-col mt-2">
-          <v-data-table
-            class="elevation-16"
-            :headers="headers"
-            :items="desserts"
-            :search="busqueda"
-          >
-            <v-col
-              cols="12"
-              sm="3"
-              md="3"
-              xs="3"
-              class="input-col"
-              v-if="!this.desserts[0]"
-            ></v-col>
+          <v-data-table class="elevation-16" :headers="headers" :items="desserts" :search="busqueda">
+            <v-col cols="12" sm="3" md="3" xs="3" class="input-col" v-if="!this.desserts[0]"></v-col>
             <template v-slot:[`item.estado`]="{ item }">
               <v-chip class="short" :color="getColor(item.estado)" dark>
                 {{ item.estado }}
@@ -60,13 +48,7 @@
         </v-col>
       </v-row>
     </v-card>
-    <CON851
-      @cancelar="cerrarDialogo"
-      @salirEsc="cerrarDialogo"
-      @confirmar="confirmar"
-      v-if="alerta.estado"
-      :alerta="alerta"
-    ></CON851>
+    <CON851 @cancelar="cerrarDialogo" @salirEsc="cerrarDialogo" @confirmar="confirmar" v-if="alerta.estado" :alerta="alerta"></CON851>
   </v-container>
 </template>
 <script>
@@ -103,14 +85,14 @@ export default {
           sortable: false,
           value: "cont",
         },
-        { text: "Fecha", value: "fecha" },
-        { text: "Hora", value: "hora" },
-        { text: "Tipo", value: "tipo" },
+        { text: "Fecha", value: "fecha", align: "center" },
+        { text: "Hora", value: "hora", align: "center" },
+        { text: "Tipo", value: "tipo", align: "center" },
         { text: "Dependencia", value: "depen" },
-        { text: "Estado", value: "estado",align:"center"},
-        { text: "Fecha de Vence", value: "fechaVence" },
-        { text: "Fecha de Respuesta", value: "fechaR" },
-        { text: "Dias transcurridos", value: "diasTrans" },
+        { text: "Estado", value: "estado", align: "center" },
+        { text: "Fecha Vence", value: "fecha_vence", align: "center" },
+        { text: "Fecha de Respuesta", value: "fecha_respuesta", align: "center" },
+        { text: "Dias transcurridos", value: "dias_trans", align: "center" },
       ],
       desserts: [],
     };
@@ -174,7 +156,7 @@ export default {
           tipo: val.manejoR,
           depen: val.descripSerco,
           estado: val.estaR,
-          fechaVence: JSON.stringify(val.fechaVence).slice(1,11),
+          fechaVence: JSON.stringify(val.fechaVence).slice(1, 11),
           fechaR: val.fechaR,
           diasTrans: val.diasTrans,
         };
@@ -237,7 +219,7 @@ export default {
 <style scoped>
 .short {
   width: 110px;
-  text-align: center;
+  justify-content: center;
 }
 .short span {
   white-space: nowrap;

@@ -19,30 +19,10 @@
         </v-card>
 
         <v-col cols="12" sm="12" md="12" xs="12" class="input-col mt-2">
-          <v-data-table
-            class="elevation-16"
-            :headers="headers"
-            :items="desserts"
-            :search="busqueda"
-          >
-            <v-col
-              cols="12"
-              sm="3"
-              md="3"
-              xs="3"
-              class="input-col"
-              v-if="!this.desserts[0]"
-            >
-            </v-col>
+          <v-data-table class="elevation-16" :headers="headers" :items="desserts" :search="busqueda">
+            <v-col cols="12" sm="3" md="3" xs="3" class="input-col" v-if="!this.desserts[0]"> </v-col>
             <template v-slot:[`item.estado`]="{ item }">
-              <v-chip
-                class="short"
-                :color="getColor(item.estado)"
-                dark
-                text-align="center"
-              >
-                {{ item.estado }}</v-chip
-              >
+              <v-chip class="short" :color="getColor(item.estado)" dark text-align="center"> {{ item.estado }}</v-chip>
             </template>
             <template v-slot:no-data>
               <lottie-animation
@@ -66,13 +46,7 @@
         </v-col>
       </v-row>
     </v-card>
-    <CON851
-      @cancelar="cerrarDialogo"
-      @salirEsc="cerrarDialogo"
-      @confirmar="confirmar"
-      v-if="alerta.estado"
-      :alerta="alerta"
-    ></CON851>
+    <CON851 @cancelar="cerrarDialogo" @salirEsc="cerrarDialogo" @confirmar="confirmar" v-if="alerta.estado" :alerta="alerta"></CON851>
   </v-container>
 </template>
 <script>
@@ -107,14 +81,14 @@ export default {
           sortable: false,
           value: "cont",
         },
-        { text: "Fecha", value: "fecha" },
-        { text: "Hora", value: "hora" },
-        { text: "Tipo", value: "tipo" },
-        { text: "Dependencia", value: "depen" },
-        { text: "Estado", value: "estado" },
+        { text: "Fecha", value: "fecha", align: "center" },
+        { text: "Hora", value: "hora", align: "center" },
+        { text: "Tipo", value: "tipo", align: "center" },
+        { text: "Dependencia", value: "depen", align: "center" },
+        { text: "Estado", value: "estado", align: "center" },
         // { text: "Fecha de Vence", value: "fechaVence" },
         // { text: "Fecha de Respuesta", value: "fechaR" },
-        { text: "Dias transcurridos", value: "diasTrans" },
+        { text: "Dias transcurridos", value: "diasTrans", align: "center" },
       ],
       desserts: [],
     };
@@ -184,9 +158,10 @@ export default {
           estado: val.estaR,
           // fechaVence: val.fechaVence,
           // fechaR: val.fechaR,
-          diasTrans: val.diasTrans,
+          diasTrans: val.diasTrans == undefined ? (val.diasTrans = "") : val.diasTrans * -1,
         };
       }).filter((val) => {
+        // console.log("val.diasTrans :>> ", val.diasTrans);
         if (val.estado == "EN TRAMITE") {
           this.estado = "RESUELTA";
         }
@@ -244,7 +219,7 @@ export default {
 <style>
 .short {
   width: 110px;
-  text-align: center;
+  justify-content: center;
 }
 .short span {
   white-space: nowrap;
