@@ -241,7 +241,7 @@ export default {
 
       this.reg_corres.descartarTipoCorres = "S";
 
-      this.reg_corres.incluirRadiRes = "S";
+      this.reg_corres.incluirRadiRes = "N";
 
       this.reg_corres.fechaIni = moment().format("2022-10-01");
 
@@ -536,13 +536,12 @@ export default {
       };
       index.commit("spinnerConfig", spinnerConfig, { root: true });
       const RES = await this._getImpresion(data);
-      console.log(RES,"RES")
+      console.log(RES, "RES");
       if (RES.length == 0) {
         this.CON851("personalizada", "warning", "No hay datos disponibles.");
       } else {
+        this.reg_corres.incluirRadiRes = "N";
         let columnas = getImpresion301().columnas;
-        // columnas[22].value= JSON.stringify('fechaVence').slice(1,11);
-        // console.log(typeof"fechaVence")
         let logo = getImpresion301().logo;
         const impre = {
           USUARIO: this.USUARIO_GLOBAL.nombre,
@@ -572,10 +571,11 @@ export default {
               incluirRadiRes,
             });
             this.initialData();
+            this.columnas();
             //location.reload()
             this.focusInput(this.form_corres, "estado");
           }, 700);
-          console.log("colunas",columnas)
+          console.log("columnas", columnas);
         } else {
           this.CON851(
             "personalizada",
@@ -589,6 +589,20 @@ export default {
       this.onField();
       this.cerrar_CON851();
     },
+    async columnas() {
+      let cantidadColumnas = 0;
+      if (this.reg_corres.incluirRadiRes == "N") {
+        console.log("Entre if");
+        let columnas = getImpresion301().columnas;
+        let grupoColumnas = columnas.slice(0, 16);
+        console.log(grupoColumnas, "slice");
+        columnas = grupoColumnas;
+        console.log("new column", columnas);
+      } else {
+        console.log("Algo salio mal!!1");
+      }
+    },
+
     cancelarAlerta() {
       this.cerrar_CON851();
       this.get("dialogType") == "done" ? this.abrirNovedad() : this.onField();
