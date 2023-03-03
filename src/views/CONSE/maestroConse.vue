@@ -62,6 +62,7 @@
                         <v-col cols="3">
                           <v-text-field
                             v-model="maesItem.codigo"
+                            :reg="busqueda"
                             label="Código"
                             maxlength="15"
                             flat
@@ -173,7 +174,7 @@
                     <v-btn
                       color="red"
                       class="ma-4"
-                      elevation="10"
+                      elevation="3"
                       text
                       @click="close"
                     >
@@ -183,7 +184,7 @@
                     <v-btn
                       color="success"
                       class="ma-4"
-                      elevation="10"
+                      elevation="3"
                       text
                       @click="saveMaestroMongo"
                     >
@@ -216,13 +217,13 @@
         </v-col>
       </v-row>
     </v-card>
-    <CON851
-      @cancelar="cerrarDialogo"
-      @salirEsc="cerrarDialogo"
+    <CON851P v-if="con851_p.estado" :con851_p="con851_p" />
+    <CON851P
+      
       @confirmar="confirmar"
       v-if="alerta.estado"
       :alerta="alerta"
-    ></CON851>
+    ></CON851P>
   </v-container>
 </template>
 
@@ -239,6 +240,7 @@ export default {
 
       form: {
         busqueda: {
+          disabled:false,
           id: "busqueda",
           label: "Buscar",
           max_length: "20",
@@ -256,6 +258,7 @@ export default {
         { text: "Estado", align: "center", align: "center", value: "estado" },
       ],
 
+      maestrosIndex: -1,
       arrayConsen: [],
       busqueda: "",
       calendarioFechaAprobo: false,
@@ -325,6 +328,8 @@ export default {
   methods: {
     ...mapActions({
       _getMaestros: "maestrosConse/_getMaestros",
+      // _postMaestros: "maestroConse/_postMaestros",
+      // _editMaestros: "maestroConse/_editMaestros"
     }),
 
     fecha(date) {
@@ -336,32 +341,26 @@ export default {
 
     async saveMaestroMongo() {
       console.log("Estoy en saveMaesMongo");
-      let item = this.editedItem;
-      let nombreCodigo = "";
-      let count = await this._getMaestroMongo();
-
-      if (this.desserts.length + count.length < 99) {
-        nombreCodigo = `0${this.desserts.length + count.length + 1}`;
-      } else if (this.desserts.length + count.length >= 99) {
-        nombreCodigo = `${this.desserts.length + count.length + 1}`;
-      }
+      Object.assign(this.desserts[this.maestrosIndex], this.maesItem);
+      let item = this.maesItem;
       let datos = {
-        COD_MAE: `${this.datos_sesion.modulo}${nombreCodigo}`,
-        DESCRIP: item.descrip,
-        CODIGO: item.codigo,
-        VERSION: item.version,
-        FECHA_APROB: item.fechaAprob.split("-").join(""),
-        APROBO: item.aprobo,
-        REVISO: item.reviso,
-        FECHA_ACT: item.fechaAct.split("-").join(""),
+        codigo: `${this.datos_sesion.modulo}${nombreCodigo}`,
+        descrip: item.descrip,
+        aprobo: item.aprobo,
+        fechaAprob: item.fechaAprob.split("-").join(""),
+        reviso: item.reviso,
+        fechaAct: item.fechaAct.split("-").join(""),
+        version: item.version,
+        estado: item.estado,
       };
-      console.log("CONSOLE", await this.grabarMaesConse(datos));
+
       this.dialog = false;
     },
 
     async getMaestroMongo() {
       console.log("Estoy en getMaestroMongo");
       const DATA = await this._getMaestros();
+      console.log(DATA);
       index.commit("isLoading", null, { root: true });
       const RES = RES.map((item) => {
         return {
@@ -393,6 +392,53 @@ export default {
       this.createdIndex = this.arrayConsen.indexOf(item);
       this.createdtem = Object.assign({}, item);
       this.dialog = true;
+    },
+
+     async confirmar() {
+      try {
+        let dialogType = this.get('dialogType')
+        switch (dialogType) {
+          case 'salir':
+            this.$router.push('/Menu-Principal')
+            break
+          case 'done':
+            break
+        }
+        this.firstField(this.form)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    cancelarAlerta() {
+      setTimeout(() => {
+        this.firstField(this.form)
+      }, 100)
+      this.cerrar_CON851(this.form, "busqueda")
+    },
+
+    cerrarDialogo() {
+      console.log("Estoy en cerrar dialogo y cobo es una mierda")
+      this.cerrar_CON851P()
+      setTimeout(() => {
+        this.onField()
+      }, 100)
+    },
+
+    validarBusqueda(val) {
+      switch (val) {
+        case "esc":
+          this.CON851P("PNZ", "info", "¿Esta seguro que desea salir?", () =>  this.$router.push('/Menu-Principal'), () => this.cerrarDialogo());
+          break;
+
+        case "enter":
+          this.offField();
+          this.nextData();
+          setTimeout(() => {
+            this.focus_table = true;
+          }, 100);
+          break;
+      }
     },
   },
 };

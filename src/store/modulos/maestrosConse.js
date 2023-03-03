@@ -6,7 +6,7 @@ export default {
             commit("isLoading", null, { root: true });
             try {
                 const RES = await postData({
-                    url:`MAESTRO/get_all/HIC`,
+                    url:`CONSENTIMIENTO/MAESTRO/get_all/HIC`,
                     data,
                     method: 'GET'
                 })
