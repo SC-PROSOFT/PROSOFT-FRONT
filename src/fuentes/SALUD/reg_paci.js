@@ -214,14 +214,14 @@ function getObjRegPaci_() {
       id: "descrip",
       label: "Paciente",
       placeholder: "Paciente",
-      disable: true,
+      disabled: true,
       require: true,
     },
     cod: {
       id: "cod",
       label: "ID Paciente",
       placeholder: "ID Paciente",
-      disable: true,
+      disabled: true,
       require: true,
     },
   };
