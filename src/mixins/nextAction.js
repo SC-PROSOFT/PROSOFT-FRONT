@@ -14,7 +14,6 @@ export const nextAction = {
     ...mapMutations({ setDialogType: "formularios/setDialogType" }),
 
     nextStep(cajas, data, func1) {
-      console.log(cajas)
       const keys = Object.keys(cajas);
       const indexField = keys.lastIndexOf(data.field);
       cajas[data.field].disabled = true;
@@ -85,9 +84,11 @@ export const nextAction = {
       this.get("enCaja").disabled = true;
     },
     focusInput(cajas, data, id) {
+      // console.log(cajas[data].disabled);
       setTimeout(() => {
         id && document.getElementById(id).focus();
         cajas[data].disabled = false;
+        // console.log(cajas[data].disabled);
       }, 100);
     },
     InputFoco(id) {
