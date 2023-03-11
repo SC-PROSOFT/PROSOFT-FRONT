@@ -53,7 +53,7 @@
               <v-dialog v-model="dialog" max-width="800px" persistent>
                 <v-card>
                   <v-card-title>
-                    <span class="title">{{ maesItem.descrip }}</span>
+                    <span class="title">Añadir consentimiento</span>
                   </v-card-title>
                   <v-divider></v-divider>
                   <v-card-text>
@@ -68,6 +68,7 @@
                             flat
                             outlined
                             hide-details
+                            @keydown.esc="close"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="9">
@@ -219,7 +220,6 @@
     </v-card>
     <CON851P v-if="con851_p.estado" :con851_p="con851_p" />
     <CON851P
-      
       @confirmar="confirmar"
       v-if="alerta.estado"
       :alerta="alerta"
@@ -240,7 +240,7 @@ export default {
 
       form: {
         busqueda: {
-          disabled:false,
+          disabled: false,
           id: "busqueda",
           label: "Buscar",
           max_length: "20",
@@ -290,7 +290,7 @@ export default {
           reviso: "AAAAA AAAAAAAA",
           fechaAct: "2023-02-14",
           version: "1.1",
-          estado: "1",
+          estado: true,
         },
         {
           codigo: "HIC002",
@@ -300,7 +300,7 @@ export default {
           reviso: "BBBBB BBBBBB",
           fechaAct: "2023-02-14",
           version: "1.2",
-          estado: "1",
+          estado: false,
         },
         {
           codigo: "HIC003",
@@ -310,7 +310,7 @@ export default {
           reviso: "CCCCCC CCCCCC",
           fechaAct: "2023-02-14",
           version: "1.3",
-          estado: "0",
+          estado: true,
         },
       ],
     };
@@ -338,29 +338,11 @@ export default {
       let dia = date.slice(6);
       return `${anio}-${mes}-${dia}`;
     },
-
-    async saveMaestroMongo() {
-      console.log("Estoy en saveMaesMongo");
-      Object.assign(this.desserts[this.maestrosIndex], this.maesItem);
-      let item = this.maesItem;
-      let datos = {
-        codigo: `${this.datos_sesion.modulo}${nombreCodigo}`,
-        descrip: item.descrip,
-        aprobo: item.aprobo,
-        fechaAprob: item.fechaAprob.split("-").join(""),
-        reviso: item.reviso,
-        fechaAct: item.fechaAct.split("-").join(""),
-        version: item.version,
-        estado: item.estado,
-      };
-
-      this.dialog = false;
-    },
-
+    //---- Magia ------------------------------------------
     async getMaestroMongo() {
       console.log("Estoy en getMaestroMongo");
       const DATA = await this._getMaestros();
-      console.log(DATA);
+      console.log("Esta es la DATA de gesMaestroMongo: ", DATA);
       index.commit("isLoading", null, { root: true });
       const RES = RES.map((item) => {
         return {
@@ -377,6 +359,63 @@ export default {
       this.desserts = RES;
     },
 
+    async saveMaestroMongo() {
+      console.log("Estoy en saveMaesMongo");
+      Object.assign(this.desserts[this.maestrosIndex], this.maesItem);
+      let nombreCodigo = "";
+      let tamañoMongo = await this.obtenerMaesConses();
+      if (this.arrayConsen.length + tamañoMongo.length < 99) {
+        nombreCodigo = `0${this.arrayConsen.length + tamañoMongo.length + 1}`;
+      } else if (this.arrayConsen.length + tamañoMongo.length >= 99) {
+        nombreCodigo = `${this.arrayConsen.length + tamañoMongo.length + 1}`;
+      }
+      let item = this.maesItem;
+      let datos = {
+        codigo: `${this.datos_sesion.modulo}${nombreCodigo}`,
+        descrip: item.descrip,
+        aprobo: item.aprobo,
+        fechaAprob: item.fechaAprob.split("-").join(""),
+        reviso: item.reviso,
+        fechaAct: item.fechaAct.split("-").join(""),
+        version: item.version,
+        estado: item.estado,
+      };
+      this.guardarMaesConse(datos);
+      this.dialog = false;
+    },
+
+    async estadoItem(item) {
+      this.noved = "Editando";
+      console.log("Estado de item.estado: ", item.estado);
+      let _select = JSON.parse(JSON.stringify(item));
+      // console.log(_select.estado)
+      // _select.estado = !_select.estado;
+      // console.log("SELECTTTT", _select);
+      // console.log("SELECTTTT estado", _select.estado);
+      this.editedIndex = this.arrayConsen.indexOf(_select.estado);
+      this.editedItem = Object.assign({}, _select.estado);
+      _select.estado
+        ? this.editarEstado("1", item.codigo)
+        : this.editarEstado("0", item.codigo);
+    },
+
+    async editarEstado(estado, codigo) {
+      console.log(estado, codigo, "ESTOS");
+      const res = await this.editarMaesConse({
+        COD_MAE: codigo,
+        ESTADO: estado,
+      });
+      console.log("Respuesta de editarEstado: ", res);
+    },
+    
+    async createMaes(item) {
+      console.log("Estoy en CREATEMAES");
+      this.noved = "Creando";
+      this.createdIndex = this.arrayConsen.indexOf(item);
+      this.createdtem = Object.assign({}, item);
+      this.dialog = true;
+    },
+
     close() {
       console.log("Estoy en CLOSE");
       this.dialog = false;
@@ -385,50 +424,77 @@ export default {
         this.editedIndex = -1;
       });
     },
-
-    createMaes(item) {
-      console.log("Estoy en CREATEMAES");
-      this.noved = "Creando";
-      this.createdIndex = this.arrayConsen.indexOf(item);
-      this.createdtem = Object.assign({}, item);
-      this.dialog = true;
+    //---- Peticiones ------------------------------------------
+    async obtenerMaesConses() {
+      const RES = await this.postData_({
+        url: `MAESTRO/get_all/${this.datos_sesion.modulo}`,
+        method: "GET",
+      });
+      console.log("RESPUESTA obtenerMaesConse", RES);
+      return RES;
     },
 
-     async confirmar() {
+    async editarMaesConse(data) {
+      console.log(data, "data");
+      const RES = await this.postData_({
+        url: `MAESTRO/editar/${data.COD_MAE}`,
+        data,
+        method: "PUT",
+      });
+      console.log("RESPUESTA editarMaesConse", RES);
+    },
+
+    async grabarMaesConse(data) {
+      const RES = await this.postData_({
+        url: "MAESTRO/guardar",
+        data,
+        method: "POST",
+      });
+      console.log("RESPUESTA grabarMaesConse", RES);
+    },
+
+    //---- Validaciones ------------------------------------------
+    async confirmar() {
       try {
-        let dialogType = this.get('dialogType')
+        let dialogType = this.get("dialogType");
         switch (dialogType) {
-          case 'salir':
-            this.$router.push('/Menu-Principal')
-            break
-          case 'done':
-            break
+          case "salir":
+            this.$router.push("/Menu-Principal");
+            break;
+          case "done":
+            break;
         }
-        this.firstField(this.form)
+        this.firstField(this.form);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     },
 
     cancelarAlerta() {
       setTimeout(() => {
-        this.firstField(this.form)
-      }, 100)
-      this.cerrar_CON851(this.form, "busqueda")
+        this.firstField(this.form);
+      }, 100);
+      this.cerrar_CON851(this.form, "busqueda");
     },
 
     cerrarDialogo() {
-      console.log("Estoy en cerrar dialogo y cobo es una mierda")
-      this.cerrar_CON851P()
+      console.log("Estoy en cerrarDialogo");
+      this.cerrar_CON851P();
       setTimeout(() => {
-        this.onField()
-      }, 100)
+        this.onField();
+      }, 100);
     },
 
     validarBusqueda(val) {
       switch (val) {
         case "esc":
-          this.CON851P("PNZ", "info", "¿Esta seguro que desea salir?", () =>  this.$router.push('/Menu-Principal'), () => this.cerrarDialogo());
+          this.CON851P(
+            "PNZ",
+            "info",
+            "¿Esta seguro que desea salir?",
+            () => this.$router.push("/Menu-Principal"),
+            () => this.cerrarDialogo()
+          );
           break;
 
         case "enter":
