@@ -19,10 +19,17 @@
         </v-toolbar>
         <v-container>
           <v-alert border="top" colored-border type="info" elevation="2">
-            Para la nueva versión de Prosoft es necesario cambiar la clave que se le ha dado por defecto.
+            Para la nueva versión de Prosoft es necesario cambiar la clave que
+            se le ha dado por defecto.
             <v-row justify="center">
               <v-col cols="6">
-                <v-img :src="require('../src/assets/image/prueba.gif')" class="mx-auto" height="200" contain loading />
+                <v-img
+                  :src="require('../src/assets/image/prueba.gif')"
+                  class="mx-auto"
+                  height="200"
+                  contain
+                  loading
+                />
               </v-col>
               <v-col cols="6" class="mt-8">
                 <v-form v-model="valid" lazy-validation ref="form">
@@ -50,8 +57,20 @@
           </v-alert>
 
           <div class="text-center">
-            <v-btn color="success" class="botone mx-2" @click="verificarClave()" :disabled="!valid">VERIFICAR CLAVE</v-btn>
-            <v-btn color="primary" class="botone mx-2" @click="cambiarClave()" :disabled="!valid">CAMBIAR CLAVE</v-btn>
+            <v-btn
+              color="success"
+              class="botone mx-2"
+              @click="verificarClave()"
+              :disabled="!valid"
+              >VERIFICAR CLAVE</v-btn
+            >
+            <v-btn
+              color="primary"
+              class="botone mx-2"
+              @click="cambiarClave()"
+              :disabled="!valid"
+              >CAMBIAR CLAVE</v-btn
+            >
           </div>
         </v-container>
       </v-card>
@@ -100,7 +119,12 @@ export default {
   watch: {
     estado() {
       if (this.estado != "") {
-        this.CON851(`${this.estado.code}`, `${this.estado.tipo}`, `${this.estado.descrip}`, `${this.estado.opcion}`);
+        this.CON851(
+          `${this.estado.code}`,
+          `${this.estado.tipo}`,
+          `${this.estado.descrip}`,
+          `${this.estado.func1}`
+        );
       }
     },
   },
@@ -112,7 +136,10 @@ export default {
     }, 200);
   },
   methods: {
-    ...mapMutations({ CON851_DELETE: "CON851_DELETE", reinicioAcceso: "sesion/reinicioAcceso" }),
+    ...mapMutations({
+      CON851_DELETE: "CON851_DELETE",
+      reinicioAcceso: "sesion/reinicioAcceso",
+    }),
     ...mapActions({ _changePassword: "oper/_changePassword" }),
 
     async cambiarClave() {
@@ -132,7 +159,8 @@ export default {
               this.reinicioAcceso();
             }, 700);
           }
-          RES.msg && this.CON851("N1", "error", `La clave actual no es correcta`);
+          RES.msg &&
+            this.CON851("N1", "error", `La clave actual no es correcta`);
         } catch (error) {
           console.error(error);
         }

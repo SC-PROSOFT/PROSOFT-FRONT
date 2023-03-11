@@ -27,22 +27,64 @@
                   {{ cuerpo }}
                 </h3>
               </v-col>
-              <v-col cols="12" lg="12" md="12" sm="12" v-if="!btn_cancelar" class="mx-auto py-0 my-0">
+              <v-col
+                cols="12"
+                lg="12"
+                md="12"
+                sm="12"
+                v-if="!btn_cancelar"
+                class="mx-auto py-0 my-0"
+              >
                 <v-card-actions class="mx-0">
-                  <v-btn ref="btn3" @click="cancelarAlerta" class="botone mx-auto" :color="color" outlined
+                  <v-btn
+                    ref="btn3"
+                    @click="cancelarAlerta"
+                    class="botone mx-auto"
+                    :color="color"
+                    outlined
                     >cerrar
-                    <v-icon :color="color" dark translate="true" class="ml-2">mdi-close-circle</v-icon>
+                    <v-icon :color="color" dark translate="true" class="ml-2"
+                      >mdi-close-circle</v-icon
+                    >
                   </v-btn>
                 </v-card-actions>
               </v-col>
-              <v-col cols="6" lg="6" md="6" sm="6" class="py-2 my-0" v-if="btn_cancelar">
-                <v-btn ref="btn1" outlined color="success" width="110" class="botone ml-md-13 ml-sm-10" @click="confirmar">
+              <v-col
+                cols="6"
+                lg="6"
+                md="6"
+                sm="6"
+                class="py-2 my-0"
+                v-if="btn_cancelar"
+              >
+                <v-btn
+                  ref="btn1"
+                  outlined
+                  color="success"
+                  width="110"
+                  class="botone ml-md-13 ml-sm-10"
+                  @click="confirmar"
+                >
                   Aceptar
                   <v-icon>mdi-check</v-icon>
                 </v-btn>
               </v-col>
-              <v-col cols="6" lg="6" md="6" sm="6" class="py-2 my-0" v-if="btn_cancelar">
-                <v-btn color="error" outlined width="110" @click="cancelar" class="botone" ref="btn2">
+              <v-col
+                cols="6"
+                lg="6"
+                md="6"
+                sm="6"
+                class="py-2 my-0"
+                v-if="btn_cancelar"
+              >
+                <v-btn
+                  color="error"
+                  outlined
+                  width="110"
+                  @click="cancelar"
+                  class="botone"
+                  ref="btn2"
+                >
                   cancelar
                   <v-icon>mdi-close-circle</v-icon>
                 </v-btn>
@@ -83,229 +125,6 @@ export default {
     };
   },
   methods: {
-    msjAlerta() {
-      for (const key of Object.keys(this.iconos)) {
-        if (this.alerta.tipo == key) {
-          this.color = key;
-          this.icono = this.iconos[key][0];
-          this.titulo = this.iconos[key][1];
-          this.tipo_alerta = this.iconos[key][2];
-          break;
-        }
-      }
-      switch (this.alerta.code) {
-        case "00":
-          this.cuerpo = `¿Generar Impresión  ${this.alerta.descrip}?`;
-          break;
-        case "01":
-          this.cuerpo = "¿Desea grabar datos?";
-          break;
-        case "02":
-          this.cuerpo = "¿Eliminar documento?";
-          break;
-        case "03":
-          this.cuerpo = "¿Salir sin grabar?";
-          break;
-        case "04":
-          this.cuerpo = "¿Continuar el proceso?";
-          break;
-        case "05":
-          this.cuerpo = "¿Proceso total?";
-          break;
-        case "06":
-          this.cuerpo = "¿Abrir excel?";
-          break;
-        case "07":
-          this.cuerpo = "¿Documento ya existe, desea reprocesar?";
-          break;
-        case "08":
-          this.cuerpo = "¿Codigo NO existe, desea crear?";
-          break;
-        case "09":
-          this.cuerpo = `¿Desea actualizar ${this.alerta.descrip}?`;
-          break;
-        case "10":
-          this.cuerpo = "¿Desea marcar el documento fact?";
-          break;
-        case "11":
-          this.cuerpo = "¿Imprimir Stiker ?";
-          break;
-        case "12":
-          this.cuerpo = "¿Mostrar Preparaciòn ?";
-          break;
-        case "13":
-          this.cuerpo = "¿Abrir Nuevo Folio   ?";
-          break;
-        case "14":
-          this.cuerpo = "¿Adicionar mas Registros?";
-          break;
-        case "15":
-          this.cuerpo = "¿Factura ya existe, adicionar?";
-          break;
-        case "16":
-          this.cuerpo = "¿Liquidar Flete?";
-          break;
-        case "17":
-          this.cuerpo = "¿Enviar directo a la impres.?";
-          break;
-        case "18":
-          this.cuerpo = "¿Desea convertir CRT EN SCL ?";
-          break;
-        case "19":
-          this.cuerpo = "¿Pretende un cambio peligroso ";
-          break;
-        case "20":
-          this.cuerpo = "¿Diligenciar formulario NOPOS?";
-          break;
-        case "21":
-          this.cuerpo = "¿Generar Imagen?";
-          break;
-        case "22":
-          this.cuerpo = "¿Solicitar Autorizacion EPS  ?";
-          break;
-        case "23":
-          this.cuerpo = "¿Bloquear impresion?";
-          break;
-        case "24":
-          this.cuerpo = "¿Actualizar corresponsalia?";
-          break;
-        case "25":
-          this.cuerpo = "¿Desea trasladar documento";
-          break;
-        case "26":
-          this.cuerpo = "¿Desea actualizar votante?";
-          break;
-        case "27":
-          this.cuerpo = "¿Desea imprimir recomendaciones";
-          break;
-        case "28":
-          this.cuerpo = "¿Diligenciar procedimien. NOPOS";
-          break;
-        case "29":
-          this.cuerpo = "¿Historia perinatal ?";
-          break;
-        case "30":
-          this.cuerpo = "¿Aplica para exam. laboratorio?";
-          break;
-        case "31":
-          this.cuerpo = "¿Aplica para exam. paraclinicos";
-          break;
-        case "32":
-          this.cuerpo = "¿Ya fue radicada, es un reenvio?";
-          break;
-        case "33":
-          this.cuerpo = "¿Imprimir recomendaciones dengue?";
-          break;
-        case "34":
-          this.cuerpo = "¿Desea Cancelar solicitud?";
-          break;
-        case "35":
-          this.cuerpo = "¿Desea Instalar JAVA?";
-          break;
-        case "37":
-          this.cuerpo = "¿FINALIZAR PARTOGRAMA?";
-          break;
-        case "38":
-          this.cuerpo = "¿REABRIR PARTOGRAMA?";
-          break;
-        case "39":
-          this.cuerpo = "¿Desea crear nueva factura?";
-          break;
-        case "40":
-          this.cuerpo = "¿Desea diligenciar Apache ?";
-          break;
-        case "41":
-          this.cuerpo = "¿Llenar formular. Complementario?";
-          break;
-        case "42":
-          this.cuerpo = "¿Desea formula trimestral?";
-          break;
-        case "43":
-          this.cuerpo = "¿Desea mostrar Bases?";
-          break;
-        case "44":
-          this.cuerpo = "¿Enviar Reporte via Email?";
-          break;
-        case "45":
-          this.cuerpo = "¿Continuar sin cita Medica";
-          break;
-        case "46":
-          this.cuerpo = "¿Enviar Mensaje de texto";
-          break;
-        case "47":
-          this.cuerpo = "¿Ya Escaneo el documento";
-          break;
-        case "48":
-          this.cuerpo = "¿Demanda inducida";
-          break;
-        case "49":
-          this.cuerpo = "¿Cerrar historioas clinicas";
-          break;
-        case "50":
-          this.cuerpo = "¿Desea Reliquidar Comprobantes";
-          break;
-        case "51":
-          this.cuerpo = "¿Asignar Cama";
-          break;
-        case "52":
-          this.cuerpo = "¿Cerrar control de transfusion?";
-          break;
-        case "53":
-          this.cuerpo = "¿Imprimir Anexo tecnico?";
-          break;
-        case "54":
-          this.cuerpo = `¿Desea eliminar ${this.alerta.descrip}?`;
-          break;
-        case "55":
-          this.cuerpo = "¿Mostrar los eventos marcados como leídos?";
-          break;
-        case "56":
-          this.cuerpo = "¿Desea formular semestral?";
-          break;
-        case "58":
-          this.cuerpo = "¿Vacuna para covid-19";
-          break;
-        case "59":
-          this.cuerpo = "¿Víctima de conflicto?";
-          break;
-        case "consen":
-          this.cuerpo = "¿Seguro que quiere revocar consentimiento?";
-          break;
-        case "macro":
-          this.cuerpo = "¿Seguro que quiere reemplazar por la macro?";
-          break;
-        case "90":
-          this.cuerpo = "¿Licencia proxima a expirar";
-          break;
-        case "IC":
-          this.cuerpo = "Guardar cofiguración de impresora?";
-          break;
-        case "temp":
-          this.cuerpo = "La historia fue creada como TEMPORAL, seguro que desea salir sin finalizar ?";
-          break;
-        case "CONFI-07":
-          this.cuerpo = "¿Desea crear contabilidad?";
-          break;
-        case "CONFI-01":
-          this.cuerpo = "¿Desea eliminar contabilidad?";
-          break;
-        case "SALIR":
-          this.cuerpo = "¿Desea cerrar sesión?";
-          break;
-        case "MENU":
-          this.cuerpo = "¿Desea volver al menu principal?";
-          break;
-        case "PNZ":
-          this.cuerpo = `${this.alerta.descrip}`;
-          break;
-        default:
-          this.cuerpo = this.alerta.code;
-          break;
-      }
-
-      return this.cuerpo;
-    },
-
     msjError() {
       for (const key of Object.keys(this.iconos)) {
         if (this.alerta.tipo == key) {
@@ -1859,9 +1678,10 @@ export default {
       this.$emit("cancelar");
     },
     cancelarAlerta() {
-      if (this.alerta.function1) {
+      console.log(this.alerta);
+      if (this.alerta.func1) {
         this.alerta.estado = false;
-        this.alerta.function1();
+        this.alerta.func1();
       } else this.$emit("cancelarAlerta");
     },
     salir() {
@@ -1906,18 +1726,11 @@ export default {
     },
   },
   created() {
-    if (this.alerta.opcion == "P" || this.alerta.opcion == "p") {
-      this.msjAlerta(this.alerta.code);
-      this.btn_cancelar = true;
-      setTimeout(() => {
-        this.$refs.btn2.$el.focus();
-      }, 100);
-    } else {
-      this.msjError(this.alerta.code);
-      setTimeout(() => {
-        this.$refs.btn3.$el.focus();
-      }, 100);
-    }
+    this.msjError(this.alerta.code);
+    setTimeout(() => {
+      this.$refs.btn3.$el.focus();
+    }, 100);
+
     document.addEventListener("keydown", this.salir);
     document.addEventListener("keydown", this.checkKey);
   },

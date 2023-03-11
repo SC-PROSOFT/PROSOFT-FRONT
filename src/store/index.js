@@ -29,6 +29,8 @@ import oper from "./modulos/oper";
 import corr from "./modulos/corr";
 import descorr from "./modulos/descorr";
 import image from "./modulos/image";
+import usuario from "./modulos/usuario";
+import servidor from "./modulos/servidor";
 
 export default new Vuex.Store({
   state: {
@@ -85,13 +87,8 @@ export default new Vuex.Store({
     cantidad(state, data) {
       state.cantidad = data;
     },
-    CON851(state, [code, tipo, descrip, opcion]) {
-      state.CON851 = {
-        code: code,
-        tipo: tipo,
-        descrip: descrip,
-        opcion: opcion,
-      };
+    CON851(state, [code, tipo, descrip, func1]) {
+      state.CON851 = { code, tipo, descrip, func1 };
     },
     CON851_DELETE(state) {
       state.CON851 = "";
@@ -125,5 +122,7 @@ export default new Vuex.Store({
     corr,
     descorr,
     image,
+    usuario,
+    servidor,
   },
 });

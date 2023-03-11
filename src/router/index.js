@@ -7,7 +7,7 @@ let title = "Prosoft";
 const routes = [
   {
     path: "*",
-    redirect: "/login",
+    redirect: "/login2",
   },
   {
     path: "/",
@@ -21,6 +21,23 @@ const routes = [
       title: `${title} - Ingreso`,
     },
   },
+  {
+    path: "/login2",
+    name: "Login2",
+    component: () => import("../views/Login2.vue"),
+    meta: {
+      title: `${title} - Ingreso`,
+    },
+  },
+  {
+    path: "/inicio",
+    name: "inicio",
+    component: () => import("../views/CORR/Inicio.vue"),
+    meta: {
+      title: `${title} - inicio`,
+    },
+  },
+
   {
     path: "/Menu-Principal",
     name: "Menu_Principal",
@@ -392,12 +409,24 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const auth = sessionStorage.auth_code;
+  // const auth = sessionStorage.auth_code;
+  // document.title = to.meta.title;
+  // const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  // console.log("🚀 ~ file: index.js:417 ~ router.beforeEach ~ requiresAuth:", requiresAuth)
+  // const currentUser = auth ? JSON.parse(atob(auth)) : null;
+  // console.log("🚀 ~ file: index.js:419 ~ router.beforeEach ~ currentUser :", currentUser )
+  // if (requiresAuth && !currentUser) next("Login");
+  // else if (!requiresAuth && currentUser && to.path !== "/Modulos")
+  //   next("modulos");
+  // else next();
+  const auth = localStorage.config;
   document.title = to.meta.title;
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   const currentUser = auth ? JSON.parse(atob(auth)) : null;
-  if (requiresAuth && !currentUser) next("Login");
-  else if (!requiresAuth && currentUser && to.path !== "/Modulos") next("modulos");
+
+  if (requiresAuth && !currentUser) next("Login2");
+  else if (!requiresAuth && currentUser && to.path !== "/Menu-Principal")
+    next("Menu-Principal");
   else next();
 
   window.scrollTo({ top: 0, behavior: "smooth" });

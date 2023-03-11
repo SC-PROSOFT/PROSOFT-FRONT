@@ -18,8 +18,10 @@ export default {
       const { usuario } = datos;
 
       try {
-        const RES = await postData({ url: `usuvue?llave=${usuario}&clave=${password}`, method: "GET" });
+        const RES = await postData({ url: `usuvue?llave=${usuario}&clave=${password}`, method: "GET" })
         console.log(RES, "RESSS")
+        console.log("🚀 ~ file: sesion.js:23 ~ getUsuarios ~ password:", password)
+        console.log("🚀 ~ file: sesion.js:23 ~ getUsuarios ~ usuario:", usuario)
 
         const USUARIO = await postData({
           url: `usuar`,

@@ -3,16 +3,7 @@
     style="background-color: #ececf5"
     :onclick="$router.path == 'Menu-Principal' ? foo.focus() : null"
   >
-    <CON851
-      v-if="alerta.estado"
-      :alerta="alerta"
-      @cancelarAlerta="cancelarAlerta()"
-      @cancelar="cancelar()"
-      @salirEsc="cancelar()"
-      @confirmar="confirmar()"
-    ></CON851>
     <Header />
-
     <router-view></router-view>
     <v-container class="---fill-height" v-if="ver">
       <v-row align="center" justify="center">
@@ -146,8 +137,8 @@ export default {
     lista_favoritos: [],
   }),
   async created() {
-    if (localStorage.modulo) {
-      switch (localStorage.modulo) {
+    if (localStorage.Modulo) {
+      switch (localStorage.Modulo) {
         case "CONTABILIDAD":
           this.historial.push(menuContabilidad);
           this.menu = menuContabilidad.Menu;
@@ -158,7 +149,7 @@ export default {
           this.menu = menuNomina.Menu;
           this.menuP = menuNomina.Menu;
           break;
-        case "CORRESPONDENCIA":
+        case "COR":
           this.historial.push(menuCorr);
           this.menu = menuCorr.Menu;
           this.menuP = menuCorr.Menu;
@@ -186,25 +177,27 @@ export default {
       getFavorito: "favorito/getFavorito",
       addFavorito: "favorito/addFavorito",
       deleteFavorito: "favorito/deleteFavorito",
+      _CON904: "servidor/_CON904",
     }),
     ...mapMutations({
       reinicio: "sesion/reinicioAcceso",
+      CON851: "CON851",
     }),
     async init() {
-      let res = await this.getFavorito([
-        currentUser.llaveOper,
-        localStorage.modulo,
-      ]);
-      let array = this.list("list_favorito");
-      if (array[0]) {
-        if (res.status != -1) {
-          this.lista_favoritos = array.map((el) => el.route);
-        }
-      }
+      // let res = await this.getFavorito([
+      //   localStorage.Usuario,
+      //   localStorage.Modulo,
+      // ]);
+      // let array = this.list("list_favorito");
+      // if (array?.length > 0) {
+      //   if (res.status != -1) {
+      //     this.lista_favoritos = array.map((el) => el.route);
+      //   }
+      // }
     },
     async favorito(opc) {
       if (opc.route != undefined) {
-        let user = currentUser.llaveOper;
+        let user = localStorage.Usuario;
         let route = opc.route;
         let nombre = opc.text;
         let modulo = localStorage.modulo;
@@ -215,7 +208,7 @@ export default {
         } else if (res.msg == 2) {
           this.CON851("FAV", "info");
         }
-        await this.getFavorito([currentUser.llaveOper, modulo]);
+        await this.getFavorito([localStorage.Usuario, modulo]);
         let array = this.list("list_favorito");
         this.lista_favoritos = [];
         if (array[0]) {
@@ -235,7 +228,7 @@ export default {
     select() {
       this.itemActive = 0;
     },
-    checkKey(event) {
+    async checkKey(event) {
       switch (event.which) {
         case 39:
         case 32:
@@ -247,8 +240,7 @@ export default {
           this.validarLetra();
           if (this.item != this.menu.length) {
             let er = this.menu.find((el) => el.opc == this.item);
-            this.validarRestric(er);
-            console.log("ValidateRestricion", er);
+            await this.validarRestric(er);
             if (this.restriccion == "") {
               if (er.Sub) {
                 Vue.set(this, "menu", er.Sub),
@@ -292,18 +284,24 @@ export default {
           break;
       }
     },
-    validarRestric(item) {
-      console.log(item, "validarRestric");
-      let array_rest = [];
-      currentUser.restr.forEach((e, i) => {
-        array_rest.push(e.opc);
-      });
-      console.log(array_rest, "array_rest");
-
-      if (array_rest.includes(item?.opc_segu)) {
+    async validarRestric(item) {
+      this.restriccion = "";
+      const data = {
+        datosh: `${currentUser.Sesion}|${currentUser.Contab}|${currentUser.Mes}|${currentUser.Usuario}|${currentUser.Opcion}`,
+      };
+      const RES = await this._CON904(data);
+      if (RES == item?.opc_segu) {
         this.restriccion = item.opc_segu;
-        console.log(this.restriccion, "restricion de array");
-        return this.CON851("15", "info");
+        return this.CON851([
+          "15",
+          "info",
+          "",
+          () => {
+            console.log("object");
+            document.querySelector("foo").click();
+          },
+        ]);
+        // document.getElementById("foo").click();
       } else this.restriccion = "";
     },
 
@@ -318,10 +316,9 @@ export default {
       }
     },
 
-    validClickOpcMenu(data) {
-      console.log(data);
+    async validClickOpcMenu(data) {
       this.itemActive = 0;
-      this.validarRestric(data);
+      await this.validarRestric(data);
       if (this.restriccion == "") {
         if (data.Sub && data.opc != "F") {
           Vue.set(this, "menu", data.Sub);
@@ -388,13 +385,13 @@ export default {
       }
     },
 
-    teclaDefaul() {
+    async teclaDefaul() {
       if (isFinite(event.key)) this.itemActive = event.key;
       else {
         this.itemActive = event.key.toString().toUpperCase();
       }
       let busq = this.menu.find((el) => el.opc == this.itemActive);
-      this.validarRestric(busq);
+      await this.validarRestric(busq);
       if (this.restriccion == "") {
         if (busq) {
           if (busq.Sub)

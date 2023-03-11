@@ -1,4 +1,5 @@
 import AUTOCOMPLETE from "../components/GENERAL/ComboBox.vue";
+import AUTOCOMPLETE_ from "@/components/GENERAL/AutoComplete2.vue";
 import FILEINPUT from "../components/GENERAL/FileInput.vue";
 import CHECKBOX from "../components/GENERAL/CheckBox.vue";
 import dataCard from "../components/GENERAL/DataCard.vue";
@@ -11,6 +12,7 @@ import CON851 from "../components/CONTAB/CON851.vue";
 import CON851P from "../components/CONTAB/CON851P.vue";
 import list from "../components/GENERAL/Lista.vue";
 import RADIO from "../components/GENERAL/Radio.vue";
+import INPUT_ from "@/components/GENERAL/Input2.vue";
 import INPUT from "../components/GENERAL/Input";
 import index from "../store/index";
 import IMask from "imask";
@@ -42,7 +44,8 @@ export function formatFecha_(id) {
 }
 export function variable_num({ val, max = 0, decimal = undefined }) {
   let v_mask;
-  let comas = max < 3 ? 0 : max % 3 === 0 ? Math.trunc(max / 3) - 1 : Math.trunc(max / 3);
+  let comas =
+    max < 3 ? 0 : max % 3 === 0 ? Math.trunc(max / 3) - 1 : Math.trunc(max / 3);
   let first_num = max % 3 === 0 ? 3 : max % 3;
   v_mask = Array.from({ length: max + comas }, (v, i) => {
     if (first_num !== 0 && i == first_num) return ",";
@@ -66,6 +69,20 @@ export function format_ip(ip) {
   };
   let mask = IMask(element, maskOptions);
 }
+
+export const formatIp_ = (val = 0, scale = 1) => {
+  let mask = IMask.createMask({
+    mask: "000.000.000.000",
+    scale,
+    min: 0,
+    // thousandsSeparator: ".",
+  });
+  let val_num = typeof val == "string" ? val.trim() : val;
+  let num = (val_num || 0).toString().replace(/ /g, "");
+  mask.resolve(num);
+  return `${mask.value}`;
+};
+
 export function format_Mac() {
   let element = document.getElementById("mac");
   let maskOptions = {
@@ -98,8 +115,11 @@ export function image_base64(url) {
   });
 }
 const auth = sessionStorage.auth_code;
-export let currentUser = auth ? JSON.parse(atob(auth)).data : null;
-export const password_change = auth ? JSON.parse(atob(auth)).changePassword : null;
+// auth ? JSON.parse(atob(auth)).data : null;
+export let currentUser = localStorage;
+export const password_change = auth
+  ? JSON.parse(atob(auth)).changePassword
+  : null;
 
 export const global = {
   components: {
@@ -108,6 +128,7 @@ export const global = {
     "new-list": list,
     "new-date": Date,
     AUTOCOMPLETE,
+    AUTOCOMPLETE_,
     FILEINPUT,
     CHECKBOX,
     TEXTAREA,
@@ -115,13 +136,16 @@ export const global = {
     CON850,
     CON851,
     INPUT,
+    INPUT_,
     RADIO,
     FECHA,
     TABLE,
   },
   data() {
     return {
-      USUARIO_GLOBAL: sessionStorage.USUARIO_GLOBAL ? JSON.parse(sessionStorage.USUARIO_GLOBAL)[0] : "",
+      USUARIO_GLOBAL: sessionStorage.USUARIO_GLOBAL
+        ? JSON.parse(sessionStorage.USUARIO_GLOBAL)[0]
+        : "",
       alerta: {
         estado: false,
         tipo: "",
@@ -142,6 +166,13 @@ export const global = {
   },
 
   methods: {
+    FOCO_(form, id, campo_abierto) {
+      form[id].disabled = false;
+      setTimeout(() => {
+        campo_abierto && document.getElementById(id)?.focus();
+        document.getElementById(id)?.focus();
+      }, 10);
+    },
     formatNumber_(number) {
       if (number) return Number(number.split(",").join(""));
     },

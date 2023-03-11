@@ -1,6 +1,10 @@
 <template>
   <v-footer
-    v-if="['/Menu-Principal', '/modulos', '/Modulos', '/Configuracion'].includes($route.path)"
+    v-if="
+      ['/Menu-Principal', '/modulos', '/Modulos', '/Configuracion'].includes(
+        $route.path
+      )
+    "
     class="sticky ma-0"
     color="primary"
   >
@@ -16,16 +20,32 @@
         width="30"
       />
     </div>
-    <h1 class="white--text botone mr-2" @click="$router.push({ path: '/modulos' })" style="cursor: pointer">Prosoft</h1>
+    <h1
+      class="white--text botone mr-2"
+      @click="$router.push({ path: '/modulos' })"
+      style="cursor: pointer"
+    >
+      Prosoft
+    </h1>
     <v-menu transition="slide-y-transition" bottom v-if="is_mobil">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn class="py-0 botone" color="white" dark v-bind="attrs" v-on="on" outlined dense>
+        <v-btn
+          class="py-0 botone"
+          color="white"
+          dark
+          v-bind="attrs"
+          v-on="on"
+          outlined
+          dense
+        >
           <v-icon>mdi-sort-variant</v-icon>
         </v-btn>
       </template>
       <v-list>
         <v-list-item v-for="(item, i) in items" :key="i">
-          <v-list-item-title @click="item.method">{{ item.title }}</v-list-item-title>
+          <v-list-item-title @click="item.method">{{
+            item.title
+          }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -44,7 +64,11 @@
         </v-btn>
       </v-card>
     </v-expand-x-transition>
-    <v-hover v-if="!['/Modulos', '/modulos'].includes($route.path)" v-slot="{ hover }" open-delay="60">
+    <v-hover
+      v-if="!['/Modulos', '/modulos'].includes($route.path)"
+      v-slot="{ hover }"
+      open-delay="60"
+    >
       <v-card v-show="expand2" outlined dark color="primary" v-if="!is_mobil">
         <v-btn
           v-if="!['/Modulos', '/modulos'].includes($route.path)"
@@ -57,7 +81,9 @@
           dark
         >
           Favoritos
-          <v-icon class="ml-2" :color="hover ? 'yellow' : 'white'" size="20"> mdi-star </v-icon>
+          <v-icon class="ml-2" :color="hover ? 'yellow' : 'white'" size="20">
+            mdi-star
+          </v-icon>
         </v-btn>
       </v-card>
     </v-hover>
@@ -95,7 +121,9 @@
     <v-spacer> </v-spacer>
     <div class="mt-1 white--text botone">
       <p class="mb-1">
-        {{ `${currentUser_.llaveOper} ${currentUser_.nombre}` }}&nbsp; - &nbsp;{{ reloj.time }}, {{ reloj.fech }}
+        {{ `${currentUser_.Usuario} ${currentUser_.Nombre}` }}&nbsp; - &nbsp;{{
+          reloj.time
+        }}, {{ reloj.fech }}
       </p>
     </div>
 
@@ -121,7 +149,10 @@
       v-if="alerta.estado"
       :alerta="alerta"
     ></CON851>
-    <FiltroOpcion v-if="buscar_opcion.estado" :buscar_opcion="buscar_opcion"></FiltroOpcion>
+    <FiltroOpcion
+      v-if="buscar_opcion.estado"
+      :buscar_opcion="buscar_opcion"
+    ></FiltroOpcion>
   </v-footer>
 </template>
 
@@ -217,7 +248,10 @@ export default {
       if (event.keyCode == 38 && this.row > 0) {
         // up
         this.row--;
-      } else if (event.keyCode == 40 && this.row < this.lista_favoritos.length - 1) {
+      } else if (
+        event.keyCode == 40 &&
+        this.row < this.lista_favoritos.length - 1
+      ) {
         // down
         this.row++;
       } else if (event.keyCode == 13) {
@@ -231,7 +265,10 @@ export default {
     },
     async favorito() {
       try {
-        let res = await this.getFavorito([currentUser.llaveOper, localStorage.modulo]);
+        let res = await this.getFavorito([
+          currentUser.llaveOper,
+          localStorage.modulo,
+        ]);
         if (res.status != -1 && this.list("list_favorito").length > 0) {
           let array = this.list("list_favorito");
           this.favorite = true;
@@ -274,7 +311,10 @@ export default {
     },
   },
   updated() {
-    if (this.buscar_opcion.estado == false && this.$route.path == "/Menu-Principal") {
+    if (
+      this.buscar_opcion.estado == false &&
+      this.$route.path == "/Menu-Principal"
+    ) {
       setTimeout(() => {
         document.getElementById("foo").focus();
       }, 100);
