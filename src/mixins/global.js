@@ -2,6 +2,7 @@ import AUTOCOMPLETE from "../components/GENERAL/ComboBox.vue";
 import AUTOCOMPLETE_ from "@/components/GENERAL/AutoComplete2.vue";
 import FILEINPUT from "../components/GENERAL/FileInput.vue";
 import CHECKBOX from "../components/GENERAL/CheckBox.vue";
+import CHECKBOX_ from "../components/GENERAL/CheckBox2.vue";
 import dataCard from "../components/GENERAL/DataCard.vue";
 import TEXTAREA from "../components/GENERAL/TextArea.vue";
 import FECHA from "../components/GENERAL/InputFecha.vue";
@@ -131,6 +132,7 @@ export const global = {
     AUTOCOMPLETE_,
     FILEINPUT,
     CHECKBOX,
+    CHECKBOX_,
     TEXTAREA,
     CON851P,
     CON850,

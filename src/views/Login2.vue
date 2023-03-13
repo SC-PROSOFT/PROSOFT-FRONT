@@ -402,7 +402,7 @@ export default {
       console.log("🚀 ~ file: Login2.vue:401 ~ restricciones ~ data:", data);
       const RES = await this._CON904(data);
       console.log("🚀 ~ file: Login2.vue:343 ~ restrcciones ~ RES:", RES);
-      //location.reload();
+      location.reload();
     },
   },
 };

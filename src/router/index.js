@@ -11,16 +11,16 @@ const routes = [
   },
   {
     path: "/",
-    redirect: "/login",
+    redirect: "/login2",
   },
-  {
-    path: "/login",
-    name: "Login",
-    component: () => import("../views/Login.vue"),
-    meta: {
-      title: `${title} - Ingreso`,
-    },
-  },
+  // {
+  //   path: "/login",
+  //   name: "Login",
+  //   component: () => import("../views/Login.vue"),
+  //   meta: {
+  //     title: `${title} - Ingreso`,
+  //   },
+  // },
   {
     path: "/login2",
     name: "Login2",
@@ -29,14 +29,14 @@ const routes = [
       title: `${title} - Ingreso`,
     },
   },
-  {
-    path: "/inicio",
-    name: "inicio",
-    component: () => import("../views/CORR/Inicio.vue"),
-    meta: {
-      title: `${title} - inicio`,
-    },
-  },
+  // {
+  //   path: "/inicio",
+  //   name: "inicio",
+  //   component: () => import("../views/CORR/Inicio.vue"),
+  //   meta: {
+  //     title: `${title} - inicio`,
+  //   },
+  // },
 
   {
     path: "/Menu-Principal",
